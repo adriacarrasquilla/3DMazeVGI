@@ -1,1 +1,2 @@
-3DMazeVGI
+# 3D MAZE
+OpenGL 3D project.
