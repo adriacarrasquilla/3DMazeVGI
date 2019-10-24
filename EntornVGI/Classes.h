@@ -23,7 +23,7 @@ public:
 
 	void pinta() {
 		if (m_ori) {
-			glColor3f(0.5, 0.5, 0.25);
+			//glColor3f(0.5, 0.5, 0.25);
 			glPushMatrix();
 			glTranslatef(m_x, m_y, m_z);
 			glScalef(MUR_X, MUR_Y, MUR_Z);
@@ -31,7 +31,7 @@ public:
 			glPopMatrix();
 		}
 		else {
-			glColor3f(0.5, 0.5, 0.25);
+			//glColor3f(0.5, 0.5, 0.25);
 			glPushMatrix();
 			glTranslatef(m_x, m_y, m_z);
 			glScalef(MUR_Y, MUR_X, MUR_Z);
@@ -62,7 +62,7 @@ public:
 		switch (m_color)
 		{
 		case 0:
-			glColor3f(1.0, 1.0, 1.0);
+			//glColor3f(1.0, 1.0, 1.0);
 			glPushMatrix();
 			glTranslatef(m_x, m_y, m_z);
 			glScalef(PG_X, PG_Y, PG_Z);
@@ -70,7 +70,7 @@ public:
 			glPopMatrix();
 			break;
 		case 1:
-			glColor3f(1.0, 0.0, 0.0);
+			//glColor3f(1.0, 0.0, 0.0);
 			glPushMatrix();
 			glTranslatef(m_x, m_y, m_z);
 			glScalef(PG_X, PG_Y, PG_Z);

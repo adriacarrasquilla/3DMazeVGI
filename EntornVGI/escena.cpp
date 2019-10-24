@@ -99,10 +99,72 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		// Mur
 	case MUR:
 	{
+		glClearColor(0.5294f, 0.8078f, 0.9216f, 0.71f);
+		glClear(GL_COLOR_BUFFER_BIT);
+
+
+		//Textura parets
+
+		glColor3f(1.0, 1.0, 1.0);
+
+		glDisable(GL_TEXTURE_2D);
+		GLfloat sPlane2[4] = { 10.00f, 0.00f, 0.00f, 10.00f };
+		GLfloat tPlane2[4] = { 0.00f, 10.00f, 10.00f, 0.00f };
+		//glBindTexture(GL_TEXTURE_2D, texturID[8]);
+
+		//glTexGenfv(GL_S, GL_OBJECT_PLANE, sPlane2);
+		//glTexGenfv(GL_T, GL_OBJECT_PLANE, tPlane2);
+
+		//glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
+		//glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
+
+		glEnable(GL_TEXTURE_GEN_S);
+		glEnable(GL_TEXTURE_GEN_T);
+		glBindTexture(GL_TEXTURE_2D, texturID[8]);
+		glDisable(GL_TEXTURE_GEN_S);
+		glDisable(GL_TEXTURE_GEN_T);
+
+
+		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+
+
+
+		glEnable(GL_TEXTURE_2D);
 		for (int i = 0; i < llista.size(); i++) {
 			llista[i].pinta();
 		}
-		glColor3f(0.25, 0.65, 0.25);
+
+		//
+		//Textures terra
+		glDisable(GL_TEXTURE_2D);
+		GLfloat sPlane[4] = { 10.00f, 0.00f, 10.00f, 0.00f };
+		GLfloat tPlane[4] = { 0.00f, 10.00f, 0.00f, 0.00f };
+		glBindTexture(GL_TEXTURE_2D, texturID[9]);
+
+		glTexGenfv(GL_S, GL_OBJECT_PLANE, sPlane);
+		glTexGenfv(GL_T, GL_OBJECT_PLANE, tPlane);
+
+		glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
+		glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
+		glEnable(GL_TEXTURE_GEN_S);
+		glEnable(GL_TEXTURE_GEN_T);
+
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+
+		glEnable(GL_TEXTURE_2D);
+		//glColor3f(0.25, 0.65, 0.25);
 		glPushMatrix();
 		glTranslatef(50.0f, 50.0f, -5.0f);
 		glScalef(150.0f, 150.0f, 10.0f);
