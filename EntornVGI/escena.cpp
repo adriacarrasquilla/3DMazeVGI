@@ -167,9 +167,10 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		//glColor3f(0.25, 0.65, 0.25);
 		glPushMatrix();
 		glTranslatef(50.0f, 50.0f, -5.0f);
-		glScalef(150.0f, 150.0f, 10.0f);
+		glScalef(250.0f, 250.0f, 10.0f);
 		glutSolidCube(1.0);
 		glPopMatrix();
+		glDisable(GL_TEXTURE_2D);
 		pg.pinta();
 		DoCollisions(llista, pg);
 		break;

@@ -62,12 +62,13 @@ public:
 		switch (m_color)
 		{
 		case 0:
-			//glColor3f(1.0, 1.0, 1.0);
+			glColor4f(1.0, 10.0, 35.0, 0);
 			glPushMatrix();
 			glTranslatef(m_x, m_y, m_z);
 			glScalef(PG_X, PG_Y, PG_Z);
 			glutSolidCube(1.0);
 			glPopMatrix();
+			glColor4f(1, 1, 1, 1);
 			break;
 		case 1:
 			//glColor3f(1.0, 0.0, 0.0);

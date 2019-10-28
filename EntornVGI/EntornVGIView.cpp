@@ -207,7 +207,7 @@ CEntornVGIView::CEntornVGIView()
 	fullscreen = false;
 
 	// Entorn VGI: Variables de control per Men� Vista: canvi PV interactiu, Zoom, dibuixar eixos i grid 
-	mobil = false;	zzoom = false;	satelit = false;	pan = false;	navega = true;		eixos = true;
+	mobil = false;	zzoom = false;	satelit = false;	pan = false;	navega = true;		eixos = false;
 	sw_grid = false;
 	grid.x = false;	grid.y = false; grid.z = false;		grid.w = false;
 	hgrid.x = 0.0;	hgrid.y = 0.0;	hgrid.z = 0.0;		hgrid.w = 0.0;
@@ -404,7 +404,7 @@ CEntornVGIView::CEntornVGIView()
 
 	//Inicialització murs
 	llista_murs = initMurs();
-	Personatge nou(50.0f, 50.0f, 7.5f, 0);
+	Personatge nou(opvN.x, opvN.y, opvN.z-2, 0);
 	prova_colisions = nou;
 	num_murs = llista_murs.size();
 }
@@ -1713,6 +1713,8 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		opvN.y += nRepCnt * fact_pan * vdir[1] / 2;
 		n[0] += nRepCnt * fact_pan * vdir[0] / 2;
 		n[1] += nRepCnt * fact_pan * vdir[1] / 2;
+		prova_colisions.m_x = opvN.x+1;
+		prova_colisions.m_y = opvN.y+1;
 		break;
 
 		// Tecla cursor avall
@@ -1721,6 +1723,8 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		opvN.y -= nRepCnt * fact_pan * vdir[1] / 2;
 		n[0] -= nRepCnt * fact_pan * vdir[0] / 2;
 		n[1] -= nRepCnt * fact_pan * vdir[1] / 2;
+		prova_colisions.m_x = opvN.x+1;
+		prova_colisions.m_y = opvN.y+1;
 		break;
 
 		// Tecla cursor esquerra
@@ -1729,6 +1733,8 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		opvN.y -= nRepCnt * fact_pan * vdirpan[1];
 		n[0] -= nRepCnt * fact_pan * vdirpan[0];
 		n[1] -= nRepCnt * fact_pan * vdirpan[1];
+		prova_colisions.m_x = opvN.x+1;
+		prova_colisions.m_y = opvN.y+1;
 		break;
 
 		// Tecla cursor dret
@@ -1737,6 +1743,8 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		opvN.y += nRepCnt * fact_pan * vdirpan[1];
 		n[0] += nRepCnt * fact_pan * vdirpan[0];
 		n[1] += nRepCnt * fact_pan * vdirpan[1];
+		prova_colisions.m_x = opvN.x+1;
+		prova_colisions.m_y = opvN.y+1;
 		break;
 
 		// Tecla Inicio
@@ -3092,7 +3100,7 @@ void CEntornVGIView::OnUpdateVistaGridXYZ(CCmdUI* pCmdUI)
 std::vector<Mur> initMurs() { //propera implementació: passar per paràmetres el nombre de murs i la matriu rotllo suarez 
 	//de moment, inicialització "manual"
 	std::vector<Mur> llista;
-
+	/*
 	int const MAX_FILA = 5;
 	int const MAX_COLUMNA = 6;
 	//Versió simple:
@@ -3102,6 +3110,21 @@ std::vector<Mur> initMurs() { //propera implementació: passar per paràmetres e
 													{ 1, 1, 1, 0, 1 },
 													{ 1, 0, 0, 0, 1 },
 													{ 1,-2, 1, 1, 1 } };
+	*/
+
+	int const MAX_FILA = 10;
+	int const MAX_COLUMNA = 10;
+	//Versió simple:
+	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = { { -1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+													{ 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 },
+													{ 1, 1, 0, 0, 1, 0, 0, 0, 0, 1 },
+													{ 1, 1, 1, 0, 1, 1, 1, 0, 1, 1 },
+													{ 1, 0, 0, 0, 0, 0, 0, 0, 1, 1 },
+													{ 1, 0, 1, 0, 1, 1, 1, 1, 1, 1 },
+													{ 1, 1, 0, 0, 1, 1, 0, 0, 0, 1 },
+													{ 1, 1, 1, 0, 1, 1, 0, 1, 0, 1 },
+													{ 1, 0, 0, 0, 0, 0, 0, 1, 0, 1 },
+													{ 1,-2, 1, 1, 1, 1, 1, 1, 1, 1 } };
 	//Versió tricky:
 	/*
 	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = { { 0, 0,-1, 1, 1 },
@@ -3214,6 +3237,19 @@ std::vector<Mur> initMurs() { //propera implementació: passar per paràmetres e
 					llista.push_back(prova1);
 					delete& prova1;
 				}
+
+				// Crea mur extra per evitar desplaçament inicial però genera problemes amb textures (mur sbre mur)
+				if (matriuLaberint[j][i] == -1)
+				{
+					llista.push_back(Mur(j * 4 * x, (i + 1) * 4 * x, h, VER));
+				}
+				 
+				else {
+					if (matriuLaberint[j][i] == -2)
+					{
+						llista.push_back(Mur(j * 4 * x + x, i * 4 * x, h, VER));
+					}
+				}
 			}
 
 
@@ -3243,7 +3279,7 @@ void CEntornVGIView::OnProjeccioPerspectiva()
 	//POSSIBLE CRIDA A LA FUNCIÓ QUE LLEGIRIA EL FITXER (AL QUE S'HA D'INCLOURE ABANS DEL BITMAP EL NOMBRE DE MURS)
 	//llegirfitxer(filename) o whatever
 	llista_murs = initMurs();
-	Personatge nou(50.0f, 50.0f, 7.5f, 0);
+	Personatge nou(n[0], n[1], n[2], 0);
 	prova_colisions = nou;
 	num_murs = llista_murs.size();
 

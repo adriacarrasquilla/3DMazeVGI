@@ -1,0 +1,127 @@
+﻿  stdafx.cpp
+  ChildFrm.cpp
+  ClassView.cpp
+  EntornVGI.cpp
+  EntornVGIDoc.cpp
+  EntornVGIView.cpp
+  escena.cpp
+  FileView.cpp
+  glut_geometry.cpp
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1601,35): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1601,48): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1601,61): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1601,74): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1601,87): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1601,100): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1601,113): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1601,126): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1601,139): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1602,13): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1602,26): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1602,39): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1602,52): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1602,65): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1602,78): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1602,91): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1602,104): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1602,117): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1603,13): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1603,26): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1603,39): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1603,52): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1603,65): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1603,78): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1603,91): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1603,104): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1603,117): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1604,13): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1604,26): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1604,39): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1604,52): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1604,65): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1604,78): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1604,91): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1604,104): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1604,117): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1608,24): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1608,38): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1608,52): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1608,66): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1608,80): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1608,94): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1608,108): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1608,122): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1608,136): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1609,13): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1609,16): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1609,30): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1609,54): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1609,57): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1609,71): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1609,95): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1609,98): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1609,112): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1610,3): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1610,17): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1610,31): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1610,45): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1610,59): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1610,73): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1610,87): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1610,101): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1610,115): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1611,3): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1611,17): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1611,31): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1611,45): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1611,59): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1611,73): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1611,87): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1611,101): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1611,115): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1620,38): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1620,66): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1620,94): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1620,122): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1620,150): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1620,178): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1621,16): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1621,44): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1621,72): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1621,100): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1621,128): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1621,156): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1622,16): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1622,44): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1622,72): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1622,100): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1622,128): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1622,156): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1623,16): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1623,44): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1623,72): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1623,100): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1623,128): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+  Load3DS.cpp
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1623,156): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(29,7): warning C4101: 'colisions': variable local sin referencia
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(62,20): warning C4018: '<': no coinciden signed/unsigned
+  MainFrm.cpp
+  material.cpp
+  normals.cpp
+  Obj3DS.cpp
+  objLoader.cpp
+  OutputWnd.cpp
+  PropertiesWnd.cpp
+  ViewTree.cpp
+  visualitzacio.cpp
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(139,21): warning C4018: '<': no coinciden signed/unsigned
+soil.lib(SOIL.obj) : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/SAFESEH'
+     Creando biblioteca C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Release\EntornVGI.lib y objeto C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Release\EntornVGI.exp
+LINK : warning LNK4098: la biblioteca predeterminada'MSVCRTD' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Release\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(image_DXT.obj)' o en 'C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Release\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(image_helper.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(image_helper.obj)' o en 'C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Release\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(SOIL.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(SOIL.obj)' o en 'C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Release\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(stb_image_aug.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(stb_image_aug.obj)' o en 'C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Release\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  EntornVGI.vcxproj -> C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Release\EntornVGI.exe
