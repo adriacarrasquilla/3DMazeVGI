@@ -26,11 +26,12 @@ void Iluminacio(char ilumin, bool ifix, bool ilu2sides, bool ll_amb, LLUM* lumin
 	// Configuració de la font de llum LIGHT0
 	GLfloat position[] = { 0.0,0.0,200.0,1.0 };
 	GLfloat especular[] = { 0.0,0.0,0.0,1.0 };
-	GLfloat ambientg[] = { .5,.5,.5,1.0 };
+	GLfloat dia[] = { .5,.5,.5,1.0 };
+	GLfloat nit[] = { .1,.1,.1,1.0 };
 
 	// Definició de llum ambient segons booleana ll_amb
-	if (ll_amb) glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientg);
-	else glLightModelfv(GL_LIGHT_MODEL_AMBIENT, especular);
+	if (ll_amb) glLightModelfv(GL_LIGHT_MODEL_AMBIENT, dia);
+	else glLightModelfv(GL_LIGHT_MODEL_AMBIENT, nit);
 
 	// Llum #0 - (+Z)
 	if (lumin[0].encesa) {

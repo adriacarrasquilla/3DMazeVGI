@@ -15,8 +15,10 @@
 #include "material.h"
 #include "visualitzacio.h"
 #include "escena.h"
+#include <irrklang/irrKlang.h>
 
-
+irrklang::ISoundEngine* SoundEngine = irrklang::createIrrKlangDevice();
+bool i = true;
 
 
 // Variables de color i reflexi� de materials pels objectes d'escena
@@ -99,6 +101,11 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		// Mur
 	case MUR:
 	{
+		if (i) {
+			SoundEngine->play2D("audio/nature.mp3", GL_TRUE);
+			i = false;
+		}
+
 		glClearColor(0.5294f, 0.8078f, 0.9216f, 0.71f);
 		glClear(GL_COLOR_BUFFER_BIT);
 

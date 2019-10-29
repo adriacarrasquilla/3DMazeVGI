@@ -400,7 +400,7 @@ BEGIN
     END
     POPUP "Llums"
     BEGIN
-        MENUITEM "Llum Ambient?",               32823, CHECKED
+        MENUITEM "Dia/Nit",                     32823, CHECKED
         MENUITEM "Llum #0? (+Z)",               ID_LLUMS_LLUM0, CHECKED
         MENUITEM "Llum #1 (+X)",                ID_LLUMS_LLUM1, CHECKED
         MENUITEM "Llum #2 (+Y)",                ID_LLUMS_LLUM2, CHECKED
