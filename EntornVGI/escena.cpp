@@ -102,7 +102,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 	case MUR:
 	{
 		if (i) {
-			SoundEngine->play2D("audio/nature.mp3", GL_TRUE);
+			SoundEngine->play2D("audio/minecraft_lofi.mp3", GL_TRUE);
 			i = false;
 		}
 
