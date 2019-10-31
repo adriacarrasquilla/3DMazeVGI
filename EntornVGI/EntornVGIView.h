@@ -72,6 +72,8 @@ public:
 	GLfloat v[3]; //up vector
 	float angleZ;   // angle de rotaci� de la traject�ria X.
 	float angleY;   // angle de rotació de la trajectoria Z.
+	int salt;		// variable que ens ajuda a fer una versió simple del salt
+	bool salta;	// boolea que ens indica si estem saltant o no
 
 // Entorn VGI: Variables de control per les opcions de men� Projecci�, Objecte
 	char projeccio;	// Men� Projecci�: Tipus de projeccio 

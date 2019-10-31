@@ -221,6 +221,7 @@ CEntornVGIView::CEntornVGIView()
 	v[0] = 0.0;		v[1] = 0.0;		v[2] = 1.0;
 	opvN.x = -3.0;	opvN.y = 12.0;		opvN.z = 5.0;
 	angleZ = 0.0;	angleY = 0.0;
+	salt = false; salta = 60;
 
 	// Entorn VGI: Variables de control per les opcions de men� Projecci�, Objecte
 	projeccio = PERSPECT;			objecte = MUR;
@@ -1705,6 +1706,25 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	vdir[0] = vdir[0] / modul;
 	vdir[1] = vdir[1] / modul;
 	vdir[2] = vdir[2] / modul;
+
+	if (salta) {
+		if (salt < 30) {
+			n[2] -= .1;
+			opvN.z -= .1;
+		}
+		else {
+			n[2] += .1;
+			opvN.z += .1;
+		}
+		salt--;
+		if (salt < 0) {
+			salta = false;
+			salt = 60;
+		}
+
+	}
+
+
 	switch (nChar)
 	{
 		// Tecla cursor amunt
@@ -1775,8 +1795,11 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	case 27:
 		OnVistaFullscreen();
 		break;
-
 	case VK_SPACE:
+		salta = true;
+		break;
+		//tecla p de pausa
+	case 80:
 		if (m_ButoEAvall)
 		{
 			m_ButoEAvall = false;
@@ -2354,6 +2377,25 @@ void CEntornVGIView::OnMouseMove(UINT nFlags, CPoint point)
 	}
 	else if (m_ButoEAvall && navega && (projeccio != CAP && projeccio != ORTO)) // Opci� Navegaci�
 	{
+		
+		if (salta) {
+			if (salt < 30) {
+				n[2] -= .1;
+				opvN.z -= .1;
+			}
+			else {
+				n[2] += .1;
+				opvN.z += .1;
+			}
+			salt--;
+			if (salt < 0) {
+				salta = false;
+				salt = 60;
+			}
+
+		}
+		
+		
 		// Entorn VGI: Canviar orientaci� en opci� de Navegaci�
 		CSize girn = m_PosEAvall - point;
 		angleZ = girn.cx / 2.0;
