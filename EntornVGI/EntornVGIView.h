@@ -70,7 +70,8 @@ public:
 	GLfloat n[3];   // Punt cap on mira.
 	CPunt3D opvN;   // Definici� Or�gen Punt de Vista (en coordenades m�n)
 	GLfloat v[3]; //up vector
-	float angleZ;   // angle de rotaci� de la traject�ria.
+	float angleZ;   // angle de rotaci� de la traject�ria X.
+	float angleY;   // angle de rotació de la trajectoria Z.
 
 // Entorn VGI: Variables de control per les opcions de men� Projecci�, Objecte
 	char projeccio;	// Men� Projecci�: Tipus de projeccio 

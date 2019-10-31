@@ -220,7 +220,7 @@ CEntornVGIView::CEntornVGIView()
 	n[0] = 0.0;		n[1] = 0.0;		n[2] = 5.0;
 	v[0] = 0.0;		v[1] = 0.0;		v[2] = 1.0;
 	opvN.x = -3.0;	opvN.y = 12.0;		opvN.z = 5.0;
-	angleZ = 0.0;
+	angleZ = 0.0;	angleY = 0.0;
 
 	// Entorn VGI: Variables de control per les opcions de men� Projecci�, Objecte
 	projeccio = PERSPECT;			objecte = MUR;
@@ -1729,20 +1729,20 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 
 		// Tecla cursor esquerra
 	case 65:
-		opvN.x -= nRepCnt * fact_pan * vdirpan[0];
-		opvN.y -= nRepCnt * fact_pan * vdirpan[1];
-		n[0] -= nRepCnt * fact_pan * vdirpan[0];
-		n[1] -= nRepCnt * fact_pan * vdirpan[1];
+		opvN.x -= nRepCnt * fact_pan * vdirpan[0] / 2;
+		opvN.y -= nRepCnt * fact_pan * vdirpan[1] / 2;
+		n[0] -= nRepCnt * fact_pan * vdirpan[0] / 2;
+		n[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
 		prova_colisions.m_x = opvN.x+1;
 		prova_colisions.m_y = opvN.y+1;
 		break;
 
 		// Tecla cursor dret
 	case 68:
-		opvN.x += nRepCnt * fact_pan * vdirpan[0];
-		opvN.y += nRepCnt * fact_pan * vdirpan[1];
-		n[0] += nRepCnt * fact_pan * vdirpan[0];
-		n[1] += nRepCnt * fact_pan * vdirpan[1];
+		opvN.x += nRepCnt * fact_pan * vdirpan[0] / 2;
+		opvN.y += nRepCnt * fact_pan * vdirpan[1] / 2;
+		n[0] += nRepCnt * fact_pan * vdirpan[0] / 2;
+		n[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
 		prova_colisions.m_x = opvN.x+1;
 		prova_colisions.m_y = opvN.y+1;
 		break;
@@ -2352,16 +2352,61 @@ void CEntornVGIView::OnMouseMove(UINT nFlags, CPoint point)
 		// Entorn VGI: Canviar orientaci� en opci� de Navegaci�
 		CSize girn = m_PosEAvall - point;
 		angleZ = girn.cx / 2.0;
+		angleY = girn.cy / 2.0;
+
 		// Entorn VGI: Control per evitar el creixement desmesurat dels angles.
 		if (angleZ >= 360) angleZ = angleZ - 360;
 		if (angleZ < 0)	angleZ = angleZ + 360;
 
+		if (angleY >= 360) angleY = angleY - 360;
+		if (angleY < 0)	angleY = angleY + 360;
+
+
+
+		//Càlculs per a fer la rotació del punt
+		float angleZRad = angleZ * pi / 180;
+		float angleYRad = angleY * pi / 180;
+
+		GLfloat cosa = cos(angleZRad);
+		GLfloat sina = sin(angleZRad);
+
+		GLfloat cosb = cos(angleYRad);
+		GLfloat sinb = sin(angleYRad);
+
+		GLfloat cosc = cos(0);
+		GLfloat sinc = sin(0);
+
+		GLfloat Axx = cosa * cosb;
+		GLfloat Axy = cosa * sinb * sinc - sina * cosc;
+		GLfloat Axz = cosa * sinb * cosc + sina * sinc;
+
+		GLfloat Ayx = sina * cosb;
+		GLfloat Ayy = sina * sinb * sinc + cosa * cosc;
+		GLfloat Ayz = sina * sinb * cosc - cosa * sinc;
+
+		GLfloat Azx = -sinb;
+		GLfloat Azy = cosb * sinc;
+		GLfloat Azz = cosb * cosc;
+
+
+
+
 		n[0] = n[0] - opvN.x;
 		n[1] = n[1] - opvN.y;
-		n[0] = n[0] * cos(angleZ * pi / 180) - n[1] * sin(angleZ * pi / 180);
-		n[1] = n[0] * sin(angleZ * pi / 180) + n[1] * cos(angleZ * pi / 180);
+		n[2] = n[2] - opvN.z; //pitch
+
+		//n[0] = n[0] * cos(angleZ * pi / 180) - n[1] * sin(angleZ * pi / 180);
+		//n[1] = n[0] * sin(angleZ * pi / 180) + n[1] * cos(angleZ * pi / 180);
+		//n[2] = n[2] * cos(angleY * pi / 180) + n[0] * sin(angleY * pi / 180);
+
+		//AMBDUES MANERES FUNCIONEN
+		n[0] = Axx * n[0] + Axy * n[1] + Axz * n[2];
+		n[1] = Ayx * n[0] + Ayy * n[1] + Ayz * n[2];
+		n[2] = Azx * n[0] + Azy * n[1] + Azz * n[2];
+
 		n[0] = n[0] + opvN.x;
 		n[1] = n[1] + opvN.y;
+		n[2] = n[2] + opvN.z;
 
 		m_PosEAvall = point;
 		InvalidateRect(NULL, false);

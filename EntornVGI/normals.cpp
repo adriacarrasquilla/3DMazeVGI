@@ -16,16 +16,16 @@
 void normal(GLfloat v1[3], GLfloat v2[3], GLfloat n[3])
 {
     
-	float longitud;
+	float modul=0;
 
 	n[0] = v1[1] * v2[2] - v2[1] * v1[2];
 	n[1] = v1[2] * v2[0] - v2[2] * v1[0];
-	n[2] = v1[0] * v2[1] - v1[1] * v2[0];
+	n[2] = v1[0] * v2[1] - v1[0] * v2[1];
 
 // Normalitzem el vector
-	longitud = sqrt( n[0] * n[0] + n[1] * n[1]+ n[2] * n[2]);
-	n[0] = n[0] / longitud;
-	n[1] = n[1] / longitud;
-	n[2] = n[2] / longitud;
+	modul = sqrt( n[0] * n[0] + n[1] * n[1]+ n[2] * n[2]);
+	n[0] = n[0] / modul;
+	n[1] = n[1] / modul;
+	n[2] = n[2] / modul;
 }
 
