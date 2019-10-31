@@ -1771,6 +1771,11 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		if (fact_pan > 2048) fact_pan = 2048;
 		break;
 
+		// Tecla Esc
+	case 27:
+		OnVistaFullscreen();
+		break;
+
 	case VK_SPACE:
 		if (m_ButoEAvall)
 		{
@@ -2355,6 +2360,8 @@ void CEntornVGIView::OnMouseMove(UINT nFlags, CPoint point)
 		angleY = girn.cy / 2.0;
 
 		// Entorn VGI: Control per evitar el creixement desmesurat dels angles.
+		//if (angleZ >= 360) angleZ = angleZ - 360;
+		//if (angleZ < 0)	angleZ = angleZ + 360;
 		if (angleZ >= 360) angleZ = angleZ - 360;
 		if (angleZ < 0)	angleZ = angleZ + 360;
 
@@ -2393,16 +2400,16 @@ void CEntornVGIView::OnMouseMove(UINT nFlags, CPoint point)
 
 		n[0] = n[0] - opvN.x;
 		n[1] = n[1] - opvN.y;
-		n[2] = n[2] - opvN.z; //pitch
+		n[2] = n[2] - opvN.z; 
 
-		//n[0] = n[0] * cos(angleZ * pi / 180) - n[1] * sin(angleZ * pi / 180);
-		//n[1] = n[0] * sin(angleZ * pi / 180) + n[1] * cos(angleZ * pi / 180);
-		//n[2] = n[2] * cos(angleY * pi / 180) + n[0] * sin(angleY * pi / 180);
+		n[0] = n[0] * cos(angleZ * pi / 180) - n[1] * sin(angleZ * pi / 180);
+		n[1] = n[0] * sin(angleZ * pi / 180) + n[1] * cos(angleZ * pi / 180);
+		n[2] = n[2] * cos(angleY * pi / 180) + n[0] * sin(angleY * pi / 180);
 
 		//AMBDUES MANERES FUNCIONEN
-		n[0] = Axx * n[0] + Axy * n[1] + Axz * n[2];
-		n[1] = Ayx * n[0] + Ayy * n[1] + Ayz * n[2];
-		n[2] = Azx * n[0] + Azy * n[1] + Azz * n[2];
+		//n[0] = Axx * n[0] + Axy * n[1] + Axz * n[2];
+		//n[1] = Ayx * n[0] + Ayy * n[1] + Ayz * n[2];
+		//n[2] = Azx * n[0] + Azy * n[1] + Azz * n[2];
 
 		n[0] = n[0] + opvN.x;
 		n[1] = n[1] + opvN.y;
@@ -2783,6 +2790,7 @@ void CEntornVGIView::OnVistaFullscreen()
 
 	if (!fullscreen) {
 		//w_old = w;	h_old = h;	// Guardar mides finestra.
+		ShowCursor(false);
 		// I note that I go to full-screen mode
 		fullscreen = true;
 		// remembers the address of the window in which the view was placed (probably a frame)
@@ -2797,6 +2805,7 @@ void CEntornVGIView::OnVistaFullscreen()
 	else
 	{	// switching off the full-screen mode
 		fullscreen = false;
+		ShowCursor(true);
 		// assigns an old parent view
 		this->SetParent(saveParent);
 		// I am downloading a pointer to the frame
