@@ -184,6 +184,7 @@ public:
 	std::vector<Mur> llista_murs;
 	int num_murs;
 	Personatge prova_colisions;
+	float cel[3] = { 0, 0, 0 };
 
 
 	// Operaciones

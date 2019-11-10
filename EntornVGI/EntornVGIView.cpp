@@ -947,7 +947,7 @@ void CEntornVGIView::dibuixa_Escena() {
 
 		*/
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
-		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, prova_colisions);
+		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, prova_colisions, cel);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -1733,8 +1733,10 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		opvN.y += nRepCnt * fact_pan * vdir[1] / 2;
 		n[0] += nRepCnt * fact_pan * vdir[0] / 2;
 		n[1] += nRepCnt * fact_pan * vdir[1] / 2;
-		prova_colisions.m_x = opvN.x+1;
-		prova_colisions.m_y = opvN.y+1;
+		prova_colisions.m_x = opvN.x;
+		prova_colisions.m_y = opvN.y;
+		cel[0] += nRepCnt * fact_pan * vdir[0] / 2;
+		cel[1] += nRepCnt * fact_pan * vdir[1] / 2;
 		break;
 
 		// Tecla cursor avall
@@ -1743,8 +1745,10 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		opvN.y -= nRepCnt * fact_pan * vdir[1] / 2;
 		n[0] -= nRepCnt * fact_pan * vdir[0] / 2;
 		n[1] -= nRepCnt * fact_pan * vdir[1] / 2;
-		prova_colisions.m_x = opvN.x+1;
-		prova_colisions.m_y = opvN.y+1;
+		prova_colisions.m_x = opvN.x;
+		prova_colisions.m_y = opvN.y;
+		cel[0] -= nRepCnt * fact_pan * vdir[0] / 2;
+		cel[1] -= nRepCnt * fact_pan * vdir[1] / 2;
 		break;
 
 		// Tecla cursor esquerra
@@ -1753,8 +1757,10 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		opvN.y -= nRepCnt * fact_pan * vdirpan[1] / 2;
 		n[0] -= nRepCnt * fact_pan * vdirpan[0] / 2;
 		n[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
-		prova_colisions.m_x = opvN.x+1;
-		prova_colisions.m_y = opvN.y+1;
+		prova_colisions.m_x = opvN.x;
+		prova_colisions.m_y = opvN.y;
+		cel[0] -= nRepCnt * fact_pan * vdirpan[0] / 2;
+		cel[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
 		break;
 
 		// Tecla cursor dret
@@ -1763,8 +1769,10 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		opvN.y += nRepCnt * fact_pan * vdirpan[1] / 2;
 		n[0] += nRepCnt * fact_pan * vdirpan[0] / 2;
 		n[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
-		prova_colisions.m_x = opvN.x+1;
-		prova_colisions.m_y = opvN.y+1;
+		prova_colisions.m_x = opvN.x;
+		prova_colisions.m_y = opvN.y;
+		cel[0] += nRepCnt * fact_pan * vdirpan[0] / 2;
+		cel[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
 		break;
 
 		// Tecla Inicio
@@ -3433,7 +3441,12 @@ void CEntornVGIView::OnObjecteCubRGB()
 	texturesID[9] = loadIMA_ILUT("./textures/tex1_64x64_c05e3c09362f364a_14.png");
 	texturesID[8] = loadIMA_ILUT("./textures/tex1_128x128_0e437d36eaf137df_14.png");
 	texturesID[7] = loadIMA_ILUT("./textures/sky-hd-wallpaper-9.jpg");
-
+	texturesID[10] = loadIMA_ILUT("./textures/skybox/right.png");
+	texturesID[11] = loadIMA_ILUT("./textures/skybox/left.png");
+	texturesID[12] = loadIMA_ILUT("./textures/skybox/top.png");
+	texturesID[13] = loadIMA_ILUT("./textures/skybox/bottom.png");
+	texturesID[14] = loadIMA_ILUT("./textures/skybox/front.png");
+	texturesID[15] = loadIMA_ILUT("./textures/skybox/back.png");
 	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
 	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
 	//	Canviar l'escala per a centrar la vista (Ortogr�fica)

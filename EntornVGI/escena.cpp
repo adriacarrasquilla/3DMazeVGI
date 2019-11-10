@@ -78,11 +78,150 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg)
 	}
 }
 
+void skybox(int texturID[], float cel[]) {
+	//Cara left
+	glDisable(GL_TEXTURE_2D);
 
+
+	glEnable(GL_TEXTURE_GEN_S);
+	glEnable(GL_TEXTURE_GEN_T);
+	glBindTexture(GL_TEXTURE_2D, texturID[11]);
+	glDisable(GL_TEXTURE_GEN_S);
+	glDisable(GL_TEXTURE_GEN_T);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+
+
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	glTranslatef(750.0f + cel[0], 0.0f + cel[1], 0.0f + cel[2]);
+	glScalef(5.0f, 1500.0f, 1500.0f);
+	glutSolidCube(1.0);
+	glPopMatrix();
+
+	//Cara right
+	glDisable(GL_TEXTURE_2D);
+
+	glEnable(GL_TEXTURE_GEN_S);
+	glEnable(GL_TEXTURE_GEN_T);
+	glBindTexture(GL_TEXTURE_2D, texturID[10]);
+	glDisable(GL_TEXTURE_GEN_S);
+	glDisable(GL_TEXTURE_GEN_T);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+
+
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	glTranslatef(-750.0f + cel[0], 0.0f + cel[1], 0.0f + cel[2]);
+	glScalef(5.0f, 1500.0f, 1500.0f);
+	glutSolidCube(1.0);
+	glPopMatrix();
+
+	//Cara bot
+	glDisable(GL_TEXTURE_2D);
+
+	glEnable(GL_TEXTURE_GEN_S);
+	glEnable(GL_TEXTURE_GEN_T);
+	glBindTexture(GL_TEXTURE_2D, texturID[13]);
+	glDisable(GL_TEXTURE_GEN_S);
+	glDisable(GL_TEXTURE_GEN_T);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+
+
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	glTranslatef(0.0f + cel[0], 0.0f + cel[1], -750.0f + cel[2]);
+	glScalef(1500.0f, 1500.0f, 5.0f);
+	glutSolidCube(1.0);
+	glPopMatrix();
+
+	//Cara top
+	glDisable(GL_TEXTURE_2D);
+
+	glEnable(GL_TEXTURE_GEN_S);
+	glEnable(GL_TEXTURE_GEN_T);
+	glBindTexture(GL_TEXTURE_2D, texturID[12]);
+	glDisable(GL_TEXTURE_GEN_S);
+	glDisable(GL_TEXTURE_GEN_T);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+
+
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	glTranslatef(0.0f + cel[0], 0.0f + cel[1], 750.0f + cel[2]);
+	glScalef(-1500.0f, -1500.0f, 5.0f);
+	glutSolidCube(1.0);
+	glPopMatrix();
+
+	//Cara back
+	glDisable(GL_TEXTURE_2D);
+
+	glEnable(GL_TEXTURE_GEN_S);
+	glEnable(GL_TEXTURE_GEN_T);
+	glBindTexture(GL_TEXTURE_2D, texturID[15]);
+	glDisable(GL_TEXTURE_GEN_S);
+	glDisable(GL_TEXTURE_GEN_T);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+
+
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	glTranslatef(0.0f + cel[0], 750.0f + cel[1], 0.0f + cel[2]);
+	glScalef(-1500.0f, 0.0f, 1500.0f);
+	glutSolidCube(1.0);
+	glPopMatrix();
+
+
+	//Cara front
+	glDisable(GL_TEXTURE_2D);
+
+	glEnable(GL_TEXTURE_GEN_S);
+	glEnable(GL_TEXTURE_GEN_T);
+	glBindTexture(GL_TEXTURE_2D, texturID[14]);
+	glDisable(GL_TEXTURE_GEN_S);
+	glDisable(GL_TEXTURE_GEN_T);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+
+
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	glTranslatef(0.0f + cel[0], -750.0f + cel[1], 0.0f + cel[2]);
+	glScalef(1500.0f, 0.0f, 1500.0f);
+	glutSolidCube(1.0);
+	glDisable(GL_TEXTURE_2D);
+	glPopMatrix();
+
+	
+
+
+}
 
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
-	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg)
+	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[])
 {
 	float altfar = 0;
 
@@ -165,8 +304,8 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
@@ -177,7 +316,12 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		glScalef(250.0f, 250.0f, 10.0f);
 		glutSolidCube(1.0);
 		glPopMatrix();
-		glDisable(GL_TEXTURE_2D);
+		
+		
+		skybox(texturID, cel);
+		//glDisable(GL_TEXTURE_2D);
+
+
 		pg.pinta();
 		DoCollisions(llista, pg);
 		break;
