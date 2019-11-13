@@ -30,6 +30,7 @@ bool reflexio_material, sw_materials[4];
 bool CheckColisioMurPg(Mur m, Personatge p) {
 	bool colisions[4]; //0 dreta 1 esquerra 2 amunt 3 avall
 	if (m.m_ori) {
+		
 		// Collision x-axis?
 		bool collisionX = m.m_x + (MUR_X / 2) >= p.m_x - (PG_X / 2) &&
 			p.m_x + (PG_X / 2) >= m.m_x - (MUR_X / 2);
@@ -38,16 +39,23 @@ bool CheckColisioMurPg(Mur m, Personatge p) {
 			p.m_y + (PG_Y / 2) >= m.m_y - (MUR_Y / 2);
 		// Collision only if on both axes
 		return collisionX && collisionY;
+		
 		/*
 		/// Colisions eix X
 		/// Colisió paret dreta
 		colisions[0] = p.m_x + (PG_X / 2) >= m.m_x + (MUR_X / 2) && p.m_x - (PG_X / 2) <= m.m_x + (MUR_X / 2);
 		/// Colisió paret esquerra
 		colisions[1] = p.m_x + (PG_X / 2) >= m.m_x - (MUR_X / 2) && p.m_x - (PG_X / 2) <= m.m_x - (MUR_X / 2);
-		/// Colisió
+		
+		/// Colisions eix Y
+		/// Colisió paret amunt
+		colisions[2] = p.m_y + (PG_Y / 2) >= m.m_y - (MUR_Y / 2) && p.m_y - (PG_Y / 2) <= m.m_y - (MUR_Y / 2);
+		/// Colisió paret avall
+		colisions[2] = p.m_y + (PG_Y / 2) >= m.m_y + (MUR_Y / 2) && p.m_y - (PG_Y / 2) <= m.m_y + (MUR_Y / 2);
 		*/
 	}
 	else {
+		
 		// Collision x-axis?
 		bool collisionX = m.m_x + (MUR_Y / 2) >= p.m_x - (PG_X / 2) &&
 			p.m_x + (PG_X / 2) >= m.m_x - (MUR_Y / 2);
@@ -56,15 +64,43 @@ bool CheckColisioMurPg(Mur m, Personatge p) {
 			p.m_y + (PG_Y / 2) >= m.m_y - (MUR_X / 2);
 		// Collision only if on both axes
 		return collisionX && collisionY;
+		/*
+		/// Colisions eix X
+		/// Colisió paret dreta
+		colisions[0] = p.m_x + (PG_X / 2) >= m.m_x + (MUR_Y / 2) && p.m_x - (PG_X / 2) <= m.m_x + (MUR_Y / 2);
+		/// Colisió paret esquerra
+		colisions[1] = p.m_x + (PG_X / 2) >= m.m_x - (MUR_Y / 2) && p.m_x - (PG_X / 2) <= m.m_x - (MUR_Y / 2);
+
+		/// Colisions eix Y
+		/// Colisió paret amunt
+		colisions[2] = p.m_y + (PG_Y / 2) >= m.m_y - (MUR_X / 2) && p.m_y - (PG_Y / 2) <= m.m_y - (MUR_X / 2);
+		/// Colisió paret avall
+		colisions[2] = p.m_y + (PG_Y / 2) >= m.m_y + (MUR_X / 2) && p.m_y - (PG_Y / 2) <= m.m_y + (MUR_X / 2);
+		*/
 	}
+	//return colisions;
 }
 void DoCollisions(std::vector<Mur> llista, Personatge& pg)
 {
 	bool trobat = false;
+	/*
+	pg.colisions[0] = false;
+	pg.colisions[1] = false;
+	pg.colisions[2] = false;
+	pg.colisions[3] = false;
 	for (int i = 0; i < llista.size(); i++)
 	{
-		if (CheckColisioMurPg(llista[i], pg))
-		{
+		bool * colisions = CheckColisioMurPg(llista[i], pg);
+
+		for (int i = 0; i < 4; i++) {
+			if (colisions[i]) pg.colisions[i] = true;
+		}
+		
+	}
+	*/
+	
+	for (int i = 0; i < llista.size(); i++){
+		if(CheckColisioMurPg(llista[i], pg)){
 			//pg.m_color = !pg.m_color;
 			trobat = true;
 		}
@@ -72,10 +108,13 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg)
 	}
 	if (trobat == true) {
 		pg.m_color = 1;
+		pg.m_colisio = true;
 	}
 	else {
 		pg.m_color = 0;
+		pg.m_colisio = false;
 	}
+	
 }
 
 void skybox(int texturID[], float cel[]) {
@@ -322,7 +361,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		//glDisable(GL_TEXTURE_2D);
 
 
-		pg.pinta();
+		//pg.pinta();
 		DoCollisions(llista, pg);
 		break;
 	}

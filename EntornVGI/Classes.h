@@ -47,31 +47,44 @@ public:
 	float m_y;
 	float m_z;
 	int m_color;
+	bool m_colisio;
+	float m_x_ant;
+	float m_y_ant;
 	Personatge() {
-		m_x = m_y = m_z = 0.0;
+		m_x = m_y = m_z = m_x_ant = m_y_ant = 0.0;
 		m_color = 0;
+		m_colisio = false;
+		/*colisions[0] = false;
+		colisions[1] = false;
+		colisions[2] = false;
+		colisions[3] = false;*/
 	}
 	Personatge(float x, float y, float z, int c) { //Aquestes coordenades corresponen al centre de l'objecte, per com funciona OpenGL. Per accedir als boundaries, hi ha constants amb la mida del mur
-		m_x = x;
-		m_y = y;
+		m_x_ant = m_x = x;
+		m_y_ant = m_y = y;
 		m_z = z;
 		m_color = c;
+		m_colisio = false;
+		/*colisions[0] = false;
+		colisions[1] = false;
+		colisions[2] = false;
+		colisions[3] = false;*/
 	}
 
 	void pinta() {
 		switch (m_color)
 		{
 		case 0:
-			glColor4f(1.0, 10.0, 35.0, 0);
+			glColor3f(1.0, 1.0, 1.0);
 			glPushMatrix();
 			glTranslatef(m_x, m_y, m_z);
 			glScalef(PG_X, PG_Y, PG_Z);
 			glutSolidCube(1.0);
 			glPopMatrix();
-			glColor4f(1, 1, 1, 1);
+			//glColor4f(1, 1, 1, 1);
 			break;
 		case 1:
-			//glColor3f(1.0, 0.0, 0.0);
+			glColor3f(1.0, 0.0, 0.0);
 			glPushMatrix();
 			glTranslatef(m_x, m_y, m_z);
 			glScalef(PG_X, PG_Y, PG_Z);
@@ -83,6 +96,7 @@ public:
 		}
 	}
 };
+
 std::vector<Mur> initMurs(); /*{ //propera implementaci�: passar per par�metres el nombre de murs i la matriu rotllo suarez
 	//de moment, inicialitzaci� "manual"
 

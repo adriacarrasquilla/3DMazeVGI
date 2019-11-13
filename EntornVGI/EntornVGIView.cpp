@@ -405,10 +405,10 @@ CEntornVGIView::CEntornVGIView()
 
 	//Inicialització murs
 	llista_murs = initMurs();
-	Personatge nou(opvN.x, opvN.y, opvN.z-2, 0);
-	prova_colisions = nou;
+	Personatge nou(opvN.x, opvN.y, opvN.z-2.5f, 0);
+	personatge = nou;
 	num_murs = llista_murs.size();
-}
+} 
 
 CEntornVGIView::~CEntornVGIView()
 {
@@ -943,11 +943,11 @@ void CEntornVGIView::dibuixa_Escena() {
 		/*
 		moros:
 		dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura,npts_T, PC_t, pas_CS,
-		sw_Punts_Control, prova_moviment, llista_murs, prova_colisions);
+		sw_Punts_Control, prova_moviment, llista_murs, personatge);
 
 		*/
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
-		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, prova_colisions, cel);
+		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -1488,22 +1488,22 @@ void CEntornVGIView::Teclat_Prova_Moviment(UINT nChar, UINT nRepCnt) {
 		// Tecla cursor amunt
 	case VK_UP:
 		//prova_moviment[1]++;
-		prova_colisions.m_y++;
+		personatge.m_y++;
 		break;
 		// Tecla cursor avall
 	case VK_DOWN:
 		//prova_moviment[1]--;
-		prova_colisions.m_y--;
+		personatge.m_y--;
 		break;
 		// Tecla cursor esquerra
 	case VK_LEFT:
 		//prova_moviment[0]--;
-		prova_colisions.m_x--;
+		personatge.m_x--;
 		break;
 		// Tecla cursor dret
 	case VK_RIGHT:
 		//prova_moviment[0]++;
-		prova_colisions.m_x++;
+		personatge.m_x++;
 		break;
 	}
 }
@@ -1729,50 +1729,103 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	{
 		// Tecla cursor amunt
 	case 87:
-		opvN.x += nRepCnt * fact_pan * vdir[0] / 2;
-		opvN.y += nRepCnt * fact_pan * vdir[1] / 2;
-		n[0] += nRepCnt * fact_pan * vdir[0] / 2;
-		n[1] += nRepCnt * fact_pan * vdir[1] / 2;
-		prova_colisions.m_x = opvN.x;
-		prova_colisions.m_y = opvN.y;
-		cel[0] += nRepCnt * fact_pan * vdir[0] / 2;
-		cel[1] += nRepCnt * fact_pan * vdir[1] / 2;
+		
+		//if (!personatge.colisions[2]) {} //0 dreta 1 esquerra 2 amunt 3 avall
+		
+
+		if (!personatge.m_colisio) {
+			opvN.x += nRepCnt * fact_pan * vdir[0] / 2;
+			n[0] += nRepCnt * fact_pan * vdir[0] / 2;
+			opvN.y += nRepCnt * fact_pan * vdir[1] / 2;
+			n[1] += nRepCnt * fact_pan * vdir[1] / 2;
+			cel[0] += nRepCnt * fact_pan * vdir[0] / 2;
+			cel[1] += nRepCnt * fact_pan * vdir[1] / 2;
+		} 
+		
+		else {
+			opvN.x = personatge.m_x_ant;
+			//n[0] = personatge.m_x_ant;
+			opvN.y = personatge.m_y_ant;
+			//n[1] = personatge.m_y_ant;
+			cel[0] = personatge.m_x_ant;
+			cel[1] = personatge.m_y_ant;
+		}
+		personatge.m_x_ant = personatge.m_x;
+		personatge.m_y_ant = personatge.m_y;
+		personatge.m_x = opvN.x;
+		personatge.m_y = opvN.y;
 		break;
 
 		// Tecla cursor avall
 	case 83:
-		opvN.x -= nRepCnt * fact_pan * vdir[0] / 2;
-		opvN.y -= nRepCnt * fact_pan * vdir[1] / 2;
-		n[0] -= nRepCnt * fact_pan * vdir[0] / 2;
-		n[1] -= nRepCnt * fact_pan * vdir[1] / 2;
-		prova_colisions.m_x = opvN.x;
-		prova_colisions.m_y = opvN.y;
-		cel[0] -= nRepCnt * fact_pan * vdir[0] / 2;
-		cel[1] -= nRepCnt * fact_pan * vdir[1] / 2;
+		//if (!personatge.colisions[3]) { //0 dreta 1 esquerra 2 amunt 3 avall
+		if (!personatge.m_colisio) {
+			opvN.x -= nRepCnt * fact_pan * vdir[0] / 2;
+			opvN.y -= nRepCnt * fact_pan * vdir[1] / 2;
+			n[0] -= nRepCnt * fact_pan * vdir[0] / 2;
+			n[1] -= nRepCnt * fact_pan * vdir[1] / 2;
+			cel[0] -= nRepCnt * fact_pan * vdir[0] / 2;
+			cel[1] -= nRepCnt * fact_pan * vdir[1] / 2;
+		}
+		else {
+			opvN.x = personatge.m_x_ant;
+			opvN.y = personatge.m_y_ant;
+			cel[0] = personatge.m_x_ant;
+			cel[1] = personatge.m_y_ant;
+		}
+		personatge.m_x_ant = personatge.m_x;
+		personatge.m_y_ant = personatge.m_y;
+		personatge.m_x = opvN.x;
+		personatge.m_y = opvN.y;
+
 		break;
 
 		// Tecla cursor esquerra
 	case 65:
-		opvN.x -= nRepCnt * fact_pan * vdirpan[0] / 2;
-		opvN.y -= nRepCnt * fact_pan * vdirpan[1] / 2;
-		n[0] -= nRepCnt * fact_pan * vdirpan[0] / 2;
-		n[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
-		prova_colisions.m_x = opvN.x;
-		prova_colisions.m_y = opvN.y;
-		cel[0] -= nRepCnt * fact_pan * vdirpan[0] / 2;
-		cel[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
+		//if (!personatge.colisions[1]) { //0 dreta 1 esquerra 2 amunt 3 avall
+		if (!personatge.m_colisio) {
+			opvN.x -= nRepCnt * fact_pan * vdirpan[0] / 2;
+			opvN.y -= nRepCnt * fact_pan * vdirpan[1] / 2;
+			n[0] -= nRepCnt * fact_pan * vdirpan[0] / 2;
+			n[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
+			cel[0] -= nRepCnt * fact_pan * vdirpan[0] / 2;
+			cel[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
+		}
+		else {
+			opvN.x = personatge.m_x_ant;
+			opvN.y = personatge.m_y_ant;
+			cel[0] = personatge.m_x_ant;
+			cel[1] = personatge.m_y_ant;
+		}
+		personatge.m_x_ant = personatge.m_x;
+		personatge.m_y_ant = personatge.m_y;
+		personatge.m_x = opvN.x;
+		personatge.m_y = opvN.y;
+
 		break;
 
 		// Tecla cursor dret
 	case 68:
-		opvN.x += nRepCnt * fact_pan * vdirpan[0] / 2;
-		opvN.y += nRepCnt * fact_pan * vdirpan[1] / 2;
-		n[0] += nRepCnt * fact_pan * vdirpan[0] / 2;
-		n[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
-		prova_colisions.m_x = opvN.x;
-		prova_colisions.m_y = opvN.y;
-		cel[0] += nRepCnt * fact_pan * vdirpan[0] / 2;
-		cel[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
+
+		//if (!personatge.colisions[0]) { //0 dreta 1 esquerra 2 amunt 3 avall
+		if (!personatge.m_colisio) {
+			opvN.x += nRepCnt * fact_pan * vdirpan[0] / 2;
+			opvN.y += nRepCnt * fact_pan * vdirpan[1] / 2;
+			n[0] += nRepCnt * fact_pan * vdirpan[0] / 2;
+			n[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
+			cel[0] += nRepCnt * fact_pan * vdirpan[0] / 2;
+			cel[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
+		}
+		else {
+			opvN.x = personatge.m_x_ant;
+			opvN.y = personatge.m_y_ant;
+			cel[0] = personatge.m_x_ant;
+			cel[1] = personatge.m_y_ant;
+		}
+		personatge.m_x_ant = personatge.m_x;
+		personatge.m_y_ant = personatge.m_y;
+		personatge.m_x = opvN.x;
+		personatge.m_y = opvN.y;
 		break;
 
 		// Tecla Inicio
@@ -2407,7 +2460,9 @@ void CEntornVGIView::OnMouseMove(UINT nFlags, CPoint point)
 		// Entorn VGI: Canviar orientaci� en opci� de Navegaci�
 		CSize girn = m_PosEAvall - point;
 		angleZ = girn.cx / 2.0;
-		angleY = girn.cy / 2.0;
+
+		//Descomentar per implementar el pitch
+		//angleY = girn.cy / 2.0;
 
 		// Entorn VGI: Control per evitar el creixement desmesurat dels angles.
 		//if (angleZ >= 360) angleZ = angleZ - 360;
@@ -3382,12 +3437,13 @@ void CEntornVGIView::OnProjeccioPerspectiva()
 
 	//POSSIBLE CRIDA A LA FUNCIÓ QUE LLEGIRIA EL FITXER (AL QUE S'HA D'INCLOURE ABANS DEL BITMAP EL NOMBRE DE MURS)
 	//llegirfitxer(filename) o whatever
-	llista_murs = initMurs();
-	Personatge nou(n[0], n[1], n[2], 0);
-	prova_colisions = nou;
+	
+	/*llista_murs = initMurs();
+	Personatge nou(n[0], n[1], 3, 0);
+	personatge = nou;
 	num_murs = llista_murs.size();
 
-
+	*/
 	// Crida a OnPaint() per redibuixar l'escena
 	InvalidateRect(NULL, false);
 

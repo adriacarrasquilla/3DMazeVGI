@@ -183,7 +183,7 @@ public:
 	float prova_moviment[3] = { 0, 0, 0 };
 	std::vector<Mur> llista_murs;
 	int num_murs;
-	Personatge prova_colisions;
+	Personatge personatge;
 	float cel[3] = { 0, 0, 0 };
 
 
