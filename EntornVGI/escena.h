@@ -34,4 +34,9 @@ void Motor();
 void Canon();
 void Cuerpo();
 void Cabina();
+
+
+//Funcions per detectar colisions
+bool* CheckColisioMurPg(Mur m, Personatge p);
+void DoCollisions(std::vector<Mur> llista, Personatge& pg);
 #endif

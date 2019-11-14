@@ -27,8 +27,9 @@ bool reflexio_material, sw_materials[4];
 
 
 //bool * CheckColisioMurPg(Mur m, Personatge p) {
-bool CheckColisioMurPg(Mur m, Personatge p) {
+bool* CheckColisioMurPg(Mur m, Personatge p) {
 	bool colisions[4]; //0 dreta 1 esquerra 2 amunt 3 avall
+	bool colXY[2] = { false };
 	if (m.m_ori) {
 		
 		// Collision x-axis?
@@ -38,21 +39,25 @@ bool CheckColisioMurPg(Mur m, Personatge p) {
 		bool collisionY = m.m_y + (MUR_Y / 2) >= p.m_y - (PG_Y / 2) &&
 			p.m_y + (PG_Y / 2) >= m.m_y - (MUR_Y / 2);
 		// Collision only if on both axes
-		return collisionX && collisionY;
 		
-		/*
-		/// Colisions eix X
-		/// Colisió paret dreta
-		colisions[0] = p.m_x + (PG_X / 2) >= m.m_x + (MUR_X / 2) && p.m_x - (PG_X / 2) <= m.m_x + (MUR_X / 2);
-		/// Colisió paret esquerra
-		colisions[1] = p.m_x + (PG_X / 2) >= m.m_x - (MUR_X / 2) && p.m_x - (PG_X / 2) <= m.m_x - (MUR_X / 2);
+		//return collisionX && collisionY;
 		
-		/// Colisions eix Y
-		/// Colisió paret amunt
-		colisions[2] = p.m_y + (PG_Y / 2) >= m.m_y - (MUR_Y / 2) && p.m_y - (PG_Y / 2) <= m.m_y - (MUR_Y / 2);
-		/// Colisió paret avall
-		colisions[2] = p.m_y + (PG_Y / 2) >= m.m_y + (MUR_Y / 2) && p.m_y - (PG_Y / 2) <= m.m_y + (MUR_Y / 2);
-		*/
+		if (collisionX && collisionY) {
+			/// Colisions eix X
+			/// Colisió paret dreta
+			colisions[0] = p.m_x + (PG_X / 2) >= m.m_x + (MUR_X / 2) && p.m_x - (PG_X / 2) <= m.m_x + (MUR_X / 2);
+			/// Colisió paret esquerra
+			colisions[1] = p.m_x + (PG_X / 2) >= m.m_x - (MUR_X / 2) && p.m_x - (PG_X / 2) <= m.m_x - (MUR_X / 2);
+
+			/// Colisions eix Y
+			/// Colisió paret amunt
+			colisions[2] = p.m_y + (PG_Y / 2) >= m.m_y - (MUR_Y / 2) && p.m_y - (PG_Y / 2) <= m.m_y - (MUR_Y / 2);
+			/// Colisió paret avall
+			colisions[2] = p.m_y + (PG_Y / 2) >= m.m_y + (MUR_Y / 2) && p.m_y - (PG_Y / 2) <= m.m_y + (MUR_Y / 2);
+
+			colXY[0] = colisions[0] || colisions[1];
+			colXY[1] = colisions[2] || colisions[3];
+		}
 	}
 	else {
 		
@@ -63,26 +68,34 @@ bool CheckColisioMurPg(Mur m, Personatge p) {
 		bool collisionY = m.m_y + (MUR_X / 2) >= p.m_y - (PG_Y / 2) &&
 			p.m_y + (PG_Y / 2) >= m.m_y - (MUR_X / 2);
 		// Collision only if on both axes
-		return collisionX && collisionY;
-		/*
-		/// Colisions eix X
-		/// Colisió paret dreta
-		colisions[0] = p.m_x + (PG_X / 2) >= m.m_x + (MUR_Y / 2) && p.m_x - (PG_X / 2) <= m.m_x + (MUR_Y / 2);
-		/// Colisió paret esquerra
-		colisions[1] = p.m_x + (PG_X / 2) >= m.m_x - (MUR_Y / 2) && p.m_x - (PG_X / 2) <= m.m_x - (MUR_Y / 2);
+		//return collisionX && collisionY;
+		
+		if (collisionX && collisionY) {
+			/// Colisions eix X
+			/// Colisió paret dreta
+			colisions[0] = p.m_x + (PG_X / 2) >= m.m_x + (MUR_Y / 2) && p.m_x - (PG_X / 2) <= m.m_x + (MUR_Y / 2);
+			/// Colisió paret esquerra
+			colisions[1] = p.m_x + (PG_X / 2) >= m.m_x - (MUR_Y / 2) && p.m_x - (PG_X / 2) <= m.m_x - (MUR_Y / 2);
 
-		/// Colisions eix Y
-		/// Colisió paret amunt
-		colisions[2] = p.m_y + (PG_Y / 2) >= m.m_y - (MUR_X / 2) && p.m_y - (PG_Y / 2) <= m.m_y - (MUR_X / 2);
-		/// Colisió paret avall
-		colisions[2] = p.m_y + (PG_Y / 2) >= m.m_y + (MUR_X / 2) && p.m_y - (PG_Y / 2) <= m.m_y + (MUR_X / 2);
-		*/
+			/// Colisions eix Y
+			/// Colisió paret amunt
+			colisions[2] = p.m_y + (PG_Y / 2) >= m.m_y - (MUR_X / 2) && p.m_y - (PG_Y / 2) <= m.m_y - (MUR_X / 2);
+			/// Colisió paret avall
+			colisions[2] = p.m_y + (PG_Y / 2) >= m.m_y + (MUR_X / 2) && p.m_y - (PG_Y / 2) <= m.m_y + (MUR_X / 2);
+
+			colXY[0] = colisions[0] || colisions[1];
+			colXY[1] = colisions[2] || colisions[3];
+		}
 	}
-	//return colisions;
+	return colXY;
 }
+
+
+
 void DoCollisions(std::vector<Mur> llista, Personatge& pg)
 {
-	bool trobat = false;
+	pg.m_colisioX = false;
+	pg.m_colisioY = false;
 	/*
 	pg.colisions[0] = false;
 	pg.colisions[1] = false;
@@ -98,7 +111,7 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg)
 		
 	}
 	*/
-	
+	/*
 	for (int i = 0; i < llista.size(); i++){
 		if(CheckColisioMurPg(llista[i], pg)){
 			//pg.m_color = !pg.m_color;
@@ -113,7 +126,22 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg)
 	else {
 		pg.m_color = 0;
 		pg.m_colisio = false;
+	}*/
+	bool* colXY;
+	for (int i = 0; i < llista.size(); i++) {
+		colXY = CheckColisioMurPg(llista[i], pg);
+		if (colXY[0])
+			pg.m_colisioX = true;
+		if (colXY[1])
+			pg.m_colisioY = true;
+		
 	}
+	if (pg.m_colisioX)
+		pg.m_color = 1;
+	else if (pg.m_colisioY)
+		pg.m_color = 2;
+	else
+		pg.m_color = 0;
 	
 }
 
@@ -361,7 +389,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		//glDisable(GL_TEXTURE_2D);
 
 
-		//pg.pinta();
+		pg.pinta();
 		DoCollisions(llista, pg);
 		break;
 	}

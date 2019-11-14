@@ -47,13 +47,19 @@ public:
 	float m_y;
 	float m_z;
 	int m_color;
-	bool m_colisio;
+	bool m_colisio; //s'ha de suprimir
+
+	bool m_colisioX;
+	bool m_colisioY;
+
 	float m_x_ant;
 	float m_y_ant;
 	Personatge() {
 		m_x = m_y = m_z = m_x_ant = m_y_ant = 0.0;
 		m_color = 0;
 		m_colisio = false;
+		m_colisioX = false;
+		m_colisioY = false;
 		/*colisions[0] = false;
 		colisions[1] = false;
 		colisions[2] = false;
@@ -65,6 +71,8 @@ public:
 		m_z = z;
 		m_color = c;
 		m_colisio = false;
+		m_colisioX = false;
+		m_colisioY = false;
 		/*colisions[0] = false;
 		colisions[1] = false;
 		colisions[2] = false;
@@ -84,13 +92,22 @@ public:
 			//glColor4f(1, 1, 1, 1);
 			break;
 		case 1:
-			glColor3f(1.0, 0.0, 0.0);
+			glColor3f(1.0, 0.0, 1.0);
 			glPushMatrix();
 			glTranslatef(m_x, m_y, m_z);
 			glScalef(PG_X, PG_Y, PG_Z);
 			glutSolidCube(1.0);
 			glPopMatrix();
 			break;
+		case 2:
+			glColor3f(1.0, 1.0, 0.0);
+			glPushMatrix();
+			glTranslatef(m_x, m_y, m_z);
+			glScalef(PG_X, PG_Y, PG_Z);
+			glutSolidCube(1.0);
+			glPopMatrix();
+			break;
+
 		default:
 			break;
 		}
@@ -117,3 +134,4 @@ std::vector<Mur> initMurs(); /*{ //propera implementaci�: passar per par�met
 
 	return llista;
 }*/
+

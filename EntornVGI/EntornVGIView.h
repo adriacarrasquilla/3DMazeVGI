@@ -185,8 +185,6 @@ public:
 	int num_murs;
 	Personatge personatge;
 	float cel[3] = { 0, 0, 0 };
-
-
 	// Operaciones
 public:
 

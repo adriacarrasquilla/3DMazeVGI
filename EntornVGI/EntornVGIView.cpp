@@ -407,6 +407,7 @@ CEntornVGIView::CEntornVGIView()
 	llista_murs = initMurs();
 	Personatge nou(opvN.x, opvN.y, opvN.z-2.5f, 0);
 	personatge = nou;
+	
 	num_murs = llista_murs.size();
 } 
 
@@ -1730,10 +1731,39 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		// Tecla cursor amunt
 	case 87:
 		
-		//if (!personatge.colisions[2]) {} //0 dreta 1 esquerra 2 amunt 3 avall
+		personatge.m_x += nRepCnt * fact_pan * vdir[0] / 2;
+		personatge.m_y += nRepCnt * fact_pan * vdir[1] / 2;
+		DoCollisions(llista_murs, personatge);
+		
+		if (personatge.m_colisioX) {
+			if (!personatge.m_colisioY) {
+				opvN.y = personatge.m_y;
+				n[1] += nRepCnt * fact_pan * vdir[1] / 2;
+				cel[1] = personatge.m_y;
+			}
+		}
+		else {
+			if (!personatge.m_colisioY) {
+				opvN.y = personatge.m_y;
+				n[1] += nRepCnt * fact_pan * vdir[1] / 2;
+				cel[1] = personatge.m_y;
+			}
+			opvN.x = personatge.m_x;
+			n[0] += nRepCnt * fact_pan * vdir[0] / 2;
+			cel[0] = personatge.m_x;
+		}
+		//personatge.m_x_ant = personatge.m_x;
+		//personatge.m_y_ant = personatge.m_y;
+		personatge.m_x = opvN.x;
+		personatge.m_y = opvN.y;
 		
 
+		//Es necessari un personatge auxiliar? Creiem que no ho sa
+
+		/*
+		//if (!personatge.colisions[2]) {} //0 dreta 1 esquerra 2 amunt 3 avall
 		if (!personatge.m_colisio) {
+			//if(personatge.m_colisioX)
 			opvN.x += nRepCnt * fact_pan * vdir[0] / 2;
 			n[0] += nRepCnt * fact_pan * vdir[0] / 2;
 			opvN.y += nRepCnt * fact_pan * vdir[1] / 2;
@@ -1750,10 +1780,11 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 			cel[0] = personatge.m_x_ant;
 			cel[1] = personatge.m_y_ant;
 		}
-		personatge.m_x_ant = personatge.m_x;
-		personatge.m_y_ant = personatge.m_y;
-		personatge.m_x = opvN.x;
-		personatge.m_y = opvN.y;
+		//personatge.m_x_ant = personatge.m_x;
+		//personatge.m_y_ant = personatge.m_y;
+		//personatge.m_x = opvN.x;
+		//personatge.m_y = opvN.y;
+		*/
 		break;
 
 		// Tecla cursor avall
@@ -2469,6 +2500,7 @@ void CEntornVGIView::OnMouseMove(UINT nFlags, CPoint point)
 		//if (angleZ < 0)	angleZ = angleZ + 360;
 		if (angleZ >= 360) angleZ = angleZ - 360;
 		if (angleZ < 0)	angleZ = angleZ + 360;
+
 
 		if (angleY >= 360) angleY = angleY - 360;
 		if (angleY < 0)	angleY = angleY + 360;
