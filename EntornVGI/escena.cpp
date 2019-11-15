@@ -62,10 +62,10 @@ bool* CheckColisioMurPg(Mur m, Personatge p) {
 	else {
 		
 		// Collision x-axis?
-		bool collisionX = m.m_x + (MUR_Y / 2) >= p.m_x - (PG_X / 2) &&
+		bool collisionX = m.m_x + (MUR_Y / 2) >= p.m_x - (PG_X / 2)&&
 			p.m_x + (PG_X / 2) >= m.m_x - (MUR_Y / 2);
 		// Collision y-axis?
-		bool collisionY = m.m_y + (MUR_X / 2) >= p.m_y - (PG_Y / 2) &&
+		bool collisionY = m.m_y + (MUR_X / 2) >= p.m_y - (PG_Y / 2)&&
 			p.m_y + (PG_Y / 2) >= m.m_y - (MUR_X / 2);
 		// Collision only if on both axes
 		//return collisionX && collisionY;
@@ -389,7 +389,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		//glDisable(GL_TEXTURE_2D);
 
 
-		pg.pinta();
+		//pg.pinta();
 		DoCollisions(llista, pg);
 		break;
 	}

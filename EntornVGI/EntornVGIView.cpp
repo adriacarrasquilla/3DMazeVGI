@@ -1758,7 +1758,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		personatge.m_y = opvN.y;
 		
 
-		//Es necessari un personatge auxiliar? Creiem que no ho sa
+		//Es necessari un personatge auxiliar? Creiem que no ho sabem
 
 		/*
 		//if (!personatge.colisions[2]) {} //0 dreta 1 esquerra 2 amunt 3 avall
@@ -1789,30 +1789,61 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 
 		// Tecla cursor avall
 	case 83:
-		//if (!personatge.colisions[3]) { //0 dreta 1 esquerra 2 amunt 3 avall
-		if (!personatge.m_colisio) {
-			opvN.x -= nRepCnt * fact_pan * vdir[0] / 2;
-			opvN.y -= nRepCnt * fact_pan * vdir[1] / 2;
-			n[0] -= nRepCnt * fact_pan * vdir[0] / 2;
-			n[1] -= nRepCnt * fact_pan * vdir[1] / 2;
-			cel[0] -= nRepCnt * fact_pan * vdir[0] / 2;
-			cel[1] -= nRepCnt * fact_pan * vdir[1] / 2;
+		personatge.m_x -= nRepCnt * fact_pan * vdir[0] / 2;
+		personatge.m_y -= nRepCnt * fact_pan * vdir[1] / 2;
+		DoCollisions(llista_murs, personatge);
+
+		if (personatge.m_colisioX) {
+			if (!personatge.m_colisioY) {
+				opvN.y = personatge.m_y;
+				n[1] -= nRepCnt * fact_pan * vdir[1] / 2;
+				cel[1] = personatge.m_y;
+			}
 		}
 		else {
-			opvN.x = personatge.m_x_ant;
-			opvN.y = personatge.m_y_ant;
-			cel[0] = personatge.m_x_ant;
-			cel[1] = personatge.m_y_ant;
+			if (!personatge.m_colisioY) {
+				opvN.y = personatge.m_y;
+				n[1] -= nRepCnt * fact_pan * vdir[1] / 2;
+				cel[1] = personatge.m_y;
+			}
+			opvN.x = personatge.m_x;
+			n[0] -= nRepCnt * fact_pan * vdir[0] / 2;
+			cel[0] = personatge.m_x;
 		}
-		personatge.m_x_ant = personatge.m_x;
-		personatge.m_y_ant = personatge.m_y;
+		//personatge.m_x_ant = personatge.m_x;
+		//personatge.m_y_ant = personatge.m_y;
 		personatge.m_x = opvN.x;
 		personatge.m_y = opvN.y;
-
 		break;
 
 		// Tecla cursor esquerra
 	case 65:
+		personatge.m_x -= nRepCnt * fact_pan * vdirpan[0] / 2;
+		personatge.m_y -= nRepCnt * fact_pan * vdirpan[1] / 2;
+		DoCollisions(llista_murs, personatge);
+
+		if (personatge.m_colisioX) {
+			if (!personatge.m_colisioY) {
+				opvN.y = personatge.m_y;
+				n[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
+				cel[1] = personatge.m_y;
+			}
+		}
+		else {
+			if (!personatge.m_colisioY) {
+				opvN.y = personatge.m_y;
+				n[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
+				cel[1] = personatge.m_y;
+			}
+			opvN.x = personatge.m_x;
+			n[0] -= nRepCnt * fact_pan * vdirpan[0] / 2;
+			cel[0] = personatge.m_x;
+		}
+		//personatge.m_x_ant = personatge.m_x;
+		//personatge.m_y_ant = personatge.m_y;
+		personatge.m_x = opvN.x;
+		personatge.m_y = opvN.y;
+		/*
 		//if (!personatge.colisions[1]) { //0 dreta 1 esquerra 2 amunt 3 avall
 		if (!personatge.m_colisio) {
 			opvN.x -= nRepCnt * fact_pan * vdirpan[0] / 2;
@@ -1832,12 +1863,37 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		personatge.m_y_ant = personatge.m_y;
 		personatge.m_x = opvN.x;
 		personatge.m_y = opvN.y;
-
+		*/
 		break;
 
 		// Tecla cursor dret
 	case 68:
+		personatge.m_x += nRepCnt * fact_pan * vdirpan[0] / 2;
+		personatge.m_y += nRepCnt * fact_pan * vdirpan[1] / 2;
+		DoCollisions(llista_murs, personatge);
 
+		if (personatge.m_colisioX) {
+			if (!personatge.m_colisioY) {
+				opvN.y = personatge.m_y;
+				n[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
+				cel[1] = personatge.m_y;
+			}
+		}
+		else {
+			if (!personatge.m_colisioY) {
+				opvN.y = personatge.m_y;
+				n[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
+				cel[1] = personatge.m_y;
+			}
+			opvN.x = personatge.m_x;
+			n[0] += nRepCnt * fact_pan * vdirpan[0] / 2;
+			cel[0] = personatge.m_x;
+		}
+		//personatge.m_x_ant = personatge.m_x;
+		//personatge.m_y_ant = personatge.m_y;
+		personatge.m_x = opvN.x;
+		personatge.m_y = opvN.y;
+		/*
 		//if (!personatge.colisions[0]) { //0 dreta 1 esquerra 2 amunt 3 avall
 		if (!personatge.m_colisio) {
 			opvN.x += nRepCnt * fact_pan * vdirpan[0] / 2;
@@ -1857,6 +1913,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		personatge.m_y_ant = personatge.m_y;
 		personatge.m_x = opvN.x;
 		personatge.m_y = opvN.y;
+		*/
 		break;
 
 		// Tecla Inicio
