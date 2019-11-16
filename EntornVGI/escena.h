@@ -11,9 +11,13 @@
 #include <vector>
 
 
+
 /* ------------------------------------------------------------------------- */
 /*                            Funcions de les escenes                        */
 /* ------------------------------------------------------------------------- */
+//Crear ombres:
+void ConfigureShaderAndMatrices();
+
 // Entorn VGI: dibuixa_EscenaGL -> Dibuix de l'escena GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
 	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[]);

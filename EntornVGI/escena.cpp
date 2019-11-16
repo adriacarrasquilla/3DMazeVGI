@@ -16,10 +16,24 @@
 #include "visualitzacio.h"
 #include "escena.h"
 #include <irrklang/irrKlang.h>
+#include <glm/glm/glm.hpp>
+#include <gl/glew.h>
+#include <glm/glm/gtc/matrix_transform.hpp>
+#include <glm/glm/gtc/type_ptr.hpp>
 
+//Variables per a so ambient.
 irrklang::ISoundEngine* SoundEngine = irrklang::createIrrKlangDevice();
 bool i = true;
 
+//Variables per a creació d'ombres
+void ConfigureShaderAndMatrices() {
+	float near_plane = 1.0f, far_plane = 7.5f;
+	glm::mat4 lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);
+	glm::mat4 lightView = glm::lookAt(glm::vec3(-2.0f, 4.0f, -1.0f),
+		glm::vec3(0.0f, 0.0f, 0.0f),
+		glm::vec3(0.0f, 1.0f, 0.0f));
+	glm::mat4 lightSpaceMatrix = lightProjection * lightView;
+}
 
 // Variables de color i reflexi� de materials pels objectes d'escena
 CColor color_objecte;
@@ -387,6 +401,10 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		
 		skybox(texturID, cel);
 		//glDisable(GL_TEXTURE_2D);
+
+
+		//Ombres. Nota: renderitzar textures ABANS de generar ombres.
+		
 
 
 		//pg.pinta();
