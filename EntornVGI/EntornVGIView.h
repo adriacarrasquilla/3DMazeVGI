@@ -33,6 +33,8 @@
 //Entrem fitxer classes.h
 #include "Classes.h"
 
+#include "OBJLoader2.h"
+
 class CEntornVGIView : public CView
 {
 protected: // Crear s�lo a partir de serializaci�n
@@ -185,6 +187,9 @@ public:
 	int num_murs;
 	Personatge personatge;
 	float cel[3] = { 0, 0, 0 };
+	float movimentShrek[3] = { 0, 0, 0 };
+	bool movDir[3] = { false, false, false };
+	objl::Loader loader;
 	// Operaciones
 public:
 

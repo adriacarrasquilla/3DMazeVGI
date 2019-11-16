@@ -15,7 +15,10 @@
 #include "material.h"
 #include "visualitzacio.h"
 #include "escena.h"
+
 #include <irrklang/irrKlang.h>
+
+
 
 irrklang::ISoundEngine* SoundEngine = irrklang::createIrrKlangDevice();
 bool i = true;
@@ -62,10 +65,10 @@ bool* CheckColisioMurPg(Mur m, Personatge p) {
 	else {
 		
 		// Collision x-axis?
-		bool collisionX = m.m_x + (MUR_Y / 2) >= p.m_x - (PG_X / 2)&&
+		bool collisionX = m.m_x + (MUR_Y / 2) >= p.m_x - (PG_X / 2) &&
 			p.m_x + (PG_X / 2) >= m.m_x - (MUR_Y / 2);
 		// Collision y-axis?
-		bool collisionY = m.m_y + (MUR_X / 2) >= p.m_y - (PG_Y / 2)&&
+		bool collisionY = m.m_y + (MUR_X / 2) >= p.m_y - (PG_Y / 2) &&
 			p.m_y + (PG_Y / 2) >= m.m_y - (MUR_X / 2);
 		// Collision only if on both axes
 		//return collisionX && collisionY;
@@ -278,17 +281,72 @@ void skybox(int texturID[], float cel[]) {
 	glTranslatef(0.0f + cel[0], -750.0f + cel[1], 0.0f + cel[2]);
 	glScalef(1500.0f, 0.0f, 1500.0f);
 	glutSolidCube(1.0);
-	glDisable(GL_TEXTURE_2D);
 	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
 
 	
 
+}
 
+
+void movimentShrek(float moviment[], bool movDir[])
+{
+	if (movDir[0] == true)
+	{
+		moviment[0] += 2;
+		if (moviment[0] > 150)
+		{
+			movDir[0] = false;
+		}
+	}
+	else
+	{
+		moviment[0] -= 5;
+		if (moviment[0] < 0)
+		{
+			movDir[0] = true;
+		}
+	}
+	
+
+}
+
+void shrek(objl::Loader loader, float moviment[], bool movDir[], int texturID[])
+{
+	
+	glPushMatrix();
+	  
+	  movimentShrek(moviment, movDir);
+
+	  glTranslatef(1.0f + moviment[0], -20.0f + moviment[1], 2.0f + moviment[2]);
+	  glRotatef(90, 1, 0, 0);
+	  glScalef(8.0f, 8.0f, 8.0f);
+
+	  glColor3f(0.345f, 0.608f, 0.0f);
+
+	  //textura 16 shrek, 17 shrekShirt
+
+	  glEnable(GL_TEXTURE_2D);
+
+	  glBindTexture(GL_TEXTURE_2D, texturID[16]);
+	  //glBindTexture(GL_TEXTURE_2D, texturID[17]);
+	  
+
+	  glBegin(GL_TRIANGLES);
+	  for (int i = 0; i < loader.LoadedVertices.size(); i++)
+	  {
+		  glTexCoord2f(loader.LoadedVertices[i].TextureCoordinate.X, loader.LoadedVertices[i].TextureCoordinate.Y); glVertex3f(loader.LoadedVertices[i].Position.X, loader.LoadedVertices[i].Position.Y, loader.LoadedVertices[i].Position.Z);
+	  }
+	  glEnd();
+
+	  glDisable(GL_TEXTURE_2D);
+	glPopMatrix();
+	
 }
 
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
-	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[])
+	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader, float movimentShrek[], bool movDir[])
 {
 	float altfar = 0;
 
@@ -311,6 +369,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			SoundEngine->play2D("audio/minecraft_lofi.mp3", GL_TRUE);
 			i = false;
 		}
+		
 
 		glClearColor(0.5294f, 0.8078f, 0.9216f, 0.71f);
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -377,19 +436,28 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
 		glEnable(GL_TEXTURE_2D);
+
+
 		//glColor3f(0.25, 0.65, 0.25);
 		glPushMatrix();
 		glTranslatef(50.0f, 50.0f, -5.0f);
 		glScalef(250.0f, 250.0f, 10.0f);
 		glutSolidCube(1.0);
 		glPopMatrix();
+
+		glDisable(GL_TEXTURE_GEN_S);
+		glDisable(GL_TEXTURE_GEN_T);
+
 		
 		
 		skybox(texturID, cel);
-		//glDisable(GL_TEXTURE_2D);
+		
+
+		shrek(loader, movimentShrek, movDir, texturID);
+		
 
 
-		//pg.pinta();
+		pg.pinta();
 		DoCollisions(llista, pg);
 		break;
 	}
@@ -512,7 +580,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		glutSolidCube(1.0);
 		glPopMatrix();
 
-
+		glDisable(GL_TEXTURE_2D);
 		/*
 
 		glDisable(GL_TEXTURE_2D);

@@ -345,7 +345,7 @@ CEntornVGIView::CEntornVGIView()
 	llumGL[7].cutoff = 0.0;				llumGL[7].exponent = 0.0;
 
 	// Entorn VGI: Variables de control del men� Shaders
-	sw_shader = false;				shader_menu = CAP;				shader_program = 0;
+	sw_shader = GOURAUD;				shader_menu = GOURAUD;				shader_program = 0;
 
 	// Entorn VGI: Variables de control dels botons de mouse
 	m_PosEAvall = (0, 0);		m_PosDAvall = (0, 0);
@@ -948,7 +948,7 @@ void CEntornVGIView::dibuixa_Escena() {
 
 		*/
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
-		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel);
+		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -1758,7 +1758,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		personatge.m_y = opvN.y;
 		
 
-		//Es necessari un personatge auxiliar? Creiem que no ho sabem
+		//Es necessari un personatge auxiliar? Creiem que no ho sa
 
 		/*
 		//if (!personatge.colisions[2]) {} //0 dreta 1 esquerra 2 amunt 3 avall
@@ -1814,6 +1814,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		//personatge.m_y_ant = personatge.m_y;
 		personatge.m_x = opvN.x;
 		personatge.m_y = opvN.y;
+
 		break;
 
 		// Tecla cursor esquerra
@@ -3583,6 +3584,7 @@ void CEntornVGIView::OnObjecteCubRGB()
 
 	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
 
+	//Textures skybox
 	texturesID[9] = loadIMA_ILUT("./textures/tex1_64x64_c05e3c09362f364a_14.png");
 	texturesID[8] = loadIMA_ILUT("./textures/tex1_128x128_0e437d36eaf137df_14.png");
 	texturesID[7] = loadIMA_ILUT("./textures/sky-hd-wallpaper-9.jpg");
@@ -3592,6 +3594,13 @@ void CEntornVGIView::OnObjecteCubRGB()
 	texturesID[13] = loadIMA_ILUT("./textures/skybox/bottom.png");
 	texturesID[14] = loadIMA_ILUT("./textures/skybox/front.png");
 	texturesID[15] = loadIMA_ILUT("./textures/skybox/back.png");
+
+	//shrek
+	texturesID[16] = loadIMA_ILUT("./textures/shrek/Shrek.png");
+	texturesID[17] = loadIMA_ILUT("./textures/shrek/shrekshirt.png");
+	
+	loader.LoadFile("./objects/shrek/CHARACTER_Shrek.obj");
+
 	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
 	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
 	//	Canviar l'escala per a centrar la vista (Ortogr�fica)
