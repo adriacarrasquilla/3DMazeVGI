@@ -69,6 +69,7 @@
       <AdditionalLibraryDirectories>../lib;</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32s.lib;devil.lib;ilu.lib;ilut.lib;soil.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>msvcrt.lib;libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalOptions>/FORCE:MULTIPLE %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>

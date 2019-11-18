@@ -297,6 +297,7 @@ void movimentShrek(float moviment[], bool movDir[])
 		if (moviment[0] > 150)
 		{
 			movDir[0] = false;
+			glRotatef(90, 0, 0, 1);
 		}
 	}
 	else
@@ -305,6 +306,7 @@ void movimentShrek(float moviment[], bool movDir[])
 		if (moviment[0] < 0)
 		{
 			movDir[0] = true;
+			glRotatef(90, 0, 0, 1);
 		}
 	}
 	
@@ -315,31 +317,58 @@ void shrek(objl::Loader loader, float moviment[], bool movDir[], int texturID[])
 {
 	
 	glPushMatrix();
-	  
-	  movimentShrek(moviment, movDir);
 
+	  movimentShrek(moviment, movDir);
+	  //afegir movRotacio
 	  glTranslatef(1.0f + moviment[0], -20.0f + moviment[1], 2.0f + moviment[2]);
+	  	  
 	  glRotatef(90, 1, 0, 0);
 	  glScalef(8.0f, 8.0f, 8.0f);
 
-	  glColor3f(0.345f, 0.608f, 0.0f);
+	  //glColor3f(0.345f, 0.608f, 0.0f);
 
 	  //textura 16 shrek, 17 shrekShirt
 
 	  glEnable(GL_TEXTURE_2D);
 
 	  glBindTexture(GL_TEXTURE_2D, texturID[16]);
-	  //glBindTexture(GL_TEXTURE_2D, texturID[17]);
+	  
 	  
 
 	  glBegin(GL_TRIANGLES);
-	  for (int i = 0; i < loader.LoadedVertices.size(); i++)
+	  for (int i = 0; i < loader.LoadedMeshes[0].Vertices.size(); i++)
 	  {
-		  glTexCoord2f(loader.LoadedVertices[i].TextureCoordinate.X, loader.LoadedVertices[i].TextureCoordinate.Y); glVertex3f(loader.LoadedVertices[i].Position.X, loader.LoadedVertices[i].Position.Y, loader.LoadedVertices[i].Position.Z);
+		  glTexCoord2f(loader.LoadedMeshes[0].Vertices[i].TextureCoordinate.X, loader.LoadedMeshes[0].Vertices[i].TextureCoordinate.Y); glVertex3f(loader.LoadedMeshes[0].Vertices[i].Position.X, loader.LoadedMeshes[0].Vertices[i].Position.Y, loader.LoadedMeshes[0].Vertices[i].Position.Z);
 	  }
 	  glEnd();
 
+	  glBindTexture(GL_TEXTURE_2D, texturID[17]);
+
+	  glBegin(GL_TRIANGLES);
+	  for (int i = 0; i < loader.LoadedMeshes[1].Vertices.size(); i++)
+	  {
+		  glTexCoord2f(loader.LoadedMeshes[1].Vertices[i].TextureCoordinate.X, loader.LoadedMeshes[1].Vertices[i].TextureCoordinate.Y); glVertex3f(loader.LoadedMeshes[1].Vertices[i].Position.X, loader.LoadedMeshes[1].Vertices[i].Position.Y, loader.LoadedMeshes[1].Vertices[i].Position.Z);
+	  }
+	  glEnd();
+
+
 	  glDisable(GL_TEXTURE_2D);
+	  /*
+	  glPushMatrix();
+	glLoadIdentity();
+	glTranslatef(-5.0f, 5.0f, 0.0f );
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_BLEND);
+	glColor4f(.23, .78, .32, 0.1);
+	glutSolidCube(10.0f);
+	
+	  
+	  */
+	
+	
+
+	
+
 	glPopMatrix();
 	
 }
@@ -438,11 +467,10 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		glEnable(GL_TEXTURE_2D);
 
 
-		//glColor3f(0.25, 0.65, 0.25);
 		glPushMatrix();
-		glTranslatef(50.0f, 50.0f, -5.0f);
-		glScalef(250.0f, 250.0f, 10.0f);
-		glutSolidCube(1.0);
+		  glTranslatef(50.0f, 50.0f, -5.0f);
+		  glScalef(250.0f, 250.0f, 10.0f);
+		  glutSolidCube(1.0);
 		glPopMatrix();
 
 		glDisable(GL_TEXTURE_GEN_S);
@@ -452,12 +480,8 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		
 		skybox(texturID, cel);
 		
-
 		shrek(loader, movimentShrek, movDir, texturID);
-		
 
-
-		pg.pinta();
 		DoCollisions(llista, pg);
 		break;
 	}
