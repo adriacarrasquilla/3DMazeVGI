@@ -871,6 +871,7 @@ void CEntornVGIView::OnPaint()
 
 	case PERSPECT:
 		// PROJECCI� PERSPECTIVA
+		SetTimer(WM_TIMER, 10, NULL);
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST); // Set Perspective Calculations To Most Accurate
 		glDisable(GL_SCISSOR_TEST);		// Desactivaci� del retall de pantalla
 
@@ -948,7 +949,7 @@ void CEntornVGIView::dibuixa_Escena() {
 
 		*/
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
-		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir);
+		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, eventfinal);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -1690,6 +1691,7 @@ void CEntornVGIView::Teclat_ColorFons(UINT nChar, UINT nRepCnt)
 // Teclat_Navega: Teclat pels moviments de navegaci�.
 void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 {
+	
 	GLfloat vdir[3] = { 0, 0, 0 };
 	GLfloat upv[3] = { opvN.x, opvN.y, opvN.z };
 	GLfloat vdirpan[3] = { 0, 0, 0 };
@@ -1708,21 +1710,11 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	vdir[1] = vdir[1] / modul;
 	vdir[2] = vdir[2] / modul;
 
-	if (salta) {
-		if (salt < 30) {
-			n[2] -= .1;
-			opvN.z -= .1;
-		}
-		else {
-			n[2] += .1;
-			opvN.z += .1;
-		}
-		salt--;
-		if (salt < 0) {
-			salta = false;
-			salt = 60;
-		}
-
+	if (eventfinal.m_colisio) {
+		personatge.m_x = -3.0;
+		personatge.m_y = 12.0;
+		opvN.x = -3.0;	opvN.y = 12.0;		opvN.z = 5.0;
+		n[0] = 0.0;		n[1] = 0.0;			n[2] = 5.0;
 	}
 
 
@@ -1733,7 +1725,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		
 		personatge.m_x += nRepCnt * fact_pan * vdir[0] / 2;
 		personatge.m_y += nRepCnt * fact_pan * vdir[1] / 2;
-		DoCollisions(llista_murs, personatge);
+		DoCollisions(llista_murs, personatge, eventfinal);
 		
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -1791,7 +1783,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	case 83:
 		personatge.m_x -= nRepCnt * fact_pan * vdir[0] / 2;
 		personatge.m_y -= nRepCnt * fact_pan * vdir[1] / 2;
-		DoCollisions(llista_murs, personatge);
+		DoCollisions(llista_murs, personatge, eventfinal);
 
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -1821,7 +1813,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	case 65:
 		personatge.m_x -= nRepCnt * fact_pan * vdirpan[0] / 2;
 		personatge.m_y -= nRepCnt * fact_pan * vdirpan[1] / 2;
-		DoCollisions(llista_murs, personatge);
+		DoCollisions(llista_murs, personatge, eventfinal);
 
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -1871,7 +1863,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	case 68:
 		personatge.m_x += nRepCnt * fact_pan * vdirpan[0] / 2;
 		personatge.m_y += nRepCnt * fact_pan * vdirpan[1] / 2;
-		DoCollisions(llista_murs, personatge);
+		DoCollisions(llista_murs, personatge, eventfinal);
 
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -2450,8 +2442,8 @@ void CEntornVGIView::OnLButtonUp(UINT nFlags, CPoint point)
 			if ((m_EsfeIncEAvall.beta) > 0.0) m_EsfeIncEAvall.beta = 0.01;
 			else m_EsfeIncEAvall.beta = 0.01;
 		}
-		if ((m_EsfeIncEAvall.R == 0.0) && (m_EsfeIncEAvall.alfa == 0.0) && (m_EsfeIncEAvall.beta == 0.0)) KillTimer(WM_TIMER);
-		else SetTimer(WM_TIMER, 10, NULL);
+		//if ((m_EsfeIncEAvall.R == 0.0) && (m_EsfeIncEAvall.alfa == 0.0) && (m_EsfeIncEAvall.beta == 0.0)) KillTimer(WM_TIMER);
+		//else SetTimer(WM_TIMER, 10, NULL);
 	}
 
 	CView::OnLButtonUp(nFlags, point);
@@ -2820,6 +2812,26 @@ BOOL CEntornVGIView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 {
 	// TODO: Agregue aqu� su c�digo de controlador de mensajes o llame al valor predeterminado
+	if (salta) {
+		if (salt < 30) {
+			n[2] -= .1;
+			opvN.z -= .1;
+		}
+		else {
+			n[2] += .1;
+			opvN.z += .1;
+		}
+		salt--;
+		if (salt < 0) {
+			salta = false;
+			salt = 60;
+		}
+	}
+	
+
+
+
+
 	if (anima) {
 		// Codi de tractament de l'animaci� quan transcorren els ms. del crono.
 
@@ -2836,6 +2848,9 @@ void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 		// Crida a OnPaint() per redibuixar l'escena
 		InvalidateRect(NULL, false);
 	}
+	
+	InvalidateRect(NULL, false);
+	dibuixa_Escena();
 
 	CView::OnTimer(nIDEvent);
 }
@@ -3091,7 +3106,7 @@ void CEntornVGIView::OnVistaSatelit()
 	if (projeccio != CAP || projeccio != ORTO) satelit = !satelit;
 	if (satelit) mobil = true;
 	bool testA = anima;									// Testejar si hi ha alguna animaci� activa apart de Sat�lit.
-	if ((!satelit) && (!testA)) KillTimer(WM_TIMER);	// Si es desactiva Sat�lit i no hi ha cap animaci� activa es desactiva el Timer.
+	//if ((!satelit) && (!testA)) //KillTimer(WM_TIMER);	// Si es desactiva Sat�lit i no hi ha cap animaci� activa es desactiva el Timer.
 
 // Crida a OnPaint() per redibuixar l'escena
 	InvalidateRect(NULL, false);
@@ -3346,7 +3361,7 @@ void CEntornVGIView::OnUpdateVistaGridXYZ(CCmdUI* pCmdUI)
 /* ------------------------------------------------------------------------- */
 
 
-std::vector<Mur> initMurs() { //propera implementació: passar per paràmetres el nombre de murs i la matriu rotllo suarez 
+std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar per paràmetres el nombre de murs i la matriu rotllo suarez 
 	//de moment, inicialització "manual"
 	std::vector<Mur> llista;
 	/*
@@ -3496,6 +3511,9 @@ std::vector<Mur> initMurs() { //propera implementació: passar per paràmetres e
 				else {
 					if (matriuLaberint[j][i] == -2)
 					{
+						Event final(j * 4 * x + x + 2 * x, i * 4 * x + 2 * x, h);
+						eventfinal = final;
+						//llista.push_back(Mur(j * 4 * x + x +2*x, i * 4 * x+2*x, h, HOR));
 						llista.push_back(Mur(j * 4 * x + x, i * 4 * x, h, VER));
 					}
 				}

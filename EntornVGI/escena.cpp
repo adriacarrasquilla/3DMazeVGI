@@ -93,9 +93,17 @@ bool* CheckColisioMurPg(Mur m, Personatge p) {
 	return colXY;
 }
 
+bool CheckColisioEvent(Event e, Personatge p) {
+	bool collisionX = e.m_x + (E_X / 2) >= p.m_x - (PG_X / 2) &&
+		p.m_x + (PG_X / 2) >= e.m_x - (E_X / 2);
+	// Collision y-axis?
+	bool collisionY = e.m_y + (E_Y / 2) >= p.m_y - (PG_Y / 2) &&
+		p.m_y + (PG_Y / 2) >= e.m_y - (E_Y / 2);
 
+	return collisionX && collisionY;
+}
 
-void DoCollisions(std::vector<Mur> llista, Personatge& pg)
+void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e)
 {
 	pg.m_colisioX = false;
 	pg.m_colisioY = false;
@@ -145,6 +153,12 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg)
 		pg.m_color = 2;
 	else
 		pg.m_color = 0;
+
+	if (CheckColisioEvent(e, pg)) {
+		e.m_colisio = true;
+	}
+	else
+		e.m_colisio = false;
 	
 }
 
@@ -293,7 +307,7 @@ void movimentShrek(float moviment[], bool movDir[])
 {
 	if (movDir[0] == true)
 	{
-		moviment[0] += 2;
+		moviment[0] += 0.1;
 		if (moviment[0] > 150)
 		{
 			movDir[0] = false;
@@ -302,15 +316,13 @@ void movimentShrek(float moviment[], bool movDir[])
 	}
 	else
 	{
-		moviment[0] -= 5;
+		moviment[0] -= 0.1;
 		if (moviment[0] < 0)
 		{
 			movDir[0] = true;
 			glRotatef(90, 0, 0, 1);
 		}
 	}
-	
-
 }
 
 void shrek(objl::Loader loader, float moviment[], bool movDir[], int texturID[])
@@ -375,7 +387,7 @@ void shrek(objl::Loader loader, float moviment[], bool movDir[], int texturID[])
 
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
-	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader, float movimentShrek[], bool movDir[])
+	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader, float movimentShrek[], bool movDir[], Event& eventfinal)
 {
 	float altfar = 0;
 
@@ -482,7 +494,10 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		
 		shrek(loader, movimentShrek, movDir, texturID);
 
-		DoCollisions(llista, pg);
+		eventfinal.pinta();
+
+		//pg.pinta();
+		DoCollisions(llista, pg, eventfinal);
 		break;
 	}
 

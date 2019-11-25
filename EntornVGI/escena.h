@@ -17,7 +17,7 @@
 /* ------------------------------------------------------------------------- */
 // Entorn VGI: dibuixa_EscenaGL -> Dibuix de l'escena GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
-	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader, float movimentShrek[], bool movDir[]);
+	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader, float movimentShrek[], bool movDir[], Event& eventfinal);
 
 // Entorn VGI: dibuixa -> Funci� que dibuixa objectes simples de la llibreria GLUT segons obj
 void dibuixa(char obj);
@@ -39,5 +39,9 @@ void Cabina();
 
 //Funcions per detectar colisions
 bool* CheckColisioMurPg(Mur m, Personatge p);
-void DoCollisions(std::vector<Mur> llista, Personatge& pg);
+void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e);
+
+//funcions shrek
+void shrek(objl::Loader loader, float moviment[], bool movDir[], int texturID[]);
+void movimentShrek(float moviment[], bool movDir[]);
 #endif

@@ -114,7 +114,7 @@ public:
 	}
 };
 
-std::vector<Mur> initMurs(); /*{ //propera implementaci�: passar per par�metres el nombre de murs i la matriu rotllo suarez
+/*std::vector<Mur> initMurs(); /*{ //propera implementaci�: passar per par�metres el nombre de murs i la matriu rotllo suarez
 	//de moment, inicialitzaci� "manual"
 
 	Mur * llista = new Mur[6];
@@ -135,3 +135,45 @@ std::vector<Mur> initMurs(); /*{ //propera implementaci�: passar per par�met
 	return llista;
 }*/
 
+class Event {
+public:
+	float m_x;
+	float m_y;
+	float m_z;
+	bool m_colisio;
+
+	bool m_colisioX;
+	bool m_colisioY;
+
+	float m_x_ant;
+	float m_y_ant;
+	Event() {
+		m_x = m_y = m_z = m_x_ant = m_y_ant = 0.0;
+		m_colisio = false;
+		m_colisioX = false;
+		m_colisioY = false;
+	}
+
+	Event(float x, float y, float z) { //Aquestes coordenades corresponen al centre de l'objecte, per com funciona OpenGL. Per accedir als boundaries, hi ha constants amb la mida del mur
+		m_x_ant = m_x = x;
+		m_y_ant = m_y = y;
+		m_z = z;
+
+		m_colisio = false;
+		m_colisioX = false;
+		m_colisioY = false;
+	}
+
+	void pinta() {
+
+		glColor3f(1.0, 1.0, 1.0);
+		glPushMatrix();
+		glTranslatef(m_x, m_y, m_z);
+		glScalef(E_X, E_Y, E_Z);
+		glutSolidCube(1.0);
+		glPopMatrix();
+		//glColor4f(1, 1, 1, 1);
+	}
+
+	
+};

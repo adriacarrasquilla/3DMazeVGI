@@ -127,6 +127,10 @@ const double PID2 = pi / 2;
 #define PG_Y 5.5
 #define PG_Z 5
 
+#define E_X 20.0
+#define E_Y 20.0
+#define E_Z 15.0
+
 
 
 

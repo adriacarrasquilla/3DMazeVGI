@@ -190,8 +190,10 @@ public:
 	float movimentShrek[3] = { 0, 0, 0 };
 	bool movDir[3] = { false, false, false };
 	objl::Loader loader;
+	Event eventfinal;
 	// Operaciones
 public:
+	std::vector<Mur> initMurs();
 
 	// Reemplazos
 public:
