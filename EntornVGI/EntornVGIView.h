@@ -189,6 +189,7 @@ public:
 	float cel[3] = { 0, 0, 0 };
 	float movimentShrek[3] = { 0, 0, 0 };
 	bool movDir[3] = { false, false, false };
+	float rotacioShrek[3] = { 0, 0, 0 };
 	objl::Loader loader;
 	Event eventfinal;
 	// Operaciones

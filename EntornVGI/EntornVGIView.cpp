@@ -948,8 +948,9 @@ void CEntornVGIView::dibuixa_Escena() {
 		sw_Punts_Control, prova_moviment, llista_murs, personatge);
 
 		*/
+	bool animacioMurQueCauInici = false;
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
-		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, eventfinal);
+		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, animacioMurQueCauInici, eventfinal);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,

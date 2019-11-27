@@ -19,6 +19,15 @@
 #include <irrklang/irrKlang.h>
 #include <time.h>
 
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+		   /*VARIABLE GLOBAL PER ANIMACIO DE MUR QUE BAIXA*/
+bool ActivacioIniciEnCursOJaRealitzada = false;
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 //SO
 irrklang::ISoundEngine* SoundEngine = irrklang::createIrrKlangDevice();
 bool i = true;
@@ -313,60 +322,81 @@ void skybox(int texturID[], float cel[]) {
 	glDisable(GL_TEXTURE_2D);
 
 	
+}
+
+//Metode que corrobora si s'ha de crear un mur animació de caiguda o no fa falta
+bool activavioDeMurCaiguda(Mur& murCaiguda, std::vector<Mur>& llista, bool& ActivacioIniciEnCursOJaRealitzada)
+{
+
+	float x = 5.0f; //Coordenada
+	float h = 7.5f; //Altura
+
+	if (!ActivacioIniciEnCursOJaRealitzada)
+	{
+		murCaiguda.setMur(-x - x / 2, x * 2, h * 5.0f, HOR, 3 * x);
+		llista.push_back(murCaiguda);
+		//murCaiguda.pinta();
+		ActivacioIniciEnCursOJaRealitzada = true;
+	}
+
+	return ActivacioIniciEnCursOJaRealitzada;
+
 
 }
 
 
-void movimentShrek(float moviment[], bool movDir[])
+void movimentShrek(float moviment[], bool movDir[], float rotShrek[])
 {
 	if (movDir[0] == true)
 	{
-		moviment[0] += 0.1;
+		moviment[0] += 0.5;
 		if (moviment[0] > 150)
 		{
 			movDir[0] = false;
-			glRotatef(90, 0, 0, 1);
+			rotShrek[1] = -1;
 		}
 	}
 	else
 	{
-		moviment[0] -= 0.1;
+		moviment[0] -= 0.5;
 		if (moviment[0] < 0)
 		{
 			movDir[0] = true;
-			glRotatef(90, 0, 0, 1);
+			rotShrek[1] = 1;
 		}
 	}
 }
 
-void shrek(objl::Loader loader, float moviment[], bool movDir[], int texturID[])
+void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[])
 {
 	
 	glPushMatrix();
 
-	  movimentShrek(moviment, movDir);
-	  //afegir movRotacio
+	  movimentShrek(moviment, movDir, rotShrek);
+
+	  //Translació inicial + moviment
 	  glTranslatef(1.0f + moviment[0], -20.0f + moviment[1], 2.0f + moviment[2]);
-	  	  
+	  	 
+	  //Rotació inicial
 	  glRotatef(90, 1, 0, 0);
+	  //Rotació depenent moviment
+	  glRotatef(90, 0 + rotShrek[0], 0 + rotShrek[1], 0 + rotShrek[2]);
 	  glScalef(8.0f, 8.0f, 8.0f);
 
-	  //glColor3f(0.345f, 0.608f, 0.0f);
-
+	  
 	  //textura 16 shrek, 17 shrekShirt
-
 	  glEnable(GL_TEXTURE_2D);
+
 
 	  glBindTexture(GL_TEXTURE_2D, texturID[16]);
 	  
-	  
-
 	  glBegin(GL_TRIANGLES);
 	  for (int i = 0; i < loader.LoadedMeshes[0].Vertices.size(); i++)
 	  {
 		  glTexCoord2f(loader.LoadedMeshes[0].Vertices[i].TextureCoordinate.X, loader.LoadedMeshes[0].Vertices[i].TextureCoordinate.Y); glVertex3f(loader.LoadedMeshes[0].Vertices[i].Position.X, loader.LoadedMeshes[0].Vertices[i].Position.Y, loader.LoadedMeshes[0].Vertices[i].Position.Z);
 	  }
 	  glEnd();
+
 
 	  glBindTexture(GL_TEXTURE_2D, texturID[17]);
 
@@ -379,20 +409,6 @@ void shrek(objl::Loader loader, float moviment[], bool movDir[], int texturID[])
 
 
 	  glDisable(GL_TEXTURE_2D);
-	  /*
-	  glPushMatrix();
-	glLoadIdentity();
-	glTranslatef(-5.0f, 5.0f, 0.0f );
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glEnable(GL_BLEND);
-	glColor4f(.23, .78, .32, 0.1);
-	glutSolidCube(10.0f);
-	
-	  
-	  */
-	
-	
-
 	
 
 	glPopMatrix();
@@ -401,7 +417,7 @@ void shrek(objl::Loader loader, float moviment[], bool movDir[], int texturID[])
 
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
-	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader, float movimentShrek[], bool movDir[], Event& eventfinal)
+	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader, float movimentShrek[], bool movDir[], float rotShrek[], bool& animacioMurQueCauInici,  Event& eventfinal)
 {
 	float altfar = 0;
 
@@ -460,6 +476,16 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
+		//Animació mur caiguda
+		Mur murCaiguda;
+		ActivacioIniciEnCursOJaRealitzada = activavioDeMurCaiguda(murCaiguda, llista, ActivacioIniciEnCursOJaRealitzada);
+		//animacioMurQueCauInici = ActivacioIniciEnCursOJaRealitzada;
+		if (ActivacioIniciEnCursOJaRealitzada)
+		{
+			llista.back().animacioBaixada();
+
+		}
+
 
 
 		glEnable(GL_TEXTURE_2D);
@@ -506,13 +532,16 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		
 		skybox(texturID, cel);
 		
-		shrek(loader, movimentShrek, movDir, texturID);
+		shrek(loader, movimentShrek, movDir, rotShrek, texturID);
 
 		eventfinal.pinta();
 
 		//pg.pinta();
 		DoCollisions(llista, pg, eventfinal);
-		
+
+
+
+		//Tena cabro fesho en una funcio que aixo cada vegada s'allarga més
 		temps = float(clock() - begin_time) / CLOCKS_PER_SEC;
 		std::string a = std::to_string(temps);
 		std::string yooo = "TEMPS: " + a + "\n";
