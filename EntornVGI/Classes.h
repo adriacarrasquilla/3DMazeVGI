@@ -10,15 +10,26 @@ public:
 	float m_y;
 	float m_z;
 	bool m_ori; //Boole� que emmagatzema la orientaci� del mur
+	float m_amplada; //Float que emagatzema la amblada del mur, vaiable que permet crear murs amb dimensions diferents
 	Mur() {
 		m_x = m_y = m_z = 0.0;
 		m_ori = 0;
+		m_amplada = MUR_X;
 	}
 	Mur(float x, float y, float z, bool o) { //Aquestes coordenades corresponen al centre de l'objecte, per com funciona OpenGL. Per accedir als boundaries, hi ha constants amb la mida del mur
 		m_x = x;
 		m_y = y;
 		m_z = z;
 		m_ori = o;
+		m_amplada = MUR_X;
+	}
+
+	void setMur(float x, float y, float z, bool o, float amplada) {
+		m_x = x;
+		m_y = y;
+		m_z = z;
+		m_ori = o;
+		m_amplada = amplada;
 	}
 
 	void pinta() {
@@ -38,6 +49,12 @@ public:
 			glutSolidCube(1.0);
 			glPopMatrix();
 		}
+	}
+	void animacioBaixada()
+	{
+		float x = 5.0f;
+		m_z = m_z - 1.0;
+
 	}
 };
 
