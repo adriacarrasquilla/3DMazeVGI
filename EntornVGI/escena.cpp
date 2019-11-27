@@ -15,12 +15,18 @@
 #include "material.h"
 #include "visualitzacio.h"
 #include "escena.h"
-
+#include <string>
 #include <irrklang/irrKlang.h>
+#include <time.h>
 
-void drawBitmapText(char* string, float x, float y, float z)
+//SO
+irrklang::ISoundEngine* SoundEngine = irrklang::createIrrKlangDevice();
+bool i = true;
+
+//TEXT ESCENA
+void drawBitmapText(const char* string, float x, float y, float z)
 {
-	char* c;
+	const char* c;
 	glRasterPos3f(x, y, z);
 
 	for (c = string; *c != '\n'; c++)
@@ -29,9 +35,8 @@ void drawBitmapText(char* string, float x, float y, float z)
 	}
 }
 
-irrklang::ISoundEngine* SoundEngine = irrklang::createIrrKlangDevice();
-bool i = true;
-
+float temps = 0.0;
+const clock_t begin_time = clock();
 
 // Variables de color i reflexi� de materials pels objectes d'escena
 CColor color_objecte;
@@ -508,9 +513,14 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		//pg.pinta();
 		DoCollisions(llista, pg, eventfinal);
 		
+		temps = float(clock() - begin_time) / CLOCKS_PER_SEC;
+		std::string a = std::to_string(temps);
+		std::string yooo = "TEMPS: " + a + "\n";
+		const char* cstr = yooo.c_str();
 		glLoadIdentity();
 
-		drawBitmapText("VIDES: CAP, PUTO PRINGAT\n", 0, 0, -2);
+		glColor3f(1.0f, 1.0f, 1.0f);
+		drawBitmapText(cstr, 1, 1, -2);
 
 		break;
 	}
