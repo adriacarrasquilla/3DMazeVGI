@@ -18,7 +18,16 @@
 
 #include <irrklang/irrKlang.h>
 
+void drawBitmapText(char* string, float x, float y, float z)
+{
+	char* c;
+	glRasterPos3f(x, y, z);
 
+	for (c = string; *c != '\n'; c++)
+	{
+		glutBitmapCharacter(GLUT_BITMAP_8_BY_13, *c);
+	}
+}
 
 irrklang::ISoundEngine* SoundEngine = irrklang::createIrrKlangDevice();
 bool i = true;
@@ -498,6 +507,11 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 		//pg.pinta();
 		DoCollisions(llista, pg, eventfinal);
+		
+		glLoadIdentity();
+
+		drawBitmapText("VIDES: CAP, PUTO PRINGAT\n", 0, 0, -2);
+
 		break;
 	}
 

@@ -1,11 +1,46 @@
 ﻿  escena.cpp
-C:\Users\miki_\source\repos\3DMazeVGI-master\EntornVGI\escena.cpp(31,7): warning C4101: 'colisions': variable local sin referencia
-C:\Users\miki_\source\repos\3DMazeVGI-master\EntornVGI\escena.cpp(64,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI-master\EntornVGI\escena.cpp(145,21): warning C4018: '<': no coinciden signed/unsigned
-     Creando biblioteca C:\Users\miki_\source\repos\3DMazeVGI-master\Debug\EntornVGI.lib y objeto C:\Users\miki_\source\repos\3DMazeVGI-master\Debug\EntornVGI.exp
-glew32s.lib(glew.obj) : warning LNK4099: no se encontr¾ PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI-master\Debug\vc120.pdb'; se vincularß el objeto sin tener en cuenta informaci¾n de depuraci¾n
-soil.lib(image_DXT.obj) : warning LNK4099: no se encontr¾ PDB 'vc120.pdb' con 'soil.lib(image_DXT.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI-master\Debug\vc120.pdb'; se vincularß el objeto sin tener en cuenta informaci¾n de depuraci¾n
-soil.lib(image_helper.obj) : warning LNK4099: no se encontr¾ PDB 'vc120.pdb' con 'soil.lib(image_helper.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI-master\Debug\vc120.pdb'; se vincularß el objeto sin tener en cuenta informaci¾n de depuraci¾n
-soil.lib(SOIL.obj) : warning LNK4099: no se encontr¾ PDB 'vc120.pdb' con 'soil.lib(SOIL.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI-master\Debug\vc120.pdb'; se vincularß el objeto sin tener en cuenta informaci¾n de depuraci¾n
-soil.lib(stb_image_aug.obj) : warning LNK4099: no se encontr¾ PDB 'vc120.pdb' con 'soil.lib(stb_image_aug.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI-master\Debug\vc120.pdb'; se vincularß el objeto sin tener en cuenta informaci¾n de depuraci¾n
-  EntornVGI.vcxproj -> C:\Users\miki_\source\repos\3DMazeVGI-master\Debug\EntornVGI.exe
+  glut_geometry.cpp
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(151,20): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(360,22): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(369,22): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(461,21): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(102): warning C4172:  devolución de dirección de la variable local o temporal: colXY
+LINK : warning LNK4075: se omite '/INCREMENTAL' debido a la especificación '/FORCE'
+EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+     Creando biblioteca C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.lib y objeto C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.exp
+C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.exe : warning LNK4088: la imagen se está generando debido a la opción /FORCE; quizá la imagen no se pueda ejecutar
+glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(image_DXT.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(image_helper.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(image_helper.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(SOIL.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(SOIL.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(stb_image_aug.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(stb_image_aug.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  EntornVGI.vcxproj -> C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.exe
