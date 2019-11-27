@@ -45,6 +45,7 @@ void drawBitmapText(const char* string, float x, float y, float z)
 }
 
 float temps = 0.0;
+float angle = 0.0;
 const clock_t begin_time = clock();
 
 // Variables de color i reflexi� de materials pels objectes d'escena
@@ -367,12 +368,41 @@ void movimentShrek(float moviment[], bool movDir[], float rotShrek[])
 	}
 }
 
-void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[])
+void circularMovimentShrek(float moviment[], bool movDir[], float rotShrek[])
+{
+	
+	
+	moviment[0] -= 0.1 * cos(angle);
+	moviment[1] -= 0.1 * sin(angle);
+		
+	
+	if (angle >= 360)
+	{
+		angle = 0;
+		
+	}
+	
+	angle += 0.010;
+	rotShrek[2] = angle*100;
+
+}
+
+void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov)
 {
 	
 	glPushMatrix();
 
-	  movimentShrek(moviment, movDir, rotShrek);
+
+	  if (tipusMov == 0)
+	  {
+		  movimentShrek(moviment, movDir, rotShrek);
+	  }
+	  if (tipusMov == 1)
+	  {
+		  rotShrek[1] = 1;
+		  
+		  circularMovimentShrek(moviment, movDir, rotShrek);
+	  }
 
 	  //Translació inicial + moviment
 	  glTranslatef(1.0f + moviment[0], -20.0f + moviment[1], 2.0f + moviment[2]);
@@ -380,7 +410,7 @@ void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[
 	  //Rotació inicial
 	  glRotatef(90, 1, 0, 0);
 	  //Rotació depenent moviment
-	  glRotatef(90, 0 + rotShrek[0], 0 + rotShrek[1], 0 + rotShrek[2]);
+	  glRotatef(0 + rotShrek[2], 0 + rotShrek[0], 0 + rotShrek[1], 0);
 	  glScalef(8.0f, 8.0f, 8.0f);
 
 	  
@@ -531,8 +561,9 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		
 		
 		skybox(texturID, cel);
-		
-		shrek(loader, movimentShrek, movDir, rotShrek, texturID);
+
+		//0 moviment lineal, 1 rotacional, altres static
+		shrek(loader, movimentShrek, movDir, rotShrek, texturID, 1);
 
 		eventfinal.pinta();
 
