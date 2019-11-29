@@ -200,13 +200,16 @@ public:
 	float Posicio_x_shrek_final = -1;
 	float Posicio_y_shrek_final = -1 ;
 
+	std::vector<Mur> sales_v_d;
+	bool bloquejar_mov = false;
+
 	vector<Mur> punxesAnimadetes;
 
 
 	// Operaciones
 public:
 	std::vector<Mur> initMurs();
-
+	std::vector<Mur> CreaSales();
 	// Reemplazos
 public:
 	virtual void OnDraw(CDC* pDC);  // Reemplazado para dibujar esta vista

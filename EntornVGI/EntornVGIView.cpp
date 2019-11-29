@@ -405,6 +405,7 @@ CEntornVGIView::CEntornVGIView()
 
 	//Inicialització murs
 	llista_murs = initMurs();
+	sales_v_d = CreaSales();
 	Personatge nou(opvN.x, opvN.y, opvN.z-2.5f, 0);
 	personatge = nou;
 	
@@ -952,7 +953,7 @@ void CEntornVGIView::dibuixa_Escena() {
 		*/
 	bool animacioMurQueCauInici = false;
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
-		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes);
+		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -3417,6 +3418,22 @@ void CEntornVGIView::OnUpdateVistaGridXYZ(CCmdUI* pCmdUI)
 /*					4. PROJECCI�                                             */
 /* ------------------------------------------------------------------------- */
 
+std::vector<Mur> CEntornVGIView::CreaSales() {
+	std::vector<Mur> llista;
+	// Mur: x 20 y 5 z 15
+	GLfloat h = -50.0f;
+	llista.push_back(Mur(100.0, 50.0, h, HOR));
+	llista.push_back(Mur(100.0, 70.0, h, HOR));
+	llista.push_back(Mur(107.5, 82.5, h, VER));
+	llista.push_back(Mur(127.5, 82.5, h, VER));
+	llista.push_back(Mur(140.0, 75.0, h, HOR));
+	llista.push_back(Mur(140.0, 55.0, h, HOR));
+	llista.push_back(Mur(132.5, 42.5, h, VER));
+	llista.push_back(Mur(112.5, 42.5, h, VER));
+
+
+	return llista;
+}
 
 std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar per paràmetres el nombre de murs i la matriu rotllo suarez 
 	//de moment, inicialització "manual"
