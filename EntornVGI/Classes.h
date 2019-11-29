@@ -15,6 +15,7 @@ public:
 	float m_z;
 	bool m_ori; //Boole� que emmagatzema la orientaci� del mur
 	float m_amplada; //Float que emagatzema la amblada del mur, vaiable que permet crear murs amb dimensions diferents
+	bool variableControladoraPunxesBaixant = true;
 
 	Mur() {
 		m_x = m_y = m_z = 0.0;
@@ -57,7 +58,12 @@ public:
 	}
 	void animacioBaixada()
 	{
-		m_z = m_z - 0.1;
+		m_z = m_z - 0.2;
+
+	}
+	void animacioPujada()
+	{
+		m_z = m_z + 0.2;
 
 	}
 };

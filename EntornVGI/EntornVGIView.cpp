@@ -409,6 +409,8 @@ CEntornVGIView::CEntornVGIView()
 	personatge = nou;
 	
 	num_murs = llista_murs.size();
+
+	//float x = 5.0f;
 } 
 
 CEntornVGIView::~CEntornVGIView()
@@ -950,7 +952,7 @@ void CEntornVGIView::dibuixa_Escena() {
 		*/
 	bool animacioMurQueCauInici = false;
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
-		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada);
+		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -2858,7 +2860,7 @@ void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 
 
 				}
-				llista_murs[eventsMursBaixada[i].indexMurAnimatEnLlista].pinta();
+				//llista_murs[eventsMursBaixada[i].indexMurAnimatEnLlista].pinta();
 			}
 
 
@@ -2867,7 +2869,25 @@ void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 	}
 
 
-
+	for (int i = 0; i < punxesAnimadetes.size(); i++)
+	{
+		if (punxesAnimadetes[i].variableControladoraPunxesBaixant)
+		{
+			punxesAnimadetes[i].animacioBaixada();
+			if (punxesAnimadetes[i].m_z < -12)
+			{
+				punxesAnimadetes[i].variableControladoraPunxesBaixant = false;
+			}
+		}
+		else
+		{
+			punxesAnimadetes[i].animacioPujada();
+			if (punxesAnimadetes[i].m_z > -1)
+			{
+				punxesAnimadetes[i].variableControladoraPunxesBaixant = true;
+			}
+		}
+	}
 
 	if (anima) {
 		// Codi de tractament de l'animaci� quan transcorren els ms. del crono.
@@ -3402,14 +3422,14 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 	//de moment, inicialització "manual"
 	std::vector<Mur> llista;
 	
-	int const MAX_FILA = 5;
+	int const MAX_FILA = 7;
 	int const MAX_COLUMNA = 5;
 	//Versió simple:
-	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = { { -1, 1, 1, 1, 1 },
-													{-3, 1, 0, 1, 1 },
-													{-4, 0, 0, 0, 0 },
-													{ 1, 1, 1, 1, 0 },
-													{ -2,-4,-4, 0, 0 } };
+	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = {   {-1, 1, 1, 1, 1 ,1, 1},
+													{-3, 1, 0, 1, 0 ,1, 1},
+													{-4, 0, -6,-5,-5,-5,-5},
+													{ 1, 1, 1, 1, 1, 0, 0},
+													{-2,-4,-4, 0, 0, 0, 1} };
 
 	
 	/*
@@ -3442,6 +3462,10 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 	CASELLA CAMÍ=0
 	CASELLA BLOC=1
 	CASELLA FINAL=-2
+	CASELLA MUR CIAGUDER HORITZONTAL = -3
+	CASELLA MUR CIAGUDER VERTICAL = -4
+	CASELLA CAMÍ QUE RECORRE L'SHRECK=-5
+	CASELLA PUNXES ANIMADAS=-6
 	*/
 	float x = 5.0f; //Coordenada
 	float h = 7.5f; //Altura
@@ -3456,11 +3480,12 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 	int bucle2 = 0;
 
 	//7Entrada al laberint
-	llista.push_back(Mur(-4 * x, 0, -x / 2, VER));
-	llista.push_back(Mur(-4 * x, 4 * x, -x / 2, VER));
+	llista.push_back(Mur(-4 * x, 0, -x , VER));
+	llista.push_back(Mur(-4 * x, 4 * x, -x , VER));
 
-	llista.push_back(Mur(-4 * x - x - x / 2, -x - x - x / 2, -x / 2, HOR));
+	llista.push_back(Mur(-4 * x - x - x / 2, -x - x - x / 2, -x, HOR));
 
+	bool camiShrek_ja_creat = false;
 
 	for (int j = 0; j < MAX_COLUMNA; j++)
 	{
@@ -3572,26 +3597,58 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 						murSortida.setMur((x * (j * 8 + 5)) / 2, i * 4 * x, h, VER, x);
 						llista.push_back(murSortida);
 					}
-					else
-					{
-						if (matriuLaberint[j][i] == -3)
+					else if (matriuLaberint[j][i] == -3)
 						{
 							Event eventMurCaigudor(j * 4 * x + x + 2 * x, i * 4 * x + 2 * x, h, -3, HOR);//cas de mur caiguda
 							eventsMursBaixada.push_back(eventMurCaigudor);
 						}
 
-						if (matriuLaberint[j][i] == -4)
+						else if (matriuLaberint[j][i] == -4)
 						{
-
-							//llista.push_back(Mur(j * 4 * x + x + 2 * x - 2 * x - x / 2, i * 4 * x + 2 * x + 2 * x, h/4, VER));
 
 							Event eventMurCaigudor(j * 4 * x + x + 2 * x - 2 * x - x / 2, i * 4 * x + 2 * x + 2 * x + x, h, -3, VER);//cas de mur caiguda
 							eventsMursBaixada.push_back(eventMurCaigudor);
 							//eventMurCaigudor.pinta();
 
 						}
+						else if (matriuLaberint[j][i] == -5)
+						{
 
-					}
+							if (camiShrek_ja_creat)
+							{
+								Posicio_y_shrek_inicial = 4 * x * j + x / 2;
+								Posicio_y_shrek_final = 4 * x * i;
+
+								//Cami de proba shrek casellas
+								Mur probaCamiShrek;
+								probaCamiShrek.setMur(4 * x * j+x/2, 4 * x * i, -x, VER, x);
+								llista.push_back(probaCamiShrek);
+							}
+							else
+							{
+								//Moviment shreck == -5
+								Posicio_x_shrek_inicial = 4 * x * j + x / 2;
+								Posicio_x_shrek_final = 4 * x * i;
+								camiShrek_ja_creat = true;
+
+								
+								//Cami de proba shrek casella 1
+								Mur probaCamiShrek;
+								probaCamiShrek.setMur(4 * x * j + x / 2, 4 * x * i, -x, VER, x);
+								llista.push_back(probaCamiShrek);
+							}
+							
+							
+
+						}
+						else if (matriuLaberint[j][i] == -6)
+						{			
+							Mur punxesAnimades;
+							punxesAnimades.setMur(4 * x * j + x / 2 , 4 * x * i - x-x, -x/2, VER,3*x);
+							punxesAnimadetes.push_back(punxesAnimades);
+						}
+
+					
 				}
 
 			}
@@ -3605,6 +3662,12 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 		//if (bucle2 == 1)
 		//	break;
 	}
+
+
+
+	
+	
+
 	return llista;
 }
 

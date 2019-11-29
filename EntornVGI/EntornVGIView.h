@@ -194,7 +194,13 @@ public:
 	Event eventfinal;
 	vector<Event> eventsMursBaixada;
 
+	float Posicio_x_shrek_inicial = -1;
+	float Posicio_y_shrek_inicial = -1;
 
+	float Posicio_x_shrek_final = -1;
+	float Posicio_y_shrek_final = -1 ;
+
+	vector<Mur> punxesAnimadetes;
 
 
 	// Operaciones
