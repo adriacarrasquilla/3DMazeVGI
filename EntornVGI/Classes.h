@@ -4,6 +4,10 @@
 #include "stdafx.h"
 #include "constants.h"
 
+//Variables nostre
+float x = 5.0f;
+float h = 7.5f;
+
 class Mur {
 public:
 	float m_x;
@@ -11,6 +15,7 @@ public:
 	float m_z;
 	bool m_ori; //Boole� que emmagatzema la orientaci� del mur
 	float m_amplada; //Float que emagatzema la amblada del mur, vaiable que permet crear murs amb dimensions diferents
+
 	Mur() {
 		m_x = m_y = m_z = 0.0;
 		m_ori = 0;
@@ -24,12 +29,12 @@ public:
 		m_amplada = MUR_X;
 	}
 
-	void setMur(float x, float y, float z, bool o, float amplada) {
+	void setMur(float x, float y, float z, bool o, float amlada) {
 		m_x = x;
 		m_y = y;
 		m_z = z;
 		m_ori = o;
-		m_amplada = amplada;
+		m_amplada = amlada;
 	}
 
 	void pinta() {
@@ -37,7 +42,7 @@ public:
 			//glColor3f(0.5, 0.5, 0.25);
 			glPushMatrix();
 			glTranslatef(m_x, m_y, m_z);
-			glScalef(MUR_X, MUR_Y, MUR_Z);
+			glScalef(m_amplada, MUR_Y, MUR_Z);
 			glutSolidCube(1.0);
 			glPopMatrix();
 		}
@@ -45,19 +50,17 @@ public:
 			//glColor3f(0.5, 0.5, 0.25);
 			glPushMatrix();
 			glTranslatef(m_x, m_y, m_z);
-			glScalef(MUR_Y, MUR_X, MUR_Z);
+			glScalef(MUR_Y, m_amplada, MUR_Z);
 			glutSolidCube(1.0);
 			glPopMatrix();
 		}
 	}
 	void animacioBaixada()
 	{
-		float x = 5.0f;
-		m_z = m_z - 1.0;
+		m_z = m_z - 0.1;
 
 	}
 };
-
 class Personatge {
 public:
 	float m_x;
@@ -164,14 +167,32 @@ public:
 
 	float m_x_ant;
 	float m_y_ant;
-	Event() {
+
+	int m_tipus;
+	bool m_en_curs = false;
+	float m_direccio = HOR;
+	int indexMurAnimatEnLlista = 1000;
+	bool m_animacioIniciada = false;
+	bool eventFinalitzat = false;
+	/*
+	TIPUS
+	si tipus=-3 --------> event mur que cau del cel
+	si tipus=-2 --------> event final de partida
+	si tipus=-4 --------> event mur que puja de l'infern
+
+
+	*/
+
+	Event()
+	{
 		m_x = m_y = m_z = m_x_ant = m_y_ant = 0.0;
 		m_colisio = false;
 		m_colisioX = false;
 		m_colisioY = false;
+		m_tipus = -2;//Per defecte inicialitzo a la final ja creada per no generar big problems
 	}
 
-	Event(float x, float y, float z) { //Aquestes coordenades corresponen al centre de l'objecte, per com funciona OpenGL. Per accedir als boundaries, hi ha constants amb la mida del mur
+	Event(float x, float y, float z, int tipus, float direccio) { //Aquestes coordenades corresponen al centre de l'objecte, per com funciona OpenGL. Per accedir als boundaries, hi ha constants amb la mida del mur
 		m_x_ant = m_x = x;
 		m_y_ant = m_y = y;
 		m_z = z;
@@ -179,6 +200,10 @@ public:
 		m_colisio = false;
 		m_colisioX = false;
 		m_colisioY = false;
+
+		m_tipus = tipus;
+
+		m_direccio = direccio;
 	}
 
 	void pinta() {
@@ -192,5 +217,39 @@ public:
 		//glColor4f(1, 1, 1, 1);
 	}
 
-	
+	void setTipus(int tipus)
+	{
+		m_tipus = tipus;
+	}
+
+	void actua(Mur& mur)
+	{
+		if (m_tipus == -3 && m_animacioIniciada)
+		{
+
+			if (m_en_curs)
+			{
+				mur.animacioBaixada();
+				if (mur.m_z <= h)
+				{
+					m_en_curs = false;
+					m_animacioIniciada = false;
+					eventFinalitzat = true;
+				}
+			}
+
+		}
+
+
+	}
 };
+
+
+/*	//Moviment shreck == -5
+	float Posicio_x_inicial = 4 * x * 1;
+	float Posicio_y_inicial = 4 * x * 2;
+
+	float Posicio_x_final = 4 * x * 4;
+	float Posicio_y_final = 4 * x * 2;
+	
+	*/

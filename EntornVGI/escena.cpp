@@ -127,7 +127,7 @@ bool CheckColisioEvent(Event e, Personatge p) {
 	return collisionX && collisionY;
 }
 
-void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e)
+void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector<Event>& eventMursBaixada)
 {
 	pg.m_colisioX = false;
 	pg.m_colisioY = false;
@@ -163,13 +163,16 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e)
 		pg.m_colisio = false;
 	}*/
 	bool* colXY;
-	for (int i = 0; i < llista.size(); i++) {
-		colXY = CheckColisioMurPg(llista[i], pg);
-		if (colXY[0])
-			pg.m_colisioX = true;
-		if (colXY[1])
-			pg.m_colisioY = true;
-		
+	for (int i = 0; i < llista.size(); i++)
+	{
+		if (llista[i].m_z <= 10.0f)
+		{
+			colXY = CheckColisioMurPg(llista[i], pg);
+			if (colXY[0])
+				pg.m_colisioX = true;
+			if (colXY[1])
+				pg.m_colisioY = true;
+		}
 	}
 	if (pg.m_colisioX)
 		pg.m_color = 1;
@@ -183,6 +186,20 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e)
 	}
 	else
 		e.m_colisio = false;
+
+	for (int i = 0; i < eventMursBaixada.size(); i++)
+	{
+		if (CheckColisioEvent(eventMursBaixada[i], pg)) {
+			if (!eventMursBaixada[i].eventFinalitzat)
+			{
+				eventMursBaixada[i].m_colisio = true;
+
+				eventMursBaixada[i].m_animacioIniciada = true;
+			}
+		}
+		else
+			eventMursBaixada[i].m_colisio = false;
+	}
 	
 }
 
@@ -447,7 +464,8 @@ void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[
 
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
-	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader, float movimentShrek[], bool movDir[], float rotShrek[], bool& animacioMurQueCauInici,  Event& eventfinal)
+	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader, 
+	float movimentShrek[], bool movDir[], float rotShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada)
 {
 	float altfar = 0;
 
@@ -568,7 +586,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		eventfinal.pinta();
 
 		//pg.pinta();
-		DoCollisions(llista, pg, eventfinal);
+		DoCollisions(llista, pg, eventfinal, eventsMursBaixada);
 
 
 

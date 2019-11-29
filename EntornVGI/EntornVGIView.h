@@ -192,6 +192,11 @@ public:
 	float rotacioShrek[3] = { 0, 0, 0 };
 	objl::Loader loader;
 	Event eventfinal;
+	vector<Event> eventsMursBaixada;
+
+
+
+
 	// Operaciones
 public:
 	std::vector<Mur> initMurs();

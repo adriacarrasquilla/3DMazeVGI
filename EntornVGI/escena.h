@@ -17,7 +17,7 @@
 /* ------------------------------------------------------------------------- */
 // Entorn VGI: dibuixa_EscenaGL -> Dibuix de l'escena GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
-	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader, float movimentShrek[], bool movDir[], float rotacioShrek[], bool& animacioMurQueCauInici, Event& eventfinal);
+	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader, float movimentShrek[], bool movDir[], float rotacioShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada);
 
 // Entorn VGI: dibuixa -> Funci� que dibuixa objectes simples de la llibreria GLUT segons obj
 void dibuixa(char obj);
@@ -39,7 +39,7 @@ void Cabina();
 
 //Funcions per detectar colisions
 bool* CheckColisioMurPg(Mur m, Personatge p);
-void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e);
+void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector<Event>& eventMursBaixada);
 
 //funcions shrek
 void shrek(objl::Loader loader, float moviment[], bool movDir[], int texturID[]);

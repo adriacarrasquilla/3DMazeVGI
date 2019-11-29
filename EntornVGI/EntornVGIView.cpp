@@ -950,7 +950,7 @@ void CEntornVGIView::dibuixa_Escena() {
 		*/
 	bool animacioMurQueCauInici = false;
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
-		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, animacioMurQueCauInici, eventfinal);
+		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -1726,7 +1726,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		
 		personatge.m_x += nRepCnt * fact_pan * vdir[0] / 2;
 		personatge.m_y += nRepCnt * fact_pan * vdir[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal);
+		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada);
 		
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -1784,7 +1784,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	case 83:
 		personatge.m_x -= nRepCnt * fact_pan * vdir[0] / 2;
 		personatge.m_y -= nRepCnt * fact_pan * vdir[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal);
+		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada);
 
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -1814,7 +1814,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	case 65:
 		personatge.m_x -= nRepCnt * fact_pan * vdirpan[0] / 2;
 		personatge.m_y -= nRepCnt * fact_pan * vdirpan[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal);
+		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada);
 
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -1864,7 +1864,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	case 68:
 		personatge.m_x += nRepCnt * fact_pan * vdirpan[0] / 2;
 		personatge.m_y += nRepCnt * fact_pan * vdirpan[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal);
+		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada);
 
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -2829,6 +2829,42 @@ void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 		}
 	}
 	
+	for (int i = 0; i < eventsMursBaixada.size(); i++)
+	{
+
+		if (eventsMursBaixada[i].m_animacioIniciada)
+		{
+
+			if (eventsMursBaixada[i].m_tipus == -3)
+			{
+				if (eventsMursBaixada[i].m_en_curs)
+				{
+					eventsMursBaixada[i].actua(llista_murs[eventsMursBaixada[i].indexMurAnimatEnLlista]);
+				}
+				else
+				{
+					Mur newMur;
+					if (eventsMursBaixada[i].m_direccio == HOR)
+					{
+						newMur.setMur(eventsMursBaixada[i].m_x - 4 * x - x - x / 2, eventsMursBaixada[i].m_y, eventsMursBaixada[i].m_z * x, HOR, 3 * x);
+					}
+					else
+					{
+						newMur.setMur(eventsMursBaixada[i].m_x, eventsMursBaixada[i].m_y + x + x + x, eventsMursBaixada[i].m_z * x, VER, 3 * x);
+					}
+					llista_murs.push_back(newMur);
+					eventsMursBaixada[i].indexMurAnimatEnLlista = llista_murs.size() - 1;
+					eventsMursBaixada[i].m_en_curs = true;
+
+
+				}
+				llista_murs[eventsMursBaixada[i].indexMurAnimatEnLlista].pinta();
+			}
+
+
+		}
+
+	}
 
 
 
@@ -3365,18 +3401,18 @@ void CEntornVGIView::OnUpdateVistaGridXYZ(CCmdUI* pCmdUI)
 std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar per paràmetres el nombre de murs i la matriu rotllo suarez 
 	//de moment, inicialització "manual"
 	std::vector<Mur> llista;
-	/*
+	
 	int const MAX_FILA = 5;
-	int const MAX_COLUMNA = 6;
+	int const MAX_COLUMNA = 5;
 	//Versió simple:
 	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = { { -1, 1, 1, 1, 1 },
-													{ 0, 0, 0, 1, 1 },
-													{ 1, 1, 0, 0, 1 },
-													{ 1, 1, 1, 0, 1 },
-													{ 1, 0, 0, 0, 1 },
-													{ 1,-2, 1, 1, 1 } };
-	*/
+													{-3, 1, 0, 1, 1 },
+													{-4, 0, 0, 0, 0 },
+													{ 1, 1, 1, 1, 0 },
+													{ -2,-4,-4, 0, 0 } };
 
+	
+	/*
 	int const MAX_FILA = 10;
 	int const MAX_COLUMNA = 10;
 	//Versió simple:
@@ -3390,6 +3426,7 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 													{ 1, 1, 1, 0, 1, 1, 0, 1, 0, 1 },
 													{ 1, 0, 0, 0, 0, 0, 0, 1, 0, 1 },
 													{ 1,-2, 1, 1, 1, 1, 1, 1, 1, 1 } };
+	*/
 	//Versió tricky:
 	/*
 	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = { { 0, 0,-1, 1, 1 },
@@ -3417,6 +3454,13 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 	int CoordenadaEnd_I = 6;
 	int bucle1 = 0;
 	int bucle2 = 0;
+
+	//7Entrada al laberint
+	llista.push_back(Mur(-4 * x, 0, -x / 2, VER));
+	llista.push_back(Mur(-4 * x, 4 * x, -x / 2, VER));
+
+	llista.push_back(Mur(-4 * x - x - x / 2, -x - x - x / 2, -x / 2, HOR));
+
 
 	for (int j = 0; j < MAX_COLUMNA; j++)
 	{
@@ -3500,24 +3544,56 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 					*/
 					Mur prova1(x * (2.5 + j * 4), x * (2.5 + (i * 4)), h, HOR);
 					llista.push_back(prova1);
-					delete& prova1;
 				}
 
-				// Crea mur extra per evitar desplaçament inicial però genera problemes amb textures (mur sbre mur)
+				// Crea mur extra per evitar desplaçament inicial i ja no genera problemes amb textures (mur sbre mur)
 				if (matriuLaberint[j][i] == -1)
 				{
-					llista.push_back(Mur(j * 4 * x, (i + 1) * 4 * x, h, VER));
+					Mur murEntrada;
+					murEntrada.setMur(j * 4 * x - x - x / 2, (i + 1) * 4 * x, h, VER, x);
+					llista.push_back(murEntrada);
+
+
+					Event eventInicial(j * 4 * x + x + 2 * x, i * 4 * x + 2 * x, h, -3, HOR);
+					eventInicial.m_tipus = -3;//mur caiguda
+					eventsMursBaixada.push_back(eventInicial);
+
 				}
-				 
+
 				else {
 					if (matriuLaberint[j][i] == -2)
 					{
-						Event final(j * 4 * x + x + 2 * x, i * 4 * x + 2 * x, h);
+						Event final(j * 4 * x + x + 2 * x, i * 4 * x + 2 * x, h, matriuLaberint[j][i], HOR);
 						eventfinal = final;
-						//llista.push_back(Mur(j * 4 * x + x +2*x, i * 4 * x+2*x, h, HOR));
-						llista.push_back(Mur(j * 4 * x + x, i * 4 * x, h, VER));
+
+
+						Mur murSortida;
+						//mur.setMur((j * 8 * x + (5 * x) / 2, (i + 1) * 4 * x - (4 * x), h, VER, x);
+						murSortida.setMur((x * (j * 8 + 5)) / 2, i * 4 * x, h, VER, x);
+						llista.push_back(murSortida);
+					}
+					else
+					{
+						if (matriuLaberint[j][i] == -3)
+						{
+							Event eventMurCaigudor(j * 4 * x + x + 2 * x, i * 4 * x + 2 * x, h, -3, HOR);//cas de mur caiguda
+							eventsMursBaixada.push_back(eventMurCaigudor);
+						}
+
+						if (matriuLaberint[j][i] == -4)
+						{
+
+							//llista.push_back(Mur(j * 4 * x + x + 2 * x - 2 * x - x / 2, i * 4 * x + 2 * x + 2 * x, h/4, VER));
+
+							Event eventMurCaigudor(j * 4 * x + x + 2 * x - 2 * x - x / 2, i * 4 * x + 2 * x + 2 * x + x, h, -3, VER);//cas de mur caiguda
+							eventsMursBaixada.push_back(eventMurCaigudor);
+							//eventMurCaigudor.pinta();
+
+						}
+
 					}
 				}
+
 			}
 
 
