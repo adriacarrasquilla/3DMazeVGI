@@ -1731,7 +1731,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		
 		personatge.m_x += nRepCnt * fact_pan * vdir[0] / 2;
 		personatge.m_y += nRepCnt * fact_pan * vdir[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada);
+		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes);
 		
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -1753,6 +1753,11 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 
 		personatge.m_x = opvN.x;
 		personatge.m_y = opvN.y;
+
+		if (personatge.dead) {
+			personatge.dead = false;
+			killPlayer();
+		}
 		
 		break;
 
@@ -1760,7 +1765,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	case 83:
 		personatge.m_x -= nRepCnt * fact_pan * vdir[0] / 2;
 		personatge.m_y -= nRepCnt * fact_pan * vdir[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada);
+		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes);
 
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -1783,13 +1788,18 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		personatge.m_x = opvN.x;
 		personatge.m_y = opvN.y;
 
+		if (personatge.dead) {
+			personatge.dead = false;
+			killPlayer();
+		}
+
 		break;
 
 		// Tecla cursor esquerra
 	case 65:
 		personatge.m_x -= nRepCnt * fact_pan * vdirpan[0] / 2;
 		personatge.m_y -= nRepCnt * fact_pan * vdirpan[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada);
+		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes);
 
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -1811,6 +1821,11 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 
 		personatge.m_x = opvN.x;
 		personatge.m_y = opvN.y;
+
+		if (personatge.dead) {
+			personatge.dead = false;
+			killPlayer();
+		}
 	
 		break;
 
@@ -1818,7 +1833,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	case 68:
 		personatge.m_x += nRepCnt * fact_pan * vdirpan[0] / 2;
 		personatge.m_y += nRepCnt * fact_pan * vdirpan[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada);
+		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes);
 
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -1840,6 +1855,11 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		
 		personatge.m_x = opvN.x;
 		personatge.m_y = opvN.y;
+
+		if (personatge.dead) {
+			personatge.dead = false;
+			killPlayer();
+		}
 		
 		break;
 
@@ -3373,14 +3393,31 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 	//de moment, inicialització "manual"
 	std::vector<Mur> llista;
 	
+	/*
 	int const MAX_FILA = 7;
 	int const MAX_COLUMNA = 5;
 	//Versió simple:
 	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = {   {-1, 1, 1, 1, 1 ,1, 1},
-													{-3, 1, 0, 1, 0 ,1, 1},
-													{-4, 0, -6,-5,-5,-5,-5},
+													{0, 1, 0, 1, 0 ,1, 1},
+													{0, 0, -6,-5,-5,-5,-5},
 													{ 1, 1, 1, 1, 1, 0, 0},
 													{-2,-4,-4, 0, 0, 0, 1} };
+	*/
+	
+	//Mapa gran
+	int const MAX_FILA = 10;
+	int const MAX_COLUMNA = 10;
+	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = {	{-1,1,1,1,1,1,1,1,1,1},
+													{0,0,-4,0,0,0,0,0,0,1},
+													{0,0,0,0,0,0,0,0,0,1},
+													{1,1,1,1,-3,1,1,1,0,1},
+													{1,0,0,0,0,0,0,0,0,1},
+													{1,0,0,0,0,0,0,0,0,1},
+													{1,-3,1,1,1,1,0,1,1,1},
+													{1,0,-6,0,0,0,-6,0,0,1},
+													{1,0,0,0,-6,0,0,0,0,1},
+													{1,1,1,1,1,1,1,1,-2,1},
+												};
 
 	
 	/*
@@ -3638,6 +3675,7 @@ void CEntornVGIView::killPlayer() {
 
 	}
 	else {
+		//GO TO STARTING POINT
 		personatge.m_x = -3.0;
 		personatge.m_y = 12.0;
 		opvN.x = -3.0;			opvN.y = 12.0;			opvN.z = 5.0;

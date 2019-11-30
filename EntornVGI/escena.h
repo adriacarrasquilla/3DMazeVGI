@@ -40,7 +40,7 @@ void Cabina();
 
 //Funcions per detectar colisions
 bool* CheckColisioMurPg(Mur m, Personatge p);
-void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector<Event>& eventMursBaixada);
+void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector<Event>& eventMursBaixada, std::vector<Mur>& punxes);
 
 //funcions shrek
 void shrek(objl::Loader loader, float moviment[], bool movDir[], int texturID[]);

@@ -127,7 +127,14 @@ bool CheckColisioEvent(Event e, Personatge p) {
 	return collisionX && collisionY;
 }
 
-void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector<Event>& eventMursBaixada)
+bool CheckColisioPunxes(Mur m, Personatge p) {
+	bool onTrap = m.m_x + (MUR_X / 2) >= p.m_x - (PG_X / 2) &&
+		p.m_x + (PG_X / 2) >= m.m_x - (MUR_X / 2) && m.m_y + (MUR_Y / 2) >= p.m_y - (PG_Y / 2) &&
+		p.m_y + (PG_Y / 2) >=m.m_y - (MUR_Y / 2);
+	return onTrap && (m.m_z > -5);
+}
+
+void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector<Event>& eventMursBaixada, std::vector<Mur>& punxes)
 {
 	pg.m_colisioX = false;
 	pg.m_colisioY = false;
@@ -199,6 +206,12 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 		}
 		else
 			eventMursBaixada[i].m_colisio = false;
+	}
+	for (int i = 0; i < punxes.size(); i++) {
+		if (CheckColisioPunxes(punxes[i], pg)) {
+			pg.dead = true;
+			break;
+		}
 	}
 	
 }
@@ -592,7 +605,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		eventfinal.pinta();
 
 		//pg.pinta();
-		DoCollisions(llista, pg, eventfinal, eventsMursBaixada);
+		DoCollisions(llista, pg, eventfinal, eventsMursBaixada, punxesAnimadetes);
 
 
 
