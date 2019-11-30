@@ -46,7 +46,23 @@ void drawBitmapText(const char* string, float x, float y, float z)
 
 float temps = 0.0;
 float angle = 0.0;
-const clock_t begin_time = clock();
+clock_t begin_time = clock();
+bool reset_clock = true;
+
+std::string remove_zeros(std::string temps) {
+	std::string res = "";
+	int count = 0;
+	for (auto x : temps)
+	{
+		res = res + x;
+		count++;
+		if (x == '.') {
+			res = res + temps[count] + temps[count + 1] + temps[count + 2];
+			break;
+		}
+	}
+	return res;
+}
 
 // Variables de color i reflexi� de materials pels objectes d'escena
 CColor color_objecte;
@@ -607,18 +623,33 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		//pg.pinta();
 		DoCollisions(llista, pg, eventfinal, eventsMursBaixada, punxesAnimadetes);
 
+		//Aquest apartat el deixo així, si ho faig amb funcions ocupa el mateix espai. Sorry
+		if (reset_clock) {
+			//Això fa que el temps es posi a 0 quan es comença una partida.
+			//NOTA: al carregar un mapa nou, posar reset_clock = true!!!
+			begin_time = clock() - begin_time;
+			reset_clock = false;
+		}
 
-
-		//Tena cabro fesho en una funcio que aixo cada vegada s'allarga més
 		temps = float(clock() - begin_time) / CLOCKS_PER_SEC;
-		std::string time = std::to_string(temps);
-		std::string vides = std::to_string(lifes);
-		std::string hud = "TEMPS: " + time + " VIDES: " + vides + " \n";
-		const char* cstr = hud.c_str();
-		glLoadIdentity();
+		std::string hud_temps = "TEMPS: " + remove_zeros(std::to_string(temps)) + "\n";
+		std::string hud_vides = "VIDES: " + std::to_string(lifes) + "\n";
+		const char* cstr_temps = hud_temps.c_str();
+		const char* cstr_vides = hud_vides.c_str();
+		
+		/*HUD TEMPS*/
+		glPushMatrix();
+			glLoadIdentity();
+			glColor3f(.0f, 1.0f, .0f);
+			drawBitmapText(cstr_temps, 1.5, 1.09, -2);
+		glPopMatrix();
 
-		glColor3f(1.0f, 1.0f, 1.0f);
-		drawBitmapText(cstr, 1, 1, -2);
+		/*HUD VIDES*/
+		glPushMatrix();
+			glLoadIdentity();
+			glColor3f(.0f, 1.0f, .0f);
+			drawBitmapText(cstr_vides, 1.5, 1.05, -2);
+		glPopMatrix();
 
 		break;
 	}

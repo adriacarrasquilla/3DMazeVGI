@@ -3,6 +3,10 @@
 
 #include "stdafx.h"
 #include "constants.h"
+#include <fstream>
+#include <vector>
+#include <string>
+#include <algorithm>
 
 //Variables nostre
 float x = 5.0f;
@@ -74,7 +78,7 @@ public:
 	float m_z;
 	int m_color;
 	bool m_colisio; //s'ha de suprimir
-
+	bool dead = false;
 	bool m_colisioX;
 	bool m_colisioY;
 
@@ -259,3 +263,61 @@ public:
 	float Posicio_y_final = 4 * x * 2;
 	
 	*/
+
+
+/*CLASSE LEADERBOARD*/
+
+int CONST_VALOR = 300;
+std::string path_leaderboard = "res/leaderboard.txt";
+
+class Leaderboard {
+
+public:
+	Leaderboard();
+	Leaderboard(int vides, float temps) { m_vides = vides; m_temps = temps; };
+	~Leaderboard() { m_leaderboard.clear(); };
+
+	int m_vides;
+	float m_temps;
+	int m_puntuacio;
+	std::vector<int> m_leaderboard;
+
+	//Funció que calcula els punts un cop s'ha acabat la partida. SI MORT (VIDES = 0) -> PUNTUACIO = 0
+	void calcula_punts() 
+	{
+		m_puntuacio = m_vides * CONST_VALOR - m_temps;
+		if (m_puntuacio < 0) m_puntuacio = CONST_VALOR;
+	};
+
+	/*Inicialitza la leaderboard cada cop que s'encen el joc.*/
+	void init_leaderboard() 
+	{
+		std::string score;
+		std::ifstream fitxer;
+		fitxer.open(path_leaderboard);
+
+		if (fitxer.is_open()) {
+			while (getline(fitxer, score)) {
+				m_leaderboard.push_back(stoi(score));
+			}
+			fitxer.close();
+		}
+	};
+
+	/*ACTUALITZA LA LEADERBOARD EN CAS QUE M_PUNTUACIO SIGUI UN RECORD*/
+	void actualitza_leaderboard() 
+	{
+	
+		auto min_puntuacio = std::min_element(m_leaderboard.begin(), m_leaderboard.end());
+		if (m_puntuacio > * min_puntuacio) *min_puntuacio = m_puntuacio;
+		std::sort(m_leaderboard.begin(), m_leaderboard.end(), std::greater<int>());
+
+		std::ofstream fitxer;
+		fitxer.open(path_leaderboard);
+		for (int score : m_leaderboard) fitxer << std::to_string(score) << std::endl;
+
+		fitxer.close();
+
+	};
+
+};
