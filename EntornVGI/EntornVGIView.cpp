@@ -411,7 +411,9 @@ CEntornVGIView::CEntornVGIView()
 	
 	num_murs = llista_murs.size();
 
-	//float x = 5.0f;
+	// Vides Jugador
+	lifes = 3;
+
 } 
 
 CEntornVGIView::~CEntornVGIView()
@@ -1748,39 +1750,10 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 			n[0] += nRepCnt * fact_pan * vdir[0] / 2;
 			cel[0] = personatge.m_x;
 		}
-		//personatge.m_x_ant = personatge.m_x;
-		//personatge.m_y_ant = personatge.m_y;
+
 		personatge.m_x = opvN.x;
 		personatge.m_y = opvN.y;
 		
-
-		//Es necessari un personatge auxiliar? Creiem que no ho sa
-
-		/*
-		//if (!personatge.colisions[2]) {} //0 dreta 1 esquerra 2 amunt 3 avall
-		if (!personatge.m_colisio) {
-			//if(personatge.m_colisioX)
-			opvN.x += nRepCnt * fact_pan * vdir[0] / 2;
-			n[0] += nRepCnt * fact_pan * vdir[0] / 2;
-			opvN.y += nRepCnt * fact_pan * vdir[1] / 2;
-			n[1] += nRepCnt * fact_pan * vdir[1] / 2;
-			cel[0] += nRepCnt * fact_pan * vdir[0] / 2;
-			cel[1] += nRepCnt * fact_pan * vdir[1] / 2;
-		} 
-		
-		else {
-			opvN.x = personatge.m_x_ant;
-			//n[0] = personatge.m_x_ant;
-			opvN.y = personatge.m_y_ant;
-			//n[1] = personatge.m_y_ant;
-			cel[0] = personatge.m_x_ant;
-			cel[1] = personatge.m_y_ant;
-		}
-		//personatge.m_x_ant = personatge.m_x;
-		//personatge.m_y_ant = personatge.m_y;
-		//personatge.m_x = opvN.x;
-		//personatge.m_y = opvN.y;
-		*/
 		break;
 
 		// Tecla cursor avall
@@ -1806,8 +1779,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 			n[0] -= nRepCnt * fact_pan * vdir[0] / 2;
 			cel[0] = personatge.m_x;
 		}
-		//personatge.m_x_ant = personatge.m_x;
-		//personatge.m_y_ant = personatge.m_y;
+		
 		personatge.m_x = opvN.x;
 		personatge.m_y = opvN.y;
 
@@ -1836,31 +1808,10 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 			n[0] -= nRepCnt * fact_pan * vdirpan[0] / 2;
 			cel[0] = personatge.m_x;
 		}
-		//personatge.m_x_ant = personatge.m_x;
-		//personatge.m_y_ant = personatge.m_y;
+
 		personatge.m_x = opvN.x;
 		personatge.m_y = opvN.y;
-		/*
-		//if (!personatge.colisions[1]) { //0 dreta 1 esquerra 2 amunt 3 avall
-		if (!personatge.m_colisio) {
-			opvN.x -= nRepCnt * fact_pan * vdirpan[0] / 2;
-			opvN.y -= nRepCnt * fact_pan * vdirpan[1] / 2;
-			n[0] -= nRepCnt * fact_pan * vdirpan[0] / 2;
-			n[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
-			cel[0] -= nRepCnt * fact_pan * vdirpan[0] / 2;
-			cel[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
-		}
-		else {
-			opvN.x = personatge.m_x_ant;
-			opvN.y = personatge.m_y_ant;
-			cel[0] = personatge.m_x_ant;
-			cel[1] = personatge.m_y_ant;
-		}
-		personatge.m_x_ant = personatge.m_x;
-		personatge.m_y_ant = personatge.m_y;
-		personatge.m_x = opvN.x;
-		personatge.m_y = opvN.y;
-		*/
+	
 		break;
 
 		// Tecla cursor dret
@@ -1886,33 +1837,16 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 			n[0] += nRepCnt * fact_pan * vdirpan[0] / 2;
 			cel[0] = personatge.m_x;
 		}
-		//personatge.m_x_ant = personatge.m_x;
-		//personatge.m_y_ant = personatge.m_y;
+		
 		personatge.m_x = opvN.x;
 		personatge.m_y = opvN.y;
-		/*
-		//if (!personatge.colisions[0]) { //0 dreta 1 esquerra 2 amunt 3 avall
-		if (!personatge.m_colisio) {
-			opvN.x += nRepCnt * fact_pan * vdirpan[0] / 2;
-			opvN.y += nRepCnt * fact_pan * vdirpan[1] / 2;
-			n[0] += nRepCnt * fact_pan * vdirpan[0] / 2;
-			n[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
-			cel[0] += nRepCnt * fact_pan * vdirpan[0] / 2;
-			cel[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
-		}
-		else {
-			opvN.x = personatge.m_x_ant;
-			opvN.y = personatge.m_y_ant;
-			cel[0] = personatge.m_x_ant;
-			cel[1] = personatge.m_y_ant;
-		}
-		personatge.m_x_ant = personatge.m_x;
-		personatge.m_y_ant = personatge.m_y;
-		personatge.m_x = opvN.x;
-		personatge.m_y = opvN.y;
-		*/
+		
 		break;
 
+		//tecla K
+	case 75:
+		killPlayer();
+		break;
 		// Tecla Inicio
 	case VK_HOME:
 		opvN.z += nRepCnt * fact_pan;
@@ -3689,7 +3623,24 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 }
 
 
+void CEntornVGIView::killPlayer() {
+	lifes--;
+	if (lifes <= 0) {
+		//GAME OVER
+		personatge.m_x = 100.0;
+		personatge.m_y = 50.0;
+		personatge.m_z = -50.0;
+		opvN.x = 100.0;				opvN.y = 50.0;			opvN.z = 50.0;
+		n[0] = opvN.x + 5.0;		n[1] = opvN.y;			n[2] = 50.0;
 
+	}
+	else {
+		personatge.m_x = -3.0;
+		personatge.m_y = 12.0;
+		opvN.x = -3.0;			opvN.y = 12.0;			opvN.z = 5.0;
+		n[0] = opvN.x+5.0;		n[1] = opvN.y;			n[2] = 5.0;
+	}
+}
 
 
 

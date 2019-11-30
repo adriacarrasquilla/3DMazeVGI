@@ -205,11 +205,14 @@ public:
 
 	vector<Mur> punxesAnimadetes;
 
+	int lifes;
+
 
 	// Operaciones
 public:
 	std::vector<Mur> initMurs();
 	std::vector<Mur> CreaSales();
+	void killPlayer();
 	// Reemplazos
 public:
 	virtual void OnDraw(CDC* pDC);  // Reemplazado para dibujar esta vista
