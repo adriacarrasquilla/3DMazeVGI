@@ -602,7 +602,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		//0 moviment lineal, 1 rotacional, altres static
 		shrek(loader, movimentShrek, movDir, rotShrek, texturID, 1);
 
-		eventfinal.pinta();
+		//eventfinal.pinta();
 
 		//pg.pinta();
 		DoCollisions(llista, pg, eventfinal, eventsMursBaixada, punxesAnimadetes);

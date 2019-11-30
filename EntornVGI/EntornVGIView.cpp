@@ -619,7 +619,8 @@ int CEntornVGIView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	wglMakeCurrent(m_pDC->GetSafeHdc(), NULL);
 
 	//Vigilar aqui que he posat aixo
-	OnObjecteCubRGB();
+	//OnObjecteCubRGB();
+	OnObjecteMur();
 
 	return true;
 }
@@ -5091,9 +5092,37 @@ void CEntornVGIView::OnUpdateProjeccioortografica(CCmdUI* pCmdUI)
 void CEntornVGIView::OnObjecteMur()
 {
 	// TODO: Agregue aquí su código de controlador de comandos
-	objecte = MUR;
+	objecte = MUR;	textura = true;
 	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
 	//	Canviar l'escala per a centrar la vista (Ortogràfica)
+	// Crida a OnPaint() per redibuixar l'escena
+	//InvalidateRect(NULL, false);
+	// TODO: Agregue aqu� su c�digo de controlador de comandos
+	//objecte = CUB_RGB;   textura = true;
+
+	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
+
+	//Textures skybox
+	texturesID[9] = loadIMA_ILUT("./textures/tex1_64x64_c05e3c09362f364a_14.png");
+	texturesID[8] = loadIMA_ILUT("./textures/tex1_128x128_0e437d36eaf137df_14.png");
+	texturesID[7] = loadIMA_ILUT("./textures/sky-hd-wallpaper-9.jpg");
+	texturesID[10] = loadIMA_ILUT("./textures/skybox/right.png");
+	texturesID[11] = loadIMA_ILUT("./textures/skybox/left.png");
+	texturesID[12] = loadIMA_ILUT("./textures/skybox/top.png");
+	texturesID[13] = loadIMA_ILUT("./textures/skybox/bottom.png");
+	texturesID[14] = loadIMA_ILUT("./textures/skybox/front.png");
+	texturesID[15] = loadIMA_ILUT("./textures/skybox/back.png");
+
+	//shrek
+	texturesID[16] = loadIMA_ILUT("./textures/shrek/Shrek.png");
+	texturesID[17] = loadIMA_ILUT("./textures/shrek/shrekshirt.png");
+
+	loader.LoadFile("./objects/shrek/CHARACTER_Shrek.obj");
+
+	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
+	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
+	//	Canviar l'escala per a centrar la vista (Ortogr�fica)
+
 	// Crida a OnPaint() per redibuixar l'escena
 	InvalidateRect(NULL, false);
 }
