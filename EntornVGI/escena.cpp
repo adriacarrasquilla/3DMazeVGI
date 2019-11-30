@@ -465,7 +465,7 @@ void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
 	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader, 
-	float movimentShrek[], bool movDir[], float rotShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales)
+	float movimentShrek[], bool movDir[], float rotShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales, int lifes)
 {
 	float altfar = 0;
 
@@ -598,9 +598,10 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 		//Tena cabro fesho en una funcio que aixo cada vegada s'allarga més
 		temps = float(clock() - begin_time) / CLOCKS_PER_SEC;
-		std::string a = std::to_string(temps);
-		std::string yooo = "TEMPS: " + a + "\n";
-		const char* cstr = yooo.c_str();
+		std::string time = std::to_string(temps);
+		std::string vides = std::to_string(lifes);
+		std::string hud = "TEMPS: " + time + " VIDES: " + vides + " \n";
+		const char* cstr = hud.c_str();
 		glLoadIdentity();
 
 		glColor3f(1.0f, 1.0f, 1.0f);
