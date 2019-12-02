@@ -956,7 +956,7 @@ void CEntornVGIView::dibuixa_Escena() {
 		*/
 	bool animacioMurQueCauInici = false;
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
-		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes);
+		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes, MidaLaberint_Fila,MidaLaberint_Columna);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -2808,8 +2808,9 @@ void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 					}
 					else
 					{
-						newMur.setMur(eventsMursBaixada[i].m_x, eventsMursBaixada[i].m_y + x + x + x, eventsMursBaixada[i].m_z * x, VER, 3 * x);
+						newMur.setMur(eventsMursBaixada[i].m_x, eventsMursBaixada[i].m_y + x + x + x+2*x, eventsMursBaixada[i].m_z * x, VER, 3 * x);
 					}
+					newMur.esUnMurAnimatQueCau = true;
 					llista_murs.push_back(newMur);
 					eventsMursBaixada[i].indexMurAnimatEnLlista = llista_murs.size() - 1;
 					eventsMursBaixada[i].m_en_curs = true;
@@ -3406,10 +3407,11 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 	*/
 	
 	//Mapa gran
+	
 	int const MAX_FILA = 10;
 	int const MAX_COLUMNA = 10;
 	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = {	{-1,1,1,1,1,1,1,1,1,1},
-													{0,0,-4,0,0,0,0,0,0,1},
+													{-4,0,-4,0,-4,-4,0,0,0,1},
 													{0,0,0,0,0,0,0,0,0,1},
 													{1,1,1,1,-3,1,1,1,0,1},
 													{1,0,0,0,0,0,0,0,0,1},
@@ -3473,6 +3475,16 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 	llista.push_back(Mur(-4 * x, 4 * x, -x , VER));
 
 	llista.push_back(Mur(-4 * x - x - x / 2, -x - x - x / 2, -x, HOR));
+	llista.push_back(Mur(-4 * x - x - x / 2, -x - x / 2 + 8*x, -x, HOR));
+
+	llista.push_back(Mur(-4 * x*2, -4*x, -x, VER));
+	llista.push_back(Mur(-4 * x*2, 2*4 * x, -x, VER));
+
+	Mur murEntrada;
+	murEntrada.setMur(- 4 * x *2-2*x, +2*x, -4, HOR, 12*x);
+	llista.push_back(murEntrada);
+
+
 
 	bool camiShrek_ja_creat = false;
 
@@ -3653,7 +3665,8 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 	}
 
 
-
+	MidaLaberint_Fila = MAX_FILA;
+	MidaLaberint_Columna =MAX_COLUMNA;
 	
 	
 
@@ -3766,8 +3779,10 @@ void CEntornVGIView::OnObjecteCubRGB()
 	//shrek
 	texturesID[16] = loadIMA_ILUT("./textures/shrek/Shrek.png");
 	texturesID[17] = loadIMA_ILUT("./textures/shrek/shrekshirt.png");
-	
-	loader.LoadFile("./objects/shrek/CHARACTER_Shrek.obj");
+	loader[0].LoadFile("./objects/shrek/CHARACTER_Shrek.obj");
+	loader[1].LoadFile("./objects/punxes/3d-model.obj");
+
+
 
 	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
 	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
@@ -5117,7 +5132,8 @@ void CEntornVGIView::OnObjecteMur()
 	texturesID[16] = loadIMA_ILUT("./textures/shrek/Shrek.png");
 	texturesID[17] = loadIMA_ILUT("./textures/shrek/shrekshirt.png");
 
-	loader.LoadFile("./objects/shrek/CHARACTER_Shrek.obj");
+	loader[0].LoadFile("./objects/shrek/CHARACTER_Shrek.obj");
+	loader[1].LoadFile("./objects/punxes/3d-model.obj");
 
 	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
 	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
