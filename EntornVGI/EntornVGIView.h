@@ -190,7 +190,7 @@ public:
 	float movimentShrek[3] = { 0, 0, 0 };
 	bool movDir[3] = { false, false, false };
 	float rotacioShrek[3] = { 0, 0, 0 };
-	objl::Loader loader;
+	objl::Loader loader[10];
 	Event eventfinal;
 	vector<Event> eventsMursBaixada;
 
@@ -206,6 +206,10 @@ public:
 	vector<Mur> punxesAnimadetes;
 
 	int lifes;
+
+
+	int MidaLaberint_Fila = 0;
+	int MidaLaberint_Columna = 0;
 
 
 	// Operaciones

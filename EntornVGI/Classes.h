@@ -21,6 +21,11 @@ public:
 	float m_amplada; //Float que emagatzema la amblada del mur, vaiable que permet crear murs amb dimensions diferents
 	bool variableControladoraPunxesBaixant = true;
 
+	bool esUnMurAnimatQueCau = false;
+
+
+	bool animacioAcabada = false;
+
 	Mur() {
 		m_x = m_y = m_z = 0.0;
 		m_ori = 0;
@@ -62,12 +67,12 @@ public:
 	}
 	void animacioBaixada()
 	{
-		m_z = m_z - 0.2;
+		m_z = m_z - 0.5;
 
 	}
 	void animacioPujada()
 	{
-		m_z = m_z + 0.2;
+		m_z = m_z + 0.5;
 
 	}
 };
@@ -84,6 +89,8 @@ public:
 
 	float m_x_ant;
 	float m_y_ant;
+
+
 	Personatge() {
 		m_x = m_y = m_z = m_x_ant = m_y_ant = 0.0;
 		m_color = 0;
@@ -245,6 +252,7 @@ public:
 					m_en_curs = false;
 					m_animacioIniciada = false;
 					eventFinalitzat = true;
+					mur.animacioAcabada = true;
 				}
 			}
 

@@ -192,9 +192,21 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 		{
 			colXY = CheckColisioMurPg(llista[i], pg);
 			if (colXY[0])
+			{
 				pg.m_colisioX = true;
-			if (colXY[1])
+				if (llista[i].esUnMurAnimatQueCau && !llista[i].animacioAcabada) {
+					pg.dead = true;
+					break;
+				}
+			}
+			if (colXY[1]) 
+			{
 				pg.m_colisioY = true;
+				if (llista[i].esUnMurAnimatQueCau && !llista[i].animacioAcabada) {
+					pg.dead = true;
+					break;
+				}
+			}
 		}
 	}
 	if (pg.m_colisioX)
@@ -491,10 +503,33 @@ void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[
 	
 }
 
+void punxes(std::vector<Mur> punxesAnimadetes, objl::Loader loader)
+{
+	for (int i = 0; i < punxesAnimadetes.size(); i++) 
+	{
+		glPushMatrix();
+	      float x = punxesAnimadetes[i].m_x;
+		  float y = punxesAnimadetes[i].m_y;
+		  float z = punxesAnimadetes[i].m_z;
+		  glTranslatef(x, y, z);
+		  glRotatef(90, 1, 0, 0);
+		  glScalef(0.001f, 0.001f, 0.001f);
+		  glBegin(GL_TRIANGLES);
+
+	   	  for (int i = 0; i < loader.LoadedVertices.size(); i++)
+		  {
+			  glVertex3f(loader.LoadedVertices[i].Position.X, loader.LoadedVertices[i].Position.Y, loader.LoadedVertices[i].Position.Z);
+		  }
+		  glEnd();
+
+		glPopMatrix();
+	}
+}
+
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
-	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader, 
-	float movimentShrek[], bool movDir[], float rotShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales, int lifes)
+	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader[], 
+	float movimentShrek[], bool movDir[], float rotShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales, int lifes, int MIDA_I, int MIDA_J)
 {
 	float altfar = 0;
 
@@ -569,12 +604,10 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		for (int i = 0; i < llista.size(); i++) {
 			llista[i].pinta();
 		}
-		for (int i = 0; i < punxesAnimadetes.size(); i++) {
-			punxesAnimadetes[i].pinta();
-		}
 		for (int i = 0; i < sales.size(); i++) {
 			sales[i].pinta();
 		}
+		punxes(punxesAnimadetes, loader[1]);
 
 		//
 		//Textures terra
@@ -601,13 +634,19 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 		glEnable(GL_TEXTURE_2D);
 
-
+		
 		glPushMatrix();
 		  glTranslatef(50.0f, 50.0f, -5.0f);
-		  glScalef(250.0f, 250.0f, 10.0f);
+		  glScalef(MIDA_I*8*5.0F, MIDA_J * 8 * 5.0F, 10.0f);
 		  glutSolidCube(1.0);
 		glPopMatrix();
-
+		/*
+		glPushMatrix();
+			glTranslatef(50.0f, 50.0f, -5.0f);
+			glScalef(250.0f, 250.0f, 10.0f);
+			glutSolidCube(1.0);
+		glPopMatrix();
+		*/
 		glDisable(GL_TEXTURE_GEN_S);
 		glDisable(GL_TEXTURE_GEN_T);
 
@@ -616,14 +655,16 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		skybox(texturID, cel);
 
 		//0 moviment lineal, 1 rotacional, altres static
-		shrek(loader, movimentShrek, movDir, rotShrek, texturID, 1);
+		shrek(loader[0], movimentShrek, movDir, rotShrek, texturID, 1);
+
+		
 
 		//eventfinal.pinta();
 
 		//pg.pinta();
 		DoCollisions(llista, pg, eventfinal, eventsMursBaixada, punxesAnimadetes);
 
-		//Aquest apartat el deixo així, si ho faig amb funcions ocupa el mateix espai. Sorry
+		//Una merda cap tot en la funcio
 		if (reset_clock) {
 			//Això fa que el temps es posi a 0 quan es comença una partida.
 			//NOTA: al carregar un mapa nou, posar reset_clock = true!!!
