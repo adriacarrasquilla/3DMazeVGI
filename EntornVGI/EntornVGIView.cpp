@@ -1718,10 +1718,20 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	vdir[2] = vdir[2] / modul;
 
 	if (eventfinal.m_colisio) {
+		/*  Torna el pg al punt d'inici
 		personatge.m_x = -3.0;
 		personatge.m_y = 12.0;
 		opvN.x = -3.0;	opvN.y = 12.0;		opvN.z = 5.0;
 		n[0] = 0.0;		n[1] = 0.0;			n[2] = 5.0;
+		*/
+
+		// Porta el pg a la sala de victòria
+		personatge.m_x = 70.0;
+		personatge.m_y = 62.5;
+
+		opvN.x = 70;				opvN.y = 62.5;			opvN.z = -52.5;
+		n[0] = opvN.x + 5.0;		n[1] = opvN.y;			n[2] = opvN.z;
+
 	}
 
 
@@ -3378,6 +3388,8 @@ std::vector<Mur> CEntornVGIView::CreaSales() {
 	std::vector<Mur> llista;
 	// Mur: x 20 y 5 z 15
 	GLfloat h = -50.0f;
+	
+	// SALA DERROTA
 	llista.push_back(Mur(100.0, 50.0, h, HOR));
 	llista.push_back(Mur(100.0, 70.0, h, HOR));
 	llista.push_back(Mur(107.5, 82.5, h, VER));
@@ -3386,6 +3398,36 @@ std::vector<Mur> CEntornVGIView::CreaSales() {
 	llista.push_back(Mur(140.0, 55.0, h, HOR));
 	llista.push_back(Mur(132.5, 42.5, h, VER));
 	llista.push_back(Mur(112.5, 42.5, h, VER));
+
+	llista.push_back(Mur(100.0, 50.0, h + 15, HOR));
+	llista.push_back(Mur(100.0, 70.0, h + 15, HOR));
+	llista.push_back(Mur(107.5, 82.5, h + 15, VER));
+	llista.push_back(Mur(127.5, 82.5, h + 15, VER));
+	llista.push_back(Mur(140.0, 75.0, h + 15, HOR));
+	llista.push_back(Mur(140.0, 55.0, h + 15, HOR));
+	llista.push_back(Mur(132.5, 42.5, h + 15, VER));
+	llista.push_back(Mur(112.5, 42.5, h + 15, VER));
+
+
+
+	///SALA VICTÒRIA
+	llista.push_back(Mur(50.0, 50.0, h, HOR));
+	llista.push_back(Mur(50.0, 70.0, h, HOR));
+	llista.push_back(Mur(57.5, 82.5, h, VER));
+	llista.push_back(Mur(77.5, 82.5, h, VER));
+	llista.push_back(Mur(90.0, 75.0, h, HOR));
+	llista.push_back(Mur(90.0, 55.0, h, HOR));
+	llista.push_back(Mur(82.5, 42.5, h, VER));
+	llista.push_back(Mur(62.5, 42.5, h, VER));
+
+	llista.push_back(Mur(50.0, 50.0, h + 15, HOR));
+	llista.push_back(Mur(50.0, 70.0, h + 15, HOR));
+	llista.push_back(Mur(57.5, 82.5, h + 15, VER));
+	llista.push_back(Mur(77.5, 82.5, h + 15, VER));
+	llista.push_back(Mur(90.0, 75.0, h + 15, HOR));
+	llista.push_back(Mur(90.0, 55.0, h + 15, HOR));
+	llista.push_back(Mur(82.5, 42.5, h + 15, VER));
+	llista.push_back(Mur(62.5, 42.5, h + 15, VER));
 
 
 	return llista;
@@ -3684,8 +3726,10 @@ void CEntornVGIView::killPlayer() {
 		personatge.m_x = 100.0;
 		personatge.m_y = 50.0;
 		personatge.m_z = -50.0;
-		opvN.x = 100.0;				opvN.y = 50.0;			opvN.z = 50.0;
-		n[0] = opvN.x + 5.0;		n[1] = opvN.y;			n[2] = 50.0;
+		//MOVE THE PLAYER TO THE DEFEAT ROOM
+
+		opvN.x = 102.5;				opvN.y = 62.5;			opvN.z = -52.5;
+		n[0] = opvN.x + 5.0;		n[1] = opvN.y;			n[2] = opvN.z;
 
 	}
 	else {
