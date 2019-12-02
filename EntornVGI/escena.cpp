@@ -647,12 +647,13 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 		glEnable(GL_TEXTURE_2D);
 
-		
+		//Terra del laberint
 		glPushMatrix();
 		  glTranslatef(50.0f, 50.0f, -5.0f);
 		  glScalef(MIDA_I*8*5.0F, MIDA_J * 8 * 5.0F, 10.0f);
 		  glutSolidCube(1.0);
 		glPopMatrix();
+		
 		/*
 		glPushMatrix();
 			glTranslatef(50.0f, 50.0f, -5.0f);
@@ -660,6 +661,22 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			glutSolidCube(1.0);
 		glPopMatrix();
 		*/
+		
+		// Terra de la sala de la derrota
+		glPushMatrix();
+		  glTranslatef(120.0f, 62.5f, -62.5f);
+		  glScalef(45.0f, 45.0f, 10.0f);
+		  glutSolidCube(1.0);
+		glPopMatrix();
+
+		// Terra de la sala de la victòria
+		glPushMatrix();
+		  glTranslatef(70.0f, 62.5f, -62.5f);
+		  glScalef(45.0f, 45.0f, 10.0f);
+		  glutSolidCube(1.0);
+		glPopMatrix();		
+		
+
 		glDisable(GL_TEXTURE_GEN_S);
 		glDisable(GL_TEXTURE_GEN_T);
 
