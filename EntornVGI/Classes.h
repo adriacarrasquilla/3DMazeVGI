@@ -263,14 +263,14 @@ public:
 };
 
 
-/*	//Moviment shreck == -5
-	float Posicio_x_inicial = 4 * x * 1;
-	float Posicio_y_inicial = 4 * x * 2;
+	//Moviment shreck == -5
+float Posicio_x_inicial = 4 * x * 1;
+float Posicio_y_inicial = 4 * x * 2;
 
-	float Posicio_x_final = 4 * x * 4;
-	float Posicio_y_final = 4 * x * 2;
+float Posicio_x_final = 4 * x * 4;
+float Posicio_y_final = 4 * x * 2;
 	
-	*/
+	
 
 
 /*CLASSE LEADERBOARD*/

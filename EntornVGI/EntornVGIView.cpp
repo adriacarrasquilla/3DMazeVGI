@@ -3779,9 +3779,7 @@ void CEntornVGIView::OnObjecteCubRGB()
 	//shrek
 	texturesID[16] = loadIMA_ILUT("./textures/shrek/Shrek.png");
 	texturesID[17] = loadIMA_ILUT("./textures/shrek/shrekshirt.png");
-	loader[0].LoadFile("./objects/shrek/CHARACTER_Shrek.obj");
-	loader[1].LoadFile("./objects/punxes/3d-model.obj");
-
+	
 
 
 	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
@@ -5131,9 +5129,17 @@ void CEntornVGIView::OnObjecteMur()
 	//shrek
 	texturesID[16] = loadIMA_ILUT("./textures/shrek/Shrek.png");
 	texturesID[17] = loadIMA_ILUT("./textures/shrek/shrekshirt.png");
-
 	loader[0].LoadFile("./objects/shrek/CHARACTER_Shrek.obj");
+
+	//punxes
 	loader[1].LoadFile("./objects/punxes/3d-model.obj");
+
+	//taula
+	texturesID[18] = loadIMA_ILUT("./objects/victory/taula/light_wood.png");
+	loader[2].LoadFile("./objects/victory/taula/simple_table.obj");
+	//balloon
+	//loader[3].LoadFile("./objects/victory/balloon/balloon_obj.obj");
+
 
 	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
 	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)

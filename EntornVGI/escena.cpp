@@ -404,12 +404,12 @@ bool activavioDeMurCaiguda(Mur& murCaiguda, std::vector<Mur>& llista, bool& Acti
 }
 
 
-void movimentShrek(float moviment[], bool movDir[], float rotShrek[])
+void movimentShrek(float moviment[], bool movDir[], float rotShrek[], float posicioIniciX, float posicioFinalX)
 {
 	if (movDir[0] == true)
 	{
-		moviment[0] += 0.5;
-		if (moviment[0] > 150)
+		moviment[0] += 0.2;
+		if (moviment[0] > posicioFinalX)
 		{
 			movDir[0] = false;
 			rotShrek[1] = -1;
@@ -417,8 +417,8 @@ void movimentShrek(float moviment[], bool movDir[], float rotShrek[])
 	}
 	else
 	{
-		moviment[0] -= 0.5;
-		if (moviment[0] < 0)
+		moviment[0] -= 0.2;
+		if (moviment[0] < posicioIniciX)
 		{
 			movDir[0] = true;
 			rotShrek[1] = 1;
@@ -445,7 +445,7 @@ void circularMovimentShrek(float moviment[], bool movDir[], float rotShrek[])
 
 }
 
-void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov)
+void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY)
 {
 	
 	glPushMatrix();
@@ -453,7 +453,7 @@ void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[
 
 	  if (tipusMov == 0)
 	  {
-		  movimentShrek(moviment, movDir, rotShrek);
+		  movimentShrek(moviment, movDir, rotShrek, posicioIniciX, posicioFinalX);
 	  }
 	  if (tipusMov == 1)
 	  {
@@ -463,12 +463,12 @@ void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[
 	  }
 
 	  //Translació inicial + moviment
-	  glTranslatef(1.0f + moviment[0], -20.0f + moviment[1], 2.0f + moviment[2]);
+	  glTranslatef(posicioIniciX + moviment[0], posicioIniciY + moviment[1], 2.0f + moviment[2]);
 	  	 
 	  //Rotació inicial
 	  glRotatef(90, 1, 0, 0);
 	  //Rotació depenent moviment
-	  glRotatef(0 + rotShrek[2], 0 + rotShrek[0], 0 + rotShrek[1], 0);
+	  glRotatef(90 , 0 + rotShrek[0], 0 + rotShrek[1], 0 + rotShrek[2]);
 	  glScalef(8.0f, 8.0f, 8.0f);
 
 	  
@@ -526,6 +526,28 @@ void punxes(std::vector<Mur> punxesAnimadetes, objl::Loader loader)
 	}
 }
 
+
+void tauleta(objl::Loader loader, int texturID[])
+{
+	glPushMatrix();
+	  glTranslatef(-30.0, -1.0, -1.0);
+	  glRotatef(90, 1, 0, 0);
+	  glScalef(2.5f, 2.5f, 2.5f);
+	  glEnable(GL_TEXTURE_2D);
+
+		glBindTexture(GL_TEXTURE_2D, texturID[18]);
+
+		glBegin(GL_TRIANGLES);
+		  for (int i = 0; i < loader.LoadedVertices.size(); i++)
+		  {
+			  glTexCoord2f(loader.LoadedVertices[i].TextureCoordinate.X, loader.LoadedVertices[i].TextureCoordinate.Y); glVertex3f(loader.LoadedVertices[i].Position.X, loader.LoadedVertices[i].Position.Y, loader.LoadedVertices[i].Position.Z);
+		  }
+		glEnd();
+
+	  glDisable(GL_TEXTURE_2D);
+	glPopMatrix();
+}
+
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
 	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader[], 
@@ -565,13 +587,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		glDisable(GL_TEXTURE_2D);
 		GLfloat sPlane2[4] = { 10.00f, 0.00f, 0.00f, 10.00f };
 		GLfloat tPlane2[4] = { 0.00f, 10.00f, 10.00f, 0.00f };
-		//glBindTexture(GL_TEXTURE_2D, texturID[8]);
 
-		//glTexGenfv(GL_S, GL_OBJECT_PLANE, sPlane2);
-		//glTexGenfv(GL_T, GL_OBJECT_PLANE, tPlane2);
-
-		//glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
-		//glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
 
 		glEnable(GL_TEXTURE_GEN_S);
 		glEnable(GL_TEXTURE_GEN_T);
@@ -579,9 +595,6 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		glDisable(GL_TEXTURE_GEN_S);
 		glDisable(GL_TEXTURE_GEN_T);
 
-
-		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -654,9 +667,11 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		
 		skybox(texturID, cel);
 
-		//0 moviment lineal, 1 rotacional, altres static
-		shrek(loader[0], movimentShrek, movDir, rotShrek, texturID, 1);
-
+		//0 moviment lineal horitzontal, 1 rotacional, altres static
+		shrek(loader[0], movimentShrek, movDir, rotShrek, texturID, 0, Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final);
+	
+		//Altres objectes
+		tauleta(loader[2], texturID);
 		
 
 		//eventfinal.pinta();
