@@ -154,37 +154,7 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 {
 	pg.m_colisioX = false;
 	pg.m_colisioY = false;
-	/*
-	pg.colisions[0] = false;
-	pg.colisions[1] = false;
-	pg.colisions[2] = false;
-	pg.colisions[3] = false;
-	for (int i = 0; i < llista.size(); i++)
-	{
-		bool * colisions = CheckColisioMurPg(llista[i], pg);
-
-		for (int i = 0; i < 4; i++) {
-			if (colisions[i]) pg.colisions[i] = true;
-		}
-		
-	}
-	*/
-	/*
-	for (int i = 0; i < llista.size(); i++){
-		if(CheckColisioMurPg(llista[i], pg)){
-			//pg.m_color = !pg.m_color;
-			trobat = true;
-		}
-		//else {pg.m_color = 0;}
-	}
-	if (trobat == true) {
-		pg.m_color = 1;
-		pg.m_colisio = true;
-	}
-	else {
-		pg.m_color = 0;
-		pg.m_colisio = false;
-	}*/
+	
 	bool* colXY;
 	for (int i = 0; i < llista.size(); i++)
 	{
@@ -445,7 +415,7 @@ void circularMovimentShrek(float moviment[], bool movDir[], float rotShrek[])
 
 }
 
-void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY)
+void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ)
 {
 	
 	glPushMatrix();
@@ -463,14 +433,14 @@ void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[
 	  }
 
 	  //Translació inicial + moviment
-	  glTranslatef(posicioIniciX + moviment[0], posicioIniciY + moviment[1], 2.0f + moviment[2]);
+	  glTranslatef(posicioIniciX + moviment[0], posicioIniciY + moviment[1], posicioZ + moviment[2]);
 	  	 
 	  //Rotació inicial
 	  glRotatef(90, 1, 0, 0);
 	  //Rotació depenent moviment
 	  glRotatef(90 , 0 + rotShrek[0], 0 + rotShrek[1], 0 + rotShrek[2]);
-	  glScalef(8.0f, 8.0f, 8.0f);
-
+	  //glScalef(8.0f, 8.0f, 8.0f);
+	  glScalef(14.0f, 14.0f, 14.0f);
 	  
 	  //textura 16 shrek, 17 shrekShirt
 	  glEnable(GL_TEXTURE_2D);
@@ -574,7 +544,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			SoundEngine->play2D("audio/minecraft_lofi.mp3", GL_TRUE);
 			i = false;
 		}
-		
+
 
 		glClearColor(0.5294f, 0.8078f, 0.9216f, 0.71f);
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -649,11 +619,11 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 		//Terra del laberint
 		glPushMatrix();
-		  glTranslatef(50.0f, 50.0f, -5.0f);
-		  glScalef(MIDA_I*8*5.0F, MIDA_J * 8 * 5.0F, 10.0f);
-		  glutSolidCube(1.0);
+		glTranslatef(50.0f, 50.0f, -5.0f);
+		glScalef(MIDA_I * 8 * 5.0F, MIDA_J * 8 * 5.0F, 10.0f);
+		glutSolidCube(1.0);
 		glPopMatrix();
-		
+
 		/*
 		glPushMatrix();
 			glTranslatef(50.0f, 50.0f, -5.0f);
@@ -661,32 +631,45 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			glutSolidCube(1.0);
 		glPopMatrix();
 		*/
-		
+
 		// Terra de la sala de la derrota
 		glPushMatrix();
-		  glTranslatef(120.0f, 62.5f, -62.5f);
-		  glScalef(45.0f, 45.0f, 10.0f);
-		  glutSolidCube(1.0);
+		glTranslatef(120.0f, 62.5f, -62.5f);
+		glScalef(45.0f, 45.0f, 10.0f);
+		glutSolidCube(1.0);
 		glPopMatrix();
 
 		// Terra de la sala de la victòria
 		glPushMatrix();
-		  glTranslatef(70.0f, 62.5f, -62.5f);
-		  glScalef(45.0f, 45.0f, 10.0f);
-		  glutSolidCube(1.0);
-		glPopMatrix();		
-		
+		glTranslatef(70.0f, 62.5f, -62.5f);
+		glScalef(45.0f, 45.0f, 10.0f);
+		glutSolidCube(1.0);
+		glPopMatrix();
+
 
 		glDisable(GL_TEXTURE_GEN_S);
 		glDisable(GL_TEXTURE_GEN_T);
 
-		
-		
+
+
 		skybox(texturID, cel);
 
+		// S H R E K S
 		//0 moviment lineal horitzontal, 1 rotacional, altres static
-		shrek(loader[0], movimentShrek, movDir, rotShrek, texturID, 0, Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final);
-	
+		// SHREK ENEMIC 1
+		shrek(loader[0], movimentShrek, movDir, rotShrek, texturID, 0, Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final, 0.0);
+
+		// SHREKS SALA DERROTA
+		
+		//Shrek skizo del gif
+		//shrek(loader[0], movimentShrek, movDir, rotShrek, texturID, 1, 135.0, 62.5, 130.0, 62.5, -57.5);
+		
+		// de moment, un i estàtic  
+		float noMov[3] = { 0.0, 0.0, 0.0 };
+		float noRot[3] = { 0.0, -1.0, 0.0 };
+		shrek(loader[0], noMov, movDir, noRot, texturID, 2, 135.0, 62.5, 130.0, 62.5, -57.5);
+		
+
 		//Altres objectes
 		tauleta(loader[2], texturID);
 		

@@ -28,7 +28,7 @@ void Iluminacio(char ilumin, bool ifix, bool ilu2sides, bool ll_amb, LLUM* lumin
 	GLfloat especular[] = { 0.0,0.0,0.0,1.0 };
 	GLfloat dia[] = { .5,.5,.5, 1.0 };
 	GLfloat nit[] = { .1,.1,.1, 1.0 };
-	GLfloat partida_perduda[] = { .5,.0,.0, 1.0 };
+	GLfloat partida_perduda[] = { .8,.3,.3, 1.0 };
 
 	// Definició de llum ambient segons booleana ll_amb
 

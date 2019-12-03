@@ -212,6 +212,7 @@ public:
 	int MidaLaberint_Fila = 0;
 	int MidaLaberint_Columna = 0;
 
+	bool llumVermella = false;
 
 	// Operaciones
 public:

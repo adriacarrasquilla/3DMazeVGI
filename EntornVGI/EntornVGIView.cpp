@@ -888,7 +888,7 @@ void CEntornVGIView::OnPaint()
 			Vista_Navega(opvN, false, n, v, pan, tr_cpv, tr_cpvF, c_fons, col_obj, objecte, true, pas,
 				front_faces, oculta, test_vis, back_line,
 				ilumina, llum_ambient, llumGL, ifixe, ilum2sides,
-				eixos, grid, hgrid, false);
+				eixos, grid, hgrid, llumVermella);
 		}
 		else {
 			n[0] = 0;		n[1] = 0;		n[2] = 0;
@@ -949,12 +949,6 @@ void CEntornVGIView::dibuixa_Escena() {
 
 	//	Dibuix geometria de l'escena amb comandes GL.
 
-		/*
-		moros:
-		dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura,npts_T, PC_t, pas_CS,
-		sw_Punts_Control, prova_moviment, llista_murs, personatge);
-
-		*/
 	bool animacioMurQueCauInici = false;
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
 		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes, MidaLaberint_Fila,MidaLaberint_Columna);
@@ -3724,14 +3718,16 @@ void CEntornVGIView::killPlayer() {
 
 	if (lifes <= 0) {
 		//GAME OVER
-		personatge.m_x = 100.0;
-		personatge.m_y = 50.0;
-		personatge.m_z = -50.0;
+		
 		//MOVE THE PLAYER TO THE DEFEAT ROOM
-
-		opvN.x = 102.5;				opvN.y = 62.5;			opvN.z = -52.5;
+		personatge.m_x = 120.0;
+		personatge.m_y = 62.5;
+		personatge.m_z = -52.5;
+		
+		opvN.x = 120.0;				opvN.y = 62.5;			opvN.z = -52.5;
 		n[0] = opvN.x + 5.0;		n[1] = opvN.y;			n[2] = opvN.z;
 
+		llumVermella = true;
 	}
 	else {
 		//GO TO STARTING POINT
