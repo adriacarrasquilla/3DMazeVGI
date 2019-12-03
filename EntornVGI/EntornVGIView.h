@@ -120,6 +120,7 @@ public:
 
 // Entorn VGI: Variables de control del men� Llums
 	bool llum_ambient;	// Booleana que controla la llum ambient (SI/NO).
+	bool perduda;		//Booleana que controla la llum ambient quan es perd.
 	LLUM llumGL[NUM_MAX_LLUMS];		// Vector de llums d'OpenGL
 	bool sw_llambient;	// Booleana que controla modus de configurar el color de la llum ambient [TRUE] o no [FALSE]
 	CColor col_llambient;// Color llum ambient.

@@ -249,6 +249,7 @@ CEntornVGIView::CEntornVGIView()
 	// Entorn VGI: Variables de control del men� Llums
 	// Entorn VGI: Inicialitzaci� variables Llums
 	llum_ambient = true;
+	perduda = false;
 	for (i = 1; i < NUM_MAX_LLUMS; i++) llumGL[i].encesa = false;
 	for (i = 0; i < NUM_MAX_LLUMS; i++) {
 		llumGL[i].encesa = false;
@@ -824,7 +825,7 @@ void CEntornVGIView::OnPaint()
 		Projeccio_Orto(w / 2, h / 2, w / 2, h / 2);
 		Vista_Ortografica(0, OPV.R, c_fons, col_obj, objecte, mida, pas, front_faces, oculta,
 			test_vis, back_line, ilumina, llum_ambient, llumGL, ifixe, ilum2sides,
-			eixos, grid, hgrid);
+			eixos, grid, hgrid, false);
 		// Dibuix de l'Objecte o l'Escena
 		glPushMatrix();
 		configura_Escena();     // Aplicar Transformacions Geometriques segons persiana Transformacio i configurar objectes
@@ -837,7 +838,7 @@ void CEntornVGIView::OnPaint()
 		Projeccio_Orto(0, w / 2, w / 2, h / 2);
 		Vista_Ortografica(3, OPV.R, c_fons, col_obj, objecte, mida, pas, front_faces, oculta,
 			test_vis, back_line, ilumina, llum_ambient, llumGL, ifixe, ilum2sides,
-			eixos, grid, hgrid);
+			eixos, grid, hgrid, false);
 		// Dibuix de l'Objecte o l'Escena
 		glPushMatrix();
 		configura_Escena();     // Aplicar Transformacions Geometriques segons persiana Transformacio i configurar objectes
@@ -850,7 +851,7 @@ void CEntornVGIView::OnPaint()
 		Projeccio_Orto(w / 4, h / 4, w / 2, h / 2);
 		Vista_Ortografica(1, OPV.R, c_fons, col_obj, objecte, mida, pas, front_faces, oculta,
 			test_vis, back_line, ilumina, llum_ambient, llumGL, ifixe, ilum2sides,
-			eixos, grid, hgrid);
+			eixos, grid, hgrid, false);
 		// Dibuix de l'Objecte o l'Escena
 		glPushMatrix();
 		configura_Escena();     // Aplicar Transformacions Geom?triques segons persiana Transformacio i configurar objectes
@@ -863,7 +864,7 @@ void CEntornVGIView::OnPaint()
 		Projeccio_Orto(0, h / 2, w / 2, h / 2);
 		Vista_Ortografica(2, OPV.R, c_fons, col_obj, objecte, mida, pas, front_faces, oculta,
 			test_vis, back_line, ilumina, llum_ambient, llumGL, ifixe, ilum2sides,
-			eixos, grid, hgrid);
+			eixos, grid, hgrid, false);
 		// Dibuix de l'Objecte o l'Escena
 		glPushMatrix();
 		configura_Escena();     // Aplicar Transformacions Geom?triques segons persiana Transformacio i configurar objectes
@@ -887,12 +888,12 @@ void CEntornVGIView::OnPaint()
 			Vista_Navega(opvN, false, n, v, pan, tr_cpv, tr_cpvF, c_fons, col_obj, objecte, true, pas,
 				front_faces, oculta, test_vis, back_line,
 				ilumina, llum_ambient, llumGL, ifixe, ilum2sides,
-				eixos, grid, hgrid);
+				eixos, grid, hgrid, false);
 		}
 		else {
 			n[0] = 0;		n[1] = 0;		n[2] = 0;
 			Vista_Esferica(OPV, Vis_Polar, pan, tr_cpv, tr_cpvF, c_fons, col_obj, objecte, mida, pas,
-				front_faces, oculta, test_vis, back_line, ilumina, llum_ambient, llumGL, ifixe, ilum2sides, eixos, grid, hgrid);
+				front_faces, oculta, test_vis, back_line, ilumina, llum_ambient, llumGL, ifixe, ilum2sides, eixos, grid, hgrid, false);
 		}
 
 		// Dibuix de l'Objecte o l'Escena

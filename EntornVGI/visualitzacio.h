@@ -12,25 +12,25 @@
 /* ------------------------------------------------------------------------- */
 
 // Entorn VGI: Il.luminació
-void Iluminacio(char ilumin, bool ifix, bool ilu2sides, bool ll_amb, LLUM* lumin, char obj, bool frnt_fcs, bool bc_lin, int step);
+void Iluminacio(char ilumin, bool ifix, bool ilu2sides, bool ll_amb, LLUM* lumin, char obj, bool frnt_fcs, bool bc_lin, int step, bool perduda);
 
 // Entorn VGI: Projecció Ortografica;
 void Projeccio_Orto(int minx, int miny, GLsizei w, GLsizei h);
 void Vista_Ortografica(int prj, GLfloat Raux, CColor col_fons, CColor col_object, char objecte, GLfloat mida, int step,
 	bool frnt_fcs, bool oculta, bool testv, bool bck_ln, char iluminacio, bool llum_amb, LLUM* lumin,
-	bool ifix, bool il2sides, bool eix, CMask3D reixa, CPunt3D hreixa);
+	bool ifix, bool il2sides, bool eix, CMask3D reixa, CPunt3D hreixa, bool perduda);
 
 // Entorn VGI: Projecció Perspectiva
 void Projeccio_Perspectiva(int, int, GLsizei, GLsizei, float);
 void Vista_Esferica(CEsfe3D opv, char VPol, bool pant, CPunt3D tr, CPunt3D trF,
 	CColor col_fons, CColor col_object, char objecte, double mida, int step,
 	bool frnt_fcs, bool oculta, bool testv, bool bck_ln, char iluminacio, bool llum_amb, LLUM* lumin,
-	bool ifix, bool il2sides, bool eix, CMask3D reixa, CPunt3D hreixa);
+	bool ifix, bool il2sides, bool eix, CMask3D reixa, CPunt3D hreixa, bool perduda);
 
 void Vista_Navega(CPunt3D pv, bool pvb, GLfloat n[3], GLfloat v[3], bool pant, CPunt3D tr, CPunt3D trF,
 	CColor col_fons, CColor col_object, char objecte, bool color, int step,
 	bool frnt_fcs, bool oculta, bool testv, bool bck_ln, char iluminacio, bool llum_amb, LLUM* lumin,
-	bool ifix, bool il2sides, bool eix, CMask3D reixa, CPunt3D hreixa);
+	bool ifix, bool il2sides, bool eix, CMask3D reixa, CPunt3D hreixa, bool perduda);
 
 // Entorn VGI: Càrrega TG
 void instancia(bool TR, INSTANCIA tg, INSTANCIA tgF);

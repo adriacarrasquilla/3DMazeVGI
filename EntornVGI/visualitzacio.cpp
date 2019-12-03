@@ -18,7 +18,7 @@
 #include "escena.h"
 
 // Iluminació: Configurar iluminació de l'escena
-void Iluminacio(char ilumin, bool ifix, bool ilu2sides, bool ll_amb, LLUM* lumin, char obj, bool frnt_fcs, bool bc_lin, int step)
+void Iluminacio(char ilumin, bool ifix, bool ilu2sides, bool ll_amb, LLUM* lumin, char obj, bool frnt_fcs, bool bc_lin, int step, bool perduda)
 {
 	//bool ll_amb=true;
 	GLfloat angv, angh;
@@ -26,12 +26,18 @@ void Iluminacio(char ilumin, bool ifix, bool ilu2sides, bool ll_amb, LLUM* lumin
 	// Configuració de la font de llum LIGHT0
 	GLfloat position[] = { 0.0,0.0,200.0,1.0 };
 	GLfloat especular[] = { 0.0,0.0,0.0,1.0 };
-	GLfloat dia[] = { .5,.5,.5,1.0 };
-	GLfloat nit[] = { .1,.1,.1,1.0 };
+	GLfloat dia[] = { .5,.5,.5, 1.0 };
+	GLfloat nit[] = { .1,.1,.1, 1.0 };
+	GLfloat partida_perduda[] = { .5,.0,.0, 1.0 };
 
 	// Definició de llum ambient segons booleana ll_amb
-	if (ll_amb) glLightModelfv(GL_LIGHT_MODEL_AMBIENT, dia);
-	else glLightModelfv(GL_LIGHT_MODEL_AMBIENT, nit);
+
+	//En cas que perduda = TRUE -> l'ambient serà vermell.
+	if(perduda) glLightModelfv(GL_LIGHT_MODEL_AMBIENT, partida_perduda);
+	else {
+		if (ll_amb) glLightModelfv(GL_LIGHT_MODEL_AMBIENT, dia);
+		else glLightModelfv(GL_LIGHT_MODEL_AMBIENT, nit);
+	}
 
 	// Llum #0 - (+Z)
 	if (lumin[0].encesa) {
@@ -335,11 +341,11 @@ void Projeccio_Orto(int minx, int miny, GLsizei w, GLsizei h)
 void Vista_Ortografica(int prj, GLfloat Raux, CColor col_fons, CColor col_object, char objecte, GLfloat mida, int step,
 	bool frnt_fcs, bool oculta, bool testv, bool bck_ln,
 	char iluminacio, bool llum_amb, LLUM* lumi, bool ifix, bool il2sides,
-	bool eix, CMask3D reixa, CPunt3D hreixa)
+	bool eix, CMask3D reixa, CPunt3D hreixa, bool perduda)
 {
 
 	// Iluminacio movent-se amb la camara (abans gluLookAt)
-	if (!ifix) Iluminacio(iluminacio, ifix, il2sides, llum_amb, lumi, objecte, frnt_fcs, bck_ln, step);
+	if (!ifix) Iluminacio(iluminacio, ifix, il2sides, llum_amb, lumi, objecte, frnt_fcs, bck_ln, step, perduda);
 
 	// Implementació de planta,alçat,perfil i isomètrica 
 	// ---- Entorn VGI: ATENCIÓ!!. ESPECIFICACIO DEL PUNT DE VISTA
@@ -364,7 +370,7 @@ void Vista_Ortografica(int prj, GLfloat Raux, CColor col_fons, CColor col_object
 	Fons(col_fons);
 
 	// Iluminacio fixe respecte la camara (després gluLookAt)
-	if (ifix) Iluminacio(iluminacio, ifix, il2sides, llum_amb, lumi, objecte, frnt_fcs, bck_ln, step);
+	if (ifix) Iluminacio(iluminacio, ifix, il2sides, llum_amb, lumi, objecte, frnt_fcs, bck_ln, step, perduda);
 
 	// Test de Visibilitat
 	if (testv) glEnable(GL_CULL_FACE);
@@ -417,7 +423,7 @@ void Vista_Esferica(CEsfe3D opv, char VPol, bool pant, CPunt3D tr, CPunt3D trF,
 	CColor col_fons, CColor col_object, char objecte, double mida, int step,
 	bool frnt_fcs, bool oculta, bool testv, bool bck_ln,
 	char iluminacio, bool llum_amb, LLUM* lumi, bool ifix, bool il2sides,
-	bool eix, CMask3D reixa, CPunt3D hreixa)
+	bool eix, CMask3D reixa, CPunt3D hreixa, bool perduda)
 {
 	GLfloat cam[3], up[3];
 
@@ -457,7 +463,7 @@ void Vista_Esferica(CEsfe3D opv, char VPol, bool pant, CPunt3D tr, CPunt3D trF,
 	}
 
 	// Iluminacio movent-se amb la camara (abans glLookAt)
-	if (!ifix) Iluminacio(iluminacio, ifix, il2sides, llum_amb, lumi, objecte, frnt_fcs, bck_ln, step);
+	if (!ifix) Iluminacio(iluminacio, ifix, il2sides, llum_amb, lumi, objecte, frnt_fcs, bck_ln, step, perduda);
 
 	// Opció pan: desplaçament del Centre de l'esfera (pant=1)
 	if (pant) glTranslatef(tr.x, tr.y, tr.z);
@@ -467,7 +473,7 @@ void Vista_Esferica(CEsfe3D opv, char VPol, bool pant, CPunt3D tr, CPunt3D trF,
 	gluLookAt(cam[0], cam[1], cam[2], 0., 0., 0., up[0], up[1], up[2]);
 
 	// Iluminacio fixe respecte la camara (després glLookAt)
-	if (ifix) Iluminacio(iluminacio, ifix, il2sides, llum_amb, lumi, objecte, frnt_fcs, bck_ln, step);
+	if (ifix) Iluminacio(iluminacio, ifix, il2sides, llum_amb, lumi, objecte, frnt_fcs, bck_ln, step, perduda);
 
 	// Test de Visibilitat
 	if (testv) glEnable(GL_CULL_FACE);
@@ -495,7 +501,7 @@ void Vista_Navega(CPunt3D pv, bool pvb, GLfloat n[3], GLfloat v[3], bool pant, C
 	CColor col_fons, CColor col_object, char objecte, bool color, int step,
 	bool frnt_fcs, bool oculta, bool testv, bool bck_ln,
 	char iluminacio, bool llum_amb, LLUM* lumi, bool ifix, bool il2sides,
-	bool eix, CMask3D reixa, CPunt3D hreixa)
+	bool eix, CMask3D reixa, CPunt3D hreixa, bool perduda)
 {
 	double altfar = 0;
 
@@ -503,7 +509,7 @@ void Vista_Navega(CPunt3D pv, bool pvb, GLfloat n[3], GLfloat v[3], bool pant, C
 	Fons(col_fons);
 
 	// Iluminacio movent-se amb la camara (abans glLookAt)
-	if (!ifix) Iluminacio(iluminacio, ifix, il2sides, llum_amb, lumi, objecte, frnt_fcs, bck_ln, step);
+	if (!ifix) Iluminacio(iluminacio, ifix, il2sides, llum_amb, lumi, objecte, frnt_fcs, bck_ln, step, perduda);
 
 	// Opció pan: desplaçament del Centre de l'esfera (pant=true)
 	if (pant) glTranslatef(tr.x, tr.y, tr.z);
@@ -513,7 +519,7 @@ void Vista_Navega(CPunt3D pv, bool pvb, GLfloat n[3], GLfloat v[3], bool pant, C
 	gluLookAt(pv.x, pv.y, pv.z, n[0], n[1], n[2], v[0], v[1], v[2]);
 
 	// Iluminacio fixe respecte la camara (després glLookAt)
-	if (ifix) Iluminacio(iluminacio, ifix, il2sides, llum_amb, lumi, objecte, frnt_fcs, bck_ln, step);
+	if (ifix) Iluminacio(iluminacio, ifix, il2sides, llum_amb, lumi, objecte, frnt_fcs, bck_ln, step, perduda);
 
 	// Test de Visibilitat
 	if (testv) glEnable(GL_CULL_FACE);
