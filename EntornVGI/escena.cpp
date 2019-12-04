@@ -30,7 +30,14 @@ bool ActivacioIniciEnCursOJaRealitzada = false;
 
 //SO
 irrklang::ISoundEngine* SoundEngine = irrklang::createIrrKlangDevice();
+irrklang::ISoundSource* soAmbient = SoundEngine->addSoundSourceFromFile("audio/minecraft_lofi.mp3");
+irrklang::ISoundSource* soVictoria = SoundEngine->addSoundSourceFromFile("audio/all_star.mp3");
+irrklang::ISoundSource* soDerrota = SoundEngine->addSoundSourceFromFile("audio/shittyflute.mp3");
+irrklang::ISoundSource* soColisio = SoundEngine->addSoundSourceFromFile("audio/damage.mp3");
+
 bool i = true;
+bool i_d = false;
+bool i_v = false;
 
 //TEXT ESCENA
 void drawBitmapText(const char* string, float x, float y, float z)
@@ -554,8 +561,8 @@ void globus(objl::Loader loader, int texturID[], float x, float y, float z, floa
 
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
-	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader[], 
-	float movimentShrek[], bool movDir[], float rotShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales, int lifes, int MIDA_I, int MIDA_J)
+	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader[],
+	float movimentShrek[], bool movDir[], float rotShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales, int lifes, int MIDA_I, int MIDA_J, int musica)
 {
 	float altfar = 0;
 
@@ -574,9 +581,23 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		// Mur
 	case MUR:
 	{
-		if (i) {
-			SoundEngine->play2D("audio/minecraft_lofi.mp3", GL_TRUE);
+		if(i && musica == 0) {
+			SoundEngine->play2D(soAmbient, GL_TRUE);
 			i = false;
+			i_d = true;
+			i_v = true;
+		}
+		else if (i_v && musica == 1) {
+			SoundEngine->play2D(soVictoria, GL_TRUE);
+			SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
+			SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
+			i_v = false;
+		}
+		else if (i_d && musica == 2) {
+			SoundEngine->play2D(soDerrota, GL_TRUE);
+			SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
+			SoundEngine->stopAllSoundsOfSoundSource(soVictoria);
+			i_d = false;
 		}
 
 

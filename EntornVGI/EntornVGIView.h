@@ -214,6 +214,10 @@ public:
 
 	bool llumVermella = false;
 
+	int musica = 0; //	0 -> Minecraft Lo-Fi
+					//	1 -> All Star
+					//	2 -> All Star Shittyflute
+
 	// Operaciones
 public:
 	std::vector<Mur> initMurs();

@@ -951,7 +951,7 @@ void CEntornVGIView::dibuixa_Escena() {
 
 	bool animacioMurQueCauInici = false;
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
-		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes, MidaLaberint_Fila, MidaLaberint_Columna);
+		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes, MidaLaberint_Fila, MidaLaberint_Columna, musica);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -1712,7 +1712,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	vdir[1] = vdir[1] / modul;
 	vdir[2] = vdir[2] / modul;
 
-	if (eventfinal.m_colisio) {
+	if (eventfinal.m_colisio) { // VICTÒRIA -> El jugador ha arribat al final
 		/*  Torna el pg al punt d'inici
 		personatge.m_x = -3.0;
 		personatge.m_y = 12.0;
@@ -1726,6 +1726,8 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 
 		opvN.x = 70;				opvN.y = 62.5;			opvN.z = -52.5;
 		n[0] = opvN.x + 5.0;		n[1] = opvN.y;			n[2] = opvN.z;
+
+		musica = 1;
 
 	}
 
@@ -3729,6 +3731,7 @@ void CEntornVGIView::killPlayer() {
 		n[0] = opvN.x + 5.0;		n[1] = opvN.y;			n[2] = opvN.z;
 
 		llumVermella = true;
+		musica = 2;
 	}
 	else {
 		//GO TO STARTING POINT
