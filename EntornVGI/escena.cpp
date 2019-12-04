@@ -374,23 +374,23 @@ bool activavioDeMurCaiguda(Mur& murCaiguda, std::vector<Mur>& llista, bool& Acti
 }
 
 
-void movimentShrek(float moviment[], bool movDir[], float rotShrek[], float posicioIniciX, float posicioFinalX)
+void movimentShrek(float moviment[], bool movDir[], float rotShrek[], float posicioIniciY, float posicioFinalY)
 {
-	if (movDir[0] == true)
+	if (movDir[1] == true)
 	{
-		moviment[0] += 0.2;
-		if (moviment[0] > posicioFinalX)
+		moviment[1] += 0.2;
+		if (moviment[1] + posicioIniciY > posicioFinalY)
 		{
-			movDir[0] = false;
+			movDir[1] = false;
 			rotShrek[1] = -1;
 		}
 	}
 	else
 	{
-		moviment[0] -= 0.2;
-		if (moviment[0] < posicioIniciX)
+		moviment[1] -= 0.2;
+		if (moviment[1] + posicioIniciY < posicioIniciY)
 		{
-			movDir[0] = true;
+			movDir[1] = true;
 			rotShrek[1] = 1;
 		}
 	}
@@ -433,10 +433,12 @@ void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[
 	  }
 
 	  //Translació inicial + moviment
-	  glTranslatef(posicioIniciX + moviment[0], posicioIniciY + moviment[1], posicioZ + moviment[2]);
+	  glTranslatef(posicioIniciY + moviment[0], posicioIniciX + moviment[1], posicioZ + moviment[2]);
 	  	 
 	  //Rotació inicial
 	  glRotatef(90, 1, 0, 0);
+	  //si es mou en vertical
+	  glRotatef(90, 0, 1, 0);
 	  //Rotació depenent moviment
 	  glRotatef(90 , 0 + rotShrek[0], 0 + rotShrek[1], 0 + rotShrek[2]);
 	  //glScalef(8.0f, 8.0f, 8.0f);

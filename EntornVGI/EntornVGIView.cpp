@@ -407,15 +407,15 @@ CEntornVGIView::CEntornVGIView()
 	//Inicialització murs
 	llista_murs = initMurs();
 	sales_v_d = CreaSales();
-	Personatge nou(opvN.x, opvN.y, opvN.z-2.5f, 0);
+	Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
 	personatge = nou;
-	
+
 	num_murs = llista_murs.size();
 
 	// Vides Jugador
 	lifes = 3;
 
-} 
+}
 
 CEntornVGIView::~CEntornVGIView()
 {
@@ -951,7 +951,7 @@ void CEntornVGIView::dibuixa_Escena() {
 
 	bool animacioMurQueCauInici = false;
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
-		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes, MidaLaberint_Fila,MidaLaberint_Columna);
+		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes, MidaLaberint_Fila, MidaLaberint_Columna);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -1693,7 +1693,7 @@ void CEntornVGIView::Teclat_ColorFons(UINT nChar, UINT nRepCnt)
 // Teclat_Navega: Teclat pels moviments de navegaci�.
 void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 {
-	
+
 	GLfloat vdir[3] = { 0, 0, 0 };
 	GLfloat upv[3] = { opvN.x, opvN.y, opvN.z };
 	GLfloat vdirpan[3] = { 0, 0, 0 };
@@ -1734,11 +1734,11 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	{
 		// Tecla cursor amunt
 	case 87:
-		
+
 		personatge.m_x += nRepCnt * fact_pan * vdir[0] / 2;
 		personatge.m_y += nRepCnt * fact_pan * vdir[1] / 2;
 		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes);
-		
+
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
 				opvN.y = personatge.m_y;
@@ -1764,7 +1764,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 			personatge.dead = false;
 			killPlayer();
 		}
-		
+
 		break;
 
 		// Tecla cursor avall
@@ -1790,7 +1790,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 			n[0] -= nRepCnt * fact_pan * vdir[0] / 2;
 			cel[0] = personatge.m_x;
 		}
-		
+
 		personatge.m_x = opvN.x;
 		personatge.m_y = opvN.y;
 
@@ -1832,7 +1832,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 			personatge.dead = false;
 			killPlayer();
 		}
-	
+
 		break;
 
 		// Tecla cursor dret
@@ -1858,7 +1858,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 			n[0] += nRepCnt * fact_pan * vdirpan[0] / 2;
 			cel[0] = personatge.m_x;
 		}
-		
+
 		personatge.m_x = opvN.x;
 		personatge.m_y = opvN.y;
 
@@ -1866,7 +1866,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 			personatge.dead = false;
 			killPlayer();
 		}
-		
+
 		break;
 
 		//tecla K
@@ -2483,7 +2483,7 @@ void CEntornVGIView::OnMouseMove(UINT nFlags, CPoint point)
 	}
 	else if (m_ButoEAvall && navega && (projeccio != CAP && projeccio != ORTO)) // Opci� Navegaci�
 	{
-		
+
 		if (salta) {
 			if (salt < 30) {
 				n[2] -= .1;
@@ -2500,8 +2500,8 @@ void CEntornVGIView::OnMouseMove(UINT nFlags, CPoint point)
 			}
 
 		}
-		
-		
+
+
 		// Entorn VGI: Canviar orientaci� en opci� de Navegaci�
 		CSize girn = m_PosEAvall - point;
 		angleZ = girn.cx / 2.0;
@@ -2551,7 +2551,7 @@ void CEntornVGIView::OnMouseMove(UINT nFlags, CPoint point)
 
 		n[0] = n[0] - opvN.x;
 		n[1] = n[1] - opvN.y;
-		n[2] = n[2] - opvN.z; 
+		n[2] = n[2] - opvN.z;
 
 		n[0] = n[0] * cos(angleZ * pi / 180) - n[1] * sin(angleZ * pi / 180);
 		n[1] = n[0] * sin(angleZ * pi / 180) + n[1] * cos(angleZ * pi / 180);
@@ -2791,7 +2791,7 @@ void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 			salt = 60;
 		}
 	}
-	
+
 	for (int i = 0; i < eventsMursBaixada.size(); i++)
 	{
 
@@ -2813,7 +2813,7 @@ void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 					}
 					else
 					{
-						newMur.setMur(eventsMursBaixada[i].m_x, eventsMursBaixada[i].m_y + x + x + x+2*x, eventsMursBaixada[i].m_z * x, VER, 3 * x);
+						newMur.setMur(eventsMursBaixada[i].m_x, eventsMursBaixada[i].m_y + x + x + x + 2 * x, eventsMursBaixada[i].m_z * x, VER, 3 * x);
 					}
 					newMur.esUnMurAnimatQueCau = true;
 					llista_murs.push_back(newMur);
@@ -2867,7 +2867,7 @@ void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 		// Crida a OnPaint() per redibuixar l'escena
 		InvalidateRect(NULL, false);
 	}
-	
+
 	InvalidateRect(NULL, false);
 	dibuixa_Escena();
 
@@ -3383,7 +3383,7 @@ std::vector<Mur> CEntornVGIView::CreaSales() {
 	std::vector<Mur> llista;
 	// Mur: x 20 y 5 z 15
 	GLfloat h = -50.0f;
-	
+
 	// SALA DERROTA
 	llista.push_back(Mur(100.0, 50.0, h, HOR));
 	llista.push_back(Mur(100.0, 70.0, h, HOR));
@@ -3431,7 +3431,7 @@ std::vector<Mur> CEntornVGIView::CreaSales() {
 std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar per paràmetres el nombre de murs i la matriu rotllo suarez 
 	//de moment, inicialització "manual"
 	std::vector<Mur> llista;
-	
+
 	/*
 	int const MAX_FILA = 7;
 	int const MAX_COLUMNA = 5;
@@ -3442,14 +3442,14 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 													{ 1, 1, 1, 1, 1, 0, 0},
 													{-2,-4,-4, 0, 0, 0, 1} };
 	*/
-	
+
 	//Mapa gran
-	
+
 	int const MAX_FILA = 10;
 	int const MAX_COLUMNA = 10;
-	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = {	{-1,1,1,1,1,1,1,1,1,1},
+	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = { {-1,1,1,1,1,1,1,1,1,1},
 													{0,0,-4,0,-4,-4,0,0,0,1},
-													{0,0,0,-5,-5,-5,-5,-5,0,1},
+													{0,0,0,0,0,0,0,0,0,1},
 													{1,1,1,1,-3,1,1,1,0,1},
 													{1,0,0,0,0,0,0,0,0,1},
 													{1,0,0,0,0,0,0,0,0,1},
@@ -3457,9 +3457,9 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 													{1,0,-6,0,0,0,-6,0,0,1},
 													{1,0,0,0,-6,0,0,0,0,1},
 													{1,1,1,1,1,1,1,1,-2,1},
-												};
+	};
 
-	
+
 	/*
 	int const MAX_FILA = 10;
 	int const MAX_COLUMNA = 10;
@@ -3508,17 +3508,17 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 	int bucle2 = 0;
 
 	//7Entrada al laberint
-	llista.push_back(Mur(-4 * x, 0, -x , VER));
-	llista.push_back(Mur(-4 * x, 4 * x, -x , VER));
+	llista.push_back(Mur(-4 * x, 0, -x, VER));
+	llista.push_back(Mur(-4 * x, 4 * x, -x, VER));
 
 	llista.push_back(Mur(-4 * x - x - x / 2, -x - x - x / 2, -x, HOR));
-	llista.push_back(Mur(-4 * x - x - x / 2, -x - x / 2 + 8*x, -x, HOR));
+	llista.push_back(Mur(-4 * x - x - x / 2, -x - x / 2 + 8 * x, -x, HOR));
 
-	llista.push_back(Mur(-4 * x*2, -4*x, -x, VER));
-	llista.push_back(Mur(-4 * x*2, 2*4 * x, -x, VER));
+	llista.push_back(Mur(-4 * x * 2, -4 * x, -x, VER));
+	llista.push_back(Mur(-4 * x * 2, 2 * 4 * x, -x, VER));
 
 	Mur murEntrada;
-	murEntrada.setMur(- 4 * x *2-2*x, +2*x, -4, HOR, 12*x);
+	murEntrada.setMur(-4 * x * 2 - 2 * x, +2 * x, -4, HOR, 12 * x);
 	llista.push_back(murEntrada);
 
 
@@ -3636,58 +3636,58 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 						llista.push_back(murSortida);
 					}
 					else if (matriuLaberint[j][i] == -3)
+					{
+						Event eventMurCaigudor(j * 4 * x + x + 2 * x, i * 4 * x + 2 * x, h, -3, HOR);//cas de mur caiguda
+						eventsMursBaixada.push_back(eventMurCaigudor);
+					}
+
+					else if (matriuLaberint[j][i] == -4)
+					{
+
+						Event eventMurCaigudor(j * 4 * x + x + 2 * x - 2 * x - x / 2, i * 4 * x + 2 * x + 2 * x + x, h, -3, VER);//cas de mur caiguda
+						eventsMursBaixada.push_back(eventMurCaigudor);
+						//eventMurCaigudor.pinta();
+
+					}
+					else if (matriuLaberint[j][i] == -5)
+					{
+
+						if (camiShrek_ja_creat)
 						{
-							Event eventMurCaigudor(j * 4 * x + x + 2 * x, i * 4 * x + 2 * x, h, -3, HOR);//cas de mur caiguda
-							eventsMursBaixada.push_back(eventMurCaigudor);
-						}
+							Posicio_x_shrek_final = 4 * x * j + x / 2;
+							Posicio_y_shrek_final = 4 * x * i;
 
-						else if (matriuLaberint[j][i] == -4)
+							//Cami de proba shrek casellas
+							Mur probaCamiShrek;
+							probaCamiShrek.setMur(4 * x * j + x / 2, 4 * x * i, -x, VER, x);
+							llista.push_back(probaCamiShrek);
+						}
+						else
 						{
+							//Moviment shreck == -5
 
-							Event eventMurCaigudor(j * 4 * x + x + 2 * x - 2 * x - x / 2, i * 4 * x + 2 * x + 2 * x + x, h, -3, VER);//cas de mur caiguda
-							eventsMursBaixada.push_back(eventMurCaigudor);
-							//eventMurCaigudor.pinta();
+							Posicio_x_shrek_inicial = 4 * x * j + x / 2;
+							Posicio_y_shrek_inicial = 4 * x * i;
+							camiShrek_ja_creat = true;
 
-						}
-						else if (matriuLaberint[j][i] == -5)
-						{
 
-							if (camiShrek_ja_creat)
-							{
-								Posicio_x_shrek_final = 4 * x * j + x / 2;
-								Posicio_y_shrek_final = 4 * x * i;
-								
-								//Cami de proba shrek casellas
-								Mur probaCamiShrek;
-								probaCamiShrek.setMur(4 * x * j+x/2, 4 * x * i, -x, VER, x);
-								llista.push_back(probaCamiShrek);
-							}
-							else
-							{
-								//Moviment shreck == -5
-								
-								Posicio_x_shrek_inicial = 4 * x * j + x / 2;
-								Posicio_y_shrek_inicial = 4 * x * i;
-								camiShrek_ja_creat = true;
-
-								
-								//Cami de proba shrek casella 1
-								Mur probaCamiShrek;
-								probaCamiShrek.setMur(4 * x * j + x / 2, 4 * x * i, -x, VER, x);
-								llista.push_back(probaCamiShrek);
-							}
-							
-							
-
-						}
-						else if (matriuLaberint[j][i] == -6)
-						{			
-							Mur punxesAnimades;
-							punxesAnimades.setMur(4 * x * j + x / 2 , 4 * x * i - x-x, -x/2, VER,3*x);
-							punxesAnimadetes.push_back(punxesAnimades);
+							//Cami de proba shrek casella 1
+							Mur probaCamiShrek;
+							probaCamiShrek.setMur(4 * x * j + x / 2, 4 * x * i, -x, VER, x);
+							llista.push_back(probaCamiShrek);
 						}
 
-					
+
+
+					}
+					else if (matriuLaberint[j][i] == -6)
+					{
+						Mur punxesAnimades;
+						punxesAnimades.setMur(4 * x * j + x / 2, 4 * x * i - x - x, -x / 2, VER, 3 * x);
+						punxesAnimadetes.push_back(punxesAnimades);
+					}
+
+
 				}
 
 			}
@@ -3704,9 +3704,9 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 
 
 	MidaLaberint_Fila = MAX_FILA;
-	MidaLaberint_Columna =MAX_COLUMNA;
-	
-	
+	MidaLaberint_Columna = MAX_COLUMNA;
+
+
 
 	return llista;
 }
@@ -3714,17 +3714,17 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 
 void CEntornVGIView::killPlayer() {
 
-	if(lifes>0)
+	if (lifes > 0)
 		lifes--;
 
 	if (lifes <= 0) {
 		//GAME OVER
-		
+
 		//MOVE THE PLAYER TO THE DEFEAT ROOM
 		personatge.m_x = 120.0;
 		personatge.m_y = 62.5;
 		personatge.m_z = -52.5;
-		
+
 		opvN.x = 120.0;				opvN.y = 62.5;			opvN.z = -52.5;
 		n[0] = opvN.x + 5.0;		n[1] = opvN.y;			n[2] = opvN.z;
 
@@ -3735,7 +3735,7 @@ void CEntornVGIView::killPlayer() {
 		personatge.m_x = -3.0;
 		personatge.m_y = 12.0;
 		opvN.x = -3.0;			opvN.y = 12.0;			opvN.z = 5.0;
-		n[0] = opvN.x+5.0;		n[1] = opvN.y;			n[2] = 5.0;
+		n[0] = opvN.x + 5.0;		n[1] = opvN.y;			n[2] = 5.0;
 	}
 }
 
@@ -3750,12 +3750,11 @@ void CEntornVGIView::OnProjeccioPerspectiva()
 
 	//POSSIBLE CRIDA A LA FUNCIÓ QUE LLEGIRIA EL FITXER (AL QUE S'HA D'INCLOURE ABANS DEL BITMAP EL NOMBRE DE MURS)
 	//llegirfitxer(filename) o whatever
-	
+
 	/*llista_murs = initMurs();
 	Personatge nou(n[0], n[1], 3, 0);
 	personatge = nou;
 	num_murs = llista_murs.size();
-
 	*/
 	// Crida a OnPaint() per redibuixar l'escena
 	InvalidateRect(NULL, false);
@@ -3821,7 +3820,7 @@ void CEntornVGIView::OnObjecteCubRGB()
 	//shrek
 	texturesID[16] = loadIMA_ILUT("./textures/shrek/Shrek.png");
 	texturesID[17] = loadIMA_ILUT("./textures/shrek/shrekshirt.png");
-	
+
 
 
 	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
