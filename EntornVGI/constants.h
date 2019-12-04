@@ -132,6 +132,9 @@ const double PID2 = pi / 2;
 #define E_Y 20.0
 #define E_Z 15.0
 
+#define SH_X 20.0
+#define SH_Y 5.5
+#define SH_Z 14.0
 
 
 

@@ -1728,6 +1728,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		n[0] = opvN.x + 5.0;		n[1] = opvN.y;			n[2] = opvN.z;
 
 		musica = 1;
+		bloquejar_mov = true;
 
 	}
 
@@ -1736,144 +1737,149 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	{
 		// Tecla cursor amunt
 	case 87:
+		if (!bloquejar_mov) {
+			personatge.m_x += nRepCnt * fact_pan * vdir[0] / 2;
+			personatge.m_y += nRepCnt * fact_pan * vdir[1] / 2;
+			DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
 
-		personatge.m_x += nRepCnt * fact_pan * vdir[0] / 2;
-		personatge.m_y += nRepCnt * fact_pan * vdir[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
+			if (personatge.m_colisioX) {
+				if (!personatge.m_colisioY) {
+					opvN.y = personatge.m_y;
+					n[1] += nRepCnt * fact_pan * vdir[1] / 2;
+					cel[1] = personatge.m_y;
+				}
+			}
+			else {
+				if (!personatge.m_colisioY) {
+					opvN.y = personatge.m_y;
+					n[1] += nRepCnt * fact_pan * vdir[1] / 2;
+					cel[1] = personatge.m_y;
+				}
+				opvN.x = personatge.m_x;
+				n[0] += nRepCnt * fact_pan * vdir[0] / 2;
+				cel[0] = personatge.m_x;
+			}
 
-		if (personatge.m_colisioX) {
-			if (!personatge.m_colisioY) {
-				opvN.y = personatge.m_y;
-				n[1] += nRepCnt * fact_pan * vdir[1] / 2;
-				cel[1] = personatge.m_y;
+			personatge.m_x = opvN.x;
+			personatge.m_y = opvN.y;
+
+			if (personatge.dead) {
+				personatge.dead = false;
+				killPlayer();
 			}
 		}
-		else {
-			if (!personatge.m_colisioY) {
-				opvN.y = personatge.m_y;
-				n[1] += nRepCnt * fact_pan * vdir[1] / 2;
-				cel[1] = personatge.m_y;
-			}
-			opvN.x = personatge.m_x;
-			n[0] += nRepCnt * fact_pan * vdir[0] / 2;
-			cel[0] = personatge.m_x;
-		}
-
-		personatge.m_x = opvN.x;
-		personatge.m_y = opvN.y;
-
-		if (personatge.dead) {
-			personatge.dead = false;
-			killPlayer();
-		}
-
 		break;
 
 		// Tecla cursor avall
 	case 83:
-		personatge.m_x -= nRepCnt * fact_pan * vdir[0] / 2;
-		personatge.m_y -= nRepCnt * fact_pan * vdir[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
+		if (!bloquejar_mov) {
+			personatge.m_x -= nRepCnt * fact_pan * vdir[0] / 2;
+			personatge.m_y -= nRepCnt * fact_pan * vdir[1] / 2;
+			DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
 
-		if (personatge.m_colisioX) {
-			if (!personatge.m_colisioY) {
-				opvN.y = personatge.m_y;
-				n[1] -= nRepCnt * fact_pan * vdir[1] / 2;
-				cel[1] = personatge.m_y;
+			if (personatge.m_colisioX) {
+				if (!personatge.m_colisioY) {
+					opvN.y = personatge.m_y;
+					n[1] -= nRepCnt * fact_pan * vdir[1] / 2;
+					cel[1] = personatge.m_y;
+				}
+			}
+			else {
+				if (!personatge.m_colisioY) {
+					opvN.y = personatge.m_y;
+					n[1] -= nRepCnt * fact_pan * vdir[1] / 2;
+					cel[1] = personatge.m_y;
+				}
+				opvN.x = personatge.m_x;
+				n[0] -= nRepCnt * fact_pan * vdir[0] / 2;
+				cel[0] = personatge.m_x;
+			}
+
+			personatge.m_x = opvN.x;
+			personatge.m_y = opvN.y;
+
+			if (personatge.dead) {
+				personatge.dead = false;
+				killPlayer();
 			}
 		}
-		else {
-			if (!personatge.m_colisioY) {
-				opvN.y = personatge.m_y;
-				n[1] -= nRepCnt * fact_pan * vdir[1] / 2;
-				cel[1] = personatge.m_y;
-			}
-			opvN.x = personatge.m_x;
-			n[0] -= nRepCnt * fact_pan * vdir[0] / 2;
-			cel[0] = personatge.m_x;
-		}
-
-		personatge.m_x = opvN.x;
-		personatge.m_y = opvN.y;
-
-		if (personatge.dead) {
-			personatge.dead = false;
-			killPlayer();
-		}
-
 		break;
 
 		// Tecla cursor esquerra
 	case 65:
-		personatge.m_x -= nRepCnt * fact_pan * vdirpan[0] / 2;
-		personatge.m_y -= nRepCnt * fact_pan * vdirpan[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
+		if (!bloquejar_mov) {
+			personatge.m_x -= nRepCnt * fact_pan * vdirpan[0] / 2;
+			personatge.m_y -= nRepCnt * fact_pan * vdirpan[1] / 2;
+			DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
 
-		if (personatge.m_colisioX) {
-			if (!personatge.m_colisioY) {
-				opvN.y = personatge.m_y;
-				n[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
-				cel[1] = personatge.m_y;
+			if (personatge.m_colisioX) {
+				if (!personatge.m_colisioY) {
+					opvN.y = personatge.m_y;
+					n[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
+					cel[1] = personatge.m_y;
+				}
+			}
+			else {
+				if (!personatge.m_colisioY) {
+					opvN.y = personatge.m_y;
+					n[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
+					cel[1] = personatge.m_y;
+				}
+				opvN.x = personatge.m_x;
+				n[0] -= nRepCnt * fact_pan * vdirpan[0] / 2;
+				cel[0] = personatge.m_x;
+			}
+
+			personatge.m_x = opvN.x;
+			personatge.m_y = opvN.y;
+
+			if (personatge.dead) {
+				personatge.dead = false;
+				killPlayer();
 			}
 		}
-		else {
-			if (!personatge.m_colisioY) {
-				opvN.y = personatge.m_y;
-				n[1] -= nRepCnt * fact_pan * vdirpan[1] / 2;
-				cel[1] = personatge.m_y;
-			}
-			opvN.x = personatge.m_x;
-			n[0] -= nRepCnt * fact_pan * vdirpan[0] / 2;
-			cel[0] = personatge.m_x;
-		}
-
-		personatge.m_x = opvN.x;
-		personatge.m_y = opvN.y;
-
-		if (personatge.dead) {
-			personatge.dead = false;
-			killPlayer();
-		}
-
 		break;
 
 		// Tecla cursor dret
 	case 68:
-		personatge.m_x += nRepCnt * fact_pan * vdirpan[0] / 2;
-		personatge.m_y += nRepCnt * fact_pan * vdirpan[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
+		if (!bloquejar_mov) {
+			personatge.m_x += nRepCnt * fact_pan * vdirpan[0] / 2;
+			personatge.m_y += nRepCnt * fact_pan * vdirpan[1] / 2;
+			DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
 
-		if (personatge.m_colisioX) {
-			if (!personatge.m_colisioY) {
-				opvN.y = personatge.m_y;
-				n[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
-				cel[1] = personatge.m_y;
+			if (personatge.m_colisioX) {
+				if (!personatge.m_colisioY) {
+					opvN.y = personatge.m_y;
+					n[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
+					cel[1] = personatge.m_y;
+				}
+			}
+			else {
+				if (!personatge.m_colisioY) {
+					opvN.y = personatge.m_y;
+					n[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
+					cel[1] = personatge.m_y;
+				}
+				opvN.x = personatge.m_x;
+				n[0] += nRepCnt * fact_pan * vdirpan[0] / 2;
+				cel[0] = personatge.m_x;
+			}
+
+			personatge.m_x = opvN.x;
+			personatge.m_y = opvN.y;
+
+			if (personatge.dead) {
+				personatge.dead = false;
+				killPlayer();
 			}
 		}
-		else {
-			if (!personatge.m_colisioY) {
-				opvN.y = personatge.m_y;
-				n[1] += nRepCnt * fact_pan * vdirpan[1] / 2;
-				cel[1] = personatge.m_y;
-			}
-			opvN.x = personatge.m_x;
-			n[0] += nRepCnt * fact_pan * vdirpan[0] / 2;
-			cel[0] = personatge.m_x;
-		}
-
-		personatge.m_x = opvN.x;
-		personatge.m_y = opvN.y;
-
-		if (personatge.dead) {
-			personatge.dead = false;
-			killPlayer();
-		}
-
 		break;
 
 		//tecla K
 	case 75:
-		killPlayer();
+		if (!bloquejar_mov)
+			killPlayer();
+
 		break;
 		// Tecla Inicio
 	case VK_HOME:
@@ -3736,6 +3742,10 @@ void CEntornVGIView::killPlayer() {
 
 		llumVermella = true;
 		musica = 2;
+
+		salta = true;
+
+		bloquejar_mov = true;
 	}
 	else {
 		//GO TO STARTING POINT
