@@ -5176,10 +5176,11 @@ void CEntornVGIView::OnObjecteMur()
 	loader[1].LoadFile("./objects/punxes/3d-model.obj");
 
 	//taula
-	texturesID[18] = loadIMA_ILUT("./objects/victory/taula/light_wood.png");
-	loader[2].LoadFile("./objects/victory/taula/simple_table.obj");
+	texturesID[18] = loadIMA_ILUT("./objects/taula/light_wood.png");
+	loader[2].LoadFile("./objects/taula/simple_table.obj");
 	//balloon
-	//loader[3].LoadFile("./objects/victory/balloon/balloon_obj.obj");
+	loader[3].LoadFile("./objects/balloon/balloon.obj");
+	texturesID[19] = loadIMA_ILUT("./objects/balloon/shrekcolorballoon.png");
 
 
 	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);

@@ -497,25 +497,57 @@ void punxes(std::vector<Mur> punxesAnimadetes, objl::Loader loader)
 }
 
 
-void tauleta(objl::Loader loader, int texturID[])
+void tauleta(objl::Loader loader, int texturID[], float x, float y, float z)
 {
 	glPushMatrix();
-	  glTranslatef(-30.0, -1.0, -1.0);
+	  glTranslatef(x, y, z);
 	  glRotatef(90, 1, 0, 0);
 	  glScalef(2.5f, 2.5f, 2.5f);
 	  glEnable(GL_TEXTURE_2D);
 
 		glBindTexture(GL_TEXTURE_2D, texturID[18]);
 
-		glBegin(GL_TRIANGLES);
-		  for (int i = 0; i < loader.LoadedVertices.size(); i++)
-		  {
-			  glTexCoord2f(loader.LoadedVertices[i].TextureCoordinate.X, loader.LoadedVertices[i].TextureCoordinate.Y); glVertex3f(loader.LoadedVertices[i].Position.X, loader.LoadedVertices[i].Position.Y, loader.LoadedVertices[i].Position.Z);
-		  }
-		glEnd();
+		glBegin(GL_TRIANGLE_STRIP);
 
+		for (int ii = 0; ii < loader.LoadedMeshes.size(); ii++)
+		{
+			
+			for (int i = 0; i < loader.LoadedMeshes[ii].Vertices.size(); i++)
+			{
+				glTexCoord2f(loader.LoadedMeshes[ii].Vertices[i].TextureCoordinate.X, loader.LoadedMeshes[ii].Vertices[i].TextureCoordinate.Y); glVertex3f(loader.LoadedMeshes[ii].Vertices[i].Position.X, loader.LoadedMeshes[ii].Vertices[i].Position.Y, loader.LoadedMeshes[ii].Vertices[i].Position.Z);
+			}
+			
+		}
+
+		glEnd();
 	  glDisable(GL_TEXTURE_2D);
 	glPopMatrix();
+}
+
+
+void globus(objl::Loader loader, int texturID[], float x, float y, float z, float colorRed, float colorGreen, float colorBlue)
+{
+	glPushMatrix();
+	glTranslatef(x, y, z);
+	glRotatef(90, 1, 0, 0);
+	glScalef(100.0f, 100.0f, 100.0f);
+	glPushAttrib(GL_CURRENT_BIT);
+	glColor3f(colorRed, colorGreen, colorBlue);
+
+	//glBindTexture(GL_TEXTURE_2D, texturID[19]);
+
+	glBegin(GL_TRIANGLES);
+
+	for (int i = 0; i < loader.LoadedVertices.size(); i++)
+	{
+		glVertex3f(loader.LoadedVertices[i].Position.X, loader.LoadedVertices[i].Position.Y, loader.LoadedVertices[i].Position.Z);
+	}
+	glEnd();
+
+	glPopAttrib();
+	
+	glPopMatrix();
+
 }
 
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
@@ -671,8 +703,8 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		
 
 		//Altres objectes
-		tauleta(loader[2], texturID);
-		
+		tauleta(loader[2], texturID, -40.0, -1.0, -1.0);
+		globus(loader[3], texturID, -40, -1.0, 10.0, 0.345f, 0.608f, 0.0f);
 
 		//eventfinal.pinta();
 
