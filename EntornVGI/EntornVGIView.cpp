@@ -3449,7 +3449,7 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 	int const MAX_COLUMNA = 10;
 	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = {	{-1,1,1,1,1,1,1,1,1,1},
 													{-4,0,-4,0,-4,-4,0,0,0,1},
-													{0,0,0,0,0,0,0,0,0,1},
+													{0,-5,-5,-5,-5,-5,0,0,0,1},
 													{1,1,1,1,-3,1,1,1,0,1},
 													{1,0,0,0,0,0,0,0,0,1},
 													{1,0,0,0,0,0,0,0,0,1},
@@ -3654,9 +3654,9 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 
 							if (camiShrek_ja_creat)
 							{
-								Posicio_y_shrek_inicial = 4 * x * j + x / 2;
+								Posicio_x_shrek_final = 4 * x * j + x / 2;
 								Posicio_y_shrek_final = 4 * x * i;
-
+								
 								//Cami de proba shrek casellas
 								Mur probaCamiShrek;
 								probaCamiShrek.setMur(4 * x * j+x/2, 4 * x * i, -x, VER, x);
@@ -3665,8 +3665,9 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 							else
 							{
 								//Moviment shreck == -5
+								
 								Posicio_x_shrek_inicial = 4 * x * j + x / 2;
-								Posicio_x_shrek_final = 4 * x * i;
+								Posicio_y_shrek_inicial = 4 * x * i;
 								camiShrek_ja_creat = true;
 
 								
