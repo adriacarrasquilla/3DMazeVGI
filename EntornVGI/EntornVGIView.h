@@ -218,6 +218,8 @@ public:
 					//	1 -> All Star
 					//	2 -> All Star Shittyflute
 
+	vector<vector<float>> Shreks;
+
 	// Operaciones
 public:
 	std::vector<Mur> initMurs();

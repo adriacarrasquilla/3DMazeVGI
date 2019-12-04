@@ -157,7 +157,24 @@ bool CheckColisioPunxes(Mur m, Personatge p) {
 	return onTrap && (m.m_z > -5);
 }
 
-void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector<Event>& eventMursBaixada, std::vector<Mur>& punxes)
+bool CheckColisioShrek(std::vector<float>shrek, Personatge p) {
+	/*
+	float mida = 5.5;
+	glPushMatrix();
+	glTranslatef(shrek[0], shrek[1], shrek[2] + 7.5);
+	glScalef(20.0, mida, mida);
+	glutSolidCube(1.0);
+	glPopMatrix();
+	*/
+
+	bool collisionX = shrek[0] + (SH_X / 2) >= p.m_x - (PG_X / 2) && p.m_x + (PG_X / 2) >= shrek[0] - (SH_X / 2);
+	// Collision y-axis?
+	bool collisionY = shrek[1] + (SH_Y / 2) >= p.m_y - (PG_Y / 2) && p.m_y + (PG_Y / 2) >= shrek[1] - (SH_Y / 2);
+
+	return collisionX && collisionY;
+}
+
+void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector<Event>& eventMursBaixada, std::vector<Mur>& punxes, std::vector<std::vector<float>>& Shreks)
 {
 	pg.m_colisioX = false;
 	pg.m_colisioY = false;
@@ -214,6 +231,13 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 	}
 	for (int i = 0; i < punxes.size(); i++) {
 		if (CheckColisioPunxes(punxes[i], pg)) {
+			pg.dead = true;
+			break;
+		}
+	}
+
+	for (int i = 0; i < Shreks.size(); i++){
+		if (CheckColisioShrek(Shreks[i], pg)) {
 			pg.dead = true;
 			break;
 		}
@@ -422,9 +446,8 @@ void circularMovimentShrek(float moviment[], bool movDir[], float rotShrek[])
 
 }
 
-void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ)
+void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ, float &pos_x, float& pos_y, float& pos_z)
 {
-	
 	glPushMatrix();
 
 
@@ -441,7 +464,7 @@ void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[
 
 	  //Translació inicial + moviment
 	  glTranslatef(posicioIniciY + moviment[0], posicioIniciX + moviment[1], posicioZ + moviment[2]);
-	  	 
+	  pos_x = posicioIniciY + moviment[0]; pos_y = posicioIniciX + moviment[1]; pos_z = posicioZ + moviment[2];
 	  //Rotació inicial
 	  glRotatef(90, 1, 0, 0);
 	  //si es mou en vertical
@@ -479,7 +502,6 @@ void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[
 	
 
 	glPopMatrix();
-	
 }
 
 void punxes(std::vector<Mur> punxesAnimadetes, objl::Loader loader)
@@ -710,10 +732,25 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		skybox(texturID, cel);
 
 		// S H R E K S
-		//0 moviment lineal horitzontal, 1 rotacional, altres static
-		// SHREK ENEMIC 1
-		shrek(loader[0], movimentShrek, movDir, rotShrek, texturID, 0, Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final, 0.0);
 
+		//float Shreks[1][3];
+
+		std::vector<std::vector<float>> Shreks;
+
+
+		// SHREK ENEMIC 1
+		std::vector<float> Shrek1(3,0);
+		Shreks.push_back(Shrek1);
+		shrek(loader[0], movimentShrek, movDir, rotShrek, texturID, 0, Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final, 0.0, Shreks[0][0], Shreks[0][1], Shreks[0][2]);
+
+		/*float mida = 5.5;
+		glPushMatrix();
+		glTranslatef(Shreks[0][0], Shreks[0][1], Shreks[0][2] + 7.5);
+		glScalef(20.0, mida, 14.0);
+		glutSolidCube(1.0);
+		glPopMatrix();
+		*/
+		
 		// SHREKS SALA DERROTA
 		
 		//Shrek skizo del gif
@@ -722,8 +759,9 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		// de moment, un i estàtic  
 		float noMov[3] = { 0.0, 0.0, 0.0 };
 		float noRot[3] = { 0.0, -1.0, 0.0 };
-		shrek(loader[0], noMov, movDir, noRot, texturID, 2, 135.0, 62.5, 130.0, 62.5, -57.5);
-		
+		float Shrek2[3]; // NO ESTÀ A Shreks PERQUÈ NO CAL CALCULAR-NE LA COL·LISIÓ
+		//shrek(loader[0], noMov, movDir, noRot, texturID, 2, 135.0, 62.5, 130.0, 62.5, -57.5, Shrek2[0], Shrek2[1], Shrek2[2]);
+		shrek(loader[0], noMov, movDir, noRot, texturID, 2, 77.5, 120.0, 77.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2]);
 
 		//Altres objectes
 		tauleta(loader[2], texturID, -40.0, -1.0, -1.0);
@@ -732,7 +770,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		//eventfinal.pinta();
 
 		//pg.pinta();
-		DoCollisions(llista, pg, eventfinal, eventsMursBaixada, punxesAnimadetes);
+		DoCollisions(llista, pg, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
 
 		//Una merda cap tot en la funcio
 		if (reset_clock) {

@@ -1739,7 +1739,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 
 		personatge.m_x += nRepCnt * fact_pan * vdir[0] / 2;
 		personatge.m_y += nRepCnt * fact_pan * vdir[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes);
+		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
 
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -1773,7 +1773,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	case 83:
 		personatge.m_x -= nRepCnt * fact_pan * vdir[0] / 2;
 		personatge.m_y -= nRepCnt * fact_pan * vdir[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes);
+		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
 
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -1807,7 +1807,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	case 65:
 		personatge.m_x -= nRepCnt * fact_pan * vdirpan[0] / 2;
 		personatge.m_y -= nRepCnt * fact_pan * vdirpan[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes);
+		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
 
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -1841,7 +1841,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 	case 68:
 		personatge.m_x += nRepCnt * fact_pan * vdirpan[0] / 2;
 		personatge.m_y += nRepCnt * fact_pan * vdirpan[1] / 2;
-		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes);
+		DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
 
 		if (personatge.m_colisioX) {
 			if (!personatge.m_colisioY) {
@@ -2777,6 +2777,10 @@ BOOL CEntornVGIView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 /* ------------------------------------------------------------------------- */
 void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 {
+	if (personatge.dead) {
+		personatge.dead = false;
+		killPlayer();
+	}
 	// TODO: Agregue aqu� su c�digo de controlador de mensajes o llame al valor predeterminado
 	if (salta) {
 		if (salt < 30) {
@@ -3728,7 +3732,7 @@ void CEntornVGIView::killPlayer() {
 		personatge.m_z = -52.5;
 
 		opvN.x = 120.0;				opvN.y = 62.5;			opvN.z = -52.5;
-		n[0] = opvN.x + 5.0;		n[1] = opvN.y;			n[2] = opvN.z;
+		n[0] = opvN.x;		n[1] = opvN.y + 5.0;			n[2] = opvN.z;
 
 		llumVermella = true;
 		musica = 2;
