@@ -3448,8 +3448,8 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 	int const MAX_FILA = 10;
 	int const MAX_COLUMNA = 10;
 	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = {	{-1,1,1,1,1,1,1,1,1,1},
-													{-4,0,-4,0,-4,-4,0,0,0,1},
-													{0,-5,-5,-5,-5,-5,0,0,0,1},
+													{0,0,-4,0,-4,-4,0,0,0,1},
+													{0,0,0,-5,-5,-5,-5,-5,0,1},
 													{1,1,1,1,-3,1,1,1,0,1},
 													{1,0,0,0,0,0,0,0,0,1},
 													{1,0,0,0,0,0,0,0,0,1},
