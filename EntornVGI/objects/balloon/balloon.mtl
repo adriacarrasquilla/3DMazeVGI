@@ -1,0 +1,44 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 22.02.2012 09:26:04
+
+newmtl 13499_Balloon_Cluster_yellow
+	Ns 26.0000
+	Ni 1.5000
+	d 0.9700
+	Tr 0.0300
+	Tf 0.9700 0.9700 0.9700 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.5580 0.5580 0.5580
+	Ke 0.0000 0.0000 0.0000
+	map_Ka 13499_Balloon_Cluster_diffuse_ballon_yellow.jpg
+	map_Kd 13499_Balloon_Cluster_diffuse_ballon_yellow.jpg
+
+newmtl 13499_Balloon_Cluster_pink
+	Ns 30.0000
+	Ni 1.5000
+	d 0.9700
+	Tr 0.0300
+	Tf 0.9700 0.9700 0.9700 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.5670 0.5670 0.5670
+	Ke 0.0000 0.0000 0.0000
+	map_Ka 13499_Balloon_Cluster_diffuse_ballon.jpg
+	map_Kd 13499_Balloon_Cluster_diffuse_ballon.jpg
+
+newmtl 13499_Balloon_Cluster_rope
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4500 0.4500 0.4500
+	Ke 0.0000 0.0000 0.0000
+	map_Ka 13499_Balloon_Cluster_diffuse_rope.jpg
+	map_Kd 13499_Balloon_Cluster_diffuse_rope.jpg
