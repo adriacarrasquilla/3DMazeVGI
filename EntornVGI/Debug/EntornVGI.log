@@ -1,64 +1,106 @@
-﻿  visualitzacio.cpp
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned
-LINK : warning LNK4075: se omite '/INCREMENTAL' debido a la especificación '/FORCE'
-EntornVGIView.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "int CONST_VALOR" (?CONST_VALOR@@3HA) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > path_leaderboard" (?path_leaderboard@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "int CONST_VALOR" (?CONST_VALOR@@3HA) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > path_leaderboard" (?path_leaderboard@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "int CONST_VALOR" (?CONST_VALOR@@3HA) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > path_leaderboard" (?path_leaderboard@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) ya se definió en EntornVGI.obj; segunda definición omitida
-     Creando biblioteca C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.lib y objeto C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.exp
-C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.exe : warning LNK4088: la imagen se está generando debido a la opción /FORCE; quizá la imagen no se pueda ejecutar
-glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-soil.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(image_DXT.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-soil.lib(image_helper.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(image_helper.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-soil.lib(SOIL.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(SOIL.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-soil.lib(stb_image_aug.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(stb_image_aug.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-  EntornVGI.vcxproj -> C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.exe
+﻿  stdafx.cpp
+  ChildFrm.cpp
+  ClassView.cpp
+  EntornVGI.cpp
+  EntornVGIDoc.cpp
+  EntornVGIView.cpp
+  escena.cpp
+  FileView.cpp
+  glut_geometry.cpp
+  Load3DS.cpp
+  MainFrm.cpp
+  material.cpp
+  normals.cpp
+  Obj3DS.cpp
+  objLoader.cpp
+  OutputWnd.cpp
+  PropertiesWnd.cpp
+  ViewTree.cpp
+  visualitzacio.cpp
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': signed/unsigned mismatch (compiling source file escena.cpp)
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': signed/unsigned mismatch (compiling source file EntornVGIView.cpp)
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': signed/unsigned mismatch (compiling source file escena.cpp)
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': signed/unsigned mismatch (compiling source file escena.cpp)
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': signed/unsigned mismatch (compiling source file EntornVGIView.cpp)
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': signed/unsigned mismatch (compiling source file EntornVGIView.cpp)
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\escena.cpp(159,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\escena.cpp(195,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\escena.cpp(208,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\escena.cpp(454,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\escena.cpp(464,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\escena.cpp(480,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\escena.cpp(491,26): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\escena.cpp(514,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\escena.cpp(517,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\escena.cpp(543,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\escena.cpp(621,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\escena.cpp(624,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': signed/unsigned mismatch (compiling source file EntornVGI.cpp)
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': signed/unsigned mismatch (compiling source file EntornVGI.cpp)
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': signed/unsigned mismatch (compiling source file EntornVGI.cpp)
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\EntornVGIView.cpp(2795,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\EntornVGIView.cpp(2834,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': signed/unsigned mismatch (compiling source file visualitzacio.cpp)
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': signed/unsigned mismatch (compiling source file visualitzacio.cpp)
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': signed/unsigned mismatch (compiling source file visualitzacio.cpp)
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\EntornVGI\escena.cpp(133): warning C4172: returning address of local variable or temporary: colXY
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/FORCE' specification
+EntornVGIView.obj : warning LNK4006: "float x" (?x@@3MA) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "float h" (?h@@3MA) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "int CONST_VALOR" (?CONST_VALOR@@3HA) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@3MA) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) already defined in EntornVGI.obj; second definition ignored
+EntornVGIView.obj : warning LNK4006: "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > path_leaderboard" (?path_leaderboard@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "float x" (?x@@3MA) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "float h" (?h@@3MA) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "int CONST_VALOR" (?CONST_VALOR@@3HA) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@3MA) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) already defined in EntornVGI.obj; second definition ignored
+escena.obj : warning LNK4006: "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > path_leaderboard" (?path_leaderboard@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "float x" (?x@@3MA) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "float h" (?h@@3MA) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "int CONST_VALOR" (?CONST_VALOR@@3HA) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@3MA) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) already defined in EntornVGI.obj; second definition ignored
+visualitzacio.obj : warning LNK4006: "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > path_leaderboard" (?path_leaderboard@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) already defined in EntornVGI.obj; second definition ignored
+     Creating library C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\Debug\EntornVGI.lib and object C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\Debug\EntornVGI.exp
+C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\Debug\EntornVGI.exe : warning LNK4088: image being generated due to /FORCE option; image may not run
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\Debug\vc120.pdb'; linking object as if no debug info
+soil.lib(image_DXT.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'soil.lib(image_DXT.obj)' or at 'C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\Debug\vc120.pdb'; linking object as if no debug info
+soil.lib(image_helper.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'soil.lib(image_helper.obj)' or at 'C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\Debug\vc120.pdb'; linking object as if no debug info
+soil.lib(SOIL.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'soil.lib(SOIL.obj)' or at 'C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\Debug\vc120.pdb'; linking object as if no debug info
+soil.lib(stb_image_aug.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'soil.lib(stb_image_aug.obj)' or at 'C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\Debug\vc120.pdb'; linking object as if no debug info
+  EntornVGI.vcxproj -> C:\Users\OriolMorenoGarcia\Projects\3DMazeVGI\Debug\EntornVGI.exe
