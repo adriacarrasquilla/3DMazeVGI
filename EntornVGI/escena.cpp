@@ -163,7 +163,7 @@ bool CheckColisioShrek(std::vector<float>shrek, Personatge p) {
 	glPushMatrix();
 	glTranslatef(shrek[0], shrek[1], shrek[2] + 7.5);
 	glScalef(20.0, mida, mida);
-	glutSolidCube(1.0);
+	glutSolidCube(1.0);7
 	glPopMatrix();
 	*/
 
@@ -190,6 +190,7 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 				pg.m_colisioX = true;
 				if (llista[i].esUnMurAnimatQueCau && !llista[i].animacioAcabada) {
 					pg.dead = true;
+					SoundEngine->play2D(soColisio, GL_FALSE);
 					break;
 				}
 			}
@@ -198,6 +199,7 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 				pg.m_colisioY = true;
 				if (llista[i].esUnMurAnimatQueCau && !llista[i].animacioAcabada) {
 					pg.dead = true;
+					SoundEngine->play2D(soColisio, GL_FALSE);
 					break;
 				}
 			}
@@ -232,6 +234,7 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 	for (int i = 0; i < punxes.size(); i++) {
 		if (CheckColisioPunxes(punxes[i], pg)) {
 			pg.dead = true;
+			SoundEngine->play2D(soColisio, GL_FALSE);
 			break;
 		}
 	}
@@ -239,6 +242,7 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 	for (int i = 0; i < Shreks.size(); i++){
 		if (CheckColisioShrek(Shreks[i], pg)) {
 			pg.dead = true;
+			SoundEngine->play2D(soColisio, GL_FALSE);
 			break;
 		}
 	}
@@ -789,16 +793,16 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		/*HUD TEMPS*/
 		glPushMatrix();
 			glLoadIdentity();
-			glColor3f(.0f, 1.0f, .0f);
+			glColor3f(.0f, .0f, .0f);
 			drawBitmapText(cstr_temps, 1.5, 1.09, -2);
 		glPopMatrix();
 
 		/*HUD VIDES*/
 		glPushMatrix();
 			glLoadIdentity();
-			glColor3f(.0f, 1.0f, .0f);
-			drawBitmapText(cstr_vides, 1.5, 1.05, -2);
-		glPopMatrix();
+			glColor3f(1.0f, 1.0f, 1.0f);
+			drawBitmapText(cstr_vides, 1.5,  1.05, -2);		
+			glPopMatrix();
 
 		break;
 	}
