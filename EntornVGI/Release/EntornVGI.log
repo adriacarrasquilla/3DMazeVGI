@@ -8,191 +8,198 @@
   Load3DS.cpp
   MainFrm.cpp
   Obj3DS.cpp
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\EntornVGIView.cpp(2807,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\EntornVGIView.cpp(2807,20): warning C4018: '<': no coinciden signed/unsigned
   OutputWnd.cpp
   PropertiesWnd.cpp
   ViewTree.cpp
   escena.cpp
   glut_geometry.cpp
   material.cpp
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\EntornVGIView.cpp(2846,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,35): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,48): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,61): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,74): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,87): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,100): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,113): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,126): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,139): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,13): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,26): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,39): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,52): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,65): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,78): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,91): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,104): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,117): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,13): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,26): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,39): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,52): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,65): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,78): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,91): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,104): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,117): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,13): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,26): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,39): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,52): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,65): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,78): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,91): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,104): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,117): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,24): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,38): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,52): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,66): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,80): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,94): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,108): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,122): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,136): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,13): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,16): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,30): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,54): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,57): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,71): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,95): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,98): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,112): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,3): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,17): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,31): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,45): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,59): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,73): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,87): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,101): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,115): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,3): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,17): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,31): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,45): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,59): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,73): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,87): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,101): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,115): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1961,38): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1961,66): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1961,94): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1961,122): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1961,150): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1961,178): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1962,16): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1962,44): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1962,72): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1962,100): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1962,128): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1962,156): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1963,16): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1963,44): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1963,72): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1963,100): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1963,128): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1963,156): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1964,16): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1964,44): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1964,72): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1964,100): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1964,128): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
   normals.cpp
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\EntornVGIView.cpp(2846,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,35): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,48): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,61): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,74): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,87): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,100): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,113): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,126): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1942,139): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,13): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,26): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,39): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,52): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,65): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,78): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,91): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,104): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1943,117): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,13): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,26): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,39): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,52): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,65): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,78): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,91): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,104): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1944,117): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,13): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,26): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,39): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,52): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,65): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,78): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,91): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,104): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1945,117): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,24): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,38): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,52): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,66): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,80): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,94): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,108): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,122): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1949,136): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,13): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,16): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,30): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,54): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,57): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,71): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,95): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,98): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1950,112): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,3): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,17): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,31): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,45): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,59): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,73): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,87): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,101): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1951,115): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,3): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,17): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,31): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,45): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,59): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,73): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,87): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,101): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1952,115): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1961,38): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1961,66): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1961,94): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1961,122): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1961,150): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1961,178): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1962,16): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1962,44): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1962,72): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1962,100): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1962,128): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1962,156): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1963,16): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1963,44): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1963,72): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1963,100): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1963,128): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1963,156): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1964,16): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1964,44): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1964,72): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1964,100): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1964,128): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
   objLoader.cpp
   visualitzacio.cpp
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\glut_geometry.cpp(1964,156): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(183,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(221,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(234,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(242,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(488,22): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(498,22): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(513,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(524,26): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(547,23): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(550,22): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(576,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(668,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(671,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\EntornVGI\escena.cpp(140): warning C4172: devolución de dirección de la variable local o temporal: colXY
-EntornVGIView.obj : error LNK2005: ya se definió "float x" (?x@@3MA) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "float h" (?h@@3MA) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "int CONST_VALOR" (?CONST_VALOR@@3HA) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "float Posicio_x_final" (?Posicio_x_final@@3MA) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "float Posicio_y_final" (?Posicio_y_final@@3MA) en EntornVGI.obj
-EntornVGIView.obj : error LNK2005: ya se definió "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > path_leaderboard" (?path_leaderboard@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "float x" (?x@@3MA) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "float h" (?h@@3MA) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "int CONST_VALOR" (?CONST_VALOR@@3HA) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "float Posicio_x_final" (?Posicio_x_final@@3MA) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "float Posicio_y_final" (?Posicio_y_final@@3MA) en EntornVGI.obj
-escena.obj : error LNK2005: ya se definió "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > path_leaderboard" (?path_leaderboard@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "float x" (?x@@3MA) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "float h" (?h@@3MA) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "int CONST_VALOR" (?CONST_VALOR@@3HA) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "float Posicio_x_final" (?Posicio_x_final@@3MA) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "float Posicio_y_final" (?Posicio_y_final@@3MA) en EntornVGI.obj
-visualitzacio.obj : error LNK2005: ya se definió "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > path_leaderboard" (?path_leaderboard@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) en EntornVGI.obj
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\glut_geometry.cpp(1964,156): warning C4838: la conversión de 'GLdouble' en 'GLfloat' requiere una conversión de restricción
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(183,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(221,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(234,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(242,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(488,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(498,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(513,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(524,26): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(547,23): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(550,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(576,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(668,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(671,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(140): warning C4172: devolución de dirección de la variable local o temporal: colXY
+LINK : warning LNK4075: se omite '/INCREMENTAL' debido a la especificación '/FORCE'
+EntornVGIView.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "int CONST_VALOR" (?CONST_VALOR@@3HA) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > path_leaderboard" (?path_leaderboard@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "int CONST_VALOR" (?CONST_VALOR@@3HA) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > path_leaderboard" (?path_leaderboard@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "int CONST_VALOR" (?CONST_VALOR@@3HA) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "float __cdecl objl::math::AngleBetweenV3(struct objl::Vector3,struct objl::Vector3)" (?AngleBetweenV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::ProjV3(struct objl::Vector3,struct objl::Vector3)" (?ProjV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::operator*(float const &,struct objl::Vector3 const &)" (??Dalgorithm@objl@@YA?AUVector3@1@ABMABU21@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > path_leaderboard" (?path_leaderboard@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) ya se definió en EntornVGI.obj; segunda definición omitida
 soil.lib(SOIL.obj) : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/SAFESEH'
-     Creando biblioteca C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Release\EntornVGI.lib y objeto C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Release\EntornVGI.exp
+     Creando biblioteca C:\Users\miki_\source\repos\3DMazeVGI\Release\EntornVGI.lib y objeto C:\Users\miki_\source\repos\3DMazeVGI\Release\EntornVGI.exp
 LINK : warning LNK4098: la biblioteca predeterminada'MSVCRTD' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
-C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Release\EntornVGI.exe : fatal error LNK1169: se encontraron uno o más símbolos definidos simultáneamente
+C:\Users\miki_\source\repos\3DMazeVGI\Release\EntornVGI.exe : warning LNK4088: la imagen se está generando debido a la opción /FORCE; quizá la imagen no se pueda ejecutar
+glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Release\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(image_DXT.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Release\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(image_helper.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(image_helper.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Release\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(SOIL.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(SOIL.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Release\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(stb_image_aug.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(stb_image_aug.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Release\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  EntornVGI.vcxproj -> C:\Users\miki_\source\repos\3DMazeVGI\Release\EntornVGI.exe
