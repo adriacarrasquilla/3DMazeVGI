@@ -246,61 +246,6 @@ END
 
 IDR_EntornVGITYPE MENU
 BEGIN
-    POPUP "&Archivo"
-    BEGIN
-        MENUITEM "&Nuevo\tCtrl+N",              ID_FILE_NEW
-        MENUITEM "&Abrir...\tCtrl+O",           ID_FILE_OPEN
-        MENUITEM "Obrir Fractal              Ctrl+F", ID_ARXIU_OBRIR_FRACTAL
-        MENUITEM "Obrir Fixer OBJ",             ID_ARXIU_OBRIR_FITXER_OBJ
-        MENUITEM "Obrir Fitxer 3DS",            ID_ARXIU_OBRIR_FITXER_3DS
-        MENUITEM "&Cerrar",                     ID_FILE_CLOSE
-        MENUITEM "&Guardar\tCtrl+S",            ID_FILE_SAVE
-        MENUITEM "Guardar &como...",            ID_FILE_SAVE_AS
-        MENUITEM SEPARATOR
-        MENUITEM "&Imprimir...\tCtrl+P",        ID_FILE_PRINT
-        MENUITEM "&Vista previa de impresión",  ID_FILE_PRINT_PREVIEW
-        MENUITEM "&Configurar impresión...",    ID_FILE_PRINT_SETUP
-        MENUITEM SEPARATOR
-        MENUITEM "Archivo reciente",            ID_FILE_MRU_FILE1
-        MENUITEM SEPARATOR
-        MENUITEM "&Salir",                      ID_APP_EXIT
-    END
-    POPUP "&Edición"
-    BEGIN
-        MENUITEM "&Deshacer\tCtrl+Z",           ID_EDIT_UNDO
-        MENUITEM SEPARATOR
-        MENUITEM "Cor&tar\tCtrl+X",             ID_EDIT_CUT
-        MENUITEM "&Copiar\tCtrl+C",             ID_EDIT_COPY
-        MENUITEM "&Pegar\tCtrl+V",              ID_EDIT_PASTE
-    END
-    POPUP "&Ver"
-    BEGIN
-        POPUP "&Barras de herramientas y ventanas de acoplamiento"
-        BEGIN
-            MENUITEM "<placeholder>",               ID_VIEW_TOOLBAR
-        END
-        MENUITEM "&Barra de estado",            ID_VIEW_STATUS_BAR
-        POPUP "&Aspecto de la aplicación"
-        BEGIN
-            MENUITEM "Windows &2000",               ID_VIEW_APPLOOK_WIN_2000
-            MENUITEM "Office &XP",                  ID_VIEW_APPLOOK_OFF_XP
-            MENUITEM "&Windows XP",                 ID_VIEW_APPLOOK_WIN_XP
-            MENUITEM "Office 200&3",                ID_VIEW_APPLOOK_OFF_2003
-            MENUITEM "Visual Studio 200&5",         ID_VIEW_APPLOOK_VS_2005
-            MENUITEM "Visual Studio 200&8",         ID_VIEW_APPLOOK_VS_2008
-            POPUP "Office 200&7"
-            BEGIN
-                MENUITEM "Estilo a&zul",                ID_VIEW_APPLOOK_OFF_2007_BLUE
-                MENUITEM "Estilo &negro",               ID_VIEW_APPLOOK_OFF_2007_BLACK
-                MENUITEM "Estilo pla&teado",            ID_VIEW_APPLOOK_OFF_2007_SILVER
-                MENUITEM "Estilo &aguamarina",          ID_VIEW_APPLOOK_OFF_2007_AQUA
-            END
-        END
-    END
-    POPUP "&Ventana"
-    BEGIN
-        MENUITEM "&Nueva ventana",              ID_WINDOW_NEW
-    END
     MENUITEM SEPARATOR
     POPUP "Vista"
     BEGIN
@@ -331,47 +276,9 @@ BEGIN
     BEGIN
         MENUITEM "Perspectiva",                 32786, CHECKED
     END
-    POPUP "Objecte"
+    POPUP "Nivells"
     BEGIN
-        MENUITEM "Cub",                         32787, CHECKED
-        MENUITEM "Cub RGB",                     ID_OBJECTE_CUB_RGB, CHECKED
-        MENUITEM "Esfera",                      32788, CHECKED
-        MENUITEM "Tetera",                      32789, CHECKED
-        MENUITEM "Tie",                         ID_OBJECTE_TIE, CHECKED
-        MENUITEM "Truck",                       32790, CHECKED
-        POPUP "Corbes"
-        BEGIN
-            MENUITEM "Bezier",                      ID_OBJETE_CORBA_BEZIER, CHECKED
-            MENUITEM "Lemniscata",                  ID_OBJECTE_CORBA_LEMNISCATA, CHECKED
-            MENUITEM "B-Spline",                    ID_OBJECTE_CORBA_BSPLINE, CHECKED
-            MENUITEM SEPARATOR
-            MENUITEM "Punts de Control?",           32855, CHECKED
-        END
-        MENUITEM "Mur",                         ID_OBJECTE_MUR, CHECKED
-    END
-    POPUP "Transforma"
-    BEGIN
-        MENUITEM "Traslació?",                  32791, CHECKED
-        MENUITEM "Origen Traslació",            ID_TRANSFORMA_ORIGENTRASLACIO
-        MENUITEM SEPARATOR
-        MENUITEM "Rotació?",                    32793, CHECKED
-        MENUITEM "Origen Rotació",              ID_TRANSFORMA_ORIGENROTACIO
-        MENUITEM SEPARATOR
-        MENUITEM "Escalat?",                    ID_TRANSFORMA_ESCALAT, CHECKED
-        MENUITEM "Origen Escalat",              ID_TRANSFORMA_ORIGENESCALAT
-        MENUITEM SEPARATOR
-        MENUITEM "Mobil Eix X?",                32799, CHECKED
-        MENUITEM "Mobil Eix Y?",                32800, CHECKED
-        MENUITEM "Mobil Eix Z?",                32801, CHECKED
-    END
-    POPUP "Ocultacions"
-    BEGIN
-        MENUITEM "Front Faces?",                32839, CHECKED
-        MENUITEM SEPARATOR
-        MENUITEM "Test Visibilitat?",           32802, CHECKED
-        MENUITEM "Z-Buffer?",                   32803, CHECKED
-        MENUITEM SEPARATOR
-        MENUITEM "Back Line?",                  32804, CHECKED
+        MENUITEM "Nivell 1 fsf",                ID_OBJECTE_MUR, CHECKED
     END
     POPUP "Iluminació"
     BEGIN
@@ -413,11 +320,6 @@ BEGIN
         MENUITEM "Gouraud (shader)",            32827, CHECKED
         MENUITEM "Phong (shader)",              32828, CHECKED
         MENUITEM SEPARATOR
-        MENUITEM "Carregar Fitxers Shader",     ID_SHADER_LOAD_FILES, CHECKED
-    END
-    POPUP "Ay&uda"
-    BEGIN
-        MENUITEM "&Acerca de EntornVGI (Tecla ALT)...", ID_APP_ABOUT
     END
 END
 

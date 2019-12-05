@@ -1,22 +1,4 @@
-﻿  escena.cpp
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(183,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(221,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(234,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(242,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(488,22): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(498,22): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(513,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(524,26): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(547,23): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(550,22): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(576,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(668,21): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(671,21): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(140): warning C4172:  devolución de dirección de la variable local o temporal: colXY
-LINK : warning LNK4075: se omite '/INCREMENTAL' debido a la especificación '/FORCE'
+﻿LINK : warning LNK4075: se omite '/INCREMENTAL' debido a la especificación '/FORCE'
 EntornVGIView.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "int CONST_VALOR" (?CONST_VALOR@@3HA) ya se definió en EntornVGI.obj; segunda definición omitida
@@ -68,11 +50,11 @@ visualitzacio.obj : warning LNK4006: "float Posicio_y_inicial" (?Posicio_y_inici
 visualitzacio.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > path_leaderboard" (?path_leaderboard@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@A) ya se definió en EntornVGI.obj; segunda definición omitida
-     Creando biblioteca C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.lib y objeto C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.exp
-C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.exe : warning LNK4088: la imagen se está generando debido a la opción /FORCE; quizá la imagen no se pueda ejecutar
-glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-soil.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(image_DXT.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-soil.lib(image_helper.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(image_helper.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-soil.lib(SOIL.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(SOIL.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-soil.lib(stb_image_aug.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(stb_image_aug.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-  EntornVGI.vcxproj -> C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.exe
+     Creando biblioteca C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Debug\EntornVGI.lib y objeto C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Debug\EntornVGI.exp
+C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Debug\EntornVGI.exe : warning LNK4088: la imagen se está generando debido a la opción /FORCE; quizá la imagen no se pueda ejecutar
+glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(image_DXT.obj)' o en 'C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(image_helper.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(image_helper.obj)' o en 'C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(SOIL.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(SOIL.obj)' o en 'C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil.lib(stb_image_aug.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'soil.lib(stb_image_aug.obj)' o en 'C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  EntornVGI.vcxproj -> C:\Users\Adrià\Documents\UNI\VGI\3DMazeVGI\Debug\EntornVGI.exe
