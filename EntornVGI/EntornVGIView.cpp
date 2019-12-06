@@ -190,7 +190,9 @@ BEGIN_MESSAGE_MAP(CEntornVGIView, CView)
 	//ON_UPDATE_COMMAND_UI(ID_PROJECCIOORTOGRAFICA, &CEntornVGIView::OnUpdateProjeccioortografica)
 	ON_COMMAND(ID_OBJECTE_MUR, &CEntornVGIView::OnObjecteMur)
 	ON_UPDATE_COMMAND_UI(ID_OBJECTE_MUR, &CEntornVGIView::OnUpdateObjecteMur)
-END_MESSAGE_MAP()
+	ON_COMMAND(ID_NIVELLS_NIVELL2, &CEntornVGIView::OnNivellsNivell2)
+	ON_UPDATE_COMMAND_UI(ID_NIVELLS_NIVELL2, &CEntornVGIView::OnUpdateNivellsNivell2)
+	END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // Construcci�n o destrucci�n de CEntornVGIView
@@ -414,6 +416,7 @@ CEntornVGIView::CEntornVGIView()
 
 	// Vides Jugador
 	lifes = 3;
+	lvl = ' ';
 
 }
 
@@ -3472,17 +3475,25 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 
 	int const MAX_FILA = 10;
 	int const MAX_COLUMNA = 10;
-	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = { {-1,1,1,1,1,1,1,1,1,1},
-													{0,0,-4,0,-4,-4,0,0,0,1},
-													{0,0,0,0,0,0,0,0,0,1},
-													{1,1,1,1,-3,1,1,1,0,1},
-													{1,0,0,0,0,0,0,0,0,1},
-													{1,0,0,0,0,0,0,0,0,1},
-													{1,-3,1,1,1,1,0,1,1,1},
-													{1,0,-6,0,0,0,-6,0,0,1},
-													{1,0,0,0,-6,0,0,0,0,1},
-													{1,1,1,1,1,1,1,1,-2,1},
+	int matriuLaberint[MAX_COLUMNA][MAX_FILA]= { {-1,1,1,1,1,1,1,1,1,1},
+														{0,0,-4,0,-4,-4,0,0,0,1},
+														{0,0,0,0,0,0,0,0,0,1},
+														{1,1,1,1,-3,1,1,1,0,1},
+														{1,0,0,0,0,0,0,0,0,1},
+														{1,0,0,0,0,0,0,0,0,1},
+														{1,-3,1,1,1,1,0,1,1,1},
+														{1,0,-6,0,0,0,-6,0,0,1},
+														{1,0,0,0,-6,0,0,0,0,1},
+														{1,1,1,1,1,1,1,1,-2,1},
 	};
+
+	if (lvl == LVL2) {
+		for (int i = 0; i < MAX_FILA; i++) {
+			for (int j = 0; j < MAX_COLUMNA; j++) {
+				matriuLaberint[i][j] = 0;
+			}
+		}
+	}
 
 
 	/*
@@ -5227,5 +5238,74 @@ void CEntornVGIView::OnUpdateObjecteMur(CCmdUI* pCmdUI)
 	// TODO: Agregue aquí su código de controlador de IU para actualización de comandos
 	// TODO: Agregue aquí su código de controlador de IU para actualización de comandos
 	if (objecte == MUR) pCmdUI->SetCheck(1);
+	else pCmdUI->SetCheck(0);
+}
+
+
+void CEntornVGIView::OnNivellsNivell2()
+{
+	//Inicialització murs
+	lvl = LVL2;
+	llista_murs = initMurs();
+	sales_v_d = CreaSales();
+	Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
+	personatge = nou;
+
+	num_murs = llista_murs.size();
+
+	// Vides Jugador
+	lifes = 
+
+	objecte = MUR;	textura = true;
+	
+	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
+	//	Canviar l'escala per a centrar la vista (Ortogràfica)
+	// Crida a OnPaint() per redibuixar l'escena
+	//InvalidateRect(NULL, false);
+	// TODO: Agregue aqu� su c�digo de controlador de comandos
+	//objecte = CUB_RGB;   textura = true;
+
+	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
+
+	//Textures skybox
+	texturesID[9] = loadIMA_ILUT("./textures/tex1_64x64_c05e3c09362f364a_14.png");
+	texturesID[8] = loadIMA_ILUT("./textures/tex1_128x128_0e437d36eaf137df_14.png");
+	texturesID[7] = loadIMA_ILUT("./textures/sky-hd-wallpaper-9.jpg");
+	texturesID[10] = loadIMA_ILUT("./textures/skybox/right.png");
+	texturesID[11] = loadIMA_ILUT("./textures/skybox/left.png");
+	texturesID[12] = loadIMA_ILUT("./textures/skybox/top.png");
+	texturesID[13] = loadIMA_ILUT("./textures/skybox/bottom.png");
+	texturesID[14] = loadIMA_ILUT("./textures/skybox/front.png");
+	texturesID[15] = loadIMA_ILUT("./textures/skybox/back.png");
+
+	//shrek
+	texturesID[16] = loadIMA_ILUT("./textures/shrek/Shrek.png");
+	texturesID[17] = loadIMA_ILUT("./textures/shrek/shrekshirt.png");
+	loader[0].LoadFile("./objects/shrek/CHARACTER_Shrek.obj");
+
+	//punxes
+	loader[1].LoadFile("./objects/punxes/3d-model.obj");
+
+	//taula
+	texturesID[18] = loadIMA_ILUT("./objects/taula/light_wood.png");
+	loader[2].LoadFile("./objects/taula/simple_table.obj");
+	//balloon
+	loader[3].LoadFile("./objects/balloon/balloon.obj");
+	texturesID[19] = loadIMA_ILUT("./objects/balloon/shrekcolorballoon.png");
+
+
+	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
+	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
+	//	Canviar l'escala per a centrar la vista (Ortogr�fica)
+
+	// Crida a OnPaint() per redibuixar l'escena
+	InvalidateRect(NULL, false);
+}
+
+
+void CEntornVGIView::OnUpdateNivellsNivell2(CCmdUI* pCmdUI)
+{
+	// TODO: Agregue aquí su código de controlador de IU para actualización de comandos
+	if (objecte == LVL2) pCmdUI->SetCheck(1);
 	else pCmdUI->SetCheck(0);
 }

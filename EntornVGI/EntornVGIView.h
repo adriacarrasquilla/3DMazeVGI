@@ -80,6 +80,7 @@ public:
 // Entorn VGI: Variables de control per les opcions de men� Projecci�, Objecte
 	char projeccio;	// Men� Projecci�: Tipus de projeccio 
 	char objecte;	// Men� Objecte: Tipus d'Objecte
+	char lvl;
 
 // Entorn VGI: Variables de control del men� Transforma
 	bool transf;	// Booleana per activar Transformacions (true) o no (false).
@@ -435,6 +436,8 @@ public:
 	afx_msg void OnUpdateProjeccioortografica(CCmdUI* pCmdUI);
 	afx_msg void OnObjecteMur();
 	afx_msg void OnUpdateObjecteMur(CCmdUI* pCmdUI);
+	afx_msg void OnNivellsNivell2();
+	afx_msg void OnUpdateNivellsNivell2(CCmdUI* pCmdUI);
 };
 
 #ifndef _DEBUG  // Versi�n de depuraci�n en EntornVGIView.cpp
