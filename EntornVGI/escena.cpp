@@ -827,6 +827,12 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				glColor3f(.0f, .0f, .0f);
 				drawBitmapText(cstr_temps_pausa, 1.5, 1.09, -2);
 				glPopMatrix();
+				
+				glPushMatrix();
+				glLoadIdentity();
+				glColor3f(.0f, 0.8f, .0f);
+				drawBitmapText("PAUSE\n", 0, 0, -2);
+				glPopMatrix();
 			}
 
 			/*HUD VIDES*/
