@@ -52,6 +52,7 @@ void drawBitmapText(const char* string, float x, float y, float z)
 }
 
 float temps = 0.0;
+float temps_final = 0.0;
 float angle = 0.0;
 clock_t begin_time = clock();
 bool reset_clock = true;
@@ -614,15 +615,23 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			i_v = true;
 		}
 		else if (i_v && musica == 1) {
+
 			SoundEngine->play2D(soVictoria, GL_TRUE);
 			SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
 			SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
+
+			temps_final = float(clock() - begin_time) / CLOCKS_PER_SEC;
+
 			i_v = false;
 		}
 		else if (i_d && musica == 2) {
+
 			SoundEngine->play2D(soDerrota, GL_TRUE);
 			SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
 			SoundEngine->stopAllSoundsOfSoundSource(soVictoria);
+
+			temps_final = float(clock() - begin_time) / CLOCKS_PER_SEC;
+
 			i_d = false;
 		}
 
@@ -791,18 +800,60 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		const char* cstr_vides = hud_vides.c_str();
 		
 		/*HUD TEMPS*/
-		glPushMatrix();
-			glLoadIdentity();
-			glColor3f(.0f, .0f, .0f);
-			drawBitmapText(cstr_temps, 1.5, 1.09, -2);
-		glPopMatrix();
+		if (!i && musica == 0) {
+			glPushMatrix();
+				glLoadIdentity();
+				glColor3f(.0f, .0f, .0f);
+				drawBitmapText(cstr_temps, 1.5, 1.09, -2);
+			glPopMatrix();
+		}
 
 		/*HUD VIDES*/
 		glPushMatrix();
 			glLoadIdentity();
 			glColor3f(1.0f, 1.0f, 1.0f);
 			drawBitmapText(cstr_vides, 1.5,  1.05, -2);		
+		glPopMatrix();
+
+
+
+		if (!i_v && musica == 1) {
+
+			std::string tf = "TEMPS: " + remove_zeros(std::to_string(temps_final)) + "\n";
+			const char* cstr_tf = tf.c_str();
+
+			glPushMatrix();
+				glLoadIdentity();
+				glColor3f(.0f, 0.8f, .0f);
+				drawBitmapText("VICTORY\n", 0, 0, -2);
 			glPopMatrix();
+
+
+			glPushMatrix();
+				glLoadIdentity();
+				glColor3f(.0f, 0.8f, .0f);
+				drawBitmapText(cstr_tf, 1.5, 1.09, -2);
+			glPopMatrix();
+
+		}
+		else if (!i_d && musica == 2) {
+
+			std::string tf = "TEMPS: " + remove_zeros(std::to_string(temps_final)) + "\n";
+			const char* cstr_tf = tf.c_str();
+
+			glPushMatrix();
+				glLoadIdentity();
+				glColor3f(1.0f, .0f, .0f);
+				drawBitmapText("DEFEAT\n", 0, 0, -2);
+			glPopMatrix();
+
+			glPushMatrix();
+				glLoadIdentity();
+				glColor3f(.0f, 0.8f, .0f);
+				drawBitmapText(cstr_tf, 1.5, 1.09, -2);
+			glPopMatrix();
+
+		}
 
 		break;
 	}
