@@ -39,6 +39,7 @@ irrklang::ISoundSource* soColisio = SoundEngine->addSoundSourceFromFile("audio/d
 bool i = true;
 bool i_d = false;
 bool i_v = false;
+bool temps_once = false;
 
 //TEXT ESCENA
 void drawBitmapText(const char* string, float x, float y, float z)
@@ -54,6 +55,8 @@ void drawBitmapText(const char* string, float x, float y, float z)
 
 float temps = 0.0;
 float temps_final = 0.0;
+float temps_pausa = 0.0;
+clock_t tp = 0.0;
 float angle = 0.0;
 clock_t begin_time = clock();
 bool reset_clock = true;
@@ -795,18 +798,34 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				reset_clock = false;
 			}
 
-			temps = float(clock() - begin_time) / CLOCKS_PER_SEC;
+			temps = float(clock() - begin_time + tp) / CLOCKS_PER_SEC;
 			std::string hud_temps = "TEMPS: " + remove_zeros(std::to_string(temps)) + "\n";
 			std::string hud_vides = "VIDES: " + std::to_string(lifes) + "\n";
 			const char* cstr_temps = hud_temps.c_str();
 			const char* cstr_vides = hud_vides.c_str();
 
 			/*HUD TEMPS*/
-			if (!i && musica == 0) {
+			if (!i && musica == 0 && !pausa) {
 				glPushMatrix();
 				glLoadIdentity();
 				glColor3f(.0f, .0f, .0f);
 				drawBitmapText(cstr_temps, 1.5, 1.09, -2);
+				glPopMatrix();
+				temps_once = false;
+			}
+			if (pausa) {
+				if (!temps_once) {
+					temps_pausa = temps;
+					temps_once = true;
+				}
+				std::string hud_temps_pausa = "TEMPS: " + remove_zeros(std::to_string(temps_pausa)) + "\n";
+				const char* cstr_temps_pausa = hud_temps_pausa.c_str();
+				begin_time = clock();
+				tp = temps_pausa * CLOCKS_PER_SEC;
+				glPushMatrix();
+				glLoadIdentity();
+				glColor3f(.0f, .0f, .0f);
+				drawBitmapText(cstr_temps_pausa, 1.5, 1.09, -2);
 				glPopMatrix();
 			}
 
@@ -818,7 +837,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			glPopMatrix();
 
 
-
+			//MISATGES VICTORY / DEFEAT
 			if (!i_v && musica == 1) {
 
 				std::string tf = "TEMPS: " + remove_zeros(std::to_string(temps_final)) + "\n";
@@ -829,7 +848,6 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				glColor3f(.0f, 0.8f, .0f);
 				drawBitmapText("VICTORY\n", 0, 0, -2);
 				glPopMatrix();
-
 
 				glPushMatrix();
 				glLoadIdentity();

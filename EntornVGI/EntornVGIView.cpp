@@ -3487,7 +3487,7 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 														{1,1,1,1,1,1,1,1,-2,1},
 	};
 
-	if (lvl == LVL2) {
+	if (lvl == 2) {
 		for (int i = 0; i < MAX_FILA; i++) {
 			for (int j = 0; j < MAX_COLUMNA; j++) {
 				matriuLaberint[i][j] = 0;
@@ -5245,7 +5245,7 @@ void CEntornVGIView::OnUpdateObjecteMur(CCmdUI* pCmdUI)
 void CEntornVGIView::OnNivellsNivell2()
 {
 	//Inicialització murs
-	lvl = LVL2;
+	lvl = 2;
 	llista_murs = initMurs();
 	sales_v_d = CreaSales();
 	Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
@@ -5306,6 +5306,6 @@ void CEntornVGIView::OnNivellsNivell2()
 void CEntornVGIView::OnUpdateNivellsNivell2(CCmdUI* pCmdUI)
 {
 	// TODO: Agregue aquí su código de controlador de IU para actualización de comandos
-	if (objecte == LVL2) pCmdUI->SetCheck(1);
+	if (objecte == 2) pCmdUI->SetCheck(1);
 	else pCmdUI->SetCheck(0);
 }
