@@ -35,6 +35,7 @@ irrklang::ISoundSource* soVictoria = SoundEngine->addSoundSourceFromFile("audio/
 irrklang::ISoundSource* soDerrota = SoundEngine->addSoundSourceFromFile("audio/shittyflute.mp3");
 irrklang::ISoundSource* soColisio = SoundEngine->addSoundSourceFromFile("audio/damage.mp3");
 
+
 bool i = true;
 bool i_d = false;
 bool i_v = false;
@@ -410,101 +411,101 @@ bool activavioDeMurCaiguda(Mur& murCaiguda, std::vector<Mur>& llista, bool& Acti
 }
 
 
-void movimentShrek(float moviment[], bool movDir[], float rotShrek[], float posicioIniciY, float posicioFinalY)
+void movimentShrek(float moviment[], bool movDir[], float rotShrek[], float posicioIniciY, float posicioFinalY, bool pausa)
 {
-	if (movDir[1] == true)
-	{
-		moviment[1] += 0.2;
-		if (moviment[1] + posicioIniciY > posicioFinalY)
+	if (!pausa) {
+		if (movDir[1] == true)
 		{
-			movDir[1] = false;
-			rotShrek[1] = -1;
+			moviment[1] += 0.2;
+			if (moviment[1] + posicioIniciY > posicioFinalY)
+			{
+				movDir[1] = false;
+				rotShrek[1] = -1;
+			}
 		}
-	}
-	else
-	{
-		moviment[1] -= 0.2;
-		if (moviment[1] + posicioIniciY < posicioIniciY)
+		else
 		{
-			movDir[1] = true;
-			rotShrek[1] = 1;
+			moviment[1] -= 0.2;
+			if (moviment[1] + posicioIniciY < posicioIniciY)
+			{
+				movDir[1] = true;
+				rotShrek[1] = 1;
+			}
 		}
 	}
 }
 
-void circularMovimentShrek(float moviment[], bool movDir[], float rotShrek[])
+void circularMovimentShrek(float moviment[], bool movDir[], float rotShrek[], bool pausa)
 {
-	
-	
-	moviment[0] -= 0.1 * cos(angle);
-	moviment[1] -= 0.1 * sin(angle);
-		
-	
-	if (angle >= 360)
-	{
-		angle = 0;
-		
-	}
-	
-	angle += 0.010;
-	rotShrek[2] = angle*100;
+	if (!pausa) {
 
+		moviment[0] -= 0.1 * cos(angle);
+		moviment[1] -= 0.1 * sin(angle);
+
+
+		if (angle >= 360)
+		{
+			angle = 0;
+
+		}
+
+		angle += 0.010;
+		rotShrek[2] = angle * 100;
+	}
 }
 
-void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ, float &pos_x, float& pos_y, float& pos_z)
+void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ, float &pos_x, float& pos_y, float& pos_z, bool pausa)
 {
 	glPushMatrix();
 
-
-	  if (tipusMov == 0)
-	  {
-		  movimentShrek(moviment, movDir, rotShrek, posicioIniciX, posicioFinalX);
-	  }
-	  if (tipusMov == 1)
-	  {
-		  rotShrek[1] = 1;
-		  
-		  circularMovimentShrek(moviment, movDir, rotShrek);
-	  }
-
-	  //Translació inicial + moviment
-	  glTranslatef(posicioIniciY + moviment[0], posicioIniciX + moviment[1], posicioZ + moviment[2]);
-	  pos_x = posicioIniciY + moviment[0]; pos_y = posicioIniciX + moviment[1]; pos_z = posicioZ + moviment[2];
-	  //Rotació inicial
-	  glRotatef(90, 1, 0, 0);
-	  //si es mou en vertical
-	  glRotatef(90, 0, 1, 0);
-	  //Rotació depenent moviment
-	  glRotatef(90 , 0 + rotShrek[0], 0 + rotShrek[1], 0 + rotShrek[2]);
-	  //glScalef(8.0f, 8.0f, 8.0f);
-	  glScalef(14.0f, 14.0f, 14.0f);
-	  
-	  //textura 16 shrek, 17 shrekShirt
-	  glEnable(GL_TEXTURE_2D);
-
-
-	  glBindTexture(GL_TEXTURE_2D, texturID[16]);
-	  
-	  glBegin(GL_TRIANGLES);
-	  for (int i = 0; i < loader.LoadedMeshes[0].Vertices.size(); i++)
-	  {
-		  glTexCoord2f(loader.LoadedMeshes[0].Vertices[i].TextureCoordinate.X, loader.LoadedMeshes[0].Vertices[i].TextureCoordinate.Y); glVertex3f(loader.LoadedMeshes[0].Vertices[i].Position.X, loader.LoadedMeshes[0].Vertices[i].Position.Y, loader.LoadedMeshes[0].Vertices[i].Position.Z);
-	  }
-	  glEnd();
-
-
-	  glBindTexture(GL_TEXTURE_2D, texturID[17]);
-
-	  glBegin(GL_TRIANGLES);
-	  for (int i = 0; i < loader.LoadedMeshes[1].Vertices.size(); i++)
-	  {
-		  glTexCoord2f(loader.LoadedMeshes[1].Vertices[i].TextureCoordinate.X, loader.LoadedMeshes[1].Vertices[i].TextureCoordinate.Y); glVertex3f(loader.LoadedMeshes[1].Vertices[i].Position.X, loader.LoadedMeshes[1].Vertices[i].Position.Y, loader.LoadedMeshes[1].Vertices[i].Position.Z);
-	  }
-	  glEnd();
-
-
-	  glDisable(GL_TEXTURE_2D);
+	if (tipusMov == 0)
+	{
+		movimentShrek(moviment, movDir, rotShrek, posicioIniciX, posicioFinalX, pausa);
+	}
+	if (tipusMov == 1)
+	{
+		rotShrek[1] = 1;
 	
+		circularMovimentShrek(moviment, movDir, rotShrek, pausa);
+	}
+	
+	//Translació inicial + moviment
+	glTranslatef(posicioIniciY + moviment[0], posicioIniciX + moviment[1], posicioZ + moviment[2]);
+	pos_x = posicioIniciY + moviment[0]; pos_y = posicioIniciX + moviment[1]; pos_z = posicioZ + moviment[2];
+	//Rotació inicial
+	glRotatef(90, 1, 0, 0);
+	//si es mou en vertical
+	glRotatef(90, 0, 1, 0);
+	//Rotació depenent moviment
+	glRotatef(90, 0 + rotShrek[0], 0 + rotShrek[1], 0 + rotShrek[2]);
+	//glScalef(8.0f, 8.0f, 8.0f);
+	glScalef(14.0f, 14.0f, 14.0f);
+	
+	//textura 16 shrek, 17 shrekShirt
+	glEnable(GL_TEXTURE_2D);
+	
+	
+	glBindTexture(GL_TEXTURE_2D, texturID[16]);
+	
+	glBegin(GL_TRIANGLES);
+	for (int i = 0; i < loader.LoadedMeshes[0].Vertices.size(); i++)
+	{
+		glTexCoord2f(loader.LoadedMeshes[0].Vertices[i].TextureCoordinate.X, loader.LoadedMeshes[0].Vertices[i].TextureCoordinate.Y); glVertex3f(loader.LoadedMeshes[0].Vertices[i].Position.X, loader.LoadedMeshes[0].Vertices[i].Position.Y, loader.LoadedMeshes[0].Vertices[i].Position.Z);
+	}
+	glEnd();
+	
+	
+	glBindTexture(GL_TEXTURE_2D, texturID[17]);
+	
+	glBegin(GL_TRIANGLES);
+	for (int i = 0; i < loader.LoadedMeshes[1].Vertices.size(); i++)
+	{
+		glTexCoord2f(loader.LoadedMeshes[1].Vertices[i].TextureCoordinate.X, loader.LoadedMeshes[1].Vertices[i].TextureCoordinate.Y); glVertex3f(loader.LoadedMeshes[1].Vertices[i].Position.X, loader.LoadedMeshes[1].Vertices[i].Position.Y, loader.LoadedMeshes[1].Vertices[i].Position.Z);
+	}
+	glEnd();
+	
+	
+	glDisable(GL_TEXTURE_2D);
 
 	glPopMatrix();
 }
@@ -589,10 +590,10 @@ void globus(objl::Loader loader, int texturID[], float x, float y, float z, floa
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
 	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader[],
-	float movimentShrek[], bool movDir[], float rotShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales, int lifes, int MIDA_I, int MIDA_J, int musica)
+	float movimentShrek[], bool movDir[], float rotShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales, int lifes, int MIDA_I, int MIDA_J, int musica, bool pausa)
 {
 	float altfar = 0;
-
+	soAmbient->setDefaultVolume(0.7);
 	// Assignaci� de les variables de color i reflexi� als valors de les variables per par�metre
 	color_objecte = col_object;
 	reflexio_material = ref_mat;
@@ -608,253 +609,254 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		// Mur
 	case MUR:
 	{
-		if(i && musica == 0) {
-			SoundEngine->play2D(soAmbient, GL_TRUE);
-			i = false;
-			i_d = true;
-			i_v = true;
-		}
-		else if (i_v && musica == 1) {
+		//if (!pausa) {
+			if (i && musica == 0) {
+				SoundEngine->play2D(soAmbient, GL_TRUE);
+				i = false;
+				i_d = true;
+				i_v = true;
+			}
+			else if (i_v && musica == 1) {
 
-			SoundEngine->play2D(soVictoria, GL_TRUE);
-			SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
-			SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
+				SoundEngine->play2D(soVictoria, GL_TRUE);
+				SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
+				SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
 
-			temps_final = float(clock() - begin_time) / CLOCKS_PER_SEC;
+				temps_final = float(clock() - begin_time) / CLOCKS_PER_SEC;
 
-			i_v = false;
-		}
-		else if (i_d && musica == 2) {
+				i_v = false;
+			}
+			else if (i_d && musica == 2) {
 
-			SoundEngine->play2D(soDerrota, GL_TRUE);
-			SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
-			SoundEngine->stopAllSoundsOfSoundSource(soVictoria);
+				SoundEngine->play2D(soDerrota, GL_TRUE);
+				SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
+				SoundEngine->stopAllSoundsOfSoundSource(soVictoria);
 
-			temps_final = float(clock() - begin_time) / CLOCKS_PER_SEC;
+				temps_final = float(clock() - begin_time) / CLOCKS_PER_SEC;
 
-			i_d = false;
-		}
-
-
-		glClearColor(0.5294f, 0.8078f, 0.9216f, 0.71f);
-		glClear(GL_COLOR_BUFFER_BIT);
+				i_d = false;
+			}
 
 
-		//Textura parets
-
-		glColor3f(1.0, 1.0, 1.0);
-
-		glDisable(GL_TEXTURE_2D);
-		GLfloat sPlane2[4] = { 10.00f, 0.00f, 0.00f, 10.00f };
-		GLfloat tPlane2[4] = { 0.00f, 10.00f, 10.00f, 0.00f };
+			glClearColor(0.5294f, 0.8078f, 0.9216f, 0.71f);
+			glClear(GL_COLOR_BUFFER_BIT);
 
 
-		glEnable(GL_TEXTURE_GEN_S);
-		glEnable(GL_TEXTURE_GEN_T);
-		glBindTexture(GL_TEXTURE_2D, texturID[8]);
-		glDisable(GL_TEXTURE_GEN_S);
-		glDisable(GL_TEXTURE_GEN_T);
+			//Textura parets
+
+			glColor3f(1.0, 1.0, 1.0);
+
+			glDisable(GL_TEXTURE_2D);
+			GLfloat sPlane2[4] = { 10.00f, 0.00f, 0.00f, 10.00f };
+			GLfloat tPlane2[4] = { 0.00f, 10.00f, 10.00f, 0.00f };
 
 
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-
-		//Animació mur caiguda
-		Mur murCaiguda;
-		ActivacioIniciEnCursOJaRealitzada = activavioDeMurCaiguda(murCaiguda, llista, ActivacioIniciEnCursOJaRealitzada);
-		//animacioMurQueCauInici = ActivacioIniciEnCursOJaRealitzada;
-		if (ActivacioIniciEnCursOJaRealitzada)
-		{
-			llista.back().animacioBaixada();
-
-		}
+			glEnable(GL_TEXTURE_GEN_S);
+			glEnable(GL_TEXTURE_GEN_T);
+			glBindTexture(GL_TEXTURE_2D, texturID[8]);
+			glDisable(GL_TEXTURE_GEN_S);
+			glDisable(GL_TEXTURE_GEN_T);
 
 
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-		glEnable(GL_TEXTURE_2D);
-		for (int i = 0; i < llista.size(); i++) {
-			llista[i].pinta();
-		}
-		for (int i = 0; i < sales.size(); i++) {
-			sales[i].pinta();
-		}
-		punxes(punxesAnimadetes, loader[1]);
+			glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
-		//
-		//Textures terra
-		glDisable(GL_TEXTURE_2D);
-		GLfloat sPlane[4] = { 10.00f, 0.00f, 10.00f, 0.00f };
-		GLfloat tPlane[4] = { 0.00f, 10.00f, 0.00f, 0.00f };
-		glBindTexture(GL_TEXTURE_2D, texturID[9]);
+			//Animació mur caiguda
+			Mur murCaiguda;
+			ActivacioIniciEnCursOJaRealitzada = activavioDeMurCaiguda(murCaiguda, llista, ActivacioIniciEnCursOJaRealitzada);
+			//animacioMurQueCauInici = ActivacioIniciEnCursOJaRealitzada;
+			if (ActivacioIniciEnCursOJaRealitzada)
+			{
+				llista.back().animacioBaixada();
 
-		glTexGenfv(GL_S, GL_OBJECT_PLANE, sPlane);
-		glTexGenfv(GL_T, GL_OBJECT_PLANE, tPlane);
-
-		glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
-		glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
-		glEnable(GL_TEXTURE_GEN_S);
-		glEnable(GL_TEXTURE_GEN_T);
-
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-
-		glEnable(GL_TEXTURE_2D);
-
-		//Terra del laberint
-		glPushMatrix();
-		glTranslatef(50.0f, 50.0f, -5.0f);
-		glScalef(MIDA_I * 8 * 5.0F, MIDA_J * 8 * 5.0F, 10.0f);
-		glutSolidCube(1.0);
-		glPopMatrix();
-
-		/*
-		glPushMatrix();
-			glTranslatef(50.0f, 50.0f, -5.0f);
-			glScalef(250.0f, 250.0f, 10.0f);
-			glutSolidCube(1.0);
-		glPopMatrix();
-		*/
-
-		// Terra de la sala de la derrota
-		glPushMatrix();
-		glTranslatef(120.0f, 62.5f, -62.5f);
-		glScalef(45.0f, 45.0f, 10.0f);
-		glutSolidCube(1.0);
-		glPopMatrix();
-
-		// Terra de la sala de la victòria
-		glPushMatrix();
-		glTranslatef(70.0f, 62.5f, -62.5f);
-		glScalef(45.0f, 45.0f, 10.0f);
-		glutSolidCube(1.0);
-		glPopMatrix();
-
-
-		glDisable(GL_TEXTURE_GEN_S);
-		glDisable(GL_TEXTURE_GEN_T);
+			}
 
 
 
-		skybox(texturID, cel);
+			glEnable(GL_TEXTURE_2D);
+			for (int i = 0; i < llista.size(); i++) {
+				llista[i].pinta();
+			}
+			for (int i = 0; i < sales.size(); i++) {
+				sales[i].pinta();
+			}
+			punxes(punxesAnimadetes, loader[1]);
 
-		// S H R E K S
+			//
+			//Textures terra
+			glDisable(GL_TEXTURE_2D);
+			GLfloat sPlane[4] = { 10.00f, 0.00f, 10.00f, 0.00f };
+			GLfloat tPlane[4] = { 0.00f, 10.00f, 0.00f, 0.00f };
+			glBindTexture(GL_TEXTURE_2D, texturID[9]);
 
-		//float Shreks[1][3];
+			glTexGenfv(GL_S, GL_OBJECT_PLANE, sPlane);
+			glTexGenfv(GL_T, GL_OBJECT_PLANE, tPlane);
 
-		std::vector<std::vector<float>> Shreks;
+			glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
+			glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
+			glEnable(GL_TEXTURE_GEN_S);
+			glEnable(GL_TEXTURE_GEN_T);
 
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-		// SHREK ENEMIC 1
-		std::vector<float> Shrek1(3,0);
-		Shreks.push_back(Shrek1);
-		shrek(loader[0], movimentShrek, movDir, rotShrek, texturID, 0, Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final, 0.0, Shreks[0][0], Shreks[0][1], Shreks[0][2]);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-		/*float mida = 5.5;
-		glPushMatrix();
-		glTranslatef(Shreks[0][0], Shreks[0][1], Shreks[0][2] + 7.5);
-		glScalef(20.0, mida, 14.0);
-		glutSolidCube(1.0);
-		glPopMatrix();
-		*/
-		
-		// SHREKS SALA DERROTA
-		
-		//Shrek skizo del gif
-		//shrek(loader[0], movimentShrek, movDir, rotShrek, texturID, 1, 135.0, 62.5, 130.0, 62.5, -57.5);
-		
-		// de moment, un i estàtic  
-		float noMov[3] = { 0.0, 0.0, 0.0 };
-		float noRot[3] = { 0.0, -1.0, 0.0 };
-		float Shrek2[3]; // NO ESTÀ A Shreks PERQUÈ NO CAL CALCULAR-NE LA COL·LISIÓ
-		//shrek(loader[0], noMov, movDir, noRot, texturID, 2, 135.0, 62.5, 130.0, 62.5, -57.5, Shrek2[0], Shrek2[1], Shrek2[2]);
-		shrek(loader[0], noMov, movDir, noRot, texturID, 2, 77.5, 120.0, 77.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2]);
+			glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
-		//Altres objectes
-		tauleta(loader[2], texturID, -40.0, -1.0, -1.0);
-		globus(loader[3], texturID, -40, -1.0, 10.0, 0.345f, 0.608f, 0.0f);
+			glEnable(GL_TEXTURE_2D);
 
-		//eventfinal.pinta();
-
-		//pg.pinta();
-		DoCollisions(llista, pg, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
-
-		//Una merda cap tot en la funcio
-		if (reset_clock) {
-			//Això fa que el temps es posi a 0 quan es comença una partida.
-			//NOTA: al carregar un mapa nou, posar reset_clock = true!!!
-			begin_time = clock() - begin_time;
-			reset_clock = false;
-		}
-
-		temps = float(clock() - begin_time) / CLOCKS_PER_SEC;
-		std::string hud_temps = "TEMPS: " + remove_zeros(std::to_string(temps)) + "\n";
-		std::string hud_vides = "VIDES: " + std::to_string(lifes) + "\n";
-		const char* cstr_temps = hud_temps.c_str();
-		const char* cstr_vides = hud_vides.c_str();
-		
-		/*HUD TEMPS*/
-		if (!i && musica == 0) {
+			//Terra del laberint
 			glPushMatrix();
+			glTranslatef(50.0f, 50.0f, -5.0f);
+			glScalef(MIDA_I * 8 * 5.0F, MIDA_J * 8 * 5.0F, 10.0f);
+			glutSolidCube(1.0);
+			glPopMatrix();
+
+			/*
+			glPushMatrix();
+				glTranslatef(50.0f, 50.0f, -5.0f);
+				glScalef(250.0f, 250.0f, 10.0f);
+				glutSolidCube(1.0);
+			glPopMatrix();
+			*/
+
+			// Terra de la sala de la derrota
+			glPushMatrix();
+			glTranslatef(120.0f, 62.5f, -62.5f);
+			glScalef(45.0f, 45.0f, 10.0f);
+			glutSolidCube(1.0);
+			glPopMatrix();
+
+			// Terra de la sala de la victòria
+			glPushMatrix();
+			glTranslatef(70.0f, 62.5f, -62.5f);
+			glScalef(45.0f, 45.0f, 10.0f);
+			glutSolidCube(1.0);
+			glPopMatrix();
+
+
+			glDisable(GL_TEXTURE_GEN_S);
+			glDisable(GL_TEXTURE_GEN_T);
+
+
+
+			skybox(texturID, cel);
+
+			// S H R E K S
+
+			//float Shreks[1][3];
+
+			std::vector<std::vector<float>> Shreks;
+
+
+			// SHREK ENEMIC 1
+			std::vector<float> Shrek1(3, 0);
+			Shreks.push_back(Shrek1);
+			shrek(loader[0], movimentShrek, movDir, rotShrek, texturID, 0, Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final, 0.0, Shreks[0][0], Shreks[0][1], Shreks[0][2], pausa);
+
+			/*float mida = 5.5;
+			glPushMatrix();
+			glTranslatef(Shreks[0][0], Shreks[0][1], Shreks[0][2] + 7.5);
+			glScalef(20.0, mida, 14.0);
+			glutSolidCube(1.0);
+			glPopMatrix();
+			*/
+
+			// SHREKS SALA DERROTA
+
+			//Shrek skizo del gif
+			//shrek(loader[0], movimentShrek, movDir, rotShrek, texturID, 1, 135.0, 62.5, 130.0, 62.5, -57.5);
+
+			// de moment, un i estàtic  
+			float noMov[3] = { 0.0, 0.0, 0.0 };
+			float noRot[3] = { 0.0, -1.0, 0.0 };
+			float Shrek2[3]; // NO ESTÀ A Shreks PERQUÈ NO CAL CALCULAR-NE LA COL·LISIÓ
+			//shrek(loader[0], noMov, movDir, noRot, texturID, 2, 135.0, 62.5, 130.0, 62.5, -57.5, Shrek2[0], Shrek2[1], Shrek2[2]);
+			shrek(loader[0], noMov, movDir, noRot, texturID, 2, 77.5, 120.0, 77.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], pausa);
+
+			//Altres objectes
+			tauleta(loader[2], texturID, -40.0, -1.0, -1.0);
+			globus(loader[3], texturID, -40, -1.0, 10.0, 0.345f, 0.608f, 0.0f);
+
+			//eventfinal.pinta();
+
+			//pg.pinta();
+			DoCollisions(llista, pg, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
+
+			//Una merda cap tot en la funcio
+			if (reset_clock) {
+				//Això fa que el temps es posi a 0 quan es comença una partida.
+				//NOTA: al carregar un mapa nou, posar reset_clock = true!!!
+				begin_time = clock() - begin_time;
+				reset_clock = false;
+			}
+
+			temps = float(clock() - begin_time) / CLOCKS_PER_SEC;
+			std::string hud_temps = "TEMPS: " + remove_zeros(std::to_string(temps)) + "\n";
+			std::string hud_vides = "VIDES: " + std::to_string(lifes) + "\n";
+			const char* cstr_temps = hud_temps.c_str();
+			const char* cstr_vides = hud_vides.c_str();
+
+			/*HUD TEMPS*/
+			if (!i && musica == 0) {
+				glPushMatrix();
 				glLoadIdentity();
 				glColor3f(.0f, .0f, .0f);
 				drawBitmapText(cstr_temps, 1.5, 1.09, -2);
-			glPopMatrix();
-		}
+				glPopMatrix();
+			}
 
-		/*HUD VIDES*/
-		glPushMatrix();
+			/*HUD VIDES*/
+			glPushMatrix();
 			glLoadIdentity();
 			glColor3f(1.0f, 1.0f, 1.0f);
-			drawBitmapText(cstr_vides, 1.5,  1.05, -2);		
-		glPopMatrix();
+			drawBitmapText(cstr_vides, 1.5, 1.05, -2);
+			glPopMatrix();
 
 
 
-		if (!i_v && musica == 1) {
+			if (!i_v && musica == 1) {
 
-			std::string tf = "TEMPS: " + remove_zeros(std::to_string(temps_final)) + "\n";
-			const char* cstr_tf = tf.c_str();
+				std::string tf = "TEMPS: " + remove_zeros(std::to_string(temps_final)) + "\n";
+				const char* cstr_tf = tf.c_str();
 
-			glPushMatrix();
+				glPushMatrix();
 				glLoadIdentity();
 				glColor3f(.0f, 0.8f, .0f);
 				drawBitmapText("VICTORY\n", 0, 0, -2);
-			glPopMatrix();
+				glPopMatrix();
 
 
-			glPushMatrix();
+				glPushMatrix();
 				glLoadIdentity();
 				glColor3f(.0f, 0.8f, .0f);
 				drawBitmapText(cstr_tf, 1.5, 1.09, -2);
-			glPopMatrix();
+				glPopMatrix();
 
-		}
-		else if (!i_d && musica == 2) {
+			}
+			else if (!i_d && musica == 2) {
 
-			std::string tf = "TEMPS: " + remove_zeros(std::to_string(temps_final)) + "\n";
-			const char* cstr_tf = tf.c_str();
+				std::string tf = "TEMPS: " + remove_zeros(std::to_string(temps_final)) + "\n";
+				const char* cstr_tf = tf.c_str();
 
-			glPushMatrix();
+				glPushMatrix();
 				glLoadIdentity();
 				glColor3f(1.0f, .0f, .0f);
 				drawBitmapText("DEFEAT\n", 0, 0, -2);
-			glPopMatrix();
+				glPopMatrix();
 
-			glPushMatrix();
+				glPushMatrix();
 				glLoadIdentity();
 				glColor3f(.0f, 0.8f, .0f);
 				drawBitmapText(cstr_tf, 1.5, 1.09, -2);
-			glPopMatrix();
+				glPopMatrix();
 
-		}
-
+			}
+		//}
 		break;
 	}
 

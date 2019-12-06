@@ -951,7 +951,7 @@ void CEntornVGIView::dibuixa_Escena() {
 
 	bool animacioMurQueCauInici = false;
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
-		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes, MidaLaberint_Fila, MidaLaberint_Columna, musica);
+		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes, MidaLaberint_Fila, MidaLaberint_Columna, musica, pausa);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -1914,13 +1914,25 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		break;
 		//tecla p de pausa
 	case 80:
-		if (m_ButoEAvall)
-		{
-			m_ButoEAvall = false;
-		}
-		else
-		{
-			m_ButoEAvall = true;
+		if (musica != 1 && musica != 2) {
+			if (m_ButoEAvall)
+			{
+				m_ButoEAvall = false;
+			}
+			else
+			{
+				m_ButoEAvall = true;
+			}
+			if (pausa)
+			{
+				pausa = false;
+				bloquejar_mov = false;
+			}
+			else
+			{
+				pausa = true;
+				bloquejar_mov = true;
+			}
 		}
 	default:
 		break;
@@ -2783,103 +2795,104 @@ BOOL CEntornVGIView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 /* ------------------------------------------------------------------------- */
 void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 {
-	if (personatge.dead) {
-		personatge.dead = false;
-		killPlayer();
-	}
-	// TODO: Agregue aqu� su c�digo de controlador de mensajes o llame al valor predeterminado
-	if (salta) {
-		if (salt < 30) {
-			n[2] -= .1;
-			opvN.z -= .1;
+	if (!pausa) {
+		if (personatge.dead) {
+			personatge.dead = false;
+			killPlayer();
 		}
-		else {
-			n[2] += .1;
-			opvN.z += .1;
+		// TODO: Agregue aqu� su c�digo de controlador de mensajes o llame al valor predeterminado
+		if (salta) {
+			if (salt < 30) {
+				n[2] -= .1;
+				opvN.z -= .1;
+			}
+			else {
+				n[2] += .1;
+				opvN.z += .1;
+			}
+			salt--;
+			if (salt < 0) {
+				salta = false;
+				salt = 60;
+			}
 		}
-		salt--;
-		if (salt < 0) {
-			salta = false;
-			salt = 60;
-		}
-	}
 
-	for (int i = 0; i < eventsMursBaixada.size(); i++)
-	{
-
-		if (eventsMursBaixada[i].m_animacioIniciada)
+		for (int i = 0; i < eventsMursBaixada.size(); i++)
 		{
 
-			if (eventsMursBaixada[i].m_tipus == -3)
+			if (eventsMursBaixada[i].m_animacioIniciada)
 			{
-				if (eventsMursBaixada[i].m_en_curs)
+
+				if (eventsMursBaixada[i].m_tipus == -3)
 				{
-					eventsMursBaixada[i].actua(llista_murs[eventsMursBaixada[i].indexMurAnimatEnLlista]);
-				}
-				else
-				{
-					Mur newMur;
-					if (eventsMursBaixada[i].m_direccio == HOR)
+					if (eventsMursBaixada[i].m_en_curs)
 					{
-						newMur.setMur(eventsMursBaixada[i].m_x - 4 * x - x - x / 2, eventsMursBaixada[i].m_y, eventsMursBaixada[i].m_z * x, HOR, 3 * x);
+						eventsMursBaixada[i].actua(llista_murs[eventsMursBaixada[i].indexMurAnimatEnLlista]);
 					}
 					else
 					{
-						newMur.setMur(eventsMursBaixada[i].m_x, eventsMursBaixada[i].m_y + x + x + x + 2 * x, eventsMursBaixada[i].m_z * x, VER, 3 * x);
+						Mur newMur;
+						if (eventsMursBaixada[i].m_direccio == HOR)
+						{
+							newMur.setMur(eventsMursBaixada[i].m_x - 4 * x - x - x / 2, eventsMursBaixada[i].m_y, eventsMursBaixada[i].m_z * x, HOR, 3 * x);
+						}
+						else
+						{
+							newMur.setMur(eventsMursBaixada[i].m_x, eventsMursBaixada[i].m_y + x + x + x + 2 * x, eventsMursBaixada[i].m_z * x, VER, 3 * x);
+						}
+						newMur.esUnMurAnimatQueCau = true;
+						llista_murs.push_back(newMur);
+						eventsMursBaixada[i].indexMurAnimatEnLlista = llista_murs.size() - 1;
+						eventsMursBaixada[i].m_en_curs = true;
+
+
 					}
-					newMur.esUnMurAnimatQueCau = true;
-					llista_murs.push_back(newMur);
-					eventsMursBaixada[i].indexMurAnimatEnLlista = llista_murs.size() - 1;
-					eventsMursBaixada[i].m_en_curs = true;
-
-
+					//llista_murs[eventsMursBaixada[i].indexMurAnimatEnLlista].pinta();
 				}
-				//llista_murs[eventsMursBaixada[i].indexMurAnimatEnLlista].pinta();
-			}
 
+
+			}
 
 		}
 
-	}
 
-
-	for (int i = 0; i < punxesAnimadetes.size(); i++)
-	{
-		if (punxesAnimadetes[i].variableControladoraPunxesBaixant)
+		for (int i = 0; i < punxesAnimadetes.size(); i++)
 		{
-			punxesAnimadetes[i].animacioBaixada();
-			if (punxesAnimadetes[i].m_z < -12)
+			if (punxesAnimadetes[i].variableControladoraPunxesBaixant)
 			{
-				punxesAnimadetes[i].variableControladoraPunxesBaixant = false;
+				punxesAnimadetes[i].animacioBaixada();
+				if (punxesAnimadetes[i].m_z < -12)
+				{
+					punxesAnimadetes[i].variableControladoraPunxesBaixant = false;
+				}
+			}
+			else
+			{
+				punxesAnimadetes[i].animacioPujada();
+				if (punxesAnimadetes[i].m_z > -1)
+				{
+					punxesAnimadetes[i].variableControladoraPunxesBaixant = true;
+				}
 			}
 		}
-		else
-		{
-			punxesAnimadetes[i].animacioPujada();
-			if (punxesAnimadetes[i].m_z > -1)
-			{
-				punxesAnimadetes[i].variableControladoraPunxesBaixant = true;
-			}
+
+		if (anima) {
+			// Codi de tractament de l'animaci� quan transcorren els ms. del crono.
+
+			// Crida a OnPaint() per redibuixar l'escena
+			InvalidateRect(NULL, false);
+		}
+		else if (satelit) {	// OPCI� SAT�LIT: Increment OPV segons moviments mouse.
+			//OPV.R = OPV.R + m_EsfeIncEAvall.R;
+			OPV.alfa = OPV.alfa + m_EsfeIncEAvall.alfa;
+			while (OPV.alfa > 360) OPV.alfa = OPV.alfa - 360;	while (OPV.alfa < 0) OPV.alfa = OPV.alfa + 360;
+			OPV.beta = OPV.beta + m_EsfeIncEAvall.beta;
+			while (OPV.beta > 360) OPV.beta = OPV.beta - 360;	while (OPV.beta < 0) OPV.beta = OPV.beta + 360;
+
+			// Crida a OnPaint() per redibuixar l'escena
+			InvalidateRect(NULL, false);
 		}
 	}
-
-	if (anima) {
-		// Codi de tractament de l'animaci� quan transcorren els ms. del crono.
-
-		// Crida a OnPaint() per redibuixar l'escena
-		InvalidateRect(NULL, false);
-	}
-	else if (satelit) {	// OPCI� SAT�LIT: Increment OPV segons moviments mouse.
-		//OPV.R = OPV.R + m_EsfeIncEAvall.R;
-		OPV.alfa = OPV.alfa + m_EsfeIncEAvall.alfa;
-		while (OPV.alfa > 360) OPV.alfa = OPV.alfa - 360;	while (OPV.alfa < 0) OPV.alfa = OPV.alfa + 360;
-		OPV.beta = OPV.beta + m_EsfeIncEAvall.beta;
-		while (OPV.beta > 360) OPV.beta = OPV.beta - 360;	while (OPV.beta < 0) OPV.beta = OPV.beta + 360;
-
-		// Crida a OnPaint() per redibuixar l'escena
-		InvalidateRect(NULL, false);
-	}
-
 	InvalidateRect(NULL, false);
 	dibuixa_Escena();
 
