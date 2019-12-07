@@ -625,7 +625,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
 				SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
 
-				temps_final = float(clock() - begin_time) / CLOCKS_PER_SEC;
+				temps_final = float(clock() - begin_time + tp) / CLOCKS_PER_SEC;
 
 				i_v = false;
 			}
@@ -635,7 +635,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
 				SoundEngine->stopAllSoundsOfSoundSource(soVictoria);
 
-				temps_final = float(clock() - begin_time) / CLOCKS_PER_SEC;
+				temps_final = float(clock() - begin_time + tp) / CLOCKS_PER_SEC;
 
 				i_d = false;
 			}
