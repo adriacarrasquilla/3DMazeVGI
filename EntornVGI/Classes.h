@@ -272,6 +272,101 @@ float Posicio_y_final = 4 * x * 2;
 	
 	
 
+class Shrek {
+public:
+	objl::Loader m_loader;
+	float* m_moviment;
+	bool* m_movDir;
+	float* m_rotShrek;
+	int* m_texturID;
+	int m_tipusMov;
+	float m_posicioIniciX;
+	float m_posicioIniciY;
+	float m_posicioFinalX;
+	float m_posicioFinalY;
+	float m_posicioZ;
+
+	float m_pos_x;
+	float m_pos_y;
+	float m_pos_z;
+
+	bool m_ori;
+public:
+	Shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ, float& pos_x, float& pos_y, float& pos_z, bool ori) {
+		m_loader = loader;
+		m_moviment = moviment;
+		m_movDir = movDir;
+		m_rotShrek = rotShrek; 
+		m_texturID = texturID; 
+		m_tipusMov = tipusMov;
+		m_posicioIniciX = posicioIniciX;
+		m_posicioIniciY = posicioIniciY;
+		m_posicioFinalX = posicioFinalX;
+		m_posicioFinalY = posicioFinalY;
+		m_posicioZ = posicioZ;
+		m_pos_x = pos_x;
+		m_pos_y = pos_y;
+		m_pos_z = pos_z;
+		m_ori = ori;
+	}
+
+	void pinta(bool pausa) {
+		glPushMatrix();
+
+		if (m_tipusMov == 0)
+		{
+			movimentShrek(m_moviment, m_movDir, m_rotShrek, m_posicioIniciX, m_posicioFinalX, pausa);
+		}
+		if (m_tipusMov == 1)
+		{
+			m_rotShrek[1] = 1;
+
+			circularMovimentShrek(m_moviment, m_movDir, m_rotShrek, pausa);
+		}
+
+		//Translació inicial + moviment
+		glTranslatef(m_posicioIniciY + m_moviment[0], m_posicioIniciX + m_moviment[1], m_posicioZ + m_moviment[2]);
+		m_pos_x = m_posicioIniciY + m_moviment[0]; m_pos_y = m_posicioIniciX + m_moviment[1]; m_pos_z = m_posicioZ + m_moviment[2];
+		//Rotació inicial
+		glRotatef(90, 1, 0, 0);
+		//si es mou en vertical
+		glRotatef(90, 0, 1, 0);
+		//Rotació depenent moviment
+		glRotatef(90, 0 + m_rotShrek[0], 0 + m_rotShrek[1], 0 + m_rotShrek[2]);
+		//glScalef(8.0f, 8.0f, 8.0f);
+		glScalef(14.0f, 14.0f, 14.0f);
+
+		//textura 16 shrek, 17 shrekShirt
+		glEnable(GL_TEXTURE_2D);
+
+
+		glBindTexture(GL_TEXTURE_2D, m_texturID[16]);
+
+		glBegin(GL_TRIANGLES);
+		for (int i = 0; i < m_loader.LoadedMeshes[0].Vertices.size(); i++)
+		{
+			glTexCoord2f(m_loader.LoadedMeshes[0].Vertices[i].TextureCoordinate.X, m_loader.LoadedMeshes[0].Vertices[i].TextureCoordinate.Y); glVertex3f(m_loader.LoadedMeshes[0].Vertices[i].Position.X, m_loader.LoadedMeshes[0].Vertices[i].Position.Y, m_loader.LoadedMeshes[0].Vertices[i].Position.Z);
+		}
+		glEnd();
+
+
+		glBindTexture(GL_TEXTURE_2D, m_texturID[17]);
+
+		glBegin(GL_TRIANGLES);
+		for (int i = 0; i < m_loader.LoadedMeshes[1].Vertices.size(); i++)
+		{
+			glTexCoord2f(m_loader.LoadedMeshes[1].Vertices[i].TextureCoordinate.X, m_loader.LoadedMeshes[1].Vertices[i].TextureCoordinate.Y); glVertex3f(m_loader.LoadedMeshes[1].Vertices[i].Position.X, m_loader.LoadedMeshes[1].Vertices[i].Position.Y, m_loader.LoadedMeshes[1].Vertices[i].Position.Z);
+		}
+		glEnd();
+
+
+		glDisable(GL_TEXTURE_2D);
+
+		glPopMatrix();
+	}
+};
+
+
 
 /*CLASSE LEADERBOARD*/
 

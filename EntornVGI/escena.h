@@ -48,7 +48,8 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 
 //funcions shrek
 void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ, float& pos_x, float& pos_y, float& pos_z, bool pausa);
-void movimentShrek(float moviment[], bool movDir[]);
+void movimentShrek(float moviment[], bool movDir[], float rotShrek[], float posicioIniciY, float posicioFinalY, bool pausa);
+void circularMovimentShrek(float moviment[], bool movDir[], float rotShrek[], bool pausa);
 
 void drawBitmapText(char* string, float x, float y, float z);
 #endif
