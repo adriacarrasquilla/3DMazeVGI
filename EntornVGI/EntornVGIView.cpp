@@ -5193,6 +5193,7 @@ void CEntornVGIView::OnUpdateProjeccioortografica(CCmdUI* pCmdUI)
 void CEntornVGIView::OnObjecteMur()
 {
 	lvl = 1;
+	changeLvl = true;
 	llista_murs = initMurs();
 	sales_v_d = CreaSales();
 

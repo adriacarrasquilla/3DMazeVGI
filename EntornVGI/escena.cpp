@@ -625,6 +625,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
 				SoundEngine->stopAllSoundsOfSoundSource(soLvl2);
 				SoundEngine->stopAllSoundsOfSoundSource(soLvl3);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl1);
 				SoundEngine->stopAllSoundsOfSoundSource(soLvl4);
 
 				SoundEngine->play2D(soLvl1, GL_TRUE);
@@ -636,8 +637,9 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			else if (i && musica == 0 && lvl == 2) {
 				SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
 				SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
-				SoundEngine->stopAllSoundsOfSoundSource(soLvl1);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl2);
 				SoundEngine->stopAllSoundsOfSoundSource(soLvl3);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl1);
 				SoundEngine->stopAllSoundsOfSoundSource(soLvl4);
 
 				SoundEngine->play2D(soLvl2, GL_TRUE);
@@ -650,6 +652,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
 				SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
 				SoundEngine->stopAllSoundsOfSoundSource(soLvl2);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl3);
 				SoundEngine->stopAllSoundsOfSoundSource(soLvl1);
 				SoundEngine->stopAllSoundsOfSoundSource(soLvl4);
 
@@ -665,6 +668,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				SoundEngine->stopAllSoundsOfSoundSource(soLvl2);
 				SoundEngine->stopAllSoundsOfSoundSource(soLvl3);
 				SoundEngine->stopAllSoundsOfSoundSource(soLvl1);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl4);
 
 				SoundEngine->play2D(soLvl4, GL_TRUE);
 				i = false;
