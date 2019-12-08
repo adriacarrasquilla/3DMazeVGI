@@ -423,7 +423,7 @@ CEntornVGIView::CEntornVGIView()
 
 	// Vides Jugador
 	lifes = 3;
-	lvl = ' ';
+	lvl = 1;
 
 }
 
@@ -3502,6 +3502,28 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 														{1,0,0,0,-6,0,0,0,0,1},
 														{1,1,1,1,1,1,1,1,-2,1},
 	};
+
+	int matriuLvl4[20][10] = { {0,0,0,-1,1,1,1,1,1,1},
+								{0,0,0,0,0,0,0,0,0,1},
+								{0,0,0,0,0,0,0,0,0,1},
+								{0,0,0,0,0,0,0,0,0,1},
+								{0,0,0,0,0,0,0,0,0,1},
+								{0,0,0,0,0,0,0,0,0,1},
+								{0,0,0,0,0,0,0,0,0,1},
+								{0,0,0,0,0,0,0,0,0,1},
+								{0,0,0,0,0,0,0,0,0,1},
+								{0,0,0,0,0,0,0,0,0,1},
+								{0,0,0,0,0,0,0,1,0,1},
+								{0,0,0,0,0,0,0,0,0,1},
+								{0,0,0,0,0,0,0,0,0,1},
+								{0,0,0,0,0,0,0,0,0,1},
+								{1,0,0,0,0,0,0,0,0,1},
+								{1,0,0,0,0,0,0,0,0,1},
+								{1,0,0,0,0,0,0,0,0,1},
+								{1,0,0,0,0,0,0,1,1,1},
+								{1,0,0,0,0,0,0,0,0,1},
+								{1,1,1,1,1,1,1,1,-2,1},
+	};
 	
 	vector<vector<int>> matriuLaberint;
 
@@ -3513,13 +3535,31 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 			for (int j = 0; j < MAX_COLUMNA; j++)
 				matriuLaberint[i][j] = matriuLvl1[i][j];
 		}
-	}else {
+	}else if(lvl ==2) {
 		MAX_COLUMNA = 5;
 		MAX_FILA = 5;
 		matriuLaberint = vector<vector<int>>(MAX_FILA, vector<int>(MAX_COLUMNA, 0));
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < 5; j++)
 				matriuLaberint[i][j] = matriuLvl1[i][j];
+		}
+	}
+	else if (lvl == 3) {
+		MAX_COLUMNA = 5;
+		MAX_FILA = 5;
+		matriuLaberint = vector<vector<int>>(MAX_FILA, vector<int>(MAX_COLUMNA, 0));
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++)
+				matriuLaberint[i][j] = matriuLvl1[i][j];
+		}
+	}
+	else {
+		MAX_COLUMNA = 10;
+		MAX_FILA = 20;
+		matriuLaberint = vector<vector<int>>(MAX_FILA, vector<int>(MAX_COLUMNA, 0));
+		for (int i = 0; i < MAX_FILA; i++) {
+			for (int j = 0; j < MAX_COLUMNA; j++)
+				matriuLaberint[i][j] = matriuLvl4[i][j];
 		}
 	}
 
@@ -3589,9 +3629,9 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 
 	bool camiShrek_ja_creat = false;
 
-	for (int j = 0; j < MAX_COLUMNA; j++)
+	for (int j = 0; j < MAX_FILA; j++)
 	{
-		for (int i = 0; i < MAX_FILA; i++)
+		for (int i = 0; i < MAX_COLUMNA; i++)
 		{
 			if (matriuLaberint[j][i] == 1)
 			{
