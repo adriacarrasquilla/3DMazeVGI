@@ -271,7 +271,7 @@ float Posicio_x_final = 4 * x * 4;
 float Posicio_y_final = 4 * x * 2;
 	
 	
-
+/*
 class Shrek {
 public:
 	objl::Loader m_loader;
@@ -365,7 +365,7 @@ public:
 		glPopMatrix();
 	}
 };
-
+*/
 
 
 /*CLASSE LEADERBOARD*/
