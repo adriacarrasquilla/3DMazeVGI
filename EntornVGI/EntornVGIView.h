@@ -71,6 +71,8 @@ public:
 // Entorn VGI: Variables de control de l'opci� Vista->Navega?
 	GLfloat n[3];   // Punt cap on mira.
 	CPunt3D opvN;   // Definici� Or�gen Punt de Vista (en coordenades m�n)
+	GLfloat nIni[3];   
+	CPunt3D opvNIni;   
 	GLfloat v[3]; //up vector
 	float angleZ;   // angle de rotaci� de la traject�ria X.
 	float angleY;   // angle de rotació de la trajectoria Z.

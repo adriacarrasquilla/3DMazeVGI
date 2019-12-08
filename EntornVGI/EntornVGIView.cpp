@@ -224,6 +224,9 @@ CEntornVGIView::CEntornVGIView()
 	opvN.x = -3.0;	opvN.y = 12.0;		opvN.z = 5.0;
 	angleZ = 0.0;	angleY = 0.0;
 	salt = false; salta = 60;
+	//variables per emmagatzemar el punt de reinici del nivell
+	nIni[0] = 0.0;		nIni[1] = 0.0;		nIni[2] = 5.0;
+	opvNIni.x = -3.0;	opvNIni.y = 12.0;		opvNIni.z = 5.0;
 
 	// Entorn VGI: Variables de control per les opcions de men� Projecci�, Objecte
 	projeccio = PERSPECT;			objecte = MUR;
@@ -3648,6 +3651,7 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 				// Crea mur extra per evitar desplaçament inicial i ja no genera problemes amb textures (mur sbre mur)
 				if (matriuLaberint[j][i] == -1)
 				{
+
 					Mur murEntrada;
 					murEntrada.setMur(j * 4 * x - x - x / 2, (i + 1) * 4 * x, h, VER, x);
 					llista.push_back(murEntrada);
@@ -3773,9 +3777,9 @@ void CEntornVGIView::killPlayer() {
 	}
 	else {
 		//GO TO STARTING POINT
-		personatge.m_x = -3.0;
-		personatge.m_y = 12.0;
-		opvN.x = -3.0;			opvN.y = 12.0;			opvN.z = 5.0;
+		personatge.m_x = opvNIni.x;
+		personatge.m_y = opvNIni.y;
+		opvN.x = opvNIni.x;			opvN.y = opvNIni.y;			opvN.z = opvNIni.z;
 		n[0] = opvN.x + 5.0;		n[1] = opvN.y;			n[2] = 5.0;
 	}
 }
@@ -5186,6 +5190,22 @@ void CEntornVGIView::OnUpdateProjeccioortografica(CCmdUI* pCmdUI)
 
 void CEntornVGIView::OnObjecteMur()
 {
+	lvl = 1;
+	llista_murs = initMurs();
+	sales_v_d = CreaSales();
+
+	opvNIni.x = -40.0;		opvNIni.y = 10.0;		opvNIni.z = 5.0;
+
+	n[0] = 0.0;		n[1] = 0.0;		n[2] = 5.0;
+	opvN.x = opvNIni.x;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
+
+	Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
+	personatge = nou;
+
+	num_murs = llista_murs.size();
+
+	// Vides Jugador
+	lifes = 3;
 	// TODO: Agregue aquí su código de controlador de comandos
 	objecte = MUR;	textura = true;
 	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
@@ -5244,17 +5264,23 @@ void CEntornVGIView::OnUpdateObjecteMur(CCmdUI* pCmdUI)
 
 void CEntornVGIView::OnNivellsNivell2()
 {
-	//Inicialització murs
+	//Inicialització murs //TEMARE
 	lvl = 2;
 	llista_murs = initMurs();
 	sales_v_d = CreaSales();
+	
+	opvNIni.x = 10.0;		opvNIni.y = 12.0;		opvNIni.z = 5.0;
+
+	n[0] = 0.0;		n[1] = 0.0;		n[2] = 5.0;
+	opvN.x = opvNIni.x;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
+	
 	Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
 	personatge = nou;
 
 	num_murs = llista_murs.size();
 
 	// Vides Jugador
-	lifes = 
+	lifes = 3;
 
 	objecte = MUR;	textura = true;
 	
