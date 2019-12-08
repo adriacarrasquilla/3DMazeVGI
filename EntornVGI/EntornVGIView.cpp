@@ -3479,12 +3479,19 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 													{ 1, 1, 1, 1, 1, 0, 0},
 													{-2,-4,-4, 0, 0, 0, 1} };
 	*/
+	//test lvl2
+	int matriuLvl2[5][5] = { {-1, 1, 1, 1, 1},
+							{0, 1, 0, 1, 0},
+							{0, 0, -6,-5,-5},
+							{ 1, 1, 1, 1, 1},
+							{-2,-4,-4, 0, 0} };
 
 	//Mapa gran
-
-	int const MAX_FILA = 10;
-	int const MAX_COLUMNA = 10;
-	int matriuLaberint[MAX_COLUMNA][MAX_FILA]= { {-1,1,1,1,1,1,1,1,1,1},
+	
+	int  MAX_FILA;
+	int  MAX_COLUMNA;
+	
+	int matriuLvl1[10][10]= { {-1,1,1,1,1,1,1,1,1,1},
 														{0,0,-4,0,-4,-4,0,0,0,1},
 														{0,0,0,0,0,0,0,0,0,1},
 														{1,1,1,1,-3,1,1,1,0,1},
@@ -3495,12 +3502,24 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 														{1,0,0,0,-6,0,0,0,0,1},
 														{1,1,1,1,1,1,1,1,-2,1},
 	};
+	
+	vector<vector<int>> matriuLaberint;
 
-	if (lvl == 2) {
+	if (lvl == 1) {
+		MAX_COLUMNA = 10;
+		MAX_FILA = 10;
+		matriuLaberint = vector<vector<int>>(MAX_FILA, vector<int>(MAX_COLUMNA, 0));
 		for (int i = 0; i < MAX_FILA; i++) {
-			for (int j = 0; j < MAX_COLUMNA; j++) {
-				matriuLaberint[i][j] = 0;
-			}
+			for (int j = 0; j < MAX_COLUMNA; j++)
+				matriuLaberint[i][j] = matriuLvl1[i][j];
+		}
+	}else {
+		MAX_COLUMNA = 5;
+		MAX_FILA = 5;
+		matriuLaberint = vector<vector<int>>(MAX_FILA, vector<int>(MAX_COLUMNA, 0));
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++)
+				matriuLaberint[i][j] = matriuLvl1[i][j];
 		}
 	}
 
