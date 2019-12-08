@@ -597,7 +597,8 @@ void globus(objl::Loader loader, int texturID[], float x, float y, float z, floa
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
 	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader[],
-	float movimentShrek[], bool movDir[], float rotShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales, int lifes, int MIDA_I, int MIDA_J, int musica, bool pausa)
+	float movimentShrek[], bool movDir[], float rotShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales, 
+	int lifes, int MIDA_I, int MIDA_J, int musica, bool pausa, char lvl, bool &changeLvl)
 {
 	float altfar = 0;
 	soAmbient->setDefaultVolume(0.7);
@@ -609,6 +610,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 	if (texturID[0] != -1) SetTextureParameters(texturID[0], true, true, textur_map, false);
 	if (textur) glEnable(GL_TEXTURE_2D);
 	else glDisable(GL_TEXTURE_2D);
+	if (changeLvl) i = true;
 
 	switch (objecte)
 	{
@@ -617,9 +619,56 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 	case MUR:
 	{
 		//if (!pausa) {
-			if (i && musica == 0) {
-				SoundEngine->play2D(soAmbient, GL_TRUE);
+			if (i && musica == 0 && lvl == 1) {
+				//SoundEngine->play2D(soAmbient, GL_TRUE);
+				SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
+				SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl2);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl3);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl4);
+
+				SoundEngine->play2D(soLvl1, GL_TRUE);
 				i = false;
+				changeLvl = false;
+				i_d = true;
+				i_v = true;
+			}
+			else if (i && musica == 0 && lvl == 2) {
+				SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
+				SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl1);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl3);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl4);
+
+				SoundEngine->play2D(soLvl2, GL_TRUE);
+				i = false;
+				changeLvl = false;
+				i_d = true;
+				i_v = true;
+			}
+			else if (i && musica == 0 && lvl == 3) {
+				SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
+				SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl2);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl1);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl4);
+
+				SoundEngine->play2D(soLvl3, GL_TRUE);
+				i = false;
+				changeLvl = false;
+				i_d = true;
+				i_v = true;
+			}
+			else if (i && musica == 0 && lvl == 4) {
+				SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
+				SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl2);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl3);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl1);
+
+				SoundEngine->play2D(soLvl4, GL_TRUE);
+				i = false;
+				changeLvl = false;
 				i_d = true;
 				i_v = true;
 			}
@@ -628,6 +677,10 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				SoundEngine->play2D(soVictoria, GL_TRUE);
 				SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
 				SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl2);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl3);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl1);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl4);
 
 				temps_final = float(clock() - begin_time + tp) / CLOCKS_PER_SEC;
 
@@ -638,6 +691,10 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				SoundEngine->play2D(soDerrota, GL_TRUE);
 				SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
 				SoundEngine->stopAllSoundsOfSoundSource(soVictoria);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl2);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl3);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl1);
+				SoundEngine->stopAllSoundsOfSoundSource(soLvl4);
 
 				temps_final = float(clock() - begin_time + tp) / CLOCKS_PER_SEC;
 

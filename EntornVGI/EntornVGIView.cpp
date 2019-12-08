@@ -957,7 +957,9 @@ void CEntornVGIView::dibuixa_Escena() {
 
 	bool animacioMurQueCauInici = false;
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
-		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader, movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes, MidaLaberint_Fila, MidaLaberint_Columna, musica, pausa);
+		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader,
+		movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes, 
+		MidaLaberint_Fila, MidaLaberint_Columna, musica, pausa, lvl, changeLvl);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -5268,6 +5270,7 @@ void CEntornVGIView::OnNivellsNivell2()
 	lvl = 2;
 	llista_murs = initMurs();
 	sales_v_d = CreaSales();
+	changeLvl = true;
 	
 	opvNIni.x = 10.0;		opvNIni.y = 12.0;		opvNIni.z = 5.0;
 

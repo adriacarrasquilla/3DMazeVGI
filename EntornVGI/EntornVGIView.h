@@ -83,6 +83,7 @@ public:
 	char projeccio;	// Men� Projecci�: Tipus de projeccio 
 	char objecte;	// Men� Objecte: Tipus d'Objecte
 	char lvl;
+	bool changeLvl;
 
 // Entorn VGI: Variables de control del men� Transforma
 	bool transf;	// Booleana per activar Transformacions (true) o no (false).
