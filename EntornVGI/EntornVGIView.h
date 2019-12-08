@@ -441,6 +441,10 @@ public:
 	afx_msg void OnUpdateObjecteMur(CCmdUI* pCmdUI);
 	afx_msg void OnNivellsNivell2();
 	afx_msg void OnUpdateNivellsNivell2(CCmdUI* pCmdUI);
+	afx_msg void OnNivellsNivell3();
+	afx_msg void OnUpdateNivellsNivell3(CCmdUI* pCmdUI);
+	afx_msg void OnNivellsNivell4();
+	afx_msg void OnUpdateNivellsNivell4(CCmdUI* pCmdUI);
 };
 
 #ifndef _DEBUG  // Versi�n de depuraci�n en EntornVGIView.cpp

@@ -278,8 +278,10 @@ BEGIN
     END
     POPUP "Nivells"
     BEGIN
-        MENUITEM "Nivell 1 fsf",                ID_OBJECTE_MUR, CHECKED
+        MENUITEM "Nivell 1",                    ID_OBJECTE_MUR, CHECKED
         MENUITEM "Nivell 2",                    ID_NIVELLS_NIVELL2, CHECKED
+        MENUITEM "Nivell 3",                    ID_NIVELLS_NIVELL3, CHECKED
+        MENUITEM "Nivell 4",                    ID_NIVELLS_NIVELL4, CHECKED
     END
     POPUP "Iluminació"
     BEGIN

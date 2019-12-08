@@ -192,7 +192,11 @@ BEGIN_MESSAGE_MAP(CEntornVGIView, CView)
 	ON_UPDATE_COMMAND_UI(ID_OBJECTE_MUR, &CEntornVGIView::OnUpdateObjecteMur)
 	ON_COMMAND(ID_NIVELLS_NIVELL2, &CEntornVGIView::OnNivellsNivell2)
 	ON_UPDATE_COMMAND_UI(ID_NIVELLS_NIVELL2, &CEntornVGIView::OnUpdateNivellsNivell2)
-	END_MESSAGE_MAP()
+		ON_COMMAND(ID_NIVELLS_NIVELL3, &CEntornVGIView::OnNivellsNivell3)
+		ON_UPDATE_COMMAND_UI(ID_NIVELLS_NIVELL3, &CEntornVGIView::OnUpdateNivellsNivell3)
+		ON_COMMAND(ID_NIVELLS_NIVELL4, &CEntornVGIView::OnNivellsNivell4)
+		ON_UPDATE_COMMAND_UI(ID_NIVELLS_NIVELL4, &CEntornVGIView::OnUpdateNivellsNivell4)
+		END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // Construcci�n o destrucci�n de CEntornVGIView
@@ -5260,7 +5264,7 @@ void CEntornVGIView::OnUpdateObjecteMur(CCmdUI* pCmdUI)
 {
 	// TODO: Agregue aquí su código de controlador de IU para actualización de comandos
 	// TODO: Agregue aquí su código de controlador de IU para actualización de comandos
-	if (objecte == MUR) pCmdUI->SetCheck(1);
+	if (lvl == 1) pCmdUI->SetCheck(1);
 	else pCmdUI->SetCheck(0);
 }
 
@@ -5336,6 +5340,160 @@ void CEntornVGIView::OnNivellsNivell2()
 void CEntornVGIView::OnUpdateNivellsNivell2(CCmdUI* pCmdUI)
 {
 	// TODO: Agregue aquí su código de controlador de IU para actualización de comandos
-	if (objecte == 2) pCmdUI->SetCheck(1);
+	if (lvl == 2) pCmdUI->SetCheck(1);
+	else pCmdUI->SetCheck(0);
+}
+
+
+void CEntornVGIView::OnNivellsNivell3()
+{
+	// TODO: Agregue aquí su código de controlador de comandos
+	//Inicialització murs
+	lvl = 3;
+	llista_murs = initMurs();
+	sales_v_d = CreaSales();
+	changeLvl = true;
+
+	opvNIni.x = 10.0;		opvNIni.y = 12.0;		opvNIni.z = 5.0;
+
+	n[0] = 0.0;		n[1] = 0.0;		n[2] = 5.0;
+	opvN.x = opvNIni.x;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
+
+	Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
+	personatge = nou;
+
+	num_murs = llista_murs.size();
+
+	// Vides Jugador
+	lifes = 3;
+
+	objecte = MUR;	textura = true;
+
+	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
+	//	Canviar l'escala per a centrar la vista (Ortogràfica)
+	// Crida a OnPaint() per redibuixar l'escena
+	//InvalidateRect(NULL, false);
+	// TODO: Agregue aqu� su c�digo de controlador de comandos
+	//objecte = CUB_RGB;   textura = true;
+
+	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
+
+	//Textures skybox
+	texturesID[9] = loadIMA_ILUT("./textures/tex1_64x64_c05e3c09362f364a_14.png");
+	texturesID[8] = loadIMA_ILUT("./textures/tex1_128x128_0e437d36eaf137df_14.png");
+	texturesID[7] = loadIMA_ILUT("./textures/sky-hd-wallpaper-9.jpg");
+	texturesID[10] = loadIMA_ILUT("./textures/skybox/right.png");
+	texturesID[11] = loadIMA_ILUT("./textures/skybox/left.png");
+	texturesID[12] = loadIMA_ILUT("./textures/skybox/top.png");
+	texturesID[13] = loadIMA_ILUT("./textures/skybox/bottom.png");
+	texturesID[14] = loadIMA_ILUT("./textures/skybox/front.png");
+	texturesID[15] = loadIMA_ILUT("./textures/skybox/back.png");
+
+	//shrek
+	texturesID[16] = loadIMA_ILUT("./textures/shrek/Shrek.png");
+	texturesID[17] = loadIMA_ILUT("./textures/shrek/shrekshirt.png");
+	loader[0].LoadFile("./objects/shrek/CHARACTER_Shrek.obj");
+
+	//punxes
+	loader[1].LoadFile("./objects/punxes/3d-model.obj");
+
+	//taula
+	texturesID[18] = loadIMA_ILUT("./objects/taula/light_wood.png");
+	loader[2].LoadFile("./objects/taula/simple_table.obj");
+	//balloon
+	loader[3].LoadFile("./objects/balloon/balloon.obj");
+	texturesID[19] = loadIMA_ILUT("./objects/balloon/shrekcolorballoon.png");
+
+
+	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
+	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
+	//	Canviar l'escala per a centrar la vista (Ortogr�fica)
+
+	// Crida a OnPaint() per redibuixar l'escena
+	InvalidateRect(NULL, false);
+}
+
+
+void CEntornVGIView::OnUpdateNivellsNivell3(CCmdUI* pCmdUI)
+{
+	// TODO: Agregue aquí su código de controlador de IU para actualización de comandos
+	if (lvl == 3) pCmdUI->SetCheck(1);
+	else pCmdUI->SetCheck(0);
+}
+
+
+void CEntornVGIView::OnNivellsNivell4()
+{
+	// TODO: Agregue aquí su código de controlador de comandos
+	//Inicialització murs //TEMARE
+	lvl = 4;
+	llista_murs = initMurs();
+	sales_v_d = CreaSales();
+	changeLvl = true;
+
+	opvNIni.x = 10.0;		opvNIni.y = 12.0;		opvNIni.z = 5.0;
+
+	n[0] = 0.0;		n[1] = 0.0;		n[2] = 5.0;
+	opvN.x = opvNIni.x;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
+
+	Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
+	personatge = nou;
+
+	num_murs = llista_murs.size();
+
+	// Vides Jugador
+	lifes = 3;
+
+	objecte = MUR;	textura = true;
+
+	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
+	//	Canviar l'escala per a centrar la vista (Ortogràfica)
+	// Crida a OnPaint() per redibuixar l'escena
+	//InvalidateRect(NULL, false);
+	// TODO: Agregue aqu� su c�digo de controlador de comandos
+	//objecte = CUB_RGB;   textura = true;
+
+	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
+
+	//Textures skybox
+	texturesID[9] = loadIMA_ILUT("./textures/tex1_64x64_c05e3c09362f364a_14.png");
+	texturesID[8] = loadIMA_ILUT("./textures/tex1_128x128_0e437d36eaf137df_14.png");
+	texturesID[7] = loadIMA_ILUT("./textures/sky-hd-wallpaper-9.jpg");
+	texturesID[10] = loadIMA_ILUT("./textures/skybox/right.png");
+	texturesID[11] = loadIMA_ILUT("./textures/skybox/left.png");
+	texturesID[12] = loadIMA_ILUT("./textures/skybox/top.png");
+	texturesID[13] = loadIMA_ILUT("./textures/skybox/bottom.png");
+	texturesID[14] = loadIMA_ILUT("./textures/skybox/front.png");
+	texturesID[15] = loadIMA_ILUT("./textures/skybox/back.png");
+
+	//shrek
+	texturesID[16] = loadIMA_ILUT("./textures/shrek/Shrek.png");
+	texturesID[17] = loadIMA_ILUT("./textures/shrek/shrekshirt.png");
+	loader[0].LoadFile("./objects/shrek/CHARACTER_Shrek.obj");
+
+	//punxes
+	loader[1].LoadFile("./objects/punxes/3d-model.obj");
+
+	//taula
+	texturesID[18] = loadIMA_ILUT("./objects/taula/light_wood.png");
+	loader[2].LoadFile("./objects/taula/simple_table.obj");
+	//balloon
+	loader[3].LoadFile("./objects/balloon/balloon.obj");
+	texturesID[19] = loadIMA_ILUT("./objects/balloon/shrekcolorballoon.png");
+
+
+	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
+	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
+	//	Canviar l'escala per a centrar la vista (Ortogr�fica)
+
+	// Crida a OnPaint() per redibuixar l'escena
+	InvalidateRect(NULL, false);
+}
+
+
+void CEntornVGIView::OnUpdateNivellsNivell4(CCmdUI* pCmdUI)
+{
+	// TODO: Agregue aquí su código de controlador de IU para actualización de comandos
+	if (lvl == 4) pCmdUI->SetCheck(1);
 	else pCmdUI->SetCheck(0);
 }
