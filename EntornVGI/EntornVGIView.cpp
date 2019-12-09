@@ -1,4 +1,4 @@
-﻿//******** PRACTICA VISUALITZACI� GR�FICA INTERACTIVA (Escola Enginyeria - UAB)
+﻿///******** PRACTICA VISUALITZACI� GR�FICA INTERACTIVA (Escola Enginyeria - UAB)
 //******** Entorn b�sic VS2019 MULTIFINESTRA amb OpenGL, interf�cie MFC i Status Bar
 //******** Ferran Poveda, Marc Vivet, Carme Juli�, D�bora Gil, Enric Mart� (Setembre 2019)
 // EntornVGIView.cpp: implementaci�n de la clase CEntornVGIView
@@ -2846,7 +2846,7 @@ void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 						Mur newMur;
 						if (eventsMursBaixada[i].m_direccio == HOR)
 						{
-							newMur.setMur(eventsMursBaixada[i].m_x - 4 * x - x - x / 2, eventsMursBaixada[i].m_y, eventsMursBaixada[i].m_z * x, HOR, 3 * x);
+							newMur.setMur(eventsMursBaixada[i].m_x - 4 * x - (x/2) - x / 2, eventsMursBaixada[i].m_y, eventsMursBaixada[i].m_z * x, HOR, 3 * x);
 						}
 						else
 						{

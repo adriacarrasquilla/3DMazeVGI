@@ -67,12 +67,12 @@ public:
 	}
 	void animacioBaixada()
 	{
-		m_z = m_z - 0.5;
+		m_z = m_z - 0.15;
 
 	}
 	void animacioPujada()
 	{
-		m_z = m_z + 0.5;
+		m_z = m_z + 0.3;
 
 	}
 };
