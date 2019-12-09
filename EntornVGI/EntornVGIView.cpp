@@ -1922,6 +1922,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		OnVistaFullscreen();
 		break;
 	case VK_SPACE:
+		SoundEngine->play2D(soSalt, GL_FALSE);
 		salta = true;
 		break;
 		//tecla p de pausa
@@ -2814,6 +2815,7 @@ void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 		}
 		// TODO: Agregue aqu� su c�digo de controlador de mensajes o llame al valor predeterminado
 		if (salta) {
+			
 			if (salt < 30) {
 				n[2] -= .1;
 				opvN.z -= .1;

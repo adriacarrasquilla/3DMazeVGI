@@ -16,7 +16,6 @@
 #include "visualitzacio.h"
 #include "escena.h"
 #include <string>
-#include <irrklang/irrKlang.h>
 #include <time.h>
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -29,7 +28,7 @@ bool ActivacioIniciEnCursOJaRealitzada = false;
 ////////////////////////////////////////////////////////////////////////////////
 
 //SO
-irrklang::ISoundEngine* SoundEngine = irrklang::createIrrKlangDevice();
+
 irrklang::ISoundSource* soAmbient = SoundEngine->addSoundSourceFromFile("audio/minecraft_lofi.mp3");
 irrklang::ISoundSource* soVictoria = SoundEngine->addSoundSourceFromFile("audio/all_star.mp3");
 irrklang::ISoundSource* soDerrota = SoundEngine->addSoundSourceFromFile("audio/shittyflute.mp3");
@@ -628,6 +627,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				SoundEngine->stopAllSoundsOfSoundSource(soLvl1);
 				SoundEngine->stopAllSoundsOfSoundSource(soLvl4);
 
+				soLvl1->setDefaultVolume(0.1f);
 				SoundEngine->play2D(soLvl1, GL_TRUE);
 				i = false;
 				changeLvl = false;

@@ -7,6 +7,10 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <irrklang/irrKlang.h>
+irrklang::ISoundEngine* SoundEngine = irrklang::createIrrKlangDevice();
+irrklang::ISoundSource* soSalt = SoundEngine->addSoundSourceFromFile("audio/salt.mp3");
+
 
 //Variables nostre
 float x = 5.0f;
