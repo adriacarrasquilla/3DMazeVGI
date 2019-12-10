@@ -22,7 +22,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 		   /*VARIABLE GLOBAL PER ANIMACIO DE MUR QUE BAIXA*/
-	bool ActivacioIniciEnCursOJaRealitzada = false;
+bool ActivacioIniciEnCursOJaRealitzada = false;
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -35,7 +35,7 @@ irrklang::ISoundSource* soDerrota = SoundEngine->addSoundSourceFromFile("audio/s
 irrklang::ISoundSource* soColisio = SoundEngine->addSoundSourceFromFile("audio/damage.mp3");
 irrklang::ISoundSource* soLvl1 = SoundEngine->addSoundSourceFromFile("audio/poke.mp3"); //Pokemon
 irrklang::ISoundSource* soLvl2 = SoundEngine->addSoundSourceFromFile("audio/bonetrousle.mp3"); //medium
-irrklang::ISoundSource* soLvl3 = SoundEngine->addSoundSourceFromFile("audio/damage.mp3"); //epic
+irrklang::ISoundSource* soLvl3 = SoundEngine->addSoundSourceFromFile("audio/epic.mp3"); //epic
 irrklang::ISoundSource* soLvl4 = SoundEngine->addSoundSourceFromFile("audio/megalovania.mp3"); //final boss
 
 

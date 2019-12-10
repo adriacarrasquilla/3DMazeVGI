@@ -1956,6 +1956,23 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 				bloquejar_mov = true;
 			}
 		}
+	case 49: //tecla 1
+		if (menu) {
+			switch (lvl) {
+				case 1:
+					
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4: 
+					break;
+				default:
+					break;
+			}
+		}
+		break;
 	default:
 		break;
 	}
@@ -5275,10 +5292,10 @@ void CEntornVGIView::OnUpdateProjeccioortografica(CCmdUI* pCmdUI)
 	else pCmdUI->SetCheck(0);
 }
 
-void CEntornVGIView::OnObjecteMur()
+void CEntornVGIView::OnObjecteMur() // ES TRACTA COM SI FOS OnNivellsNivell1
 {
 	//select level
-	lvl = 3;
+	lvl = 1;
 	if (lvl == 1) 
 	{
 		lvl = 1;
@@ -5288,7 +5305,7 @@ void CEntornVGIView::OnObjecteMur()
 
 		opvNIni.x = -40.0;		opvNIni.y = 10.0;		opvNIni.z = 5.0;
 
-		n[0] = 0.0;		n[1] = 0.0;		n[2] = 6.0;
+		n[0] = 0.0;		n[1] = 0.0;		n[2] = 5.0;
 		opvN.x = opvNIni.x;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
 
 		Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
@@ -5342,18 +5359,6 @@ void CEntornVGIView::OnObjecteMur()
 
 		// Crida a OnPaint() per redibuixar l'escena
 		InvalidateRect(NULL, false);
-	}
-	else if (lvl == 2)
-	{
-		OnNivellsNivell2();
-	}
-	else if (lvl == 3)
-	{
-		OnNivellsNivell3();
-	}
-	else if (lvl == 4)
-	{
-		OnNivellsNivell4();
 	}
 }
 
