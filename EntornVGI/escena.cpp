@@ -60,7 +60,7 @@ float temps = 0.0;
 float temps_final = 0.0;
 float temps_pausa = 0.0;
 clock_t tp = 0.0;
-float angle = 0.0;
+//float angle = 0.0;
 clock_t begin_time = clock();
 bool reset_clock = true;
 
@@ -165,7 +165,7 @@ bool CheckColisioPunxes(Mur m, Personatge p) {
 	return onTrap && (m.m_z > -5);
 }
 
-bool CheckColisioShrek(std::vector<float>shrek, Personatge p) {
+bool CheckColisioShrek(Shrek shrek, Personatge p) {
 	/*
 	float mida = 5.5;
 	glPushMatrix();
@@ -174,15 +174,28 @@ bool CheckColisioShrek(std::vector<float>shrek, Personatge p) {
 	glutSolidCube(1.0);7
 	glPopMatrix();
 	*/
-
+	/*
 	bool collisionX = shrek[0] + (SH_X / 2) >= p.m_x - (PG_X / 2) && p.m_x + (PG_X / 2) >= shrek[0] - (SH_X / 2);
 	// Collision y-axis?
 	bool collisionY = shrek[1] + (SH_Y / 2) >= p.m_y - (PG_Y / 2) && p.m_y + (PG_Y / 2) >= shrek[1] - (SH_Y / 2);
+	*/
+	if (shrek.m_ori) {
+		bool collisionX = shrek.m_pos_x + (SH_X / 2) >= p.m_x - (PG_X / 2) && p.m_x + (PG_X / 2) >= shrek.m_pos_x - (SH_X / 2);
+		// Collision y-axis?
+		bool collisionY = shrek.m_pos_y + (SH_Y / 2) >= p.m_y - (PG_Y / 2) && p.m_y + (PG_Y / 2) >= shrek.m_pos_y - (SH_Y / 2);
 
-	return collisionX && collisionY;
+		return collisionX && collisionY;
+	}
+	else {
+		bool collisionX = shrek.m_pos_x + (SH_Y / 2) >= p.m_x - (PG_X / 2) && p.m_x + (PG_X / 2) >= shrek.m_pos_x - (SH_Y / 2);
+		// Collision y-axis?
+		bool collisionY = shrek.m_pos_y + (SH_X / 2) >= p.m_y - (PG_Y / 2) && p.m_y + (PG_Y / 2) >= shrek.m_pos_y - (SH_X / 2);
+
+		return collisionX && collisionY;
+	}
 }
 
-void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector<Event>& eventMursBaixada, std::vector<Mur>& punxes, std::vector<std::vector<float>>& Shreks)
+void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector<Event>& eventMursBaixada, std::vector<Mur>& punxes, std::vector<Shrek> v_Shreks)//std::vector<std::vector<float>>& Shreks)
 {
 	pg.m_colisioX = false;
 	pg.m_colisioY = false;
@@ -247,8 +260,8 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 		}
 	}
 
-	for (int i = 0; i < Shreks.size(); i++) {
-		if (CheckColisioShrek(Shreks[i], pg)) {
+	for (int i = 0; i < v_Shreks.size(); i++) {
+		if (CheckColisioShrek(v_Shreks[i], pg)) {
 			pg.dead = true;
 			SoundEngine->play2D(soColisio, GL_FALSE);
 			break;
@@ -416,106 +429,6 @@ bool activavioDeMurCaiguda(Mur& murCaiguda, std::vector<Mur>& llista, bool& Acti
 
 }
 
-
-void movimentShrek(float moviment[], bool movDir[], float rotShrek[], float posicioIniciY, float posicioFinalY, bool pausa)
-{
-	if (!pausa) {
-		if (movDir[1] == true)
-		{
-			moviment[1] += 0.2;
-			if (moviment[1] + posicioFinalY > posicioIniciY)
-			{
-				movDir[1] = false;
-				rotShrek[1] = -1;
-			}
-		}
-		else
-		{
-			moviment[1] -= 0.2;
-			if (moviment[1] + posicioIniciY < posicioFinalY)
-			{
-				movDir[1] = true;
-				rotShrek[1] = 1;
-			}
-		}
-	}
-}
-
-void circularMovimentShrek(float moviment[], bool movDir[], float rotShrek[], bool pausa)
-{
-	if (!pausa) {
-
-		moviment[0] -= 0.1 * cos(angle);
-		moviment[1] -= 0.1 * sin(angle);
-
-
-		if (angle >= 360)
-		{
-			angle = 0;
-
-		}
-
-		angle += 0.010;
-		rotShrek[2] = angle * 100;
-	}
-}
-
-void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ, float& pos_x, float& pos_y, float& pos_z, bool pausa)
-{
-	glPushMatrix();
-
-	if (tipusMov == 0)
-	{
-		movimentShrek(moviment, movDir, rotShrek, posicioIniciX, posicioFinalX, pausa);
-	}
-	if (tipusMov == 1)
-	{
-		rotShrek[1] = 1;
-
-		circularMovimentShrek(moviment, movDir, rotShrek, pausa);
-	}
-
-	//Translació inicial + moviment
-	glTranslatef(posicioIniciY + moviment[0], posicioIniciX + moviment[1], posicioZ + moviment[2]);
-	pos_x = posicioIniciY + moviment[0]; pos_y = posicioIniciX + moviment[1]; pos_z = posicioZ + moviment[2];
-	//Rotació inicial
-	glRotatef(90, 1, 0, 0);
-	//si es mou en vertical
-	glRotatef(90, 0, 1, 0);
-	//Rotació depenent moviment
-	glRotatef(90, 0 + rotShrek[0], 0 + rotShrek[1], 0 + rotShrek[2]);
-	//glScalef(8.0f, 8.0f, 8.0f);
-	glScalef(14.0f, 14.0f, 14.0f);
-
-	//textura 16 shrek, 17 shrekShirt
-	glEnable(GL_TEXTURE_2D);
-
-
-	glBindTexture(GL_TEXTURE_2D, texturID[16]);
-
-	glBegin(GL_TRIANGLES);
-	for (int i = 0; i < loader.LoadedMeshes[0].Vertices.size(); i++)
-	{
-		glTexCoord2f(loader.LoadedMeshes[0].Vertices[i].TextureCoordinate.X, loader.LoadedMeshes[0].Vertices[i].TextureCoordinate.Y); glVertex3f(loader.LoadedMeshes[0].Vertices[i].Position.X, loader.LoadedMeshes[0].Vertices[i].Position.Y, loader.LoadedMeshes[0].Vertices[i].Position.Z);
-	}
-	glEnd();
-
-
-	glBindTexture(GL_TEXTURE_2D, texturID[17]);
-
-	glBegin(GL_TRIANGLES);
-	for (int i = 0; i < loader.LoadedMeshes[1].Vertices.size(); i++)
-	{
-		glTexCoord2f(loader.LoadedMeshes[1].Vertices[i].TextureCoordinate.X, loader.LoadedMeshes[1].Vertices[i].TextureCoordinate.Y); glVertex3f(loader.LoadedMeshes[1].Vertices[i].Position.X, loader.LoadedMeshes[1].Vertices[i].Position.Y, loader.LoadedMeshes[1].Vertices[i].Position.Z);
-	}
-	glEnd();
-
-
-	glDisable(GL_TEXTURE_2D);
-
-	glPopMatrix();
-}
-
 void punxes(std::vector<Mur> punxesAnimadetes, objl::Loader loader)
 {
 	for (int i = 0; i < punxesAnimadetes.size(); i++)
@@ -624,8 +537,8 @@ void HUDSquare()
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
 	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader[],
-	float movimentShrek[][3], bool movDir[][3], float rotShrek[][3], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales,
-	int lifes, int MIDA_I, int MIDA_J, int musica, bool pausa, char lvl, bool& changeLvl)
+	float movimentShrek[], bool movDir[], float rotShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales,
+	int lifes, int MIDA_I, int MIDA_J, int musica, bool pausa, char lvl, bool& changeLvl, std::vector<Shrek> v_Shreks)
 {
 	float altfar = 0;
 	soAmbient->setDefaultVolume(0.7);
@@ -845,24 +758,30 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 		// S H R E K S
 
-		//float Shreks[1][3];
+			//float Shreks[1][3];
 
-		std::vector<std::vector<float>> Shreks;
+			/* EI AIXÒ ÉS COM FUNCIONAVA ABANS, A VEURE SI AMB EL CANVI SEGUEIX
+			std::vector<std::vector<float>> Shreks;
 
 
-		// SHREK ENEMIC 1
-		std::vector<float> Shrek1(3, 0);
-		Shreks.push_back(Shrek1);
-		//void shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ, float& pos_x, float& pos_y, float& pos_z, bool pausa)
-		shrek(loader[0], movimentShrek[10], movDir[10], rotShrek[10], texturID, 0,/*inici*/ 0, 0, -20, 0, 0.0, Shreks[0][0], Shreks[0][1], Shreks[0][2], pausa);
+			// SHREK ENEMIC 1
+			std::vector<float> Shrek1(3, 0);
+			Shreks.push_back(Shrek1);
+			shrek(loader[0], movimentShrek, movDir, rotShrek, texturID, 0, Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final, 0.0, Shreks[0][0], Shreks[0][1], Shreks[0][2], pausa);
+			*/
 
-		/*float mida = 5.5;
-		glPushMatrix();
-		glTranslatef(Shreks[0][0], Shreks[0][1], Shreks[0][2] + 7.5);
-		glScalef(20.0, mida, 14.0);
-		glutSolidCube(1.0);
-		glPopMatrix();
-		*/
+			/*float mida = 5.5;
+			glPushMatrix();
+			glTranslatef(Shreks[0][0], Shreks[0][1], Shreks[0][2] + 7.5);
+			glScalef(20.0, mida, 14.0);
+			glutSolidCube(1.0);
+			glPopMatrix();
+			*/
+
+		for (int i = 0; i < v_Shreks.size(); i++) {
+			printf("pos: %d", v_Shreks[i].m_pos_x);
+			v_Shreks[i].pinta(pausa);
+		}
 
 		// SHREKS SALA DERROTA
 
@@ -870,11 +789,21 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		//shrek(loader[0], movimentShrek, movDir, rotShrek, texturID, 1, 135.0, 62.5, 130.0, 62.5, -57.5);
 
 		// de moment, un i estàtic  
-		float noMov[3] = { 0.0, 0.0, 0.0 };
+
+		/*float noMov[3] = { 0.0, 0.0, 0.0 };
 		float noRot[3] = { 0.0, -1.0, 0.0 };
 		float Shrek2[3]; // NO ESTÀ A Shreks PERQUÈ NO CAL CALCULAR-NE LA COL·LISIÓ
 		//shrek(loader[0], noMov, movDir, noRot, texturID, 2, 135.0, 62.5, 130.0, 62.5, -57.5, Shrek2[0], Shrek2[1], Shrek2[2]);
-		shrek(loader[0], noMov, movDir[0], noRot, texturID, 2, 77.5, 120.0, 77.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], pausa);
+		shrek(loader[0], noMov, movDir, noRot, texturID, 2, 77.5, 120.0, 77.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], pausa);
+		*/
+
+		//Shrek fora de v_Shreks perquè no en calculem la col·lisió:
+		float noMov[3] = { 0.0, 0.0, 0.0 };
+		float noRot[3] = { 0.0, -1.0, 0.0 };
+		float Shrek2[3];
+		Shrek derrota(&loader[0], noMov, movDir, noRot, texturID, 2, 77.5, 120.0, 77.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], true);
+		derrota.pinta(pausa);
+
 
 		//Altres objectes
 		tauleta(loader[2], texturID, -40.0, -1.0, -1.0);
@@ -883,7 +812,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		//eventfinal.pinta();
 
 		//pg.pinta();
-		DoCollisions(llista, pg, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
+		DoCollisions(llista, pg, eventfinal, eventsMursBaixada, punxesAnimadetes, v_Shreks);
 
 		//HUD Quadrat
 		HUDSquare();

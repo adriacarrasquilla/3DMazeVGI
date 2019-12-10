@@ -8,6 +8,7 @@
 #include <string>
 #include <algorithm>
 #include <irrklang/irrKlang.h>
+#include "OBJLoader2.h"
 irrklang::ISoundEngine* SoundEngine = irrklang::createIrrKlangDevice();
 irrklang::ISoundSource* soSalt = SoundEngine->addSoundSourceFromFile("audio/salt.mp3");
 
@@ -267,18 +268,62 @@ public:
 };
 
 
-	//Moviment shreck == -5
+//Moviment shreck == -5
 float Posicio_x_inicial = 4 * x * 1;
 float Posicio_y_inicial = 4 * x * 2;
 
 float Posicio_x_final = 4 * x * 4;
 float Posicio_y_final = 4 * x * 2;
-	
-	
-/*
+
+void movimentShrek(float moviment[], bool movDir[], float rotShrek[], float posicioIniciY, float posicioFinalY, bool pausa)
+{
+	if (!pausa) {
+		if (movDir[1] == true)
+		{
+			moviment[1] += 0.2;
+			if (moviment[1] + posicioIniciY > posicioFinalY)
+			{
+				movDir[1] = false;
+				rotShrek[1] = -1;
+			}
+		}
+		else
+		{
+			moviment[1] -= 0.2;
+			if (moviment[1] + posicioIniciY < posicioIniciY)
+			{
+				movDir[1] = true;
+				rotShrek[1] = 1;
+			}
+		}
+	}
+}
+
+float angle = 0.0;
+
+void circularMovimentShrek(float moviment[], bool movDir[], float rotShrek[], bool pausa)
+{
+	if (!pausa) {
+
+		moviment[0] -= 0.1 * cos(angle);
+		moviment[1] -= 0.1 * sin(angle);
+
+
+		if (angle >= 360)
+		{
+			angle = 0;
+
+		}
+
+		angle += 0.010;
+		rotShrek[2] = angle * 100;
+	}
+}
+
+
 class Shrek {
 public:
-	objl::Loader m_loader;
+	objl::Loader* m_loader;
 	float* m_moviment;
 	bool* m_movDir;
 	float* m_rotShrek;
@@ -296,12 +341,12 @@ public:
 
 	bool m_ori;
 public:
-	Shrek(objl::Loader loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ, float& pos_x, float& pos_y, float& pos_z, bool ori) {
+	Shrek(objl::Loader* loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ, float& pos_x, float& pos_y, float& pos_z, bool ori) {
 		m_loader = loader;
 		m_moviment = moviment;
 		m_movDir = movDir;
-		m_rotShrek = rotShrek; 
-		m_texturID = texturID; 
+		m_rotShrek = rotShrek;
+		m_texturID = texturID;
 		m_tipusMov = tipusMov;
 		m_posicioIniciX = posicioIniciX;
 		m_posicioIniciY = posicioIniciY;
@@ -347,9 +392,9 @@ public:
 		glBindTexture(GL_TEXTURE_2D, m_texturID[16]);
 
 		glBegin(GL_TRIANGLES);
-		for (int i = 0; i < m_loader.LoadedMeshes[0].Vertices.size(); i++)
+		for (int i = 0; i < m_loader->LoadedMeshes[0].Vertices.size(); i++)
 		{
-			glTexCoord2f(m_loader.LoadedMeshes[0].Vertices[i].TextureCoordinate.X, m_loader.LoadedMeshes[0].Vertices[i].TextureCoordinate.Y); glVertex3f(m_loader.LoadedMeshes[0].Vertices[i].Position.X, m_loader.LoadedMeshes[0].Vertices[i].Position.Y, m_loader.LoadedMeshes[0].Vertices[i].Position.Z);
+			glTexCoord2f(m_loader->LoadedMeshes[0].Vertices[i].TextureCoordinate.X, m_loader->LoadedMeshes[0].Vertices[i].TextureCoordinate.Y); glVertex3f(m_loader->LoadedMeshes[0].Vertices[i].Position.X, m_loader->LoadedMeshes[0].Vertices[i].Position.Y, m_loader->LoadedMeshes[0].Vertices[i].Position.Z);
 		}
 		glEnd();
 
@@ -357,9 +402,9 @@ public:
 		glBindTexture(GL_TEXTURE_2D, m_texturID[17]);
 
 		glBegin(GL_TRIANGLES);
-		for (int i = 0; i < m_loader.LoadedMeshes[1].Vertices.size(); i++)
+		for (int i = 0; i < m_loader->LoadedMeshes[1].Vertices.size(); i++)
 		{
-			glTexCoord2f(m_loader.LoadedMeshes[1].Vertices[i].TextureCoordinate.X, m_loader.LoadedMeshes[1].Vertices[i].TextureCoordinate.Y); glVertex3f(m_loader.LoadedMeshes[1].Vertices[i].Position.X, m_loader.LoadedMeshes[1].Vertices[i].Position.Y, m_loader.LoadedMeshes[1].Vertices[i].Position.Z);
+			glTexCoord2f(m_loader->LoadedMeshes[1].Vertices[i].TextureCoordinate.X, m_loader->LoadedMeshes[1].Vertices[i].TextureCoordinate.Y); glVertex3f(m_loader->LoadedMeshes[1].Vertices[i].Position.X, m_loader->LoadedMeshes[1].Vertices[i].Position.Y, m_loader->LoadedMeshes[1].Vertices[i].Position.Z);
 		}
 		glEnd();
 
@@ -369,7 +414,6 @@ public:
 		glPopMatrix();
 	}
 };
-*/
 
 
 /*CLASSE LEADERBOARD*/

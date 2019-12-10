@@ -959,20 +959,20 @@ void CEntornVGIView::dibuixa_Escena() {
 
 	//	Dibuix geometria de l'escena amb comandes GL.
 	
-	if (once)
+	/*if (once)
 	{
 		memset(&movimentShrek[0][0], 0.0, sizeof(movimentShrek));
 		memset(&movDir[0][0], 0, sizeof(movDir));
 		memset(&rotacioShrek[0][0], 0, sizeof(rotacioShrek));
 		once = false;
-	}
+	}*/
 	
 
 	bool animacioMurQueCauInici = false;
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
 		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader,
 		movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes, 
-		MidaLaberint_Fila, MidaLaberint_Columna, musica, pausa, lvl, changeLvl);
+		MidaLaberint_Fila, MidaLaberint_Columna, musica, pausa, lvl, changeLvl, v_Shreks);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -1761,7 +1761,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		if (!bloquejar_mov) {
 			personatge.m_x += nRepCnt * fact_pan * vdir[0] / 2;
 			personatge.m_y += nRepCnt * fact_pan * vdir[1] / 2;
-			DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
+			DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, v_Shreks);
 
 			if (personatge.m_colisioX) {
 				if (!personatge.m_colisioY) {
@@ -1796,7 +1796,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		if (!bloquejar_mov) {
 			personatge.m_x -= nRepCnt * fact_pan * vdir[0] / 2;
 			personatge.m_y -= nRepCnt * fact_pan * vdir[1] / 2;
-			DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
+			DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, v_Shreks);
 
 			if (personatge.m_colisioX) {
 				if (!personatge.m_colisioY) {
@@ -1831,7 +1831,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		if (!bloquejar_mov) {
 			personatge.m_x -= nRepCnt * fact_pan * vdirpan[0] / 2;
 			personatge.m_y -= nRepCnt * fact_pan * vdirpan[1] / 2;
-			DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
+			DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, v_Shreks);
 
 			if (personatge.m_colisioX) {
 				if (!personatge.m_colisioY) {
@@ -1866,7 +1866,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		if (!bloquejar_mov) {
 			personatge.m_x += nRepCnt * fact_pan * vdirpan[0] / 2;
 			personatge.m_y += nRepCnt * fact_pan * vdirpan[1] / 2;
-			DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
+			DoCollisions(llista_murs, personatge, eventfinal, eventsMursBaixada, punxesAnimadetes, v_Shreks);
 
 			if (personatge.m_colisioX) {
 				if (!personatge.m_colisioY) {
@@ -3584,6 +3584,9 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-5,
 			for (int j = 0; j < MAX_FILA; j++)
 				matriuLaberint[i][j] = matriuLvl1[i][j];
 		}
+		std::vector<float> Shrek1(3, 0);
+		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0, Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final, 0.0, Shrek1[0], Shrek1[1], Shrek1[2], true));
+	
 	}else if(lvl ==2) {
 		MAX_COLUMNA = 14;
 		MAX_FILA = 12;
@@ -3592,6 +3595,9 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-5,
 			for (int j = 0; j < MAX_FILA; j++)
 				matriuLaberint[i][j] = matriuLvl2[i][j];
 		}
+		std::vector<float> Shrek1(3, 0);
+		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0, Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final, 0.0, Shrek1[0], Shrek1[1], Shrek1[2], true));
+
 	}
 	else if (lvl == 3) {
 		MAX_COLUMNA = 20;

@@ -193,9 +193,9 @@ public:
 	Personatge personatge;
 	float cel[3] = { 0, 0, 0 };
 	//INICI SHREK
-	float movimentShrek[50][3] = { 0, 0, 0 };
-	bool movDir[50][3] = { false, false, false };
-	float rotacioShrek[50][3] = { 0, 0, 0 };
+	float movimentShrek[3] = { 0, 0, 0 };
+	bool movDir[3] = { false, false, false };
+	float rotacioShrek[3] = { 0, 0, 0 };
 	//FI SHREK
 	objl::Loader loader[10];
 	Event eventfinal;
@@ -225,6 +225,7 @@ public:
 					//	2 -> All Star Shittyflute
 
 	vector<vector<float>> Shreks;
+	vector<Shrek> v_Shreks;
 	bool pausa = false;
 	// Operaciones
 public:
