@@ -3467,43 +3467,81 @@ std::vector<Mur> CEntornVGIView::CreaSales() {
 	return llista;
 }
 
-std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar per paràmetres el nombre de murs i la matriu rotllo suarez 
-	//de moment, inicialització "manual"
+std::vector<Mur> CEntornVGIView::initMurs() { 
 	std::vector<Mur> llista;
-
+	int  MAX_FILA=0;
+	int  MAX_COLUMNA=0;
 	/*
-	int const MAX_FILA = 7;
-	int const MAX_COLUMNA = 5;
-	//Versió simple:
-	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = {   {-1, 1, 1, 1, 1 ,1, 1},
-													{0, 1, 0, 1, 0 ,1, 1},
-													{0, 0, -6,-5,-5,-5,-5},
-													{ 1, 1, 1, 1, 1, 0, 0},
-													{-2,-4,-4, 0, 0, 0, 1} };
+	#####################_NOMENCLATURA DE LAS CASELLLAS_###############
+	CASELLA INICI=-1
+	CASELLA CAMÍ=0
+	CASELLA BLOC=1
+	CASELLA FINAL=-2
+	CASELLA MUR CIAGUDER HORITZONTAL = -3
+	CASELLA MUR CIAGUDER VERTICAL = -4
+	CASELLA CAMÍ QUE RECORRE L'SHRECK=-5
+	CASELLA PUNXES ANIMADAS=-6
 	*/
-	//test lvl2
-	int matriuLvl2[5][5] = { {-1, 1, 1, 1, 1},
-							{0, 1, 0, 1, 0},
-							{0, 0, -6,-5,-5},
-							{ 1, 1, 1, 1, 1},
-							{-2,-4,-4, 0, 0} };
-
-	//Mapa gran
-	
-	int  MAX_FILA;
-	int  MAX_COLUMNA;
-	
-	int matriuLvl1[10][10]= { {-1,1,1,1,1,1,1,1,1,1},
-														{0,0,-4,0,-4,-4,0,0,0,1},
-														{0,0,0,0,0,0,0,0,0,1},
-														{1,1,1,1,-3,1,1,1,0,1},
-														{1,0,0,0,0,0,0,0,0,1},
-														{1,0,0,0,0,0,0,0,0,1},
-														{1,-3,1,1,1,1,0,1,1,1},
-														{1,0,-6,0,0,0,-6,0,0,1},
-														{1,0,0,0,-6,0,0,0,0,1},
-														{1,1,1,1,1,1,1,1,-2,1},
+	//_______________________________________________________LEVEL 1____________________________________________________________________
+int matriuLvl1[15][10] ={ {  1,-1, 1, 1, 1, 1, 1, 1, 1, 1},
+							{0, 0,-4, 0, 0,-4, 0,-4, 0, 0},
+							{0, 0, 0,-4, 0, 0, 0,-4, 0, 0},
+							{1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+							{0,-6, 0, 0, 0,-6, 0, 0, 0, 0},
+							{0, 0, 0,-6, 0, 0, 0,-6, 0, 0},
+							{0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+							{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+							{0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
+							{1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+							{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+							{0, 1, 0, 1, 0, 1, 0, 1, 1,-3},
+							{0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+							{0, 0, 0, 0, 0,-6, 0,-6, 0, 0},
+							{1,-2, 1, 1, 1, 1, 1, 1, 1, 1},
 	};
+
+
+	//_________________________________________LEVEL 2____________________________________________________________________
+	int matriuLvl2[14][12] = { {  1, 1, 1, 1, 1, 1,-1, 1, 1, 1, 1, 1},
+								{ 1, 1, 1, 1, 1, 1, 0, 0, 0, 1,-6, 0},
+								{ 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0},
+								{ 1, 0, 1, 1,-6, 1, 1, 0, 0, 1, 1,-3},
+								{ 1, 0, 0, 1, 0, 0,-5, 1, 0, 0, 0, 0},
+								{-5, 1, 0, 1, 0, 1,-5, 0, 0, 1, 1, 1},
+								{-5, 1, 0, 0, 0, 1,-5, 1, 1, 0, 0, 0},
+								{-5, 1, 0, 0, 1, 1,-5, 0, 1, 0, 1, 0},
+								{-5, 1, 1, 0, 0, 1,-5, 1, 1, 0, 0, 0},
+								{-5, 1, 1, 1, 0, 1,-5, 0, 1, 1,-3, 1},
+								{-5, 1, 1, 0, 0, 1,-5, 1, 1, 0, 0, 0},
+								{-5,-4,-6, 0, 1, 1,-5, 0, 0, 0, 1, 0},
+								{ 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+								{ 0, 0, 0, 1, 1, 1, 1, 0,-2, 0, 0, 0},
+	};
+	
+
+	//______________________________________________LEVEL 3____________________________________________________________________
+int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-5,-5, 0},
+							{ 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1,-5, 1, 0, 1, 1, 1, 0},
+							{-5,-5,-5,-5,-5,-5,-5, 1,-6, 1, 0, 1,-5, 1, 0, 1 ,0, 0, 0},
+							{-4, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1,-5, 1,-6, 1, 0, 0, 1},
+							{ 0, 1, 0, 1, 0, 0, 0,-4, 0, 0,-6,-6,-5, 1, 0, 1, 0,-6, 0},
+							{ 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0},
+							{ 0, 0, 0, 1,-6, 1,-5,-5,-5,-5,-5, 1, 0, 0, 0, 1,-6, 0, 0},
+							{ 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1},
+							{ 0, 0,-6, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0,-3, 0, 0, 0, 0, 0},
+							{ 0, 1, 1, 1,-3, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0},
+							{ 0, 1, 0, 0,-3, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0},
+							{ 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0},
+							{ 0, 0, 0, 0, 0, 1, 0, 0, 0, 1,-5,-5,-5,-5,-5, 1, 0, 1, 0},
+							{ 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0},
+							{ 0, 0,-6, 0, 0, 1, 0, 1, 0, 0,-5, 0, 0, 0, 0, 0, 0, 1,-6},
+							{ 0, 1, 1, 1, 1, 1, 0, 1, 0, 1,-5, 1, 1, 1, 1, 1, 1, 1, 0},
+							{ 0, 1, 0, 0, 1, 1, 0, 0, 0, 1,-5, 0, 0, 0, 0, 0, 0, 1, 0},
+							{ 0, 1, 1, 0, 1, 1, 1, 1, 1, 1,-5, 1, 1, 1, 0, 1, 0, 1, 0},
+							{-5,-5,-5,-5,-5,-5,-5, 0, 0,-3,-5, 1, 0, 0, 0, 1, 0, 0, 0},
+							{ 1, 0, 1, 0, 0, 1, 0, 1, 1, 1,-2, 1, 0, 1, 0, 1, 1, 1, 1 }
+	};
+
 
 	int matriuLvl4[20][10] = { {0,0,0,-1,1,1,1,1,1,1},
 								{0,0,0,0,0,0,0,0,0,1},
@@ -3530,77 +3568,42 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 	vector<vector<int>> matriuLaberint;
 
 	if (lvl == 1) {
-		MAX_COLUMNA = 10;
+		MAX_COLUMNA = 15;
 		MAX_FILA = 10;
-		matriuLaberint = vector<vector<int>>(MAX_FILA, vector<int>(MAX_COLUMNA, 0));
-		for (int i = 0; i < MAX_FILA; i++) {
-			for (int j = 0; j < MAX_COLUMNA; j++)
+		matriuLaberint = vector<vector<int>>(MAX_COLUMNA, vector<int>(MAX_FILA, 0));
+		for (int i = 0; i <MAX_COLUMNA ; i++) {
+			for (int j = 0; j < MAX_FILA; j++)
 				matriuLaberint[i][j] = matriuLvl1[i][j];
 		}
 	}else if(lvl ==2) {
-		MAX_COLUMNA = 5;
-		MAX_FILA = 5;
-		matriuLaberint = vector<vector<int>>(MAX_FILA, vector<int>(MAX_COLUMNA, 0));
-		for (int i = 0; i < 5; i++) {
-			for (int j = 0; j < 5; j++)
-				matriuLaberint[i][j] = matriuLvl1[i][j];
+		MAX_COLUMNA = 14;
+		MAX_FILA = 12;
+		matriuLaberint = vector<vector<int>>(MAX_COLUMNA, vector<int>(MAX_FILA, 0));
+		for (int i = 0; i < MAX_COLUMNA; i++) {
+			for (int j = 0; j < MAX_FILA; j++)
+				matriuLaberint[i][j] = matriuLvl2[i][j];
 		}
 	}
 	else if (lvl == 3) {
-		MAX_COLUMNA = 5;
-		MAX_FILA = 5;
-		matriuLaberint = vector<vector<int>>(MAX_FILA, vector<int>(MAX_COLUMNA, 0));
-		for (int i = 0; i < 5; i++) {
-			for (int j = 0; j < 5; j++)
-				matriuLaberint[i][j] = matriuLvl1[i][j];
+		MAX_COLUMNA = 20;
+		MAX_FILA = 19;
+		matriuLaberint = vector<vector<int>>(MAX_COLUMNA, vector<int>(MAX_FILA, 0));
+		for (int i = 0; i < MAX_COLUMNA; i++) {
+			for (int j = 0; j < MAX_FILA; j++)
+				matriuLaberint[i][j] = matriuLvl3[i][j];
 		}
 	}
-	else {
-		MAX_COLUMNA = 10;
-		MAX_FILA = 20;
-		matriuLaberint = vector<vector<int>>(MAX_FILA, vector<int>(MAX_COLUMNA, 0));
-		for (int i = 0; i < MAX_FILA; i++) {
-			for (int j = 0; j < MAX_COLUMNA; j++)
+	else if (lvl == 4) {
+		MAX_COLUMNA = 20;
+		MAX_FILA = 10;
+		matriuLaberint = vector<vector<int>>(MAX_COLUMNA, vector<int>(MAX_FILA, 0));
+		for (int i = 0; i < MAX_COLUMNA; i++) {
+			for (int j = 0; j < MAX_FILA; j++)
 				matriuLaberint[i][j] = matriuLvl4[i][j];
 		}
 	}
 
 
-	/*
-	int const MAX_FILA = 10;
-	int const MAX_COLUMNA = 10;
-	//Versió simple:
-	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = { { -1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-													{ 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 },
-													{ 1, 1, 0, 0, 1, 0, 0, 0, 0, 1 },
-													{ 1, 1, 1, 0, 1, 1, 1, 0, 1, 1 },
-													{ 1, 0, 0, 0, 0, 0, 0, 0, 1, 1 },
-													{ 1, 0, 1, 0, 1, 1, 1, 1, 1, 1 },
-													{ 1, 1, 0, 0, 1, 1, 0, 0, 0, 1 },
-													{ 1, 1, 1, 0, 1, 1, 0, 1, 0, 1 },
-													{ 1, 0, 0, 0, 0, 0, 0, 1, 0, 1 },
-													{ 1,-2, 1, 1, 1, 1, 1, 1, 1, 1 } };
-	*/
-	//Versió tricky:
-	/*
-	int matriuLaberint[MAX_COLUMNA][MAX_FILA] = { { 0, 0,-1, 1, 1 },
-	{ 0, 0, 1, 0, 1 },
-	{ 1, 0, 0, 0, 0 },
-	{ 0, 0, 1, 0, 0 },
-	{ 0, 1, 1, 0, 0 },
-	{ 0, 0, 1, -2, 1 } };
-	*/
-	/*
-	#####################_NOMENCLATURA DE LAS CASELLLAS_###############
-	CASELLA INICI=-1
-	CASELLA CAMÍ=0
-	CASELLA BLOC=1
-	CASELLA FINAL=-2
-	CASELLA MUR CIAGUDER HORITZONTAL = -3
-	CASELLA MUR CIAGUDER VERTICAL = -4
-	CASELLA CAMÍ QUE RECORRE L'SHRECK=-5
-	CASELLA PUNXES ANIMADAS=-6
-	*/
 	float x = 5.0f; //Coordenada
 	float h = 7.5f; //Altura
 					//glColor3f(0.5, 0.5, 0.25);
@@ -3613,27 +3616,14 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 	int bucle1 = 0;
 	int bucle2 = 0;
 
-	//7Entrada al laberint
-	llista.push_back(Mur(-4 * x, 0, -x, VER));
-	llista.push_back(Mur(-4 * x, 4 * x, -x, VER));
-
-	llista.push_back(Mur(-4 * x - x - x / 2, -x - x - x / 2, -x, HOR));
-	llista.push_back(Mur(-4 * x - x - x / 2, -x - x / 2 + 8 * x, -x, HOR));
-
-	llista.push_back(Mur(-4 * x * 2, -4 * x, -x, VER));
-	llista.push_back(Mur(-4 * x * 2, 2 * 4 * x, -x, VER));
-
-	Mur murEntrada;
-	murEntrada.setMur(-4 * x * 2 - 2 * x, +2 * x, -4, HOR, 12 * x);
-	llista.push_back(murEntrada);
-
+	
 
 
 	bool camiShrek_ja_creat = false;
 
-	for (int j = 0; j < MAX_FILA; j++)
+	for (int j = 0; j < MAX_COLUMNA ; j++)
 	{
-		for (int i = 0; i < MAX_COLUMNA; i++)
+		for (int i = 0; i < MAX_FILA; i++)
 		{
 			if (matriuLaberint[j][i] == 1)
 			{
@@ -3727,6 +3717,21 @@ std::vector<Mur> CEntornVGIView::initMurs() { //propera implementació: passar p
 					Event eventInicial(j * 4 * x + x + 2 * x, i * 4 * x + 2 * x, h, -3, HOR);
 					eventInicial.m_tipus = -3;//mur caiguda
 					eventsMursBaixada.push_back(eventInicial);
+
+
+					//7Entrada al laberint
+					llista.push_back(Mur(-4 * x, i * 4 * x, -x, VER));
+					llista.push_back(Mur(-4 * x, 4 * x * (i + 1), -x, VER));
+
+					llista.push_back(Mur(-4 * x - x - x / 2, (-x - x - x / 2) + i * 4 * x, -x, HOR));
+					llista.push_back(Mur(-4 * x - x - x / 2, (-x - x / 2 + 8 * x) + i * 4 * x, -x, HOR));
+
+					llista.push_back(Mur(-4 * x * 2, (-4 * x) + i * 4 * x, -x, VER));
+					llista.push_back(Mur(-4 * x * 2, (2 * 4 * x) + i * 4 * x, -x, VER));
+
+					Mur murEntrados;
+					murEntrados.setMur(-4 * x * 2 - 2 * x, (2 * x) + i * 4 * x, -4, HOR, 12 * x);
+					llista.push_back(murEntrados);
 
 				}
 
@@ -5257,67 +5262,84 @@ void CEntornVGIView::OnUpdateProjeccioortografica(CCmdUI* pCmdUI)
 
 void CEntornVGIView::OnObjecteMur()
 {
-	lvl = 1;
-	changeLvl = true;
-	llista_murs = initMurs();
-	sales_v_d = CreaSales();
+	//select level
+	lvl = 3;
+	if (lvl == 1) 
+	{
+		lvl = 1;
+		changeLvl = true;
+		llista_murs = initMurs();
+		sales_v_d = CreaSales();
 
-	opvNIni.x = -40.0;		opvNIni.y = 10.0;		opvNIni.z = 5.0;
+		opvNIni.x = -40.0;		opvNIni.y = 10.0;		opvNIni.z = 5.0;
 
-	n[0] = 0.0;		n[1] = 0.0;		n[2] = 5.0;
-	opvN.x = opvNIni.x;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
+		n[0] = 0.0;		n[1] = 0.0;		n[2] = 6.0;
+		opvN.x = opvNIni.x;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
 
-	Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
-	personatge = nou;
+		Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
+		personatge = nou;
 
-	num_murs = llista_murs.size();
+		num_murs = llista_murs.size();
 
-	// Vides Jugador
-	lifes = 3;
-	// TODO: Agregue aquí su código de controlador de comandos
-	objecte = MUR;	textura = true;
-	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
-	//	Canviar l'escala per a centrar la vista (Ortogràfica)
-	// Crida a OnPaint() per redibuixar l'escena
-	//InvalidateRect(NULL, false);
-	// TODO: Agregue aqu� su c�digo de controlador de comandos
-	//objecte = CUB_RGB;   textura = true;
+		// Vides Jugador
+		lifes = 3;
+		// TODO: Agregue aquí su código de controlador de comandos
+		objecte = MUR;	textura = true;
+		//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
+		//	Canviar l'escala per a centrar la vista (Ortogràfica)
+		// Crida a OnPaint() per redibuixar l'escena
+		//InvalidateRect(NULL, false);
+		// TODO: Agregue aqu� su c�digo de controlador de comandos
+		//objecte = CUB_RGB;   textura = true;
 
-	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
+		wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
 
-	//Textures skybox
-	texturesID[9] = loadIMA_ILUT("./textures/tex1_64x64_c05e3c09362f364a_14.png");
-	texturesID[8] = loadIMA_ILUT("./textures/tex1_128x128_0e437d36eaf137df_14.png");
-	texturesID[7] = loadIMA_ILUT("./textures/sky-hd-wallpaper-9.jpg");
-	texturesID[10] = loadIMA_ILUT("./textures/skybox/right.png");
-	texturesID[11] = loadIMA_ILUT("./textures/skybox/left.png");
-	texturesID[12] = loadIMA_ILUT("./textures/skybox/top.png");
-	texturesID[13] = loadIMA_ILUT("./textures/skybox/bottom.png");
-	texturesID[14] = loadIMA_ILUT("./textures/skybox/front.png");
-	texturesID[15] = loadIMA_ILUT("./textures/skybox/back.png");
+		//Textures skybox
+		texturesID[9] = loadIMA_ILUT("./textures/tex1_64x64_c05e3c09362f364a_14.png");
+		texturesID[8] = loadIMA_ILUT("./textures/tex1_128x128_0e437d36eaf137df_14.png");
+		texturesID[7] = loadIMA_ILUT("./textures/sky-hd-wallpaper-9.jpg");
+		texturesID[10] = loadIMA_ILUT("./textures/skybox/right.png");
+		texturesID[11] = loadIMA_ILUT("./textures/skybox/left.png");
+		texturesID[12] = loadIMA_ILUT("./textures/skybox/top.png");
+		texturesID[13] = loadIMA_ILUT("./textures/skybox/bottom.png");
+		texturesID[14] = loadIMA_ILUT("./textures/skybox/front.png");
+		texturesID[15] = loadIMA_ILUT("./textures/skybox/back.png");
 
-	//shrek
-	texturesID[16] = loadIMA_ILUT("./textures/shrek/Shrek.png");
-	texturesID[17] = loadIMA_ILUT("./textures/shrek/shrekshirt.png");
-	loader[0].LoadFile("./objects/shrek/CHARACTER_Shrek.obj");
+		//shrek
+		texturesID[16] = loadIMA_ILUT("./textures/shrek/Shrek.png");
+		texturesID[17] = loadIMA_ILUT("./textures/shrek/shrekshirt.png");
+		loader[0].LoadFile("./objects/shrek/CHARACTER_Shrek.obj");
 
-	//punxes
-	loader[1].LoadFile("./objects/punxes/3d-model.obj");
+		//punxes
+		loader[1].LoadFile("./objects/punxes/3d-model.obj");
 
-	//taula
-	texturesID[18] = loadIMA_ILUT("./objects/taula/light_wood.png");
-	loader[2].LoadFile("./objects/taula/simple_table.obj");
-	//balloon
-	loader[3].LoadFile("./objects/balloon/balloon.obj");
-	texturesID[19] = loadIMA_ILUT("./objects/balloon/shrekcolorballoon.png");
+		//taula
+		texturesID[18] = loadIMA_ILUT("./objects/taula/light_wood.png");
+		loader[2].LoadFile("./objects/taula/simple_table.obj");
+		//balloon
+		loader[3].LoadFile("./objects/balloon/balloon.obj");
+		texturesID[19] = loadIMA_ILUT("./objects/balloon/shrekcolorballoon.png");
 
 
-	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
-	//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
-	//	Canviar l'escala per a centrar la vista (Ortogr�fica)
+		wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
+		//  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
+		//	Canviar l'escala per a centrar la vista (Ortogr�fica)
 
-	// Crida a OnPaint() per redibuixar l'escena
-	InvalidateRect(NULL, false);
+		// Crida a OnPaint() per redibuixar l'escena
+		InvalidateRect(NULL, false);
+	}
+	else if (lvl == 2)
+	{
+		OnNivellsNivell2();
+	}
+	else if (lvl == 3)
+	{
+		OnNivellsNivell3();
+	}
+	else if (lvl == 4)
+	{
+		OnNivellsNivell4();
+	}
 }
 
 
@@ -5332,13 +5354,13 @@ void CEntornVGIView::OnUpdateObjecteMur(CCmdUI* pCmdUI)
 
 void CEntornVGIView::OnNivellsNivell2()
 {
-	//Inicialització murs //TEMARE
+	//Inicialització murs //TEMARE//Aqui decides el level
 	lvl = 2;
 	llista_murs = initMurs();
 	sales_v_d = CreaSales();
 	changeLvl = true;
 	
-	opvNIni.x = 10.0;		opvNIni.y = 12.0;		opvNIni.z = 5.0;
+	opvNIni.x = -44.0;		opvNIni.y = 129.0;		opvNIni.z = 5.0;
 
 	n[0] = 0.0;		n[1] = 0.0;		n[2] = 5.0;
 	opvN.x = opvNIni.x;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
@@ -5415,7 +5437,7 @@ void CEntornVGIView::OnNivellsNivell3()
 	sales_v_d = CreaSales();
 	changeLvl = true;
 
-	opvNIni.x = 10.0;		opvNIni.y = 12.0;		opvNIni.z = 5.0;
+	opvNIni.x = -44.0;		opvNIni.y = 169.9;		opvNIni.z = 5.0;
 
 	n[0] = 0.0;		n[1] = 0.0;		n[2] = 5.0;
 	opvN.x = opvNIni.x;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
