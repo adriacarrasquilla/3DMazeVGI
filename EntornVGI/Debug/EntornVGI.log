@@ -1,12 +1,27 @@
-﻿  EntornVGIView.cpp
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\EntornVGIView.cpp(2834,21): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\EntornVGIView.cpp(2873,21): warning C4018:  '<': no coinciden signed/unsigned
+﻿  escena.cpp
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(395,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(405,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(220,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(258,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(271,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(279,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(450,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(461,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(484,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(487,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(513,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(705,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(708,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(797,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(798,11): warning C4477: 'printf' : la cadena de formato '%d' requiere un argumento de tipo 'int', pero el argumento variádico 1 tiene el tipo 'double'
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(164): warning C4172: devolución de dirección de la variable local o temporal: colXY
 LINK : warning LNK4075: se omite '/INCREMENTAL' debido a la especificación '/FORCE'
 EntornVGIView.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "float angle" (?angle@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
@@ -16,6 +31,8 @@ EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorit
 EntornVGIView.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "void __cdecl movimentShrek(float * const,bool * const,float * const,float,float,bool)" (?movimentShrek@@YAXQAMQA_N0MM_N@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+EntornVGIView.obj : warning LNK4006: "void __cdecl circularMovimentShrek(float * const,bool * const,float * const,bool)" (?circularMovimentShrek@@YAXQAMQA_N0_N@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "class irrklang::ISoundEngine * SoundEngine" (?SoundEngine@@3PAVISoundEngine@irrklang@@A) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "class irrklang::ISoundSource * soSalt" (?soSalt@@3PAVISoundSource@irrklang@@A) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
@@ -24,6 +41,7 @@ EntornVGIView.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@
 EntornVGIView.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "float angle" (?angle@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
@@ -33,14 +51,18 @@ escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::ope
 escena.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "void __cdecl movimentShrek(float * const,bool * const,float * const,float,float,bool)" (?movimentShrek@@YAXQAMQA_N0MM_N@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+escena.obj : warning LNK4006: "void __cdecl circularMovimentShrek(float * const,bool * const,float * const,bool)" (?circularMovimentShrek@@YAXQAMQA_N0_N@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "class irrklang::ISoundEngine * SoundEngine" (?SoundEngine@@3PAVISoundEngine@irrklang@@A) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "class irrklang::ISoundSource * soSalt" (?soSalt@@3PAVISoundSource@irrklang@@A) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+glut_font.obj : warning LNK4006: "struct tagSFG_State fgState" (?fgState@@3UtagSFG_State@@A) ya se definió en escena.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "float angle" (?angle@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::math::CrossV3(struct objl::Vector3,struct objl::Vector3)" (?CrossV3@math@objl@@YA?AUVector3@2@U32@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "float __cdecl objl::math::MagnitudeV3(struct objl::Vector3)" (?MagnitudeV3@math@objl@@YAMUVector3@2@@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "float __cdecl objl::math::DotV3(struct objl::Vector3,struct objl::Vector3)" (?DotV3@math@objl@@YAMUVector3@2@0@Z) ya se definió en EntornVGI.obj; segunda definición omitida
@@ -50,6 +72,8 @@ visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorit
 visualitzacio.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "void __cdecl movimentShrek(float * const,bool * const,float * const,float,float,bool)" (?movimentShrek@@YAXQAMQA_N0MM_N@Z) ya se definió en EntornVGI.obj; segunda definición omitida
+visualitzacio.obj : warning LNK4006: "void __cdecl circularMovimentShrek(float * const,bool * const,float * const,bool)" (?circularMovimentShrek@@YAXQAMQA_N0_N@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "class irrklang::ISoundEngine * SoundEngine" (?SoundEngine@@3PAVISoundEngine@irrklang@@A) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "class irrklang::ISoundSource * soSalt" (?soSalt@@3PAVISoundSource@irrklang@@A) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida

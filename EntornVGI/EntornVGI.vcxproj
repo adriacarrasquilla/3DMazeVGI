@@ -138,6 +138,7 @@
     <ClInclude Include="EntornVGIView.h" />
     <ClInclude Include="escena.h" />
     <ClInclude Include="FileView.h" />
+    <ClInclude Include="glut_font.h" />
     <ClInclude Include="glut_geometry.h" />
     <ClInclude Include="Load3DS.h" />
     <ClInclude Include="MainFrm.h" />
@@ -161,6 +162,7 @@
     <ClCompile Include="EntornVGIView.cpp" />
     <ClCompile Include="escena.cpp" />
     <ClCompile Include="FileView.cpp" />
+    <ClCompile Include="glut_font.cpp" />
     <ClCompile Include="glut_geometry.cpp" />
     <ClCompile Include="Load3DS.cpp" />
     <ClCompile Include="MainFrm.cpp" />

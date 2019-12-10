@@ -17,6 +17,7 @@
 #include "escena.h"
 #include <string>
 #include <time.h>
+#include "glut_font.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -54,6 +55,22 @@ void drawBitmapText(const char* string, float x, float y, float z)
 	{
 		glutBitmapCharacter(GLUT_BITMAP_8_BY_13, *c);
 	}
+}
+
+//TEXT STROKE XULO GUAPO PRECIOS
+void drawStrokeText(const char* string, int x, int y, int z)
+{
+	const char* c;
+	//ES POT TRACTAR COM SI FOS UNA "TEXTURA":
+	glPushMatrix();	
+	glTranslatef(x, y + 8, z);
+	glScalef(0.09f, -0.08f, z);
+
+	for (c = string; *c != '\n'; c++)
+	{
+		glutStrokeCharacter(GLUT_STROKE_ROMAN, *c);
+	}
+	glPopMatrix();
 }
 
 float temps = 0.0;

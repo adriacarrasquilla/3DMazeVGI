@@ -69,19 +69,6 @@
 #define  GLET_GEOMETRY_H
 
  /* -- INTERFACE FUNCTIONS -------------------------------------------------- */
-typedef struct tagSFG_Font SFG_Font;
-struct tagSFG_Font
-{
-	char* Name;         /* The source font name             */
-	int             Quantity;     /* Number of chars in font          */
-	int             Height;       /* Height of the characters         */
-	const GLubyte** Characters;   /* The characters mapping           */
-
-	float           xorig, yorig; /* Relative origin of the character */
-};
-
-SFG_Font* fghFontByID(void* font);
-void glutBitmapCharacter(void* fontID, int character);
 
 /* ---------- CUBE -----------------------------------------------------------*/
 void glutSolidCube(GLdouble dSize); // Draws a solid cube. Code contributed by Andreas Umbach <marvin@dataway.ch>
