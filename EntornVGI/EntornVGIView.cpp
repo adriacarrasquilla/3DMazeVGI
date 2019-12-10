@@ -972,7 +972,7 @@ void CEntornVGIView::dibuixa_Escena() {
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
 		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader,
 		movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes, 
-		MidaLaberint_Fila, MidaLaberint_Columna, musica, pausa, lvl, changeLvl, v_Shreks);
+		MidaLaberint_Fila, MidaLaberint_Columna, musica, pausa, lvl, changeLvl, v_Shreks, menu);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -1937,40 +1937,142 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		//tecla p de pausa
 	case 80:
 		if (musica != 1 && musica != 2) {
-			if (m_ButoEAvall)
-			{
-				m_ButoEAvall = false;
-			}
-			else
-			{
-				m_ButoEAvall = true;
-			}
 			if (pausa)
 			{
 				pausa = false;
 				bloquejar_mov = false;
+				menu = false;
+
+				if (!m_ButoEAvall)
+				{
+					m_ButoEAvall = true;
+				}
 			}
 			else
 			{
 				pausa = true;
 				bloquejar_mov = true;
+				menu = true;
+
+				if (m_ButoEAvall)
+				{
+					m_ButoEAvall = false;
+				}
 			}
 		}
+		break;
 	case 49: //tecla 1
 		if (menu) {
 			switch (lvl) {
-				case 1:
-					
-					break;
-				case 2:
-					break;
-				case 3:
-					break;
-				case 4: 
-					break;
-				default:
-					break;
+			case 1:
+				OnNivellsNivell2();
+				if (!m_ButoEAvall)
+				{
+					m_ButoEAvall = true;
+				}
+				if (pausa)
+				{
+					pausa = false;
+					bloquejar_mov = false;
+					menu = false;
+				}
+				break;
+			case 2:
+				OnNivellsNivell3();
+				if (!m_ButoEAvall)
+				{
+					m_ButoEAvall = true;
+				}
+				if (pausa)
+				{
+					pausa = false;
+					bloquejar_mov = false;
+					menu = false;
+				}
+				break;
+			case 3:
+				OnNivellsNivell4();
+				if (!m_ButoEAvall)
+				{
+					m_ButoEAvall = true;
+				}
+				if (pausa)
+				{
+					pausa = false;
+					bloquejar_mov = false;
+					menu = false;
+				}
+				break;
+			case 4:
+				break;
+			default:
+				break;
 			}
+		}
+		break;
+	case 50: //tecla 2
+		if (menu) {
+			switch (lvl) {
+			case 1:
+				OnObjecteMur();
+				if (!m_ButoEAvall)
+				{
+					m_ButoEAvall = true;
+				}
+				if (pausa)
+				{
+					pausa = false;
+					bloquejar_mov = false;
+					menu = false;
+				}
+				break;
+			case 2:
+				OnNivellsNivell2();
+				if (!m_ButoEAvall)
+				{
+					m_ButoEAvall = true;
+				}
+				if (pausa)
+				{
+					pausa = false;
+					bloquejar_mov = false;
+					menu = false;
+				}
+				break;
+			case 3:
+				OnNivellsNivell3();
+				if (!m_ButoEAvall)
+				{
+					m_ButoEAvall = true;
+				}
+				if (pausa)
+				{
+					pausa = false;
+					bloquejar_mov = false;
+					menu = false;
+				}
+				break;
+			case 4:
+				OnNivellsNivell4();
+				if (!m_ButoEAvall)
+				{
+					m_ButoEAvall = true;
+				}
+				if (pausa)
+				{
+					pausa = false;
+					bloquejar_mov = false;
+					menu = false;
+				}
+				break;
+			default:
+				break;
+			}
+		}
+		break;
+	case 51: //tecla 3
+		if (menu) {
+			exit(0);
 		}
 		break;
 	default:
@@ -5295,6 +5397,9 @@ void CEntornVGIView::OnUpdateProjeccioortografica(CCmdUI* pCmdUI)
 void CEntornVGIView::OnObjecteMur() // ES TRACTA COM SI FOS OnNivellsNivell1
 {
 	//select level
+	llumVermella = false;
+	musica = 0;
+	bloquejar_mov = false;
 	lvl = 1;
 	if (lvl == 1) 
 	{
@@ -5375,6 +5480,9 @@ void CEntornVGIView::OnUpdateObjecteMur(CCmdUI* pCmdUI)
 void CEntornVGIView::OnNivellsNivell2()
 {
 	//Inicialització murs //TEMARE//Aqui decides el level
+	llumVermella = false;
+	musica = 0;
+	bloquejar_mov = false;
 	lvl = 2;
 	llista_murs = initMurs();
 	sales_v_d = CreaSales();
@@ -5452,6 +5560,9 @@ void CEntornVGIView::OnNivellsNivell3()
 {
 	// TODO: Agregue aquí su código de controlador de comandos
 	//Inicialització murs
+	llumVermella = false;
+	musica = 0;
+	bloquejar_mov = false;
 	lvl = 3;
 	llista_murs = initMurs();
 	sales_v_d = CreaSales();
@@ -5529,6 +5640,9 @@ void CEntornVGIView::OnNivellsNivell4()
 {
 	// TODO: Agregue aquí su código de controlador de comandos
 	//Inicialització murs //TEMARE
+	llumVermella = false;
+	musica = 0;
+	bloquejar_mov = false;
 	lvl = 4;
 	llista_murs = initMurs();
 	sales_v_d = CreaSales();

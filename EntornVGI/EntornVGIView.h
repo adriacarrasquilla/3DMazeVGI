@@ -192,7 +192,6 @@ public:
 	int num_murs;
 	Personatge personatge;
 	float cel[3] = { 0, 0, 0 };
-	bool menu = false;
 	//INICI SHREK
 	float movimentShrek[3] = { 0, 0, 0 };
 	bool movDir[3] = { false, false, false };
@@ -228,6 +227,7 @@ public:
 	vector<vector<float>> Shreks;
 	vector<Shrek> v_Shreks;
 	bool pausa = false;
+	bool menu = false;
 	// Operaciones
 public:
 	std::vector<Mur> initMurs();

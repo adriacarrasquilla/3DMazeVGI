@@ -45,6 +45,8 @@ bool i_d = false;
 bool i_v = false;
 bool temps_once = false;
 
+int temps_menu = 0; /// de moment assumeixo que el leaderboard no existeix :)
+
 //TEXT ESCENA
 void drawBitmapText(const char* string, float x, float y, float z)
 {
@@ -555,10 +557,13 @@ void HUDSquare()
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
 	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader[],
 	float movimentShrek[], bool movDir[], float rotShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales,
-	int lifes, int MIDA_I, int MIDA_J, int musica, bool pausa, char lvl, bool& changeLvl, std::vector<Shrek> v_Shreks)
+	int lifes, int MIDA_I, int MIDA_J, int musica, bool pausa, char lvl, bool& changeLvl, std::vector<Shrek> v_Shreks, bool& menu)
 {
 	float altfar = 0;
 	soAmbient->setDefaultVolume(0.7);
+	soLvl2->setDefaultVolume(0.1);
+	soLvl3->setDefaultVolume(0.4);
+	soLvl4->setDefaultVolume(0.3);
 	// Assignaci� de les variables de color i reflexi� als valors de les variables per par�metre
 	color_objecte = col_object;
 	reflexio_material = ref_mat;
@@ -874,8 +879,13 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 			glPushMatrix();
 			glLoadIdentity();
-			glColor3f(.0f, 0.8f, .0f);
-			drawBitmapText("PAUSE\n", 0, 0, -2);
+			glColor3f(1.0f, 1.0f, 1.0f);
+			drawBitmapText("PAUSE\n", -0.3, 0.15, -2);
+			drawBitmapText("PREM LA TECLA PER:\n", -0.3, 0.1, -2);
+			drawBitmapText("P - REPRENDRE EL JOC\n", -0.3, 0.05, -2);
+			drawBitmapText("1 - PASSAR AL SEGUENT NIVELL\n", -0.3, 0.0, -2);
+			drawBitmapText("2 - REINICIAR EL NIVELL ACTUAL\n", -0.3, -0.05, -2);
+			drawBitmapText("3 - SORTIR DEL JOC\n", -0.3, -0.1, -2);
 			glPopMatrix();
 		}
 
@@ -888,16 +898,34 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 
 		//MISATGES VICTORY / DEFEAT
+		if (musica == 0) {
+			temps_menu = 0;
+		}
+
 		if (!i_v && musica == 1) {
 
 			std::string tf = "TEMPS: " + remove_zeros(std::to_string(temps_final)) + "\n";
 			const char* cstr_tf = tf.c_str();
 
-			glPushMatrix();
-			glLoadIdentity();
-			glColor3f(.0f, 0.8f, .0f);
-			drawBitmapText("VICTORY\n", 0, 0, -2);
-			glPopMatrix();
+			if (temps_menu < 700) {
+				glPushMatrix();
+				glLoadIdentity();
+				glColor3f(.0f, 0.8f, .0f);
+				drawBitmapText("VICTORIA\n", -0.15, 0, -2);
+				glPopMatrix();
+			}
+			else {
+				glPushMatrix();
+				glLoadIdentity();
+				glColor3f(1.0f, 1.0f, 1.0f);
+				drawBitmapText("VICTORIA\n", -0.3, 0.1, -2);
+				drawBitmapText("PREM LA TECLA PER:\n", -0.3, 0.05, -2);
+				drawBitmapText("1 - PASSAR AL SEGUENT NIVELL\n", -0.3, 0.0, -2);
+				drawBitmapText("2 - REINICIAR EL NIVELL ACTUAL\n", -0.3, -0.05, -2);
+				drawBitmapText("3 - SORTIR DEL JOC\n", -0.3, -0.1, -2);
+				glPopMatrix();
+				menu = true;
+			}
 
 			glPushMatrix();
 			glLoadIdentity();
@@ -911,11 +939,26 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			std::string tf = "TEMPS: " + remove_zeros(std::to_string(temps_final)) + "\n";
 			const char* cstr_tf = tf.c_str();
 
-			glPushMatrix();
-			glLoadIdentity();
-			glColor3f(1.0f, .0f, .0f);
-			drawBitmapText("DEFEAT\n", 0, 0, -2);
-			glPopMatrix();
+			if (temps_menu < 700) {
+				glPushMatrix();
+				glLoadIdentity();
+				glColor3f(1.0f, .0f, .0f);
+				drawBitmapText("DERROTA\n", -0.1, 0, -2);
+				glPopMatrix();
+				temps_menu++;
+			}
+			else {
+				glPushMatrix();
+				glLoadIdentity();
+				glColor3f(1.0f, 1.0f, 1.0f);
+				drawBitmapText("DERROTA\n", -0.3, 0.1, -2);
+				drawBitmapText("PREM LA TECLA PER:\n", -0.3, 0.05, -2);
+				drawBitmapText("1 - PASSAR AL SEGUENT NIVELL\n", -0.3, 0.0, -2);
+				drawBitmapText("2 - REINICIAR EL NIVELL ACTUAL\n", -0.3, -0.05, -2);
+				drawBitmapText("3 - SORTIR DEL JOC\n", -0.3, -0.1, -2);
+				glPopMatrix();
+				menu = true;
+			}
 
 			glPushMatrix();
 			glLoadIdentity();
