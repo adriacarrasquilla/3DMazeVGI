@@ -32,7 +32,7 @@
 
 //Entrem fitxer classes.h
 #include "Classes.h"
-
+#include <algorithm>
 #include "OBJLoader2.h"
 
 class CEntornVGIView : public CView
@@ -192,9 +192,11 @@ public:
 	int num_murs;
 	Personatge personatge;
 	float cel[3] = { 0, 0, 0 };
-	float movimentShrek[3] = { 0, 0, 0 };
-	bool movDir[3] = { false, false, false };
-	float rotacioShrek[3] = { 0, 0, 0 };
+	//INICI SHREK
+	float movimentShrek[50][3] = { 0, 0, 0 };
+	bool movDir[50][3] = { false, false, false };
+	float rotacioShrek[50][3] = { 0, 0, 0 };
+	//FI SHREK
 	objl::Loader loader[10];
 	Event eventfinal;
 	vector<Event> eventsMursBaixada;
