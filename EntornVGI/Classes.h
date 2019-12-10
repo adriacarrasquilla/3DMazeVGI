@@ -71,7 +71,7 @@ public:
 	}
 	void animacioBaixada()
 	{
-		m_z = m_z - 0.15;
+		m_z = m_z - 0.1851;
 
 	}
 	void animacioPujada()

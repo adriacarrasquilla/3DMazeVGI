@@ -1,21 +1,9 @@
-﻿  escena.cpp
+﻿  EntornVGIView.cpp
 C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018:  '<': no coinciden signed/unsigned
 C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018:  '<': no coinciden signed/unsigned
 C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(191,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(229,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(242,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(250,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(497,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(507,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(521,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(532,26): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(555,23): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(558,22): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(584,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(747,22): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(750,22): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(148): warning C4172:  devolución de dirección de la variable local o temporal: colXY
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\EntornVGIView.cpp(2834,21): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\EntornVGIView.cpp(2873,21): warning C4018:  '<': no coinciden signed/unsigned
 LINK : warning LNK4075: se omite '/INCREMENTAL' debido a la especificación '/FORCE'
 EntornVGIView.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida

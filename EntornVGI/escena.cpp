@@ -37,6 +37,9 @@ irrklang::ISoundSource* soLvl1 = SoundEngine->addSoundSourceFromFile("audio/poke
 irrklang::ISoundSource* soLvl2 = SoundEngine->addSoundSourceFromFile("audio/bonetrousle.mp3"); //medium
 irrklang::ISoundSource* soLvl3 = SoundEngine->addSoundSourceFromFile("audio/damage.mp3"); //epic
 irrklang::ISoundSource* soLvl4 = SoundEngine->addSoundSourceFromFile("audio/megalovania.mp3"); //final boss
+irrklang::ISoundSource* soMurCaiguder = SoundEngine->addSoundSourceFromFile("audio/murCaiguder.mp3"); //so mur quan cau
+irrklang::ISoundSource* soJuder = SoundEngine->addSoundSourceFromFile("audio/juder.mp3"); // Juuuuuderrrrr
+irrklang::ISoundSource* soNMC = SoundEngine->addSoundSourceFromFile("audio/nmc.mp3"); // NO. MU. PUC. CREUREE!
 
 
 bool i = true;
@@ -198,7 +201,7 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 				pg.m_colisioX = true;
 				if (llista[i].esUnMurAnimatQueCau && !llista[i].animacioAcabada) {
 					pg.dead = true;
-					SoundEngine->play2D(soColisio, GL_FALSE);
+					SoundEngine->play2D(soJuder, GL_FALSE);
 					break;
 				}
 			}
@@ -207,7 +210,7 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 				pg.m_colisioY = true;
 				if (llista[i].esUnMurAnimatQueCau && !llista[i].animacioAcabada) {
 					pg.dead = true;
-					SoundEngine->play2D(soColisio, GL_FALSE);
+					SoundEngine->play2D(soJuder, GL_FALSE);
 					break;
 				}
 			}
@@ -232,7 +235,8 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 			if (!eventMursBaixada[i].eventFinalitzat)
 			{
 				eventMursBaixada[i].m_colisio = true;
-
+				soMurCaiguder->setDefaultVolume(2.0f);
+				if (!eventMursBaixada[i].m_animacioIniciada) SoundEngine->play2D(soMurCaiguder, GL_FALSE);
 				eventMursBaixada[i].m_animacioIniciada = true;
 			}
 		}
@@ -242,7 +246,7 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 	for (int i = 0; i < punxes.size(); i++) {
 		if (CheckColisioPunxes(punxes[i], pg)) {
 			pg.dead = true;
-			SoundEngine->play2D(soColisio, GL_FALSE);
+			SoundEngine->play2D(soJuder, GL_FALSE);
 			break;
 		}
 	}
@@ -250,7 +254,7 @@ void DoCollisions(std::vector<Mur> llista, Personatge& pg, Event& e, std::vector
 	for (int i = 0; i < Shreks.size(); i++){
 		if (CheckColisioShrek(Shreks[i], pg)) {
 			pg.dead = true;
-			SoundEngine->play2D(soColisio, GL_FALSE);
+			SoundEngine->play2D(soJuder, GL_FALSE);
 			break;
 		}
 	}
@@ -687,7 +691,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				SoundEngine->stopAllSoundsOfSoundSource(soLvl4);
 
 				temps_final = float(clock() - begin_time + tp) / CLOCKS_PER_SEC;
-
+				
 				i_v = false;
 			}
 			else if (i_d && musica == 2) {
