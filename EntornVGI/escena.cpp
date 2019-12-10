@@ -593,6 +593,34 @@ void globus(objl::Loader loader, int texturID[], float x, float y, float z, floa
 
 }
 
+void HUDSquare()
+{
+	//Cuadrat HUD
+	glPushMatrix();
+	glLoadIdentity();
+	glTranslatef(1.9, 1.29, -3);
+	glColor3f(0.345f, 0.608f, 0.0f);
+	glBegin(GL_QUADS);
+	glVertex3f(0, 0, 0);
+	glVertex3f(1.5, 0, 0);
+	glVertex3f(1.5, 1.5, 0);
+	glVertex3f(0, 1.5, 0);
+	glEnd();
+	glPopMatrix();
+	//Quadrat extern
+	glPushMatrix();
+	glLoadIdentity();
+	glTranslatef(1.8, 1.19, -3);
+	glColor3f(0.55f, 0.55f, 0.51f);
+	glBegin(GL_QUADS);
+	glVertex3f(0, 0, 0);
+	glVertex3f(1.5, 0, 0);
+	glVertex3f(1.5, 1.5, 0);
+	glVertex3f(0, 1.5, 0);
+	glEnd();
+	glPopMatrix();
+}
+
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
 	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader[],
@@ -855,7 +883,10 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 			//pg.pinta();
 			DoCollisions(llista, pg, eventfinal, eventsMursBaixada, punxesAnimadetes, Shreks);
-
+		
+			//HUD Quadrat
+			HUDSquare();
+		
 			//Una merda cap tot en la funcio
 			if (reset_clock) {
 				//Això fa que el temps es posi a 0 quan es comença una partida.
