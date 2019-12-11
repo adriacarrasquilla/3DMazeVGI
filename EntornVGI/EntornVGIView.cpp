@@ -3641,25 +3641,25 @@ int matriuLvl1[15][10] ={ {  1,-1, 1, 1, 1, 1, 1, 1, 1, 1},
 	
 
 	//______________________________________________LEVEL 3____________________________________________________________________
-int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-5,-5, 0},
+int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,-6, 0},
 							{ 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1,-5, 1, 0, 1, 1, 1, 0},
 							{-5,-5,-5,-5,-5,-5,-5, 1,-6, 1, 0, 1,-5, 1, 0, 1 ,0, 0, 0},
 							{-4, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1,-5, 1,-6, 1, 0, 0, 1},
-							{ 0, 1, 0, 1, 0, 0, 0,-4, 0, 0,-6,-6,-5, 1, 0, 1, 0,-6, 0},
+							{ 0, 1, 0, 1, 0, 0,-6,-4, 0,-4,-6,-6,-5, 1, 0, 1, 0,-6, 0},
 							{ 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0},
 							{ 0, 0, 0, 1,-6, 1,-5,-5,-5,-5,-5, 1, 0, 0, 0, 1,-6, 0, 0},
 							{ 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1},
 							{ 0, 0,-6, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0,-3, 0, 0, 0, 0, 0},
 							{ 0, 1, 1, 1,-3, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0},
-							{ 0, 1, 0, 0,-3, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0},
+							{ 0, 1, 0, 0,-3, 1, 0, 0,-6, 0, 0, 1, 0, 1, 0, 0, 0, 0,-6},
 							{ 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0},
 							{ 0, 0, 0, 0, 0, 1, 0, 0, 0, 1,-5,-5,-5,-5,-5, 1, 0, 1, 0},
 							{ 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0},
 							{ 0, 0,-6, 0, 0, 1, 0, 1, 0, 0,-5, 0, 0, 0, 0, 0, 0, 1,-6},
 							{ 0, 1, 1, 1, 1, 1, 0, 1, 0, 1,-5, 1, 1, 1, 1, 1, 1, 1, 0},
-							{ 0, 1, 0, 0, 1, 1, 0, 0, 0, 1,-5, 0, 0, 0, 0, 0, 0, 1, 0},
-							{ 0, 1, 1, 0, 1, 1, 1, 1, 1, 1,-5, 1, 1, 1, 0, 1, 0, 1, 0},
-							{-5,-5,-5,-5,-5,-5,-5, 0, 0,-3,-5, 1, 0, 0, 0, 1, 0, 0, 0},
+							{ 0, 1, 0, 0, 1, 1, 0, 0, 0, 1,-5, 0, 0, 0,-6, 0, 0, 1, 0},
+							{ 0, 1, 1, 0, 1, 1, 1, 1, 1, 1,-6, 1, 1, 1,-3, 1, 0, 1, 0},
+							{-5,-5,-5,-6,-5,-5,-4,-4, 0, 0,-6, 1, 0, 0, 0, 1, 0, 0, 0},
 							{ 1, 0, 1, 0, 0, 1, 0, 1, 1, 1,-2, 1, 0, 1, 0, 1, 1, 1, 1 }
 	};
 
@@ -3713,10 +3713,7 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-5,
 		bool movDir2[3] = { false, false, false };
 		float rotShrek2[3] = { 0, 0, 0 };
 		*/
-		/*
-		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
-			-44, 30, 0,30, 0.0, 0.0, 0.0, 0.0, true, false));
-		*/		
+		
 
 		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
 			 101, 60, 101, 100, 0.0, 0.0, 0.0, 0.0, true, true));
@@ -3727,13 +3724,6 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-5,
 		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
 			202, 90, 202, 176.5, 0.0, 0.0, 0.0, 0.0, true, true));
 		
-		
-		
-
-
-
-
-
 	}
 	else if (lvl == 2) {
 		MAX_COLUMNA = 14;
@@ -3742,7 +3732,7 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-5,
 		for (int i = 0; i < MAX_COLUMNA; i++) {
 			for (int j = 0; j < MAX_FILA; j++)
 				matriuLaberint[i][j] = matriuLvl2[i][j];
-
+			//Limipeza
 			v_Shreks.clear();
 
 			movimentShrek[0] = 0.0;
@@ -3767,6 +3757,27 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-5,
 			for (int j = 0; j < MAX_FILA; j++)
 				matriuLaberint[i][j] = matriuLvl3[i][j];
 		}
+		//Limipeza
+		v_Shreks.clear();
+
+		movimentShrek[0] = 0.0;
+		movimentShrek[1] = 0.0;
+		movDir[0] = 0.0;
+		movDir[1] = 0.0;
+		rotacioShrek[0] = 0.0;
+		rotacioShrek[1] = 0.0;
+
+		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+			122, 126, 122, 214, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+			243, 206, 243, 290.1, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+			282.5, 170, 282.5, 327, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+			361, 6, 361, 195, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+			361, 107, 361, 160, 0.0, 0.0, 0.0, 0.0, true, true));
+
 	}
 	else if (lvl == 4) {
 		MAX_COLUMNA = 20;
@@ -3776,6 +3787,15 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-5,
 			for (int j = 0; j < MAX_FILA; j++)
 				matriuLaberint[i][j] = matriuLvl4[i][j];
 		}
+		//Limipeza
+		v_Shreks.clear();
+
+		movimentShrek[0] = 0.0;
+		movimentShrek[1] = 0.0;
+		movDir[0] = 0.0;
+		movDir[1] = 0.0;
+		rotacioShrek[0] = 0.0;
+		rotacioShrek[1] = 0.0;
 	}
 
 

@@ -396,7 +396,7 @@ public:
 				if (m_movDir[1] == true)
 				{
 					m_moviment[1] += 0.2;
-					if (m_moviment[1] + m_posicioIniciY > m_posicioFinalY)
+					if (m_moviment[1]> m_posicioFinalY - m_posicioIniciY)
 					{
 						m_movDir[1] = false;
 						m_rotShrek[1] = -1;
@@ -406,7 +406,7 @@ public:
 				else
 				{
 					m_moviment[1] -= 0.2;
-					if (m_posicioFinalY+ m_moviment[1] < m_posicioIniciY)
+					if (m_moviment[1] < 0)
 					{
 						m_movDir[1] = true;
 						m_rotShrek[1] = 1;
