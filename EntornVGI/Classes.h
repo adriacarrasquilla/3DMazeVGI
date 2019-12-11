@@ -81,6 +81,7 @@ public:
 
 	}
 };
+
 class Personatge {
 public:
 	float m_x;
@@ -155,27 +156,6 @@ public:
 		}
 	}
 };
-
-/*std::vector<Mur> initMurs(); /*{ //propera implementaci�: passar per par�metres el nombre de murs i la matriu rotllo suarez
-	//de moment, inicialitzaci� "manual"
-
-	Mur * llista = new Mur[6];
-
-	Mur prova1(10.0f, 2.5f, 7.5f, 1);
-	llista[0] = prova1;
-	Mur prova2(30.0f, 2.5f, 7.5f, 1);
-	llista[1] = prova2;
-	Mur prova3(10.0f, 22.5f, 7.5f, 1);
-	llista[2] = prova3;
-	Mur prova4(17.5f, 35.0f, 7.5f, 0);
-	llista[3] = prova4;
-	Mur prova5(37.5f, 35.0f, 7.5f, 0);
-	llista[4] = prova5;
-	Mur prova6(37.5f, 15.0f, 7.5f, 0);
-	llista[5] = prova6;
-
-	return llista;
-}*/
 
 class Event {
 public:
@@ -268,37 +248,6 @@ public:
 };
 
 
-//Moviment shreck == -5
-float Posicio_x_inicial = 4 * x * 1;
-float Posicio_y_inicial = 4 * x * 2;
-
-float Posicio_x_final = 4 * x * 4;
-float Posicio_y_final = 4 * x * 2;
-
-void movimentShrek(float moviment[], bool movDir[], float rotShrek[], float posicioIniciY, float posicioFinalY, bool pausa)
-{
-	if (!pausa) {
-		if (movDir[1] == true)
-		{
-			moviment[1] += 0.2;
-			if (moviment[1] + posicioIniciY > posicioFinalY)
-			{
-				movDir[1] = false;
-				rotShrek[1] = -1;
-			}
-		}
-		else
-		{
-			moviment[1] -= 0.2;
-			if (moviment[1] + posicioIniciY < posicioIniciY)
-			{
-				movDir[1] = true;
-				rotShrek[1] = 1;
-			}
-		}
-	}
-}
-
 float angle = 0.0;
 
 void circularMovimentShrek(float moviment[], bool movDir[], float rotShrek[], bool pausa)
@@ -340,8 +289,15 @@ public:
 	float m_pos_z;
 
 	bool m_ori;
+
+
+	bool m_direccioHoritzontal=true;
 public:
-	Shrek(objl::Loader* loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ, float& pos_x, float& pos_y, float& pos_z, bool ori) {
+	Shrek(objl::Loader* loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, 
+		float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, 
+		float posicioZ, float pos_x, float pos_y, float pos_z, bool ori, bool direccioHoritzontal=true)
+	{
+
 		m_loader = loader;
 		m_moviment = moviment;
 		m_movDir = movDir;
@@ -357,6 +313,8 @@ public:
 		m_pos_y = pos_y;
 		m_pos_z = pos_z;
 		m_ori = ori;
+
+		m_direccioHoritzontal = direccioHoritzontal;
 	}
 
 	void pinta(bool pausa) {
@@ -364,7 +322,7 @@ public:
 
 		if (m_tipusMov == 0)
 		{
-			movimentShrek(m_moviment, m_movDir, m_rotShrek, m_posicioIniciX, m_posicioFinalX, pausa);
+			movimentShrek(pausa);
 		}
 		if (m_tipusMov == 1)
 		{
@@ -373,15 +331,30 @@ public:
 			circularMovimentShrek(m_moviment, m_movDir, m_rotShrek, pausa);
 		}
 
-		//Translació inicial + moviment
-		glTranslatef(m_posicioIniciY + m_moviment[0], m_posicioIniciX + m_moviment[1], m_posicioZ + m_moviment[2]);
-		m_pos_x = m_posicioIniciY + m_moviment[0]; m_pos_y = m_posicioIniciX + m_moviment[1]; m_pos_z = m_posicioZ + m_moviment[2];
-		//Rotació inicial
-		glRotatef(90, 1, 0, 0);
-		//si es mou en vertical
-		glRotatef(90, 0, 1, 0);
-		//Rotació depenent moviment
-		glRotatef(90, 0 + m_rotShrek[0], 0 + m_rotShrek[1], 0 + m_rotShrek[2]);
+		if (m_direccioHoritzontal)
+		{
+			//Translació inicial + moviment
+			glTranslatef( m_posicioIniciX + m_moviment[0],m_posicioIniciY + m_moviment[1], m_posicioZ + m_moviment[2]);
+			//m_pos_x = m_posicioIniciY + m_moviment[0]; m_pos_y = m_posicioIniciX + m_moviment[1]; m_pos_z = m_posicioZ + m_moviment[2];
+			//Rotació inicial
+			glRotatef(90, 1, 0, 0);
+			//si es mou en vertical
+			glRotatef(90, 0, 1, 0);
+			//Rotació depenent moviment
+			glRotatef(90, 0 + m_rotShrek[0], 0 + m_rotShrek[1], 0 + m_rotShrek[2]);
+		}
+		else
+		{
+			//Translació inicial + moviment
+			glTranslatef(m_posicioIniciY + m_moviment[0], m_posicioIniciX + m_moviment[1], m_posicioZ + m_moviment[2]);
+			m_pos_x = m_posicioIniciY + m_moviment[0]; m_pos_y = m_posicioIniciX + m_moviment[1]; m_pos_z = m_posicioZ + m_moviment[2];
+			//Rotació inicial
+			glRotatef(90, 1, 0, 0);
+			//si es mou en vertical
+			glRotatef(90, 0, 1, 0);
+			//Rotació depenent moviment
+			glRotatef(90, 0 + m_rotShrek[0], 0 + m_rotShrek[1], 0 + m_rotShrek[2]);
+		}
 		//glScalef(8.0f, 8.0f, 8.0f);
 		glScalef(14.0f, 14.0f, 14.0f);
 
@@ -394,7 +367,10 @@ public:
 		glBegin(GL_TRIANGLES);
 		for (int i = 0; i < m_loader->LoadedMeshes[0].Vertices.size(); i++)
 		{
-			glTexCoord2f(m_loader->LoadedMeshes[0].Vertices[i].TextureCoordinate.X, m_loader->LoadedMeshes[0].Vertices[i].TextureCoordinate.Y); glVertex3f(m_loader->LoadedMeshes[0].Vertices[i].Position.X, m_loader->LoadedMeshes[0].Vertices[i].Position.Y, m_loader->LoadedMeshes[0].Vertices[i].Position.Z);
+			glTexCoord2f(m_loader->LoadedMeshes[0].Vertices[i].TextureCoordinate.X, 
+				m_loader->LoadedMeshes[0].Vertices[i].TextureCoordinate.Y); 
+			glVertex3f(m_loader->LoadedMeshes[0].Vertices[i].Position.X, m_loader->LoadedMeshes[0].Vertices[i].Position.Y, 
+				m_loader->LoadedMeshes[0].Vertices[i].Position.Z);
 		}
 		glEnd();
 
@@ -413,14 +389,67 @@ public:
 
 		glPopMatrix();
 	}
+	void movimentShrek(bool pausa)
+	{
+		if (!pausa) 
+		{
+			if (m_direccioHoritzontal)
+			{
+				if (m_movDir[1] == true)
+				{
+					m_moviment[1] += 0.2;
+					if (m_moviment[1] + m_posicioIniciY > m_posicioFinalY)
+					{
+						m_movDir[1] = false;
+						m_rotShrek[1] = -1;
+						
+					}
+				}
+				else
+				{
+					m_moviment[1] -= 0.2;
+					if (m_posicioFinalY+ m_moviment[1] < m_posicioIniciY)
+					{
+						m_movDir[1] = true;
+						m_rotShrek[1] = 1;
+					}
+				}
+			}
+			else
+			{
+
+				if (m_movDir[0] == true)
+				{
+					m_moviment[0] += 0.2;
+					if (m_moviment[0] + m_posicioIniciY > m_posicioFinalY)
+					{
+						m_movDir[0] = false;
+						m_rotShrek[0] = -1;
+					}
+				}
+				else
+				{
+					m_moviment[0] -= 0.2;
+					if (m_moviment[0] < 0)
+					{
+						m_movDir[0] = true;
+						m_rotShrek[0] = 1;
+						m_moviment[0] = 0;
+					}
+				}
+			}
+
+			
+		}
+	}
+
 };
 
 
+
+
+
 /*CLASSE LEADERBOARD*/
-
-
-
-
 class Leaderboard {
 
 public:

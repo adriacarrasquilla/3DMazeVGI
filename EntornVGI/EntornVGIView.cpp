@@ -3606,13 +3606,13 @@ std::vector<Mur> CEntornVGIView::initMurs() {
 	//_______________________________________________________LEVEL 1____________________________________________________________________
 int matriuLvl1[15][10] ={ {  1,-1, 1, 1, 1, 1, 1, 1, 1, 1},
 							{0, 0,-4, 0, 0,-4, 0,-4, 0, 0},
-							{0, 0, 0,-4, 0, 0, 0,-4, 0, 0},
+						   {-4, 0, 0,-4, 0, 0, 0,-4, 0, 0},
 							{1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
-							{0,-6, 0, 0, 0,-6, 0, 0, 0, 0},
-							{0, 0, 0,-6, 0, 0, 0,-6, 0, 0},
-							{0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+							{0, 0, 0, 0, 0, 0, 0, 0,-3, 0},
 							{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-							{0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
+							{0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+							{0,-6, 0, 0, 0,-6, 0, 0, 0, 0},
+							{0, 0, 0,-6, 0, 0,-6,-6, 0, 0},
 							{1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
 							{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 							{0, 1, 0, 1, 0, 1, 0, 1, 1,-3},
@@ -3696,9 +3696,53 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-5,
 			for (int j = 0; j < MAX_FILA; j++)
 				matriuLaberint[i][j] = matriuLvl1[i][j];
 		}
+		float Posicio_x_inicial = 4 * x * 1;
+		float Posicio_y_inicial = 4 * x * 2;
+
+		float Posicio_x_final = 4 * x * 4;
+		float Posicio_y_final = 4 * x * 2;
 		std::vector<float> Shrek1(3, 0);
-		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0, Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final, 0.0, Shrek1[0], Shrek1[1], Shrek1[2], true));
-	
+		//v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+		//	Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final, 0.0, Shrek1[0], Shrek1[1], Shrek1[2], true));
+		/*
+		float movimentShrek[3] = { 0, 0, 0 };
+		bool movDir[3] = { false, false, false };
+		float rotacioShrek[3] = { 0, 0, 0 };
+
+		float movimentShrek2[3] = { 0, 0, 0 };
+		bool movDir2[3] = { false, false, false };
+		float rotShrek2[3] = { 0, 0, 0 };
+		*/
+		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+			 101, 60, 101, 100, 0.0, 0.0, 0.0, 0.0, true, true));
+		
+		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+			86, 120, 86, 146.5, 0.0, 0.0, 0.0, 0.0, true, true));
+
+		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+			202, 90, 202, 176.5, 0.0, 0.0, 0.0, 0.0, true, true));
+		
+		/*
+		float movimentShrekAux[3] = { 0, 0, 0 };
+		bool movDirAux[3] = { false, false, false };
+		float rotacioShrekAux[3] = { 0, 0, 0 };
+		v_Shreks.push_back(Shrek(&loader[0], movimentShrekAux, movDirAux, rotacioShrekAux, texturesID, 0,
+			0.75,-5,  0.75, 20, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+			-20, -10, -20, 40, 0.0, 0.0, 0.0, 0.0, true,true));
+		float movimentShrekAux[3] = { 0, 0, 0 };
+		bool movDirAux[3] = { false, false, false };
+		float rotacioShrekAux[3] = { 0, 0, 0 };
+		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+			172.5, 202, 30, 202, 0.0, Shrek1[0], Shrek1[1], Shrek1[2], true));
+			
+		*/
+
+
+
+
+
+
 	}else if(lvl ==2) {
 		MAX_COLUMNA = 14;
 		MAX_FILA = 12;
@@ -3707,9 +3751,17 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-5,
 			for (int j = 0; j < MAX_FILA; j++)
 				matriuLaberint[i][j] = matriuLvl2[i][j];
 		}
+		/*
+		//Moviment shreck == -5
+		float Posicio_x_inicial = 4 * x * 1;
+		float Posicio_y_inicial = 4 * x * 2;
+
+		float Posicio_x_final = 4 * x * 4;
+		float Posicio_y_final = 4 * x * 2;
+
 		std::vector<float> Shrek1(3, 0);
 		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0, Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final, 0.0, Shrek1[0], Shrek1[1], Shrek1[2], true));
-
+		*/
 	}
 	else if (lvl == 3) {
 		MAX_COLUMNA = 20;

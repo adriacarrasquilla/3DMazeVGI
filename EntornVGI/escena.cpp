@@ -760,7 +760,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		//Terra del laberint
 		glPushMatrix();
 		glTranslatef(50.0f, 50.0f, -5.0f);
-		glScalef(MIDA_I * 8 * 5.0F, MIDA_J * 8 * 5.0F, 10.0f);
+		glScalef(MIDA_I * 12 * 5.0F, MIDA_J * 12 * 5.0F, 10.0f);
 		glutSolidCube(1.0);
 		glPopMatrix();
 
