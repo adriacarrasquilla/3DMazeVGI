@@ -76,6 +76,7 @@ void drawStrokeText(const char* string, int x, int y, int z)
 }
 
 Leaderboard leaderboard;
+float y = 0.15;
 int puntuacio = 0;
 float temps = 0.0;
 float temps_final = 0.0;
@@ -633,6 +634,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			i_v = true;
 			begin_time = clock();
 			tp = 0.0;
+			
 			leaderboard.set_const_valor(800);
 		}
 		else if (i && musica == 0 && lvl == 4) {
@@ -650,6 +652,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			i_v = true;
 			begin_time = clock();
 			tp = 0.0;
+			
 			leaderboard.set_const_valor(1000);
 		}
 		else if (i_v && musica == 1) {
@@ -946,6 +949,40 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				glColor3f(.0f, 0.8f, .0f);
 				drawBitmapText(cstr_punts, -0.15, 0.5, -2);
 				glPopMatrix();
+				temps_menu++;
+			}
+			else if (temps_menu >= 700 && temps_menu < 1400) {
+				bool yepale = true;
+				for (int j = 0; j < leaderboard.m_leaderboard.size(); j++) {
+					if (puntuacio == leaderboard.m_leaderboard[j] && yepale) {
+						glPushMatrix();
+						glLoadIdentity();
+						glColor3f(1.0f, 1.0f, 1.0f);
+						drawBitmapText("ETS UN PUTO CRACK, HAS ENTRAT AL LEADERBOARD!!\n", -0.15, 0.5, -2);
+						glPopMatrix();
+
+						glPushMatrix();
+						glLoadIdentity();
+						glColor3f(.5f, .0f, .0f);
+						std::string punts = std::to_string(j + 1) + ".    " + std::to_string(leaderboard.m_leaderboard[j]) + "\n";
+						const char* cstr_punts = punts.c_str();
+						drawBitmapText(cstr_punts, -0.3, y, -2);
+						glPopMatrix();
+						yepale = false;
+					}
+					else {
+						glPushMatrix();
+						glLoadIdentity();
+						glColor3f(.1f, .1f, .1f);
+						std::string punts = std::to_string(j + 1) + ".    " + std::to_string(leaderboard.m_leaderboard[j]) + "\n";
+						const char* cstr_punts = punts.c_str();
+						drawBitmapText(cstr_punts, -0.3, y, -2);
+						glPopMatrix();
+					}
+					y -= 0.05;
+				}
+				y = 0.15;
+				temps_menu++;
 			}
 			else {
 				glPushMatrix();

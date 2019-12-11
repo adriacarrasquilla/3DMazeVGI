@@ -1,43 +1,24 @@
-﻿  EntornVGI.cpp
-  EntornVGIView.cpp
-  escena.cpp
-  visualitzacio.cpp
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(395,21): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(405,21): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(395,21): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(405,21): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(225,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(263,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(276,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(284,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(455,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(466,21): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(489,22): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(492,21): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(518,20): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(395,21): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(405,21): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(727,21): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(730,21): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(819,21): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(820,11): warning C4477:  'printf' : la cadena de formato '%d' requiere un argumento de tipo 'int', pero el argumento variádico 1 tiene el tipo 'double'
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(395,21): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(405,21): warning C4018:  '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\EntornVGIView.cpp(2962,21): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\EntornVGIView.cpp(3001,21): warning C4018:  '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(169): warning C4172:  devolución de dirección de la variable local o temporal: colXY
+﻿  escena.cpp
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(366,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(379,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(226,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(264,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(277,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(285,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(456,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(467,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(490,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(493,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(519,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(730,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(733,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(822,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(823,11): warning C4477: 'printf' : la cadena de formato '%d' requiere un argumento de tipo 'int', pero el argumento variádico 1 tiene el tipo 'double'
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(956,23): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(170): warning C4172: devolución de dirección de la variable local o temporal: colXY
 LINK : warning LNK4075: se omite '/INCREMENTAL' debido a la especificación '/FORCE'
 EntornVGIView.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
@@ -51,14 +32,9 @@ EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorit
 EntornVGIView.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "void __cdecl movimentShrek(float * const,bool * const,float * const,float,float,bool)" (?movimentShrek@@YAXQAMQA_N0MM_N@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "void __cdecl circularMovimentShrek(float * const,bool * const,float * const,bool)" (?circularMovimentShrek@@YAXQAMQA_N0_N@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "class irrklang::ISoundEngine * SoundEngine" (?SoundEngine@@3PAVISoundEngine@irrklang@@A) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "class irrklang::ISoundSource * soSalt" (?soSalt@@3PAVISoundSource@irrklang@@A) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-EntornVGIView.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "float angle" (?angle@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
@@ -71,14 +47,9 @@ escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::ope
 escena.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "void __cdecl movimentShrek(float * const,bool * const,float * const,float,float,bool)" (?movimentShrek@@YAXQAMQA_N0MM_N@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "void __cdecl circularMovimentShrek(float * const,bool * const,float * const,bool)" (?circularMovimentShrek@@YAXQAMQA_N0_N@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "class irrklang::ISoundEngine * SoundEngine" (?SoundEngine@@3PAVISoundEngine@irrklang@@A) ya se definió en EntornVGI.obj; segunda definición omitida
 escena.obj : warning LNK4006: "class irrklang::ISoundSource * soSalt" (?soSalt@@3PAVISoundSource@irrklang@@A) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-escena.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 glut_font.obj : warning LNK4006: "struct tagSFG_State fgState" (?fgState@@3UtagSFG_State@@A) ya se definió en escena.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
@@ -92,14 +63,9 @@ visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorit
 visualitzacio.obj : warning LNK4006: "bool __cdecl objl::algorithm::SameSide(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?SameSide@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "struct objl::Vector3 __cdecl objl::algorithm::GenTriNormal(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?GenTriNormal@algorithm@objl@@YA?AUVector3@2@U32@00@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "bool __cdecl objl::algorithm::inTriangle(struct objl::Vector3,struct objl::Vector3,struct objl::Vector3,struct objl::Vector3)" (?inTriangle@algorithm@objl@@YA_NUVector3@2@000@Z) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "void __cdecl movimentShrek(float * const,bool * const,float * const,float,float,bool)" (?movimentShrek@@YAXQAMQA_N0MM_N@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "void __cdecl circularMovimentShrek(float * const,bool * const,float * const,bool)" (?circularMovimentShrek@@YAXQAMQA_N0_N@Z) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "class irrklang::ISoundEngine * SoundEngine" (?SoundEngine@@3PAVISoundEngine@irrklang@@A) ya se definió en EntornVGI.obj; segunda definición omitida
 visualitzacio.obj : warning LNK4006: "class irrklang::ISoundSource * soSalt" (?soSalt@@3PAVISoundSource@irrklang@@A) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "float Posicio_x_inicial" (?Posicio_x_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "float Posicio_y_inicial" (?Posicio_y_inicial@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "float Posicio_x_final" (?Posicio_x_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
-visualitzacio.obj : warning LNK4006: "float Posicio_y_final" (?Posicio_y_final@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
      Creando biblioteca C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.lib y objeto C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.exp
 C:\Users\miki_\source\repos\3DMazeVGI\Debug\EntornVGI.exe : warning LNK4088: la imagen se está generando debido a la opción /FORCE; quizá la imagen no se pueda ejecutar
 glew32s.lib(glew.obj) : warning LNK4099: no se encontró PDB 'vc120.pdb' con 'glew32s.lib(glew.obj)' o en 'C:\Users\miki_\source\repos\3DMazeVGI\Debug\vc120.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
