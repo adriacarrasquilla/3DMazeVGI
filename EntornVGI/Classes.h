@@ -269,11 +269,11 @@ public:
 
 
 //Moviment shreck == -5
-float Posicio_x_inicial = 4 * x * 1;
-float Posicio_y_inicial = 4 * x * 2;
+float Posicio_x_inicial = 0;
+float Posicio_y_inicial = 0;
 
-float Posicio_x_final = 4 * x * 4;
-float Posicio_y_final = 4 * x * 2;
+float Posicio_x_final = 0;
+float Posicio_y_final = 0;
 
 void movimentShrek(float moviment[], bool movDir[], float rotShrek[], float posicioIniciY, float posicioFinalY, bool pausa)
 {
@@ -305,8 +305,8 @@ void circularMovimentShrek(float moviment[], bool movDir[], float rotShrek[], bo
 {
 	if (!pausa) {
 
-		moviment[0] -= 0.2 * cos(angle);
-		moviment[1] -= 0.2 * sin(angle);
+		moviment[0] -= 0.1 * cos(angle);
+		moviment[1] -= 0.1 * sin(angle);
 
 
 		if (angle >= 360)
@@ -424,14 +424,17 @@ public:
 class Leaderboard {
 
 public:
-	
+	Leaderboard();
+	Leaderboard(int vides, float temps, int const_valor, int nivell) { m_vides = vides; m_temps = temps; m_CONST_VALOR = const_valor; };
 	~Leaderboard() { m_leaderboard.clear(); };
 
 	int m_CONST_VALOR;
+	int m_vides;
+	float m_temps;
 	int m_puntuacio;
 	std::string m_path_leaderboard;
 	std::vector<int> m_leaderboard;
-	void set_const_valor(int const_valor) { m_CONST_VALOR = const_valor; }
+
 	//Carrega el fitxer de dades leaderboard a partir d'un nivell seleccionat
 	void set_leaderboard(int nivell) {
 		if (nivell == 1) m_path_leaderboard = "res/leaderboard1.txt";
@@ -441,18 +444,15 @@ public:
 	}
 
 	//Funció que calcula els punts un cop s'ha acabat la partida. SI MORT (VIDES = 0) -> PUNTUACIO = 0
-	int calcula_punts(int vides, float temps) 
+	void calcula_punts() 
 	{
-		m_puntuacio = vides * m_CONST_VALOR - temps;
+		m_puntuacio = m_vides * m_CONST_VALOR - m_temps;
 		if (m_puntuacio < 0) m_puntuacio = m_CONST_VALOR;
-		return m_puntuacio;
-	}
+	};
 
 	/*Inicialitza la leaderboard cada cop que s'encen el joc.*/
-	void init_leaderboard(int nivell) 
+	void init_leaderboard() 
 	{
-		set_leaderboard(nivell);
-
 		std::string score;
 		
 		std::ifstream fitxer;
@@ -465,7 +465,7 @@ public:
 			}
 			fitxer.close();
 		}
-	}
+	};
 
 	/*ACTUALITZA LA LEADERBOARD EN CAS QUE M_PUNTUACIO SIGUI UN RECORD*/
 	void actualitza_leaderboard() 
@@ -481,6 +481,6 @@ public:
 		for (int score : m_leaderboard) fitxer << std::to_string(score) << std::endl;
 		fitxer.close();
 
-	}
+	};
 
 };
