@@ -335,7 +335,6 @@ public:
 		{
 			//Translació inicial + moviment
 			glTranslatef( m_posicioIniciX + m_moviment[0],m_posicioIniciY + m_moviment[1], m_posicioZ + m_moviment[2]);
-			//m_pos_x = m_posicioIniciY + m_moviment[0]; m_pos_y = m_posicioIniciX + m_moviment[1]; m_pos_z = m_posicioZ + m_moviment[2];
 			//Rotació inicial
 			glRotatef(90, 1, 0, 0);
 			//si es mou en vertical
@@ -346,8 +345,7 @@ public:
 		else
 		{
 			//Translació inicial + moviment
-			glTranslatef(m_posicioIniciY + m_moviment[0], m_posicioIniciX + m_moviment[1], m_posicioZ + m_moviment[2]);
-			m_pos_x = m_posicioIniciY + m_moviment[0]; m_pos_y = m_posicioIniciX + m_moviment[1]; m_pos_z = m_posicioZ + m_moviment[2];
+			glTranslatef(m_posicioIniciX + m_moviment[0], m_posicioIniciY + m_moviment[1], m_posicioZ + m_moviment[2]);
 			//Rotació inicial
 			glRotatef(90, 1, 0, 0);
 			//si es mou en vertical
@@ -421,20 +419,19 @@ public:
 				if (m_movDir[0] == true)
 				{
 					m_moviment[0] += 0.2;
-					if (m_moviment[0] + m_posicioIniciY > m_posicioFinalY)
+					if (m_moviment[0]  > m_posicioFinalX- m_posicioIniciX)
 					{
 						m_movDir[0] = false;
-						m_rotShrek[0] = -1;
+						m_rotShrek[1] = -1;
 					}
 				}
 				else
 				{
 					m_moviment[0] -= 0.2;
-					if (m_moviment[0] < 0)
+					if ( m_moviment[0] < 0)
 					{
 						m_movDir[0] = true;
-						m_rotShrek[0] = 1;
-						m_moviment[0] = 0;
+						m_rotShrek[1] = 1;
 					}
 				}
 			}
