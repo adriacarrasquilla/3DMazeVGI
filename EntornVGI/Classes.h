@@ -475,7 +475,10 @@ public:
 		return m_puntuacio;
 	}
 
-	void init_lead(int nivell) {
+
+	/*Inicialitza la leaderboard cada cop que s'encen el joc.*/
+	void init_leaderboard(int nivell)
+	{
 		set_leaderboard(nivell);
 
 		std::string score;
@@ -483,22 +486,13 @@ public:
 		std::ifstream fitxer;
 
 		fitxer.open(m_path_leaderboard);
-
+		m_leaderboard.clear();
 		if (fitxer.is_open()) {
 			while (getline(fitxer, score)) {
 				m_leaderboard.push_back(stoi(score));
 			}
 			fitxer.close();
 		}
-	}
-
-	/*Inicialitza la leaderboard cada cop que s'encen el joc.*/
-	void init_leaderboard(int nivell)
-	{
-		if (!init_1 && nivell == 1) { m_leaderboard.clear();  init_1 = true; init_lead(nivell); }
-		else if (!init_2 && nivell == 2) { m_leaderboard.clear(); init_2 = true; init_lead(nivell); }
-		else if (!init_3 && nivell == 3) { m_leaderboard.clear(); init_3 = true; init_lead(nivell); }
-		else if (!init_4 && nivell == 4) { m_leaderboard.clear(); init_4 = true;  init_lead(nivell); }
 
 	}
 
