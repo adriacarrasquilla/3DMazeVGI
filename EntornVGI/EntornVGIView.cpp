@@ -953,25 +953,18 @@ void CEntornVGIView::configura_Escena() {
 	// Aplicar Transformacions Geometriques segons persiana Transformacio i Quaternions
 	instancia(transf, TG, TGF);
 }
-bool once = true; //Sorry per la chapuza. -Uri
+
 // dibuixa_Escena: Funcio que crida al dibuix dels diferents elements de l'escana
 void CEntornVGIView::dibuixa_Escena() {
 
 	//	Dibuix geometria de l'escena amb comandes GL.
 	
-	/*if (once)
-	{
-		memset(&movimentShrek[0][0], 0.0, sizeof(movimentShrek));
-		memset(&movDir[0][0], 0, sizeof(movDir));
-		memset(&rotacioShrek[0][0], 0, sizeof(rotacioShrek));
-		once = false;
-	}*/
 	
 
 	bool animacioMurQueCauInici = false;
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
 		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader,
-		movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes, 
+		movimentShrek, movDir, rotacioShrek, movimentShrek2, movDir2, rotShrek2, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes,
 		MidaLaberint_Fila, MidaLaberint_Columna, musica, pausa, lvl, changeLvl, v_Shreks, menu);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],

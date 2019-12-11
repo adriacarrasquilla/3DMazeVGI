@@ -305,8 +305,8 @@ void circularMovimentShrek(float moviment[], bool movDir[], float rotShrek[], bo
 {
 	if (!pausa) {
 
-		moviment[0] -= 0.1 * cos(angle);
-		moviment[1] -= 0.1 * sin(angle);
+		moviment[0] -= 0.2 * cos(angle);
+		moviment[1] -= 0.2 * sin(angle);
 
 
 		if (angle >= 360)

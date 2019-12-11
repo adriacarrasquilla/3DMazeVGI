@@ -558,7 +558,7 @@ void HUDSquare()
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
 	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader[],
-	float movimentShrek[], bool movDir[], float rotShrek[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales,
+	float movimentShrek[], bool movDir[], float rotShrek[], float movimentShrek2[], bool movDir2[], float rotShrek2[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales,
 	int lifes, int MIDA_I, int MIDA_J, int musica, bool pausa, char lvl, bool& changeLvl, std::vector<Shrek> v_Shreks, bool& menu)
 {
 	float altfar = 0;
@@ -841,11 +841,21 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		float Shrek2[3];
 		Shrek derrota(&loader[0], noMov, movDir, noRot, texturID, 2, 77.5, 120.0, 77.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], true);
 		derrota.pinta(pausa);
-
-
+		//Shrek(objl::Loader* loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ, float& pos_x, float& pos_y, float& pos_z, bool ori)
+		bool test[] = { false, false, false };
+		float test2[] = { 0,1,0 };
+		Shrek victoria(&loader[0], movimentShrek2, movDir2, rotShrek2, texturID, 1, 72.5, 120.0, 72.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], true);
+		victoria.pinta(pausa);
 		//Altres objectes
-		tauleta(loader[2], texturID, -40.0, -1.0, -1.0);
-		globus(loader[3], texturID, -40, -1.0, 10.0, 0.345f, 0.608f, 0.0f);
+		tauleta(loader[2], texturID, 70.5, 75, -57.5);
+		globus(loader[3], texturID, 54.5, 75, -50, 1.0f, 0.0f, 0.0f);
+		globus(loader[3], texturID, 59.5, 75, -50, 1.0f, 0.5f, 0.0f);
+		globus(loader[3], texturID, 64.5, 75, -50, 1.0f, 1.0f, 0.0f);
+		globus(loader[3], texturID, 69.5, 75, -50, 0.0f, 1.0f, 0.0f);
+		globus(loader[3], texturID, 74.5, 75, -50, 0.0f, 0.0f, 1.0f);
+		globus(loader[3], texturID, 79.5, 75, -50, 0.25f, 0.0f, 0.5f);
+		globus(loader[3], texturID, 84.5, 75, -50, 0.5f, 0.0f, 1.0f);
+		
 
 		//eventfinal.pinta();
 
