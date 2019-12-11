@@ -953,25 +953,18 @@ void CEntornVGIView::configura_Escena() {
 	// Aplicar Transformacions Geometriques segons persiana Transformacio i Quaternions
 	instancia(transf, TG, TGF);
 }
-bool once = true; //Sorry per la chapuza. -Uri
+
 // dibuixa_Escena: Funcio que crida al dibuix dels diferents elements de l'escana
 void CEntornVGIView::dibuixa_Escena() {
 
 	//	Dibuix geometria de l'escena amb comandes GL.
 	
-	/*if (once)
-	{
-		memset(&movimentShrek[0][0], 0.0, sizeof(movimentShrek));
-		memset(&movDir[0][0], 0, sizeof(movDir));
-		memset(&rotacioShrek[0][0], 0, sizeof(rotacioShrek));
-		once = false;
-	}*/
 	
 
 	bool animacioMurQueCauInici = false;
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
 		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader,
-		movimentShrek, movDir, rotacioShrek, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes, 
+		movimentShrek, movDir, rotacioShrek, movimentShrek2, movDir2, rotShrek2, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes,
 		MidaLaberint_Fila, MidaLaberint_Columna, musica, pausa, lvl, changeLvl, v_Shreks, menu);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
@@ -3612,14 +3605,14 @@ std::vector<Mur> CEntornVGIView::initMurs() {
 	*/
 	//_______________________________________________________LEVEL 1____________________________________________________________________
 int matriuLvl1[15][10] ={ {  1,-1, 1, 1, 1, 1, 1, 1, 1, 1},
-							{-3, 0,-4, 0, 0,-4, 0,-4, 0,-3},
-						    {0,-4, 0,-4, 0, 0, 0,-4, 0, 0},
+							{0, 0,-4, 0, 0,-4, 0,-4, 0, 0},
+							{0, 0, 0,-4, 0, 0, 0,-4, 0, 0},
 							{1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
-							{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-							{0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
-							{0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 							{0,-6, 0, 0, 0,-6, 0, 0, 0, 0},
 							{0, 0, 0,-6, 0, 0, 0,-6, 0, 0},
+							{0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+							{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+							{0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ,
 							{1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
 							{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 							{0, 1, 0, 1, 0, 1, 0, 1, 1,-3},
@@ -3695,8 +3688,7 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-5,
 	
 	vector<vector<int>> matriuLaberint;
 
-	if (lvl == 1) 
-	{
+	if (lvl == 1) {
 		MAX_COLUMNA = 15;
 		MAX_FILA = 10;
 		matriuLaberint = vector<vector<int>>(MAX_COLUMNA, vector<int>(MAX_FILA, 0));
@@ -3705,19 +3697,8 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-5,
 				matriuLaberint[i][j] = matriuLvl1[i][j];
 		}
 		std::vector<float> Shrek1(3, 0);
-
-		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
-			50, 101, 76, 101, 0.0, Shrek1[0], Shrek1[1], Shrek1[2], true));
-
-		float movimentShrekAux[3] = { 0, 0, 0 };
-		bool movDirAux[3] = { false, false, false };
-		float rotacioShrekAux[3] = { 0, 0, 0 };
-		v_Shreks.push_back(Shrek(&loader[0], movimentShrekAux, movDirAux, rotacioShrekAux, texturesID, 0,
-			110, 86, 156.5, 86, 0.0, Shrek1[0], Shrek1[1], Shrek1[2], true));
-
-		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
-			172.5, 202, 30, 202, 0.0, Shrek1[0], Shrek1[1], Shrek1[2], true));
-
+		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0, Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final, 0.0, Shrek1[0], Shrek1[1], Shrek1[2], true));
+	
 	}else if(lvl ==2) {
 		MAX_COLUMNA = 14;
 		MAX_FILA = 12;

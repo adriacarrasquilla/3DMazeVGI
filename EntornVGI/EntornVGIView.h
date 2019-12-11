@@ -196,6 +196,10 @@ public:
 	float movimentShrek[3] = { 0, 0, 0 };
 	bool movDir[3] = { false, false, false };
 	float rotacioShrek[3] = { 0, 0, 0 };
+
+	float movimentShrek2[3] = { 0, 0, 0 };
+	bool movDir2[3] = { false, false, false };
+	float rotShrek2[3] = { 0, 0, 0 };
 	//FI SHREK
 	objl::Loader loader[10];
 	Event eventfinal;
