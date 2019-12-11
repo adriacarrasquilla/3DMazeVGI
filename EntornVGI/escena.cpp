@@ -75,6 +75,8 @@ void drawStrokeText(const char* string, int x, int y, int z)
 	glPopMatrix();
 }
 
+Leaderboard leaderboard;
+int puntuacio = 0;
 float temps = 0.0;
 float temps_final = 0.0;
 float temps_pausa = 0.0;
@@ -595,6 +597,9 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			changeLvl = false;
 			i_d = true;
 			i_v = true;
+			if (!reset_clock) begin_time = clock();
+			tp = 0.0;
+			leaderboard.set_const_valor(300);
 		}
 		else if (i && musica == 0 && lvl == 2) {
 			SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
@@ -609,6 +614,9 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			changeLvl = false;
 			i_d = true;
 			i_v = true;
+			begin_time = clock();
+			tp = 0.0;
+			leaderboard.set_const_valor(500);
 		}
 		else if (i && musica == 0 && lvl == 3) {
 			SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
@@ -623,6 +631,9 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			changeLvl = false;
 			i_d = true;
 			i_v = true;
+			begin_time = clock();
+			tp = 0.0;
+			leaderboard.set_const_valor(800);
 		}
 		else if (i && musica == 0 && lvl == 4) {
 			SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
@@ -637,6 +648,9 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			changeLvl = false;
 			i_d = true;
 			i_v = true;
+			begin_time = clock();
+			tp = 0.0;
+			leaderboard.set_const_valor(1000);
 		}
 		else if (i_v && musica == 1) {
 
@@ -649,7 +663,9 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			SoundEngine->stopAllSoundsOfSoundSource(soLvl4);
 
 			temps_final = float(clock() - begin_time + tp) / CLOCKS_PER_SEC;
-
+			leaderboard.init_leaderboard(lvl);
+			puntuacio = leaderboard.calcula_punts(lifes, temps_final);
+			leaderboard.actualitza_leaderboard();
 			i_v = false;
 		}
 		else if (i_d && musica == 2) {
@@ -912,6 +928,13 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				glLoadIdentity();
 				glColor3f(.0f, 0.8f, .0f);
 				drawBitmapText("VICTORIA\n", -0.15, 0, -2);
+				glPopMatrix();
+				std::string punts = "PUNTUACIO: " + std::to_string(puntuacio) + "\n";
+				const char* cstr_punts = punts.c_str();
+				glPushMatrix();
+				glLoadIdentity();
+				glColor3f(.0f, 0.8f, .0f);
+				drawBitmapText(cstr_punts, -0.15, 0.5, -2);
 				glPopMatrix();
 			}
 			else {

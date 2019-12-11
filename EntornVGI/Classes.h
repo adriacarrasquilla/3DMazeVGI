@@ -424,17 +424,14 @@ public:
 class Leaderboard {
 
 public:
-	Leaderboard();
-	Leaderboard(int vides, float temps, int const_valor, int nivell) { m_vides = vides; m_temps = temps; m_CONST_VALOR = const_valor; };
+	
 	~Leaderboard() { m_leaderboard.clear(); };
 
 	int m_CONST_VALOR;
-	int m_vides;
-	float m_temps;
 	int m_puntuacio;
 	std::string m_path_leaderboard;
 	std::vector<int> m_leaderboard;
-
+	void set_const_valor(int const_valor) { m_CONST_VALOR = const_valor; }
 	//Carrega el fitxer de dades leaderboard a partir d'un nivell seleccionat
 	void set_leaderboard(int nivell) {
 		if (nivell == 1) m_path_leaderboard = "res/leaderboard1.txt";
@@ -444,15 +441,18 @@ public:
 	}
 
 	//Funció que calcula els punts un cop s'ha acabat la partida. SI MORT (VIDES = 0) -> PUNTUACIO = 0
-	void calcula_punts() 
+	int calcula_punts(int vides, float temps) 
 	{
-		m_puntuacio = m_vides * m_CONST_VALOR - m_temps;
+		m_puntuacio = vides * m_CONST_VALOR - temps;
 		if (m_puntuacio < 0) m_puntuacio = m_CONST_VALOR;
-	};
+		return m_puntuacio;
+	}
 
 	/*Inicialitza la leaderboard cada cop que s'encen el joc.*/
-	void init_leaderboard() 
+	void init_leaderboard(int nivell) 
 	{
+		set_leaderboard(nivell);
+
 		std::string score;
 		
 		std::ifstream fitxer;
@@ -465,7 +465,7 @@ public:
 			}
 			fitxer.close();
 		}
-	};
+	}
 
 	/*ACTUALITZA LA LEADERBOARD EN CAS QUE M_PUNTUACIO SIGUI UN RECORD*/
 	void actualitza_leaderboard() 
@@ -481,6 +481,6 @@ public:
 		for (int score : m_leaderboard) fitxer << std::to_string(score) << std::endl;
 		fitxer.close();
 
-	};
+	}
 
 };
