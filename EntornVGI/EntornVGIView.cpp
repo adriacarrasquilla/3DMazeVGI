@@ -2549,7 +2549,7 @@ void CEntornVGIView::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	// TODO: Agregue aqu� su c�digo de controlador de mensajes o llame al valor predeterminado
 	// Entorn VGI: Desactivem flag m_ButoEAvall quan deixem d'apretar bot� esquerra del mouse.
-	m_ButoEAvall = false;
+	//m_ButoEAvall = false;
 
 	// OPCI� VISTA-->SAT�LIT: C�lcul increment despla�ament del Punt de Vista
 	if ((satelit) && (projeccio != ORTO))
@@ -2574,7 +2574,7 @@ void CEntornVGIView::OnRButtonDown(UINT nFlags, CPoint point)
 	// TODO: Agregue aqu� su c�digo de controlador de mensajes o llame al valor predeterminado
 	// Entorn VGI: Detectem en quina posici� s'ha apretat el bot� esquerra del
 	//				mouse i ho guardem a la variable m_PosEAvall i activem flag m_ButoDAvall
-	m_ButoDAvall = true;
+	//m_ButoDAvall = true;
 	m_PosDAvall = point;
 
 	CView::OnRButtonDown(nFlags, point);
@@ -3665,15 +3665,15 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 
 
 	int matriuLvl4[20][10] = { {0,0,0,-1,1,1,1,1,1,1},
-								{0,0,0,0,0,0,0,0,0,1},
-								{0,0,0,0,0,0,0,0,0,1},
-								{0,0,0,0,0,0,0,0,0,1},
-								{0,0,0,0,0,0,0,0,0,1},
-								{0,0,0,0,0,0,0,0,0,1},
-								{0,0,0,0,0,0,0,0,0,1},
-								{0,0,0,0,0,0,0,0,0,1},
-								{0,0,0,0,0,0,0,0,0,1},
-								{0,0,0,0,0,0,0,0,0,1},
+								{0,0,1,0,1,0,0,0,0,1},
+								{0,0,1,0,1,0,0,0,0,1},
+								{0,0,1,0,1,0,0,0,0,1},
+								{0,0,1,0,1,0,0,0,0,1},
+								{0,0,1,0,1,0,0,0,0,1},
+								{0,0,1,0,1,0,0,0,0,1},
+								{0,0,1,0,1,0,0,0,0,1},
+								{0,0,1,0,1,0,0,0,0,1},
+								{1,1,1,0,1,1,1,1,1,1},
 								{0,0,0,0,0,0,0,1,0,1},
 								{0,0,0,0,0,0,0,0,0,1},
 								{0,0,0,0,0,0,0,0,0,1},
@@ -3714,6 +3714,14 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 		float rotShrek2[3] = { 0, 0, 0 };
 		*/
 		
+		v_Shreks.clear();
+
+		movimentShrek[0] = 0.0;
+		movimentShrek[1] = 0.0;
+		movDir[0] = 0.0;
+		movDir[1] = 0.0;
+		rotacioShrek[0] = 0.0;
+		rotacioShrek[1] = 0.0;
 
 		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
 			 101, 60, 101, 100, 0.0, 0.0, 0.0, 0.0, true, true));
@@ -5438,10 +5446,10 @@ void CEntornVGIView::OnObjecteMur() // ES TRACTA COM SI FOS OnNivellsNivell1
 		llista_murs = initMurs();
 		sales_v_d = CreaSales();
 
-		opvNIni.x = -40.0;		opvNIni.y = 10.0;		opvNIni.z = 5.0;
+		opvNIni.x = 0.0;		opvNIni.y = 30.0;		opvNIni.z = 5.0;
 
 		n[0] = 0.0;		n[1] = 0.0;		n[2] = 5.0;
-		opvN.x = opvNIni.x;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
+		opvN.x = -40.0;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
 
 		Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
 		personatge = nou;
@@ -5518,10 +5526,10 @@ void CEntornVGIView::OnNivellsNivell2()
 	sales_v_d = CreaSales();
 	changeLvl = true;
 	
-	opvNIni.x = -44.0;		opvNIni.y = 129.0;		opvNIni.z = 5.0;
+	opvNIni.x = 0.0;		opvNIni.y = 130.0;		opvNIni.z = 5.0;
 
 	n[0] = 0.0;		n[1] = 0.0;		n[2] = 5.0;
-	opvN.x = opvNIni.x;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
+	opvN.x = -40.0;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
 	
 	Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
 	personatge = nou;
@@ -5598,10 +5606,10 @@ void CEntornVGIView::OnNivellsNivell3()
 	sales_v_d = CreaSales();
 	changeLvl = true;
 
-	opvNIni.x = -44.0;		opvNIni.y = 169.9;		opvNIni.z = 5.0;
+	opvNIni.x = 0.0;		opvNIni.y = 170;		opvNIni.z = 5.0;
 
 	n[0] = 0.0;		n[1] = 0.0;		n[2] = 5.0;
-	opvN.x = opvNIni.x;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
+	opvN.x = -40.0;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
 
 	Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
 	personatge = nou;
@@ -5669,7 +5677,7 @@ void CEntornVGIView::OnUpdateNivellsNivell3(CCmdUI* pCmdUI)
 void CEntornVGIView::OnNivellsNivell4()
 {
 	// TODO: Agregue aquí su código de controlador de comandos
-	//Inicialització murs //TEMARE
+	//Inicialització murs 
 	llumVermella = false;
 	musica = 0;
 	bloquejar_mov = false;
@@ -5678,10 +5686,10 @@ void CEntornVGIView::OnNivellsNivell4()
 	sales_v_d = CreaSales();
 	changeLvl = true;
 
-	opvNIni.x = 10.0;		opvNIni.y = 12.0;		opvNIni.z = 5.0;
+	opvNIni.x = 205.0;		opvNIni.y = 70.0;		opvNIni.z = 5.0;
 
 	n[0] = 0.0;		n[1] = 0.0;		n[2] = 5.0;
-	opvN.x = opvNIni.x;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
+	opvN.x = -42.0;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
 
 	Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
 	personatge = nou;

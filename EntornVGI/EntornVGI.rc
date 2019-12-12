@@ -532,7 +532,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDR_MAINFRAME           "Entorn Gràfic VS2019 amb OpenGL amb primitives GLUT (Escola Enginyeria - UAB)"
+    IDR_MAINFRAME           "3D MAZE"
     IDR_EntornVGITYPE       "\nEntornVGI\nEntornVGI\n\n\nEntornVGI.Document\nEntornVGI.Document"
     ID_WINDOW_MANAGER       "&Ventanas..."
 END
@@ -540,7 +540,7 @@ END
 STRINGTABLE
 BEGIN
     AFX_IDS_APP_TITLE       "EntornVGI"
-    AFX_IDS_IDLEMESSAGE     "Aplicació Gràfica VS2019 amb OpenGL amb primitives GLUT"
+    AFX_IDS_IDLEMESSAGE     " "
 END
 
 STRINGTABLE

@@ -4,7 +4,7 @@
 // EntornVGIView.h : interface of the CEntornVGI class
 //
 /////////////////////////////////////////////////////////////////////////////
-
+#define NDEBUG
 #pragma once
 
 #include "MainFrm.h"
