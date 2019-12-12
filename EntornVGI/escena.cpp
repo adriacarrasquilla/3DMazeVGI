@@ -556,6 +556,22 @@ void HUDSquare()
 	glPopMatrix();
 }
 
+
+void HUD_menu() {
+	//Cuadrat HUD
+	glPushMatrix();
+	glLoadIdentity();
+	glTranslatef(1.9, 1.29, -3);
+	glColor3f(0.1f, 0.1f, 0.1f);
+	glBegin(GL_QUADS);
+	glVertex3f(-1.3, -0.99, 0);
+	glVertex3f(-1.3, -1.5, 0);
+	glVertex3f(-2.5, -1.5, 0);
+	glVertex3f(-2.5, -0.99, 0);
+	glEnd();
+	glPopMatrix();
+}
+
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
 	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader[],
@@ -871,6 +887,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 		//HUD Quadrat
 		HUDSquare();
+		
 
 		//Una merda cap tot en la funcio
 		if (reset_clock) {
@@ -909,6 +926,8 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			glColor3f(.0f, .0f, .0f);
 			drawBitmapText(cstr_temps_pausa, 1.5, 1.09, -2);
 			glPopMatrix();
+
+			HUD_menu();
 
 			glPushMatrix();
 			glLoadIdentity();
@@ -989,6 +1008,8 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				temps_menu++;
 			}
 			else {
+
+				HUD_menu();
 				glPushMatrix();
 				glLoadIdentity();
 				glColor3f(1.0f, 1.0f, 1.0f);
@@ -1022,6 +1043,8 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				temps_menu++;
 			}
 			else {
+
+				HUD_menu();
 				glPushMatrix();
 				glLoadIdentity();
 				glColor3f(1.0f, 1.0f, 1.0f);
