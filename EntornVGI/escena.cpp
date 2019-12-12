@@ -586,6 +586,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		//if (!pausa) {
 		if (i && musica == 0 && lvl == 1) {
 			SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
+			SoundEngine->stopAllSoundsOfSoundSource(soVictoria);
 			SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
 			SoundEngine->stopAllSoundsOfSoundSource(soLvl2);
 			SoundEngine->stopAllSoundsOfSoundSource(soLvl3);
@@ -604,6 +605,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		}
 		else if (i && musica == 0 && lvl == 2) {
 			SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
+			SoundEngine->stopAllSoundsOfSoundSource(soVictoria);
 			SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
 			SoundEngine->stopAllSoundsOfSoundSource(soLvl2);
 			SoundEngine->stopAllSoundsOfSoundSource(soLvl3);
@@ -621,6 +623,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		}
 		else if (i && musica == 0 && lvl == 3) {
 			SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
+			SoundEngine->stopAllSoundsOfSoundSource(soVictoria);
 			SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
 			SoundEngine->stopAllSoundsOfSoundSource(soLvl2);
 			SoundEngine->stopAllSoundsOfSoundSource(soLvl3);
@@ -639,6 +642,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		}
 		else if (i && musica == 0 && lvl == 4) {
 			SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
+			SoundEngine->stopAllSoundsOfSoundSource(soVictoria);
 			SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
 			SoundEngine->stopAllSoundsOfSoundSource(soLvl2);
 			SoundEngine->stopAllSoundsOfSoundSource(soLvl3);
@@ -656,7 +660,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			leaderboard.set_const_valor(1000);
 		}
 		else if (i_v && musica == 1) {
-
+			SoundEngine->stopAllSoundsOfSoundSource(soVictoria);
 			SoundEngine->play2D(soVictoria, GL_TRUE);
 			SoundEngine->stopAllSoundsOfSoundSource(soAmbient);
 			SoundEngine->stopAllSoundsOfSoundSource(soDerrota);
