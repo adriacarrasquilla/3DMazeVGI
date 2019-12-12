@@ -1739,7 +1739,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 		personatge.m_y = 62.5;
 
 		opvN.x = 70;				opvN.y = 62.5;			opvN.z = -52.5;
-		n[0] = opvN.x + 5.0;		n[1] = opvN.y;			n[2] = opvN.z;
+		n[0] = opvN.x;		n[1] = opvN.y + 5.0;			n[2] = opvN.z;
 
 		musica = 1;
 		bloquejar_mov = true;
@@ -3761,6 +3761,8 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 				80, 131.5, 222, 131.5, 0.0, 0.0, 0.0, 0.0, true, false));
 			v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
 			100, 11, 222, 11, 0.0, 0.0, 0.0, 0.0, true, false));
+			v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+				86, 120, 86, 146.5, 0.0, 0.0, 0.0, 0.0, true, true));
 
 		}
 	}

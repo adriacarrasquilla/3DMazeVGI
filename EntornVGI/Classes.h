@@ -354,7 +354,6 @@ public:
 			//Rotació inicial
 			glRotatef(90, 1, 0, 0);
 			//si es mou en vertical
-			glRotatef(90, 0, 1, 0);
 			//Rotació depenent moviment
 			glRotatef(90, 0 + m_rotShrek[0], 0 + m_rotShrek[1], 0 + m_rotShrek[2]);
 		}
