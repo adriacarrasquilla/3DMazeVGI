@@ -293,15 +293,20 @@ public:
 
 	bool m_direccioHoritzontal=true;
 public:
-	Shrek(objl::Loader* loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, 
+	Shrek(objl::Loader* loader, int texturID[], int tipusMov, 
 		float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, 
 		float posicioZ, float pos_x, float pos_y, float pos_z, bool ori, bool direccioHoritzontal=true)
 	{
 
 		m_loader = loader;
-		m_moviment = moviment;
-		m_movDir = movDir;
-		m_rotShrek = rotShrek;
+		m_moviment = new float[3]{ 0,0,0 };
+		m_movDir = new bool[3]{ false,false,false };
+		if (tipusMov > 1) {
+			m_rotShrek = new float[3]{ 0.0,-1.0,0.0 };
+		}
+		else {
+			m_rotShrek = new float[3]{ 0.0,0.0,0.0 };
+		}
 		m_texturID = texturID;
 		m_tipusMov = tipusMov;
 		m_posicioIniciX = posicioIniciX;

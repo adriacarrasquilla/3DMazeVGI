@@ -877,12 +877,12 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		float noMov[3] = { 0.0, 0.0, 0.0 };
 		float noRot[3] = { 0.0, -1.0, 0.0 };
 		float Shrek2[3];
-		Shrek derrota(&loader[0], noMov, movDir, noRot, texturID, 2, 77.5, 120.0, 77.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], true);
+		Shrek derrota(&loader[0], texturID, 2, 77.5, 120.0, 77.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], true);
 		derrota.pinta(pausa);
 		//Shrek(objl::Loader* loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ, float& pos_x, float& pos_y, float& pos_z, bool ori)
 		bool test[] = { false, false, false };
 		float test2[] = { 0,1,0 };
-		Shrek victoria(&loader[0], movimentShrek2, movDir2, rotShrek2, texturID, 1, 72.5, 120.0, 72.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], true);
+		Shrek victoria(&loader[0], texturID, 1, 72.5, 120.0, 72.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], true);
 		victoria.pinta(pausa);
 		//Altres objectes
 		tauleta(loader[2], texturID, 70.5, 75, -57.5);

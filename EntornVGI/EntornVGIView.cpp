@@ -3723,14 +3723,21 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 		rotacioShrek[0] = 0.0;
 		rotacioShrek[1] = 0.0;
 
-		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+		movimentShrek2[0] = 0.0;
+		movimentShrek2[1] = 0.0;
+		movDir2[0] = 0.0;
+		movDir2[1] = 0.0;
+		rotShrek2[0] = 0.0;
+		rotShrek2[1] = 0.0;
+
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
 			 101, 60, 101, 100, 0.0, 0.0, 0.0, 0.0, true, true));
 		
-		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
 			86, 120, 86, 146.5, 0.0, 0.0, 0.0, 0.0, true, true));
 
-		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
-			202, 90, 202, 176.5, 0.0, 0.0, 0.0, 0.0, true, true));
+		//v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+			//202, 90, 202, 176.5, 0.0, 0.0, 0.0, 0.0, true, true));
 		
 	}
 	else if (lvl == 2) {
@@ -3750,9 +3757,9 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 			rotacioShrek[0] = 0.0;
 			rotacioShrek[1] = 0.0;
 
-			v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+			v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
 				80, 131.5, 222, 131.5, 0.0, 0.0, 0.0, 0.0, true, false));
-			v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+			v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
 			100, 11, 222, 11, 0.0, 0.0, 0.0, 0.0, true, false));
 
 		}
@@ -3775,15 +3782,15 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 		rotacioShrek[0] = 0.0;
 		rotacioShrek[1] = 0.0;
 
-		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
 			122, 126, 122, 214, 0.0, 0.0, 0.0, 0.0, true, true));
-		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
 			243, 206, 243, 290.1, 0.0, 0.0, 0.0, 0.0, true, true));
-		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
 			282.5, 170, 282.5, 327, 0.0, 0.0, 0.0, 0.0, true, true));
-		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
 			361, 6, 361, 195, 0.0, 0.0, 0.0, 0.0, true, true));
-		v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
 			361, 107, 361, 160, 0.0, 0.0, 0.0, 0.0, true, true));
 
 	}
@@ -5439,6 +5446,8 @@ void CEntornVGIView::OnObjecteMur() // ES TRACTA COM SI FOS OnNivellsNivell1
 	musica = 0;
 	bloquejar_mov = false;
 	lvl = 1;
+	punxesAnimadetes.clear();
+	eventsMursBaixada.clear();
 	if (lvl == 1) 
 	{
 		lvl = 1;
@@ -5522,6 +5531,8 @@ void CEntornVGIView::OnNivellsNivell2()
 	musica = 0;
 	bloquejar_mov = false;
 	lvl = 2;
+	punxesAnimadetes.clear();
+	eventsMursBaixada.clear();
 	llista_murs = initMurs();
 	sales_v_d = CreaSales();
 	changeLvl = true;
@@ -5602,6 +5613,8 @@ void CEntornVGIView::OnNivellsNivell3()
 	musica = 0;
 	bloquejar_mov = false;
 	lvl = 3;
+	eventsMursBaixada.clear();
+	punxesAnimadetes.clear();
 	llista_murs = initMurs();
 	sales_v_d = CreaSales();
 	changeLvl = true;
@@ -5682,6 +5695,8 @@ void CEntornVGIView::OnNivellsNivell4()
 	musica = 0;
 	bloquejar_mov = false;
 	lvl = 4;
+	eventsMursBaixada.clear();
+	punxesAnimadetes.clear();
 	llista_murs = initMurs();
 	sales_v_d = CreaSales();
 	changeLvl = true;
