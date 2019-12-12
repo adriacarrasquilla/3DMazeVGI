@@ -459,6 +459,8 @@ void punxes(std::vector<Mur> punxesAnimadetes, objl::Loader loader)
 		float x = punxesAnimadetes[i].m_x;
 		float y = punxesAnimadetes[i].m_y;
 		float z = punxesAnimadetes[i].m_z;
+		glPushAttrib(GL_CURRENT_BIT);
+		glColor3f(0.7f, 0.1f, 0.1f);
 		glTranslatef(x, y, z);
 		glRotatef(90, 1, 0, 0);
 		glScalef(0.001f, 0.001f, 0.001f);
@@ -469,7 +471,7 @@ void punxes(std::vector<Mur> punxesAnimadetes, objl::Loader loader)
 			glVertex3f(loader.LoadedVertices[i].Position.X, loader.LoadedVertices[i].Position.Y, loader.LoadedVertices[i].Position.Z);
 		}
 		glEnd();
-
+		glPopAttrib();
 		glPopMatrix();
 	}
 }
@@ -798,7 +800,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		//Terra del laberint
 		glPushMatrix();
 		glTranslatef(50.0f, 50.0f, -5.0f);
-		glScalef(MIDA_I * 12 * 5.0F, MIDA_J * 12 * 5.0F, 10.0f);
+		glScalef(MIDA_I * 20 * 5.0F, MIDA_J * 12 * 5.0F, 10.0f);
 		glutSolidCube(1.0);
 		glPopMatrix();
 

@@ -219,7 +219,7 @@ CEntornVGIView::CEntornVGIView()
 	hgrid.x = 0.0;	hgrid.y = 0.0;	hgrid.z = 0.0;		hgrid.w = 0.0;
 
 	// Entorn VGI: Variables opci� Vista->Pan
-	fact_pan = 3;
+	fact_pan = 2;
 	tr_cpv.x = 0;	tr_cpv.y = 0;	tr_cpv.z = 0;		tr_cpvF.x = 0;	tr_cpvF.y = 0;	tr_cpvF.z = 0;
 
 	// Entorn VGI: Variables de control de l'opci� Vista->Navega?
@@ -3758,11 +3758,9 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 			rotacioShrek[1] = 0.0;
 
 			v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
-				80, 131.5, 222, 131.5, 0.0, 0.0, 0.0, 0.0, true, false));
+				80, 131.5, 222, 131.5, 0.0, 0.0, 0.0, 0.0, false, false));
 			v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
-			100, 11, 222, 11, 0.0, 0.0, 0.0, 0.0, true, false));
-			v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
-				86, 120, 86, 146.5, 0.0, 0.0, 0.0, 0.0, true, true));
+			100, 11, 222, 11, 0.0, 0.0, 0.0, 0.0, false, false));
 
 		}
 	}

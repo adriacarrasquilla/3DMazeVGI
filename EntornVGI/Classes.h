@@ -314,9 +314,9 @@ public:
 		m_posicioFinalX = posicioFinalX;
 		m_posicioFinalY = posicioFinalY;
 		m_posicioZ = posicioZ;
-		m_pos_x = pos_x;
-		m_pos_y = pos_y;
-		m_pos_z = pos_z;
+		m_pos_x = 0;
+		m_pos_y = 0;
+		m_pos_z = 0;
 		m_ori = ori;
 
 		m_direccioHoritzontal = direccioHoritzontal;
@@ -340,6 +340,7 @@ public:
 		{
 			//Translació inicial + moviment
 			glTranslatef( m_posicioIniciX + m_moviment[0],m_posicioIniciY + m_moviment[1], m_posicioZ + m_moviment[2]);
+			m_pos_x = m_posicioIniciX + m_moviment[0]; m_pos_y = m_posicioIniciY + m_moviment[1]; m_posicioZ + m_moviment[2];
 			//Rotació inicial
 			glRotatef(90, 1, 0, 0);
 			//si es mou en vertical
@@ -351,6 +352,7 @@ public:
 		{
 			//Translació inicial + moviment
 			glTranslatef(m_posicioIniciX + m_moviment[0], m_posicioIniciY + m_moviment[1], m_posicioZ + m_moviment[2]);
+			m_pos_x = m_posicioIniciX + m_moviment[0]; m_pos_y = m_posicioIniciY + m_moviment[1]; m_posicioZ + m_moviment[2];
 			//Rotació inicial
 			glRotatef(90, 1, 0, 0);
 			//si es mou en vertical
