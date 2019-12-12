@@ -572,6 +572,21 @@ void HUD_menu() {
 	glPopMatrix();
 }
 
+void HUD_lb() {
+	//Cuadrat HUD
+	glPushMatrix();
+	glLoadIdentity();
+	glTranslatef(1.9, 1.29, -3);
+	glColor3f(0.6f, 0.6f, 0.6f);
+	glBegin(GL_QUADS);
+	glVertex3f(-1.7, -0.85, 0);
+	glVertex3f(-1.7, -2, 0);
+	glVertex3f(-2.5, -2, 0);
+	glVertex3f(-2.5, -0.85, 0);
+	glEnd();
+	glPopMatrix();
+}
+
 // dibuixa_EscenaGL: Dibuix de l'escena amb comandes GL
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
 	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader[],
@@ -941,7 +956,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			glPopMatrix();
 		}
 
-		/*HUD VIDES*/
+		/*VIDES*/
 		glPushMatrix();
 		glLoadIdentity();
 		glColor3f(1.0f, 1.0f, 1.0f);
@@ -978,15 +993,18 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				bool yepale = true;
 				for (int j = 0; j < leaderboard.m_leaderboard.size(); j++) {
 					if (puntuacio == leaderboard.m_leaderboard[j] && yepale) {
+						
+						HUD_lb();
+						
 						glPushMatrix();
 						glLoadIdentity();
 						glColor3f(1.0f, 1.0f, 1.0f);
-						drawBitmapText("ETS UN PUTO CRACK, HAS ENTRAT AL LEADERBOARD!!\n", -0.15, 0.5, -2);
+						drawBitmapText("ETS UN CRACK, HAS ENTRAT AL LEADERBOARD!!\n", -0.15, 0.5, -2);
 						glPopMatrix();
 
 						glPushMatrix();
 						glLoadIdentity();
-						glColor3f(.5f, .0f, .0f);
+						glColor3f(0.0f, 1.0f, 0.0f);
 						std::string punts = std::to_string(j + 1) + ".    " + std::to_string(leaderboard.m_leaderboard[j]) + "\n";
 						const char* cstr_punts = punts.c_str();
 						drawBitmapText(cstr_punts, -0.3, y, -2);
