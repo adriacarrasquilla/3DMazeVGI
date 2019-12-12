@@ -3664,27 +3664,27 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 	};
 
 
-	int matriuLvl4[20][10] = { {0,0,1,-1,1,1,1,1,1,1},
-								{0,0,1,0,1,0,0,0,0,1},
-								{0,0,1,0,1,0,0,0,0,1},
-								{0,0,1,0,1,0,0,0,0,1},
-								{0,0,1,0,1,0,0,0,0,1},
-								{0,0,1,0,1,0,0,0,0,1},
-								{0,0,1,0,1,0,0,0,0,1},
-								{0,0,1,0,1,0,0,0,0,1},
-								{0,0,1,0,1,0,0,0,0,1},
-								{1,1,1,0,1,1,1,1,1,1},
-								{1,0,0,0,0,0,0,1,0,1},
-								{1,0,0,0,0,0,0,0,0,1},
-								{1,0,0,0,0,0,0,0,0,1},
-								{1,0,0,0,0,0,0,0,0,1},
-								{1,0,0,0,0,0,0,0,0,1},
-								{1,0,0,0,0,0,0,0,0,1},
-								{1,0,0,0,0,0,0,0,0,1},
-								{1,0,0,0,0,0,0,0,0,1},
-								{1,0,0,0,0,0,0,0,0,1},
-								{1,1,1,1,1,-2,1,1,1,1},
-	};
+int matriuLvl4[20][10] = { {1,1,1,1,1,-1,1,1,1,1},
+						{1,1,1,1,1,0,1,1,1,1},
+						{1,1,1,1,1,0,1,1,1,1},
+						{1,1,1,1,1,-3,1,1,1,1},
+						{1,1,1,1,1,-3,1,1,1,1},
+						{1,1,1,1,1,-3,1,1,1,1},
+						{1,1,1,1,1,-3,1,1,1,1},
+						{1,1,1,1,1,-3,1,1,1,1},
+						{1,1,1,1,1,0,1,1,1,1},
+						{1,1,1,1,1,-3,1,1,1,1},
+						{1,-6,-6,0,0,-3,0,-6,-6,1},
+						{1,-6,-6,-6,-6,-6,-3,-6,-6,1},
+						{1,-3,-6,-6,-6,-6,-6,-6,-6,1},
+						{1,-6,-4,-3,-6,-6,-6,-3,-4,1},
+						{1,0,-6,-6,-6,-6,-6,-6,0,1},
+						{1,-6,-3,-6,-3,-6,-6,-6,-4,1},
+						{1,0,-6,-6,-6,-6,-6,-6,0,1},
+						{1,-6,-6,-6,-6,-3,-6,-6,-6,1},
+						{1,-6,-4,-6,-6,-6,-6,-6,-4,1},
+						{1,1,1,1,1,-2,1,1,1,1},
+};
 	
 	vector<vector<int>> matriuLaberint;
 
@@ -3702,33 +3702,10 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 		float Posicio_x_final = 4 * x * 4;
 		float Posicio_y_final = 4 * x * 2;
 		std::vector<float> Shrek1(3, 0);
-		//v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
-		//	Posicio_x_inicial, Posicio_y_inicial, Posicio_x_final, Posicio_y_final, 0.0, Shrek1[0], Shrek1[1], Shrek1[2], true));
-		/*
-		float movimentShrek[3] = { 0, 0, 0 };
-		bool movDir[3] = { false, false, false };
-		float rotacioShrek[3] = { 0, 0, 0 };
-
-		float movimentShrek2[3] = { 0, 0, 0 };
-		bool movDir2[3] = { false, false, false };
-		float rotShrek2[3] = { 0, 0, 0 };
-		*/
+		
 		
 		v_Shreks.clear();
 
-		movimentShrek[0] = 0.0;
-		movimentShrek[1] = 0.0;
-		movDir[0] = 0.0;
-		movDir[1] = 0.0;
-		rotacioShrek[0] = 0.0;
-		rotacioShrek[1] = 0.0;
-
-		movimentShrek2[0] = 0.0;
-		movimentShrek2[1] = 0.0;
-		movDir2[0] = 0.0;
-		movDir2[1] = 0.0;
-		rotShrek2[0] = 0.0;
-		rotShrek2[1] = 0.0;
 
 		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
 			 101, 60, 101, 100, 0.0, 0.0, 0.0, 0.0, true, true));
@@ -3736,8 +3713,8 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
 			86, 120, 86, 146.5, 0.0, 0.0, 0.0, 0.0, true, true));
 
-		//v_Shreks.push_back(Shrek(&loader[0], movimentShrek, movDir, rotacioShrek, texturesID, 0,
-			//202, 90, 202, 176.5, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			202, 90, 202, 176.5, 0.0, 0.0, 0.0, 0.0, true, true));
 		
 	}
 	else if (lvl == 2) {
@@ -3750,12 +3727,7 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 			//Limipeza
 			v_Shreks.clear();
 
-			movimentShrek[0] = 0.0;
-			movimentShrek[1] = 0.0;
-			movDir[0] = 0.0;
-			movDir[1] = 0.0;
-			rotacioShrek[0] = 0.0;
-			rotacioShrek[1] = 0.0;
+			
 
 			v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
 				80, 131.5, 222, 131.5, 0.0, 0.0, 0.0, 0.0, false, false));
@@ -3775,13 +3747,6 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 		//Limipeza
 		v_Shreks.clear();
 
-		movimentShrek[0] = 0.0;
-		movimentShrek[1] = 0.0;
-		movDir[0] = 0.0;
-		movDir[1] = 0.0;
-		rotacioShrek[0] = 0.0;
-		rotacioShrek[1] = 0.0;
-
 		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
 			122, 126, 122, 214, 0.0, 0.0, 0.0, 0.0, true, true));
 		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
@@ -3794,6 +3759,7 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 			361, 107, 361, 160, 0.0, 0.0, 0.0, 0.0, true, true));
 
 	}
+	
 	else if (lvl == 4) {
 		MAX_COLUMNA = 20;
 		MAX_FILA = 10;
@@ -3805,33 +3771,52 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 		//Limipeza
 		v_Shreks.clear();
 
-		movimentShrek[0] = 0.0;
-		movimentShrek[1] = 0.0;
-		movDir[0] = 0.0;
-		movDir[1] = 0.0;
-		rotacioShrek[0] = 0.0;
-		rotacioShrek[1] = 0.0;
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			210, 31, 210, 170, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			225, 50, 225, 160, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			260, 31, 260, 82, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			260, 84, 260, 170, 0.0, 0.0, 0.0, 0.0, true, true));
+
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			294, 26, 294, 51, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			294, 53, 294, 98, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			294, 99, 294, 170, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			315, 31, 315, 84, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			315, 84, 315, 170, 0.0, 0.0, 0.0, 0.0, true, true));
+
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			355, 21, 355, 82, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			355, 83, 355, 118, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			355, 117, 355, 157, 0.0, 0.0, 0.0, 0.0, true, true));
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			355, 157, 355, 174, 0.0, 0.0, 0.0, 0.0, true, true));
+
+
+		//VERTICALS
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			300, 103, 367, 103, 0.0, 0.0, 0.0, 0.0, false, false));
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			198, 83, 367, 83, 0.0, 0.0, 0.0, 0.0, false, false));
+		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
+			200, 157, 350, 157, 0.0, 0.0, 0.0, 0.0, false, false));
 	}
 
 
 	float x = 5.0f; //Coordenada
 	float h = 7.5f; //Altura
-					//glColor3f(0.5, 0.5, 0.25);
-					//COORDENADES DE PUNT INICIAL
-	int CoordenadaInici_J = 0;
-	int CoordenadaInici_I = 0;
-	//COORDENADES DE PUNT FINAL
-	int CoordenadaEnd_J = 1;
-	int CoordenadaEnd_I = 6;
-	int bucle1 = 0;
-	int bucle2 = 0;
-
 	
 
 
-	bool camiShrek_ja_creat = false;
-
-	for (int j = 0; j < MAX_COLUMNA ; j++)
+	for (int j = 0; j < MAX_COLUMNA; j++)
 	{
 		for (int i = 0; i < MAX_FILA; i++)
 		{
@@ -3840,25 +3825,13 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 				//CAS DE CASELLA BLOC AMB CASELLA CAMI A L'ESQUERRA (i-1)
 				if ((i > 0) && (matriuLaberint[j][i - 1] < 1))
 				{
-					/*//Moviment a coordenada
-					glTranslatef((j * 4 + 1)*x, i * 4 * x, h);
-					//Transalació a vertical
-					glScalef(4 * x, x, 2 * h);
-					*/
+
 					llista.push_back(Mur((j * 4 + 1) * x, i * 4 * x, h, VER));
 				}
 				//CAS DE CASELLA BLOC AMB CASELLA CAMI A BAIX (j-1)
 				if ((j > 0) && (matriuLaberint[j - 1][i] < 1))
 				{
-					/*
-					//Moviment a coordenada
-					//Versio no simplificada: glTranslatef( 2*x + i * 4 * x, 2*x + x*0,5+ (j-1) * 4 * x, 7.5f);
-					glTranslatef(x*(2.5 + (j - 1) * 4), x*(1.5 + (i * 4)), h);
-					//Translació a horitzontal
-					glScalef(x, 4 * x, 2 * h);
-					glutSolidCube(1.0);
-					glPopMatrix();
-					*/
+
 					llista.push_back(Mur(x * (2.5 + (j - 1) * 4), x * (1.5 + (i * 4)), h, HOR));
 				}
 			}
@@ -3867,13 +3840,6 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 				//CAS DE CASELLA CAMI AMB CASELLA BLOC A L'ESQUERRA (i-1)
 				if ((i == 0) || (matriuLaberint[j][i - 1] == 1))
 				{
-					/*
-					//Moviment a coordenada
-					glTranslatef(j * 4 * x, i * 4 * x, h);
-					//Transalació a vertical
-					glScalef(4 * x, x, 2 * h);
-					*/
-
 					llista.push_back(Mur(j * 4 * x, i * 4 * x, h, VER));
 				}
 				//CAS DE CASELLA CAMI AMB CASELLA BLOC A SOTA (j-1)
@@ -3881,36 +3847,17 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 				{
 					if (matriuLaberint[j][i] != -1)
 					{
-						/*glPushMatrix();
-						//Moviment a coordenada
-						//Versio no simplificada: glTranslatef( 2*x + i * 4 * x, 2*x + x*0,5+ (j-1) * 4 * x, 7.5f);
-						glTranslatef(x*(2.5 + (j - 1) * 4), x*(2.5 + (i * 4)), h);
-						//Translació a horitzontal
-						glScalef(x, 4 * x, 2 * h);
-						*/
 						llista.push_back(Mur(x * (2.5 + (j - 1) * 4), x * (2.5 + (i * 4)), h, HOR));
 					}
 				}
 				//CAS LÍMIT DE MAPA LATERAL (i MAX)
 				if ((i == (MAX_FILA - 1)) && (matriuLaberint[j][i] != -2))
 				{
-					/*();
-					//Moviment a coordenada
-					glTranslatef(j * 4 * x, (i + 1) * 4 * x, h);
-					//Transalació a vertical
-					glScalef(4 * x, x, 2 * h);
-					*/
 					llista.push_back(Mur(j * 4 * x, (i + 1) * 4 * x, h, VER));
 				}
 				//CAS LÍMIT DE MAPA FRONTAL (j MAX)
 				if ((j == (MAX_COLUMNA - 1)) && (matriuLaberint[j][i] != -2))
 				{
-					/*();
-					//Moviment a coordenada
-					glTranslatef(x*(2.5 + (j) * 4), x*(2.5 + ((i) * 4)), h);
-					//Translació a horitzontal
-					glScalef(x, 4 * x, 2 * h);
-					*/
 					Mur prova1(x * (2.5 + j * 4), x * (2.5 + (i * 4)), h, HOR);
 					llista.push_back(prova1);
 				}
@@ -3953,7 +3900,6 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 
 
 						Mur murSortida;
-						//mur.setMur((j * 8 * x + (5 * x) / 2, (i + 1) * 4 * x - (4 * x), h, VER, x);
 						murSortida.setMur((x * (j * 8 + 5)) / 2, i * 4 * x, h, VER, x);
 						llista.push_back(murSortida);
 					}
@@ -3968,7 +3914,6 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 
 						Event eventMurCaigudor(j * 4 * x + x + 2 * x - 2 * x - x / 2, i * 4 * x + 2 * x + 2 * x + x, h, -3, VER);//cas de mur caiguda
 						eventsMursBaixada.push_back(eventMurCaigudor);
-						//eventMurCaigudor.pinta();
 
 					}
 					else if (matriuLaberint[j][i] == -6)
@@ -3983,21 +3928,11 @@ int matriuLvl3[20][19] ={ {  -6, 0, 0, 0, 0, 0, 0, 1,-1, 1, 0, 0,-5, 1, 0, 0,-6,
 
 			}
 
-
-			//bucle1++;
-			//if (bucle1 == 2)
-			//	break;
 		}
-		//bucle2++;
-		//if (bucle2 == 1)
-		//	break;
 	}
-
 
 	MidaLaberint_Fila = MAX_FILA;
 	MidaLaberint_Columna = MAX_COLUMNA;
-
-
 
 	return llista;
 }
