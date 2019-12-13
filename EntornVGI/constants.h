@@ -124,8 +124,8 @@ const double PID2 = pi / 2;
 #define MUR_Z 15.0
 #define HOR 0
 #define VER 1
-#define PG_X 5.5
-#define PG_Y 5.5
+#define PG_X 4.7
+#define PG_Y 4.7
 #define PG_Z 5
 
 #define E_X 20.0
