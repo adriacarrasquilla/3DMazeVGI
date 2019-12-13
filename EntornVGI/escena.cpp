@@ -517,12 +517,12 @@ void tauleta(objl::Loader loader, int texturID[], float x, float y, float z)
 }
 
 
-void globus(objl::Loader loader, int texturID[], float x, float y, float z, float colorRed, float colorGreen, float colorBlue)
+void globus(objl::Loader loader, int texturID[], float x, float y, float z, float colorRed, float colorGreen, float colorBlue, float scale = 1.0)
 {
 	glPushMatrix();
 	glTranslatef(x, y, z);
 	glRotatef(90, 1, 0, 0);
-	glScalef(100.0f, 100.0f, 100.0f);
+	glScalef(100.0f * scale, 100.0f * scale, 100.0f * scale);
 	glPushAttrib(GL_CURRENT_BIT);
 	glColor3f(colorRed, colorGreen, colorBlue);
 
@@ -888,13 +888,25 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		float noMov[3] = { 0.0, 0.0, 0.0 };
 		float noRot[3] = { 0.0, -1.0, 0.0 };
 		float Shrek2[3];
-		Shrek derrota(&loader[0], texturID, 2, 77.5, 120.0, 77.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], true);
+		Shrek derrota(&loader[0], texturID, 2, 120, 77.0, 60, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], true);
 		derrota.pinta(pausa);
 		//Shrek(objl::Loader* loader, float moviment[], bool movDir[], float rotShrek[], int texturID[], int tipusMov, float posicioIniciX, float posicioIniciY, float posicioFinalX, float posicioFinalY, float posicioZ, float& pos_x, float& pos_y, float& pos_z, bool ori)
 		bool test[] = { false, false, false };
 		float test2[] = { 0,1,0 };
-		Shrek victoria(&loader[0], texturID, 1, 72.5, 120.0, 72.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], true);
+		Shrek victoria(&loader[0], texturID, 1, 72.5, 60.0, 72.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], false);
 		victoria.pinta(pausa);
+		
+		Shrek victoria2(&loader[0], texturID, 1, 70.5, 60.0, 72.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], false);
+		victoria2.pinta(pausa);
+		Shrek victoria3(&loader[0], texturID, 1, 68.5, 60.0, 72.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], false);
+		victoria3.pinta(pausa);
+		Shrek victoria4(&loader[0], texturID, 1, 66.5, 60.0, 72.5, 120.0, -57.5, Shrek2[0], Shrek2[1], Shrek2[2], false);
+		victoria4.pinta(pausa);
+
+		Shrek mini(&loader[0], texturID, 5, 70.5, 77.0, 87.5, 120.0, -52.5, Shrek2[0], Shrek2[1], Shrek2[2], false);
+		mini.pinta(pausa);
+		globus(loader[3], texturID, 72.0, 76, -50, 1.0f, 1.0f, 1.0f, 0.3f);
+
 		//Altres objectes
 		tauleta(loader[2], texturID, 70.5, 75, -57.5);
 		globus(loader[3], texturID, 54.5, 75, -50, 1.0f, 0.0f, 0.0f);
@@ -904,6 +916,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		globus(loader[3], texturID, 74.5, 75, -50, 0.0f, 0.0f, 1.0f);
 		globus(loader[3], texturID, 79.5, 75, -50, 0.25f, 0.0f, 0.5f);
 		globus(loader[3], texturID, 84.5, 75, -50, 0.5f, 0.0f, 1.0f);
+
 		
 
 		//eventfinal.pinta();
@@ -1096,7 +1109,9 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 	// Cub RGB
 	case CUB_RGB:
+		
 	{
+		/*
 		glClearColor(0.5294f, 0.8078f, 0.9216f, 0.71f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
@@ -1251,7 +1266,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 		*/
 
-
+		
 
 
 

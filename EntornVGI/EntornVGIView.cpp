@@ -1736,9 +1736,9 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 
 		// Porta el pg a la sala de victòria
 		personatge.m_x = 70.0;
-		personatge.m_y = 62.5;
+		personatge.m_y = 55.5;
 
-		opvN.x = 70;				opvN.y = 62.5;			opvN.z = -52.5;
+		opvN.x = 70;				opvN.y = 55.5;			opvN.z = -52.5;
 		n[0] = opvN.x;		n[1] = opvN.y + 5.0;			n[2] = opvN.z;
 
 		musica = 1;

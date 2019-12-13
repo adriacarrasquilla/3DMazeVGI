@@ -254,8 +254,8 @@ void circularMovimentShrek(float moviment[], bool movDir[], float rotShrek[], bo
 {
 	if (!pausa) {
 
-		moviment[0] -= 0.2 * cos(angle);
-		moviment[1] -= 0.2 * sin(angle);
+		moviment[0] -= 10 * cos(angle);
+		moviment[1] -= 10 * sin(angle);
 
 
 		if (angle >= 360)
@@ -264,8 +264,9 @@ void circularMovimentShrek(float moviment[], bool movDir[], float rotShrek[], bo
 
 		}
 
-		angle += 0.010;
-		rotShrek[2] = angle * 100;
+		angle += 0.005;
+		rotShrek[0] = 1;
+		//rotShrek[2] = angle * 18*pi;
 	}
 }
 
@@ -331,8 +332,6 @@ public:
 		}
 		if (m_tipusMov == 1)
 		{
-			m_rotShrek[1] = 1;
-
 			circularMovimentShrek(m_moviment, m_movDir, m_rotShrek, pausa);
 		}
 
@@ -358,6 +357,16 @@ public:
 			//si es mou en vertical
 			//Rotació depenent moviment
 			glRotatef(90, 0 + m_rotShrek[0], 0 + m_rotShrek[1], 0 + m_rotShrek[2]);
+		}
+		if (m_tipusMov == 1)
+		{
+			glRotatef(90, 0, 0, 1);
+			glRotatef(90, -1, 0, 0);
+			glScalef(0.2f, 0.2f, 0.2f);
+		}
+		if (m_tipusMov == 5)
+		{
+			glScalef(0.2f, 0.2f, 0.2f);
 		}
 		//glScalef(8.0f, 8.0f, 8.0f);
 		glScalef(14.0f, 14.0f, 14.0f);
