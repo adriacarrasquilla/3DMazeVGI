@@ -1,44 +1,26 @@
-﻿  EntornVGI.cpp
-  EntornVGIView.cpp
-  escena.cpp
-  visualitzacio.cpp
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(366,21): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(379,21): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGI.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(366,21): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(379,21): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen visualitzacio.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(366,21): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(379,21): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen escena.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(227,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(265,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(278,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(286,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(366,21): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(379,21): warning C4018: '<': no coinciden signed/unsigned (compilando archivo de origen EntornVGIView.cpp)
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(457,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(468,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(491,22): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(494,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(520,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(731,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(734,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(823,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(824,11): warning C4477: 'printf' : la cadena de formato '%d' requiere un argumento de tipo 'int', pero el argumento variádico 1 tiene el tipo 'double'
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(957,23): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\EntornVGIView.cpp(2955,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\EntornVGIView.cpp(2994,21): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(170): warning C4172: devolución de dirección de la variable local o temporal: colXY
+﻿  escena.cpp
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(653,25): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(690,22): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\OBJLoader2.h(696,23): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(343,101): warning C4552:  "+": el resultado de la expresión no se usa
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(355,101): warning C4552:  "+": el resultado de la expresión no se usa
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(372,21): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\Classes.h(385,21): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(238,20): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(276,20): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(289,20): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(297,20): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(468,20): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(481,21): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(504,22): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(507,21): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(533,20): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(777,21): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(780,21): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(868,21): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(869,11): warning C4477:  'printf' : la cadena de formato '%d' requiere un argumento de tipo 'int', pero el argumento variádico 1 tiene el tipo 'double'
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(1004,23): warning C4018:  '<': no coinciden signed/unsigned
+C:\Users\miki_\source\repos\3DMazeVGI\EntornVGI\escena.cpp(181): warning C4172:  devolución de dirección de la variable local o temporal: colXY
 LINK : warning LNK4075: se omite '/INCREMENTAL' debido a la especificación '/FORCE'
 EntornVGIView.obj : warning LNK4006: "float x" (?x@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida
 EntornVGIView.obj : warning LNK4006: "float h" (?h@@3MA) ya se definió en EntornVGI.obj; segunda definición omitida

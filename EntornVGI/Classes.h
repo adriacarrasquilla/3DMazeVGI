@@ -457,13 +457,14 @@ class Leaderboard {
 
 public:
 	
+	Leaderboard() { m_CONST_VALOR = 0; m_puntuacio = 0; m_path_leaderboard = ""; }
 	~Leaderboard() { m_leaderboard.clear(); };
 
 	int m_CONST_VALOR;
 	int m_puntuacio;
 	std::string m_path_leaderboard;
 	std::vector<int> m_leaderboard;
-	bool init_1, init_2, init_3, init_4 = false;
+	
 	void set_const_valor(int const_valor) { m_CONST_VALOR = const_valor; }
 	//Carrega el fitxer de dades leaderboard a partir d'un nivell seleccionat
 	void set_leaderboard(int nivell) {

@@ -45,7 +45,7 @@ bool i_d = false;
 bool i_v = false;
 bool temps_once = false;
 
-int temps_menu = 0; /// de moment assumeixo que el leaderboard no existeix :)
+clock_t temps_menu;
 
 //TEXT ESCENA
 void drawBitmapText(const char* string, float x, float y, float z)
@@ -55,22 +55,33 @@ void drawBitmapText(const char* string, float x, float y, float z)
 
 	for (c = string; *c != '\n'; c++)
 	{
-		glutBitmapCharacter(GLUT_BITMAP_8_BY_13, *c);
+		glutBitmapCharacter(GLUT_BITMAP_9_BY_15, *c);
+	}
+}
+
+void draw_HUD(const char* string, float x, float y, float z)
+{
+	const char* c;
+	glRasterPos3f(x, y, z);
+
+	for (c = string; *c != '\n'; c++)
+	{
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
 	}
 }
 
 //TEXT STROKE XULO GUAPO PRECIOS
-void drawStrokeText(const char* string, int x, int y, int z)
+void drawStrokeText(char* string, int x, int y, int z)
 {
-	const char* c;
+	char* c;
 	//ES POT TRACTAR COM SI FOS UNA "TEXTURA":
 	glPushMatrix();	
-	glTranslatef(x, y + 8, z);
+	glTranslatef(x, y + 8 , z);
 	glScalef(0.09f, -0.08f, z);
 
 	for (c = string; *c != '\n'; c++)
 	{
-		glutStrokeCharacter(GLUT_STROKE_ROMAN, *c);
+		glutStrokeCharacter(GLUT_STROKE_MONO_ROMAN, *c);
 	}
 	glPopMatrix();
 }
@@ -184,6 +195,7 @@ bool CheckColisioPunxes(Mur m, Personatge p) {
 	bool onTrap = m.m_x + (MUR_X / 2) >= p.m_x - (PG_X / 2) &&
 		p.m_x + (PG_X / 2) >= m.m_x - (MUR_X / 2) && m.m_y + (MUR_Y / 2) >= p.m_y - (PG_Y / 2) &&
 		p.m_y + (PG_Y / 2) >= m.m_y - (MUR_Y / 2);
+	onTrap = false;
 	return onTrap && (m.m_z > -5);
 }
 
@@ -724,8 +736,6 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		}
 
 
-
-
 		glClearColor(0.5294f, 0.8078f, 0.9216f, 0.71f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
@@ -831,7 +841,6 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		glDisable(GL_TEXTURE_GEN_T);
 
 
-
 		skybox(texturID, cel);
 
 		// S H R E K S
@@ -924,8 +933,8 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		if (!i && musica == 0 && !pausa) {
 			glPushMatrix();
 			glLoadIdentity();
-			glColor3f(.0f, .0f, .0f);
-			drawBitmapText(cstr_temps, 1.5, 1.09, -2);
+			glColor3f(1.0f, 1.0f, 1.0f);
+			draw_HUD(cstr_temps, 1.5, 1.09, -2);
 			glPopMatrix();
 			temps_once = false;
 		}
@@ -940,8 +949,8 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			tp = temps_pausa * CLOCKS_PER_SEC;
 			glPushMatrix();
 			glLoadIdentity();
-			glColor3f(.0f, .0f, .0f);
-			drawBitmapText(cstr_temps_pausa, 1.5, 1.09, -2);
+			glColor3f(1.0f, 1.0f, 1.0f);
+			draw_HUD(cstr_temps_pausa, 1.5, 1.09, -2);
 			glPopMatrix();
 
 			HUD_menu();
@@ -962,36 +971,35 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 		glPushMatrix();
 		glLoadIdentity();
 		glColor3f(1.0f, 1.0f, 1.0f);
-		drawBitmapText(cstr_vides, 1.5, 1.05, -2);
+		draw_HUD(cstr_vides, 1.5, 1.04, -2);
 		glPopMatrix();
 
 
 		//MISATGES VICTORY / DEFEAT
 		if (musica == 0) {
-			temps_menu = 0;
+			temps_menu = clock();
 		}
 
 		if (!i_v && musica == 1) {
 
 			std::string tf = "TEMPS: " + remove_zeros(std::to_string(temps_final)) + "\n";
 			const char* cstr_tf = tf.c_str();
-
-			if (temps_menu < 700) {
+			if (float((clock() - temps_menu) / CLOCKS_PER_SEC) < 7.00) {
 				glPushMatrix();
 				glLoadIdentity();
-				glColor3f(.0f, 0.8f, .0f);
-				drawBitmapText("VICTORIA\n", -0.15, 0, -2);
+				glColor3f(1.0f, 1.0f, 1.0f);
+				draw_HUD("VICTORIA\n", -0.15, 0, -2);
 				glPopMatrix();
 				std::string punts = "PUNTUACIO: " + std::to_string(puntuacio) + "\n";
 				const char* cstr_punts = punts.c_str();
 				glPushMatrix();
 				glLoadIdentity();
-				glColor3f(.0f, 0.8f, .0f);
-				drawBitmapText(cstr_punts, -0.15, 0.5, -2);
+				glColor3f(1.0f, 1.0f, 1.0f);
+				draw_HUD(cstr_punts, -0.15, 0.5, -2);
 				glPopMatrix();
-				temps_menu++;
+				
 			}
-			else if (temps_menu >= 700 && temps_menu < 1400) {
+			else if (float((clock() - temps_menu) / CLOCKS_PER_SEC) >= 7.00 && float((clock() - temps_menu) / CLOCKS_PER_SEC) < 14.00) {
 				bool yepale = true;
 				for (int j = 0; j < leaderboard.m_leaderboard.size(); j++) {
 					if (puntuacio == leaderboard.m_leaderboard[j] && yepale) {
@@ -1000,8 +1008,8 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 						
 						glPushMatrix();
 						glLoadIdentity();
-						glColor3f(1.0f, 1.0f, 1.0f);
-						drawBitmapText("ETS UN CRACK, HAS ENTRAT AL LEADERBOARD!!\n", -0.15, 0.5, -2);
+						glColor3f(.0f, 1.0f, .0f);
+						draw_HUD("ETS UN CRACK, HAS ENTRAT AL LEADERBOARD!!\n", -0.15, 0.5, -2);
 						glPopMatrix();
 
 						glPushMatrix();
@@ -1025,7 +1033,6 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 					y -= 0.05;
 				}
 				y = 0.15;
-				temps_menu++;
 			}
 			else {
 
@@ -1044,8 +1051,8 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 			glPushMatrix();
 			glLoadIdentity();
-			glColor3f(.0f, 0.8f, .0f);
-			drawBitmapText(cstr_tf, 1.5, 1.09, -2);
+			glColor3f(1.0f, 1.0f, 1.0f);
+			draw_HUD(cstr_tf, 1.5, 1.09, -2);
 			glPopMatrix();
 
 		}
@@ -1054,13 +1061,12 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			std::string tf = "TEMPS: " + remove_zeros(std::to_string(temps_final)) + "\n";
 			const char* cstr_tf = tf.c_str();
 
-			if (temps_menu < 700) {
+			if (float((clock() - temps_menu) / CLOCKS_PER_SEC) < 7.00) {
 				glPushMatrix();
 				glLoadIdentity();
 				glColor3f(1.0f, .0f, .0f);
-				drawBitmapText("DERROTA\n", -0.1, 0, -2);
+				draw_HUD("DERROTA\n", -0.1, 0, -2);
 				glPopMatrix();
-				temps_menu++;
 			}
 			else {
 
@@ -1079,8 +1085,8 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 			glPushMatrix();
 			glLoadIdentity();
-			glColor3f(.0f, 0.8f, .0f);
-			drawBitmapText(cstr_tf, 1.5, 1.09, -2);
+			glColor3f(1.0f, 1.0f, 1.0f);
+			draw_HUD(cstr_tf, 1.5, 1.09, -2);
 			glPopMatrix();
 
 		}
