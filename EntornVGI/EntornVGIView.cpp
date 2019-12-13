@@ -2982,14 +2982,9 @@ void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 
 
 					}
-					//llista_murs[eventsMursBaixada[i].indexMurAnimatEnLlista].pinta();
 				}
-
-
 			}
-
 		}
-
 
 		for (int i = 0; i < punxesAnimadetes.size(); i++)
 		{
@@ -3011,22 +3006,6 @@ void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 			}
 		}
 
-		if (anima) {
-			// Codi de tractament de l'animaci� quan transcorren els ms. del crono.
-
-			// Crida a OnPaint() per redibuixar l'escena
-			InvalidateRect(NULL, false);
-		}
-		else if (satelit) {	// OPCI� SAT�LIT: Increment OPV segons moviments mouse.
-			//OPV.R = OPV.R + m_EsfeIncEAvall.R;
-			OPV.alfa = OPV.alfa + m_EsfeIncEAvall.alfa;
-			while (OPV.alfa > 360) OPV.alfa = OPV.alfa - 360;	while (OPV.alfa < 0) OPV.alfa = OPV.alfa + 360;
-			OPV.beta = OPV.beta + m_EsfeIncEAvall.beta;
-			while (OPV.beta > 360) OPV.beta = OPV.beta - 360;	while (OPV.beta < 0) OPV.beta = OPV.beta + 360;
-
-			// Crida a OnPaint() per redibuixar l'escena
-			InvalidateRect(NULL, false);
-		}
 	}
 	InvalidateRect(NULL, false);
 	dibuixa_Escena();
@@ -3605,14 +3584,14 @@ std::vector<Mur> CEntornVGIView::initMurs() {
 	*/
 	//_______________________________________________________LEVEL 1____________________________________________________________________
 int matriuLvl1[15][10] ={ {  1,-1, 1, 1, 1, 1, 1, 1, 1, 1},
-							{0, 0,-4, 0, 0,-4, 0,-4, 0, 0},
+							{0, 0,-4, 0,-4, 0,-4, 0, 0, 0},
 						   	{0, 0 ,0,-4, 0, 0, 0, 0, 0, 0},
 							{1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
 							{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 							{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 							{0, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-							{0,-6, 0, 0, 0,-6, 0, 0, 0, 0},
-							{0, 0, 0,-6, 0, 0,-6,-6, 0, 0},
+							{0,-6, 0,-6, 0,-6, 0,-6,-6, 0},
+							{0,-6, 0,-6, 0, 0,-6,-6, 0, 0},
 							{1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
 							{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 							{0, 1, 0, 1, 0, 1, 0, 1, 1,-3},
@@ -3708,13 +3687,13 @@ int matriuLvl4[20][10] = { {1,1,1,1,1,-1,1,1,1,1},
 
 
 		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
-			 101, 60, 101, 100, 0.0, 0.0, 0.0, 0.0, true, true));
+			 101, 30, 101, 100, 0.0, 0.0, 0.0, 0.0, true, true));
 		
 		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
-			86, 120, 86, 146.5, 0.0, 0.0, 0.0, 0.0, true, true));
+			86, 75, 86, 140.5, 0.0, 0.0, 0.0, 0.0, true, true));
 
 		v_Shreks.push_back(Shrek(&loader[0], texturesID, 0,
-			202, 90, 202, 176.5, 0.0, 0.0, 0.0, 0.0, true, true));
+			202, 50, 202, 176.5, 0.0, 0.0, 0.0, 0.0, true, true));
 		
 	}
 	else if (lvl == 2) {

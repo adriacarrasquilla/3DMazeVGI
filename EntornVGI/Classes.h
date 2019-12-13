@@ -72,8 +72,11 @@ public:
 	}
 	void animacioBaixada()
 	{
-		m_z = m_z - 0.1851;
-
+		
+		if (esUnMurAnimatQueCau)
+			m_z = m_z - 0.43;
+		else
+			m_z = m_z - 0.1851;
 	}
 	void animacioPujada()
 	{
