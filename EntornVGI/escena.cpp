@@ -195,7 +195,6 @@ bool CheckColisioPunxes(Mur m, Personatge p) {
 	bool onTrap = m.m_x + (MUR_X / 2) >= p.m_x - (PG_X / 2) &&
 		p.m_x + (PG_X / 2) >= m.m_x - (MUR_X / 2) && m.m_y + (MUR_Y / 2) >= p.m_y - (PG_Y / 2) &&
 		p.m_y + (PG_Y / 2) >= m.m_y - (MUR_Y / 2);
-	onTrap = false;
 	return onTrap && (m.m_z > -5);
 }
 
