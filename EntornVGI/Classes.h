@@ -74,7 +74,7 @@ public:
 	{
 		
 		if (esUnMurAnimatQueCau)
-			m_z = m_z - 0.43;
+			m_z = m_z - 1;
 		else
 			m_z = m_z - 0.1851;
 	}

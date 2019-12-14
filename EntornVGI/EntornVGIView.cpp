@@ -219,7 +219,7 @@ CEntornVGIView::CEntornVGIView()
 	hgrid.x = 0.0;	hgrid.y = 0.0;	hgrid.z = 0.0;		hgrid.w = 0.0;
 
 	// Entorn VGI: Variables opci� Vista->Pan
-	fact_pan = 2;
+	fact_pan = 1.5;
 	tr_cpv.x = 0;	tr_cpv.y = 0;	tr_cpv.z = 0;		tr_cpvF.x = 0;	tr_cpvF.y = 0;	tr_cpvF.z = 0;
 
 	// Entorn VGI: Variables de control de l'opci� Vista->Navega?
