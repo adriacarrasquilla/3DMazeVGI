@@ -5615,10 +5615,10 @@ void CEntornVGIView::OnNivellsNivell4()
 	sales_v_d = CreaSales();
 	changeLvl = true;
 
-	opvNIni.x = 205.0;		opvNIni.y = 70.0;		opvNIni.z = 5.0;
+	opvNIni.x = 205.0;		opvNIni.y = 110.0;		opvNIni.z = 5.0;
 
 	n[0] = 0.0;		n[1] = 0.0;		n[2] = 5.0;
-	opvN.x = -42.0;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
+	opvN.x = -40.0;	opvN.y = opvNIni.y;	opvN.z = opvNIni.z;
 
 	Personatge nou(opvN.x, opvN.y, opvN.z - 2.5f, 0);
 	personatge = nou;

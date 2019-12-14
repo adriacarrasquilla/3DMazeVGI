@@ -609,9 +609,12 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 {
 	float altfar = 0;
 	soAmbient->setDefaultVolume(0.7);
-	soLvl2->setDefaultVolume(0.1);
-	soLvl3->setDefaultVolume(0.4);
-	soLvl4->setDefaultVolume(0.3);
+	soLvl2->setDefaultVolume(0.5);
+	soLvl3->setDefaultVolume(0.5);
+	soLvl4->setDefaultVolume(0.5);
+	soLvl1->setDefaultVolume(0.8);
+	soDerrota->setDefaultVolume(0.1);
+	soVictoria->setDefaultVolume(0.5);
 	// Assignaci� de les variables de color i reflexi� als valors de les variables per par�metre
 	color_objecte = col_object;
 	reflexio_material = ref_mat;
