@@ -411,7 +411,7 @@ void skybox(int texturID[], float cel[]) {
 	glEnable(GL_TEXTURE_2D);
 	glPushMatrix();
 	glTranslatef(0.0f + cel[0], 750.0f + cel[1], 0.0f + cel[2]);
-	glScalef(-1500.0f, 0.0f, 1500.0f);
+	glScalef(-1500.0f, -1.0f, 1500.0f);
 	glutSolidCube(1.0);
 	glPopMatrix();
 
@@ -434,7 +434,7 @@ void skybox(int texturID[], float cel[]) {
 	glEnable(GL_TEXTURE_2D);
 	glPushMatrix();
 	glTranslatef(0.0f + cel[0], -750.0f + cel[1], 0.0f + cel[2]);
-	glScalef(1500.0f, 0.0f, 1500.0f);
+	glScalef(1500.0f, 1.0f, 1500.0f);
 	glutSolidCube(1.0);
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
