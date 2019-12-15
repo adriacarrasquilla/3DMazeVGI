@@ -217,7 +217,7 @@ public:
 	float Posicio_y_shrek_final = -1 ;
 
 	std::vector<Mur> sales_v_d;
-	bool bloquejar_mov = false;
+	bool bloquejar_mov = true;
 
 	vector<Mur> punxesAnimadetes;
 
@@ -235,8 +235,9 @@ public:
 
 	vector<vector<float>> Shreks;
 	vector<Shrek> v_Shreks;
-	bool pausa = false;
+	bool pausa = true;
 	bool menu = false;
+	bool inici = true;
 	// Operaciones
 public:
 	std::vector<Mur> initMurs();

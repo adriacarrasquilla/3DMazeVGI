@@ -555,7 +555,9 @@ void HUDSquare()
 	glVertex3f(0, 1.5, 0);
 	glEnd();
 	glPopMatrix();
+
 	//Quadrat extern
+	/*
 	glPushMatrix();
 	glLoadIdentity();
 	glTranslatef(1.8, 1.19, -3);
@@ -567,10 +569,26 @@ void HUDSquare()
 	glVertex3f(0, 1.5, 0);
 	glEnd();
 	glPopMatrix();
+	*/
 }
 
 
 void HUD_menu() {
+	//Cuadrat HUD
+	glPushMatrix();
+	glLoadIdentity();
+	glTranslatef(1.9, 1.29, -3);
+	glColor3f(0.1f, 0.1f, 0.1f);
+	glBegin(GL_QUADS);
+	glVertex3f(-1.3, -0.99, 0);
+	glVertex3f(-1.3, -1.5, 0);
+	glVertex3f(-2.5, -1.5, 0);
+	glVertex3f(-2.5, -0.99, 0);
+	glEnd();
+	glPopMatrix();
+}
+
+void HUD_inici() { // ARA MATEIX IGUAL QUE HUD_MENU, HO TOQUEM EN FUNCIÓ DEL PC DE LA PRESENTACIÓ
 	//Cuadrat HUD
 	glPushMatrix();
 	glLoadIdentity();
@@ -604,7 +622,7 @@ void HUD_lb() {
 void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4], bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
 	int nptsU, CPunt3D PC_u[MAX_PATCH_CORBA], GLfloat pasCS, bool sw_PC, float mov[], std::vector<Mur> llista, Personatge& pg, float cel[], objl::Loader loader[],
 	float movimentShrek[], bool movDir[], float rotShrek[], float movimentShrek2[], bool movDir2[], float rotShrek2[], Event& eventfinal, std::vector<Event>& eventsMursBaixada, std::vector<Mur> punxesAnimadetes, std::vector<Mur> sales,
-	int lifes, int MIDA_I, int MIDA_J, int musica, bool pausa, char lvl, bool& changeLvl, std::vector<Shrek> v_Shreks, bool& menu)
+	int lifes, int MIDA_I, int MIDA_J, int musica, bool pausa, char lvl, bool& changeLvl, std::vector<Shrek> v_Shreks, bool& menu, bool inici)
 {
 	float altfar = 0;
 	soAmbient->setDefaultVolume(0.7);
@@ -968,18 +986,38 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			draw_HUD(cstr_temps_pausa, 1.5, 1.09, -2);
 			glPopMatrix();
 
-			HUD_menu();
+			if (!inici) {
+				HUD_menu();
 
-			glPushMatrix();
-			glLoadIdentity();
-			glColor3f(1.0f, 1.0f, 1.0f);
-			drawBitmapText("PAUSE\n", -0.3, 0.15, -2);
-			drawBitmapText("PREM LA TECLA PER:\n", -0.3, 0.1, -2);
-			drawBitmapText("P - REPRENDRE EL JOC\n", -0.3, 0.05, -2);
-			drawBitmapText("1 - PASSAR AL SEGUENT NIVELL\n", -0.3, 0.0, -2);
-			drawBitmapText("2 - REINICIAR EL NIVELL ACTUAL\n", -0.3, -0.05, -2);
-			drawBitmapText("3 - SORTIR DEL JOC\n", -0.3, -0.1, -2);
-			glPopMatrix();
+				glPushMatrix();
+				glLoadIdentity();
+				glColor3f(1.0f, 1.0f, 1.0f);
+				drawBitmapText("PAUSE\n", -0.3, 0.15, -2);
+				drawBitmapText("PREM LA TECLA PER:\n", -0.3, 0.1, -2);
+				drawBitmapText("P - REPRENDRE EL JOC\n", -0.3, 0.05, -2);
+				drawBitmapText("1 - PASSAR AL SEGUENT NIVELL\n", -0.3, 0.0, -2);
+				drawBitmapText("2 - REINICIAR EL NIVELL ACTUAL\n", -0.3, -0.05, -2);
+				drawBitmapText("3 - SORTIR DEL JOC\n", -0.3, -0.1, -2);
+				glPopMatrix();
+			}
+			else {
+				HUD_inici();
+				glPushMatrix();
+				glLoadIdentity();
+				glColor3f(1.0f, 1.0f, 1.0f);
+				drawBitmapText("BENVINGUT AL LABERINT!\n", -0.4, 0.25, -2);
+				drawBitmapText("INSTRUCCIONS - PREM LA TECLA PER:\n", -0.4, 0.2, -2);
+				drawBitmapText("W - CAMINAR ENDAVANT\n", -0.4, 0.15, -2);
+				drawBitmapText("S - CAMINAR ENDARRERE\n", -0.4, 0.1, -2);
+				drawBitmapText("A - MOURE'S A L'ESQUERRA\n", -0.4, 0.05, -2);
+				drawBitmapText("D - MOURE'S A LA DRETA\n", -0.4, 0.00, -2);
+
+				drawBitmapText("P - PAUSAR / REPRENDRE EL JOC\n", -0.4, -0.1, -2);
+				drawBitmapText("K - SUICIDAR-SE\n", -0.4, -0.15, -2);
+				drawBitmapText("ESC - MODE PANTALLA COMPLETA\n", -0.4, -0.2, -2);
+				drawBitmapText("PITJA LA P PER JUGAR!\n", -0.4, -0.3, -2);
+				glPopMatrix();
+			}
 		}
 
 		/*VIDES*/

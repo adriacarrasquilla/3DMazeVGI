@@ -965,7 +965,7 @@ void CEntornVGIView::dibuixa_Escena() {
 	dibuixa_EscenaGL(objecte, col_obj, true, sw_material, textura, texturesID, textura_map,
 		npts_T, PC_t, pas_CS, sw_Punts_Control, prova_moviment, llista_murs, personatge, cel, loader,
 		movimentShrek, movDir, rotacioShrek, movimentShrek2, movDir2, rotShrek2, eventfinal, eventsMursBaixada, punxesAnimadetes, sales_v_d, lifes,
-		MidaLaberint_Fila, MidaLaberint_Columna, musica, pausa, lvl, changeLvl, v_Shreks, menu);
+		MidaLaberint_Fila, MidaLaberint_Columna, musica, pausa, lvl, changeLvl, v_Shreks, menu, inici);
 
 	void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat[4],
 		bool textur, GLint texturID[NUM_MAX_TEXTURES], bool textur_map,
@@ -1936,6 +1936,8 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 				bloquejar_mov = false;
 				menu = false;
 
+				if (inici) inici = false;
+
 				if (!m_ButoEAvall)
 				{
 					m_ButoEAvall = true;
@@ -2017,6 +2019,7 @@ void CEntornVGIView::Teclat_Navega(UINT nChar, UINT nRepCnt)
 					pausa = false;
 					bloquejar_mov = false;
 					menu = false;
+					//inici = true;
 				}
 				break;
 			case 2:
@@ -5358,7 +5361,18 @@ void CEntornVGIView::OnObjecteMur() // ES TRACTA COM SI FOS OnNivellsNivell1
 	//select level
 	llumVermella = false;
 	musica = 0;
-	bloquejar_mov = false;
+
+	// INCICIALITZA TOTES AQUESTES VARIABLES AIXÍ PEL MENU INICIAL AMB EL MANUAL
+	if (!inici) {
+		bloquejar_mov = false;
+	}
+	//inici = true;
+	//pausa = false;
+	//menu = false;
+	if (m_ButoEAvall)
+	{
+		m_ButoEAvall = false;
+	}
 	lvl = 1;
 	punxesAnimadetes.clear();
 	eventsMursBaixada.clear();
