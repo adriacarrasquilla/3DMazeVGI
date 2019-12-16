@@ -32,7 +32,7 @@ void main ()
 //-L32- Compute ambient term
     vec3 Iambient = vec3 (0.0,0.0,0.0);
     if (sw_intensity[1]) {
-        Iambient = gl_FrontMaterial.ambient.rgb * gl_LightModel.ambient.rgb;
+        Iambient = gl_FrontMaterial.ambient.rgb * gl_Color.rgb * gl_LightModel.ambient.rgb;
         Iambient = clamp(Iambient, 0.0, 1.0);
     }
 
@@ -44,7 +44,7 @@ void main ()
 		vec3 L = normalize(gl_LightSource[i].position.xyz - vertexPV);
      		if (sw_intensity[2]) {
         		float diffuseLight = max(dot(N, L), 0.0);
-        		Idiffuse = gl_FrontMaterial.diffuse.rgb * gl_LightSource[i].diffuse.rgb * diffuseLight;
+        		Idiffuse = gl_FrontMaterial.diffuse.rgb * gl_Color.rgb * gl_LightSource[i].diffuse.rgb * diffuseLight;
         		Idiffuse = clamp(Idiffuse, 0.0, 1.0);
      			}
 
@@ -55,7 +55,7 @@ void main ()
         		vec3 R = normalize (-reflect(L,N));
         		float specularLight = pow(max(dot(R, V), 0.0), gl_FrontMaterial.shininess);
 			// if  (diffuseLight <= 0.0) specularLight = 0.0;
-        		Ispecular = gl_FrontMaterial.specular.rgb * gl_LightSource[i].specular.rgb * specularLight;
+        		Ispecular = gl_FrontMaterial.specular.rgb * gl_Color.rgb * gl_LightSource[i].specular.rgb * specularLight;
         		Ispecular = clamp(Ispecular, 0.0, 1.0);
     			}
 

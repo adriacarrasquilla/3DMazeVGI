@@ -956,21 +956,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			reset_clock = false;
 		}
 
-		temps = float(clock() - begin_time + tp) / CLOCKS_PER_SEC;
-		std::string hud_temps = "TEMPS: " + remove_zeros(std::to_string(temps)) + "\n";
-		std::string hud_vides = "VIDES: " + std::to_string(lifes) + "\n";
-		const char* cstr_temps = hud_temps.c_str();
-		const char* cstr_vides = hud_vides.c_str();
 
-		/*HUD TEMPS*/
-		if (!i && musica == 0 && !pausa) {
-			glPushMatrix();
-			glLoadIdentity();
-			glColor3f(1.0f, 1.0f, 1.0f);
-			draw_HUD(cstr_temps, 1.5, 1.09, -2);
-			glPopMatrix();
-			temps_once = false;
-		}
 		if (pausa) {
 			if (!temps_once) {
 				temps_pausa = temps;
@@ -1017,7 +1003,24 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				drawBitmapText("ESC - MODE PANTALLA COMPLETA\n", -0.4, -0.2, -2);
 				drawBitmapText("PITJA LA P PER JUGAR!\n", -0.4, -0.3, -2);
 				glPopMatrix();
+				begin_time = clock();
 			}
+		}
+
+		temps = float(clock() - begin_time + tp) / CLOCKS_PER_SEC;
+		std::string hud_temps = "TEMPS: " + remove_zeros(std::to_string(temps)) + "\n";
+		std::string hud_vides = "VIDES: " + std::to_string(lifes) + "\n";
+		const char* cstr_temps = hud_temps.c_str();
+		const char* cstr_vides = hud_vides.c_str();
+
+		/*HUD TEMPS*/
+		if (!i && musica == 0 && !pausa) {
+			glPushMatrix();
+			glLoadIdentity();
+			glColor3f(1.0f, 1.0f, 1.0f);
+			draw_HUD(cstr_temps, 1.5, 1.09, -2);
+			glPopMatrix();
+			temps_once = false;
 		}
 
 		/*VIDES*/
@@ -1057,7 +1060,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				for (int j = 0; j < leaderboard.m_leaderboard.size(); j++) {
 					if (puntuacio == leaderboard.m_leaderboard[j] && yepale) {
 						
-						HUD_lb();
+						
 						
 						glPushMatrix();
 						glLoadIdentity();
@@ -1086,6 +1089,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 					y -= 0.05;
 				}
 				y = 0.15;
+				HUD_lb();
 			}
 			else {
 
@@ -1143,6 +1147,9 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			glPopMatrix();
 
 		}
+
+
+
 		//}
 		break;
 	}
