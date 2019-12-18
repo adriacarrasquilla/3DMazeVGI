@@ -595,10 +595,10 @@ void HUD_inici() { // ARA MATEIX IGUAL QUE HUD_MENU, HO TOQUEM EN FUNCIÓ DEL PC
 	glTranslatef(1.9, 1.29, -3);
 	glColor3f(0.1f, 0.1f, 0.1f);
 	glBegin(GL_QUADS);
-	glVertex3f(-1.3, -0.99, 0);
-	glVertex3f(-1.3, -1.5, 0);
-	glVertex3f(-2.5, -1.5, 0);
-	glVertex3f(-2.5, -0.99, 0);
+	glVertex3f(-0.8, -0.7, 0);
+	glVertex3f(-0.8, -1.9, 0);
+	glVertex3f(-2.55, -1.9, 0);
+	glVertex3f(-2.55, -0.7, 0);
 	glEnd();
 	glPopMatrix();
 }
