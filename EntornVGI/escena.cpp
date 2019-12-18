@@ -38,7 +38,7 @@ irrklang::ISoundSource* soLvl1 = SoundEngine->addSoundSourceFromFile("audio/poke
 irrklang::ISoundSource* soLvl2 = SoundEngine->addSoundSourceFromFile("audio/bonetrousle.mp3"); //medium
 irrklang::ISoundSource* soLvl3 = SoundEngine->addSoundSourceFromFile("audio/epic.mp3"); //epic
 irrklang::ISoundSource* soLvl4 = SoundEngine->addSoundSourceFromFile("audio/megalovania.mp3"); //final boss
-
+irrklang::ISoundSource* soPause = SoundEngine->addSoundSourceFromFile("audio/pause.mp3");
 
 bool i = true;
 bool i_d = false;
@@ -544,6 +544,7 @@ void globus(objl::Loader loader, int texturID[], float x, float y, float z, floa
 void HUDSquare()
 {
 	//Cuadrat HUD
+	
 	glPushMatrix();
 	glLoadIdentity();
 	glTranslatef(1.9, 1.29, -3);
@@ -961,7 +962,10 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			if (!temps_once) {
 				temps_pausa = temps;
 				temps_once = true;
+				SoundEngine->setAllSoundsPaused(GL_TRUE);
+				SoundEngine->play2D(soPause, GL_TRUE);
 			}
+			
 			std::string hud_temps_pausa = "TEMPS: " + remove_zeros(std::to_string(temps_pausa)) + "\n";
 			const char* cstr_temps_pausa = hud_temps_pausa.c_str();
 			begin_time = clock();
@@ -974,7 +978,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 
 			if (!inici) {
 				HUD_menu();
-
+				
 				glPushMatrix();
 				glLoadIdentity();
 				glColor3f(1.0f, 1.0f, 1.0f);
@@ -1021,6 +1025,8 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			draw_HUD(cstr_temps, 1.5, 1.09, -2);
 			glPopMatrix();
 			temps_once = false;
+			SoundEngine->setAllSoundsPaused(GL_FALSE);
+			SoundEngine->stopAllSoundsOfSoundSource(soPause);
 		}
 
 		/*VIDES*/
@@ -1057,6 +1063,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 			}
 			else if (float((clock() - temps_menu) / CLOCKS_PER_SEC) >= 7.00 && float((clock() - temps_menu) / CLOCKS_PER_SEC) < 14.00) {
 				bool yepale = true;
+				std::string punts = "";
 				for (int j = 0; j < leaderboard.m_leaderboard.size(); j++) {
 					if (puntuacio == leaderboard.m_leaderboard[j] && yepale) {
 						
@@ -1071,7 +1078,8 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 						glPushMatrix();
 						glLoadIdentity();
 						glColor3f(0.0f, 1.0f, 0.0f);
-						std::string punts = std::to_string(j + 1) + ".    " + std::to_string(leaderboard.m_leaderboard[j]) + "\n";
+						if (i + 1 == 10) punts = std::to_string(j + 1) + ".    " + std::to_string(leaderboard.m_leaderboard[j]) + "\n";
+						else { punts = std::to_string(j + 1) + ".   " + std::to_string(leaderboard.m_leaderboard[j]) + "\n"; }
 						const char* cstr_punts = punts.c_str();
 						drawBitmapText(cstr_punts, -0.3, y, -2);
 						glPopMatrix();
@@ -1081,7 +1089,8 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 						glPushMatrix();
 						glLoadIdentity();
 						glColor3f(.1f, .1f, .1f);
-						std::string punts = std::to_string(j + 1) + ".    " + std::to_string(leaderboard.m_leaderboard[j]) + "\n";
+						if(i+1 == 10) punts = std::to_string(j + 1) + ".    " + std::to_string(leaderboard.m_leaderboard[j]) + "\n";
+						else {  punts = std::to_string(j + 1) + ".   " + std::to_string(leaderboard.m_leaderboard[j]) + "\n"; }
 						const char* cstr_punts = punts.c_str();
 						drawBitmapText(cstr_punts, -0.3, y, -2);
 						glPopMatrix();
@@ -1092,7 +1101,7 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				HUD_lb();
 			}
 			else {
-
+				
 				HUD_menu();
 				glPushMatrix();
 				glLoadIdentity();
@@ -1103,7 +1112,9 @@ void dibuixa_EscenaGL(char objecte, CColor col_object, bool ref_mat, bool sw_mat
 				drawBitmapText("2 - REINICIAR EL NIVELL ACTUAL\n", -0.3, -0.05, -2);
 				drawBitmapText("3 - SORTIR DEL JOC\n", -0.3, -0.1, -2);
 				glPopMatrix();
+				
 				menu = true;
+				
 			}
 
 			glPushMatrix();
